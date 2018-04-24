@@ -1,0 +1,27 @@
+# Using mariaDB
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  min_messages: warning
+  timeout: 5000
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: glassxpert_shop_dev
+  username: root
+  password: root
+
+test:
+  <<: *default
+  database: glassxpert_shop_test
+  username: root
+  password: root
+
+production:
+  <<: *default
+  database: glassxpert_shop
+  username: root
+  password: root
