@@ -1,6 +1,68 @@
-<footer id="footer" class="sixteen columns" data-hook>
-  <div id="footer-left" class="columns alpha eight" data-hook>
-    <p><%= t 'spree.powered_by' %> <%= link_to 'Solidus', 'http://solidus.io/' %></p>
+<!--.footer - _footer.pug-->
+<footer class="footer" id="footer" data-hook> <!-- class="sixteen columns"-->
+  <div class="container bigger" id="footer-left" data-hook> <!-- class="columns alpha eight" -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="subsection">
+          <h5 class="bigger text-white">GlassXpert &amp; Design</h5>
+          <p class="text-muted">© 2018 GlassXpert &amp; Design LTD.
+            <br>All rights reserved.</p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="subsection">
+          <p><a href="mailto:info@glassxertanddesign.com">info@glassxertanddesign.com</a>
+          </p>
+          <p><a href="tel:+85212345678">+852 1234 5678</a>
+          </p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-xl-6 col-lg-12">
+        <div class="subsection">
+          <div class="row">
+            <div class="col-lg-4 col-md-4">
+              <p><a href="#">Home</a>
+              </p>
+              <p><a href="#">Glass Gifts</a>
+              </p>
+              <p><a href="#">Photos on Glass</a>
+              </p>
+              <p><a href="#">Photo Gallery</a>
+              </p>
+            </div>
+            <!--/col-->
+            <div class="col-lg-4 col-md-4">
+              <p><a href="#">Interior Design</a>
+              </p>
+              <p><a href="#">Contact Us</a>
+              </p>
+            </div>
+            <!--/col-->
+            <div class="col-lg-4 col-md-4">
+              <p><a href="#">Facebook</a>
+              </p>
+              <p><a href="#">Instagram</a>
+              </p>
+            </div>
+            <!--/col-->
+          </div>
+          <!--/row-->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
   </div>
-  <div id="footer-right" class="columns omega eight" data-hook></div>
+  <!--/container-->
 </footer>
+<!--/.footer-->
+
+<%= javascript_include_tag 'spree/frontend/all' %>
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+<![endif]-->

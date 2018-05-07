@@ -1,12 +1,246 @@
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <%= render partial: 'spree/shared/taxonomies' %>
+<%# content_for :sidebar do %>
+  <!-- <div data-hook="homepage_sidebar_navigation">
+    <%#= render partial: 'spree/shared/taxonomies' %>
+  </div> -->
+<%# end %>
+
+<!-- <div data-hook="homepage_products">
+  <%# cache(cache_key_for_products) do %>
+    <%#= render partial: 'spree/shared/products', locals: { products: @products } %>
+  <%# end %>
+</div> -->
+
+<section class="home-section">
+  <div class="container bigger">
+    <div class="home-carousel-container">
+      <div class="owl-carousel js-owl-home owl-theme">
+        <div class="item">
+          <%= image_tag 'spree/frontend/media/home-slide-img-1.jpg', alt: '' %>
+          <!-- <img src="img/media/home-slide-img-1.jpg" alt=""> -->
+        </div>
+        <div class="item">
+          <%= image_tag 'spree/frontend/media/home-slide-img-1.jpg', alt: '' %>
+          <!-- <img src="img/media/home-slide-img-1.jpg" alt=""> -->
+        </div>
+        <div class="item">
+          <%= image_tag 'spree/frontend/media/home-slide-img-1.jpg', alt: '' %>
+          <!-- <img src="img/media/home-slide-img-1.jpg" alt=""> -->
+        </div>
+      </div>
+      <a class="js-home-owl-prev-1 owl-arr owl-arr__prev text-primary" href="#0">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </a>
+      <a class="js-home-owl-next-1 owl-arr owl-arr__next text-primary" href="#0">
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </a>
+      <a
+      class="btn btn-outline-primary btn-more-carousel btn-sm" href="#">Know more</a>
+    </div>
+    <!--/home-carousel-container-->
   </div>
-<% end %>
-
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
-</div>
-
+  <!--/container-->
+</section>
+<!--/section-->
+<section class="section bg-white text-center">
+  <div class="container">
+    <div class="subsection">
+      <h2 class="text-primary fw900">Background</h2>
+      <h3 class="text-primary fw400">GlassXpert &amp; Design focuses on three areas:</h3>
+    </div>
+    <!--/subsection-->
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="subsection">
+          <div class="card" style="max-width: 23rem;">
+            <div class="card-body">
+              <%= image_tag 'spree/frontend/tpl/gift@2x.png', class: "mb-4", style: "width: 124px;" %>
+              <!-- <img class="mb-4" src="img/tpl/gift@2x.png" alt="" style="width: 124px;"> -->
+              <h2 class="card-title"><a class="text-primary" href="#">Glass Gifts </a></h2>
+              <p class="card-text text-lg fw700">especially personalized photo gifts</p>
+            </div>
+          </div>
+          <!--/card-->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-4 col-md-6">
+        <div class="subsection">
+          <div class="card" style="max-width: 23rem;">
+            <div class="card-body">
+              <%= image_tag 'spree/frontend/tpl/print@2x.png', class: "mb-4", style: "width: 124px;" %>
+              <!-- <img class="mb-4" src="img/tpl/print@2x.png" alt="" style="width: 124px;"> -->
+              <h2 class="card-title"><a class="text-primary" href="#">Photo Print on Glass</a></h2>
+            </div>
+          </div>
+          <!--/card-->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-4 col-md-6">
+        <div class="subsection">
+          <div class="card" style="max-width: 23rem;">
+            <div class="card-body">
+              <%= image_tag 'spree/frontend/tpl/interior@2x.png', class: "mb-4", style: "width: 124px;" %>
+              <!-- <img class="mb-4" src="img/tpl/interior@2x.png" alt="" style="width: 124px;"> -->
+              <h2 class="card-title"><a class="text-primary" href="#">Glass for Interior Design</a></h2>
+              <p class="card-text text-lg fw700">laminated and decorative glass and mirror for interior design</p>
+            </div>
+          </div>
+          <!--/card-->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
+  </div>
+  <!--/container-->
+</section>
+<!--/section-->
+<section class="section bg-blue-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="subsection">
+          <%= image_tag 'spree/frontend/media/content-img-1.jpg', class: "img-full-widt", alt: "" %>
+          <!-- <img class="img-full-width" src="img/media/content-img-1.jpg" alt=""> -->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-6">
+        <div class="subsection">
+          <h2 class="text-primary">Glass Gifts </h2>
+          <p class="text-lg">Glass gifts looks elegant by itself. Glass gifts can also be used for expressing your love and care by adding a message on glass to present an encouragement or endorsement.
+            <br>GlassXpert &amp; Design designs and produces glass gifts, and produces customized photo gifts series.</p>
+          <p class="text-lg">Photo print on mirror is a creative design for displaying photos, which excels in printing photos of buildings on mirror as the mirror reflection gives an impressive 3D effect. The finished product looks like a piece of art.</p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
+    <div class="row">
+      <div class="col-lg-6 order-lg-12">
+        <div class="subsection">
+          <%= image_tag "spree/frontend/media/content-img-2.jpg", class: "img-full-width", alt: '' %>
+          <!-- <img class="img-full-width" src="img/media/content-img-2.jpg" alt=""> -->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-6 order-lg-1">
+        <div class="subsection">
+          <h2 class="text-primary">Photo Print on Glass</h2>
+          <p class="text-lg">Photos capture all precious moments of your childhood, family, friendship or any other relationship.</p>
+          <p class="text-lg">Nowadays, many of your memorable moments were only stored in your smart phones or computers. However, your precious moments could be converted into home or office glass decorations and/or special glass gifts to your families and friends.</p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="subsection">
+          <%= image_tag "spree/frontend/media/content-img-3.jpg", class: "img-full-width", alt: '' %>
+          <!-- <img class="img-full-width" src="img/media/content-img-3.jpg" alt=""> -->
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-6">
+        <div class="subsection">
+          <h2 class="text-primary">Glass for Interior Design</h2>
+          <p class="text-lg">GlassXpert &amp; Design partners with Orientop Limited to distribute laminated and decorative glass and mirror for interior design. Orientop Limited, a well-established Hong Kong based company, is the market leader in Asia’s laminated and decorative
+            glass industry. Their main focus is on large scale interior design and architectural projects. They also supply sound-insulated and bullet-proof glasses.</p>
+          <p class="text-lg">Their latest projects include producing glass panels for a number of newly built MTR stations in Hong Kong including Lei Tung, Admiralty South Island lines, Kennedy Town, HKU and Sai Ying Pun stations. They also supply glasses for Sky100 Hong Kong
+            Observation Deck, shopping malls (The One, Metro City Plaza) and hotels (Prince Hotel and Hard Rock Hotel) in Hong Kong and Macau.</p>
+          <p class="text-lg">To review their product portfolio, please click the link <a class="link" href="http://www.glasslam-asia.com/en/portfolio">http://www.glasslam-asia.com/en/portfolio</a>
+          </p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
+  </div>
+  <!--/container-->
+</section>
+<!--/section-->
+<section class="section bg-primary text-white">
+  <div class="container">
+    <h2>Contact us</h2>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="subsection">
+          <h5 class="mb-0"><em>Customer Services and Feedbacks</em></h5>
+          <p>If you find any issue during your purchase or after receiving our products, please don’t hesitate to contact us. Your comments and feedbacks can help us to improve, feel free to leave your message:
+            <br><a class="link" href="support@glassxpertndesign.com" target="blank">support@glassxpertndesign.com</a>
+          </p>
+          <h5 class="mb-0"><em>Customized Glass Gifts</em></h5>
+          <p>Put your imagination into reality
+            <br>GlassXpert &amp; Design is happy to help customers designing specific gifts for personal and company use, we offer discount on big volume (minimum order of 10). To discuss your ideas, feel free to contact our designers: <a class="link" href="design@glassxpertndesign.com"
+            target="blank">design@glassxpertndesign.com</a>
+          </p>
+          <h5 class="mb-0"><em>Photo Print on Glass </em></h5>
+          <p>Customized Size and Shapes
+            <br>For customers who want to do a very special size of photo print such as large glass panels or glass top of furniture (table top or wardrobe), please contact our designers: <a class="link" href="design@glassxpertndesign.com" target="blank">design@glassxpertndesign.com</a>
+          </p>
+          <h5 class="mb-0"><em>Glass for Interior Design</em></h5>
+          <p>To quote price for different patterns and dimensions, please contact our sales: <a class="link" href="sales@glassxpertndesign.com" target="blank">sales@glassxpertndesign.com</a>
+          </p>
+        </div>
+        <!--/subsection-->
+      </div>
+      <!--/col-->
+      <div class="col-lg-6">
+        <div class="table-parent-md" style="height: 100%;">
+          <div class="vertical-middle">
+            <div class="subsection">
+              <form class="form">
+                <fieldset>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="subsection-sm">
+                        <input class="form-control" id="exampleInputName1" type="text" placeholder="Name">
+                      </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-md-6">
+                      <div class="subsection-sm">
+                        <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Email">
+                      </div>
+                    </div>
+                    <!--/col-->
+                  </div>
+                  <!--/row-->
+                  <div class="subsection-sm">
+                    <input class="form-control" id="exampleInputSubject1" type="email" placeholder="Subject">
+                  </div>
+                  <div class="subsection-sm">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="email" placeholder="Message"></textarea>
+                  </div>
+                  <div class="text-right">
+                    <button class="btn btn-info" type="submit">SEND MESSAGE</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <!--/subsection-->
+          </div>
+        </div>
+      </div>
+      <!--/col-->
+    </div>
+    <!--/row-->
+  </div>
+  <!--/container-->
+</section>
+<!--/section-->
+<section class="map-section">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5893.742302827572!2d114.21126000448042!3d22.31644198349825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404013624b0b1d1%3A0x9e7842ffbf794210!2zVW5pZnkgQ29tbWVyY2lhbCBJbmR1c3RyaWFsIEJ1aWxkaW5nLCAzMSBUYWkgWWlwIFN0LCDQk9C-0L3QutC-0L3Qsw!5e0!3m2!1suk!2sua!4v1524213217005"
+  max-width="100%" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+</section>

@@ -3,7 +3,18 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *
- *= require spree/frontend
+ * require spree/frontend
  *= require_self
- *= require_tree .
+ * require_tree .
+
+ * Owl Carousel
+ *= require spree/frontend/owlcarousel/owl.carousel.min.css
+ *= require spree/frontend/owlcarousel/owl.theme.default.css
+
+ * Flexslider
+ *= require spree/frontend/flexslider/flexslider.css
+
+ * Main
+ *= require spree/frontend/css/main.css
+ *= require spree/frontend/css/custom.css
 */

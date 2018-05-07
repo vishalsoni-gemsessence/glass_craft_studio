@@ -1,5 +1,145 @@
-<header id="header" class="row" data-hook>
-  <figure id="logo" class="columns six" data-hook><%= logo %></figure>
-  <%= render partial: 'spree/shared/nav_bar' %>
-  <%= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+<header id="header" data-hook> <!--  class="row" -->
+  <!--/ Visible 1200 and more-->
+  <div class="secondary-nav d-none d-xl-block">
+    <div class="container bigger">
+      <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <% if spree_current_user %>
+              <li class="nav-item">
+                <%= link_to "WELCOME, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'MY ACCOUT', spree.account_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'MY WISHLIST', 'javascript:;', class: "nav-link" %>
+              </li>
+            <% end %>
+            <li class="nav-item" id="link-to-cart" data-hook>
+              <noscript>
+                <%= link_to spree.cart_path, class: "nav-link" do %>
+                  <i class="fa fa-shopping-cart mr-1" aria-hidden="true"></i> SHOPPING CART
+                <% end %>
+              </noscript>
+            </li>
+            <li class="nav-item">
+              <% if spree_current_user %>
+                <%= link_to Spree.t(:logout), destroy_spree_user_session_path, class: "nav-link db-none" %>
+                <!-- <a class= href="#">SIGN OUT</a> -->
+              <% else %>
+                <%= link_to Spree.t(:login), spree_login_path, class: "nav-link db-none" %>
+                <!-- <a class= href="#">SIGN IN</a> -->
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="header_content">
+    <div class="container bigger">
+      <nav class="navbar custom-nav navbar-expand-xl navbar-light">
+        <figure id="logo" data-hook> <!-- class="columns six" -->
+          <%= logo %>
+        </figure>
+
+        <button class="navbar-toggler show-menu" type="button">
+          <span class="navbar-toggler-icon">
+            <span class="top-line"></span>
+            <span class="middle-line"></span>
+            <span class="bottom-line"></span>
+          </span>
+        </button>
+
+        <div class="mobile-nav-bg"></div>
+
+        <div class="navbar-collapse mobile-nav">
+          <ul class="navbar-nav ml-auto mr-auto js-collapse-activeitem">
+            <li class="nav-item active">
+              <a class="nav-link js-nav-link" href="home.html">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-nav-link" href="glass-gift.html">Glass Gift</a>
+            </li>
+            <li class="nav-item dropdown main-dropdown">
+              <a class="nav-link dropdown-toggle main-dropdown-toggle" id="navbarDropdownPG" href="#0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Photo on Glass</a>
+              <div class="dropdown-menu main-dropdown-menu" aria-labelledby="navbarDropdownPG">
+                <a class="dropdown-item js-nav-link" href="#0">Square Block</a>
+                <a class="dropdown-item js-nav-link" href="#0">Square</a>
+                <a class="dropdown-item js-nav-link" href="#0">Circa</a>
+                <a class="dropdown-item js-nav-link" href="#0">Retangular</a>
+                <a class="dropdown-item js-nav-link" href="#0">Panorama</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-nav-link" href="photo-gallery.html">Photo Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-nav-link" href="interior-design.html">Interior Design</a>
+            </li>
+            <li class="nav-item mb-0">
+              <a class="nav-link js-nav-link" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <!--/ navbar-->
+          <ul class="navbar-nav ml-auto js-collapse-activeitem">
+            <!--/ Visible 1199 and min-->
+            <li class="nav-item secondary-item d-xl-none">
+              <hr class="bg-white">
+            </li>
+            <% if spree_current_user %>
+              <li class="nav-item secondary-item d-xl-none">
+                <%= link_to "welcome, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link js-nav-link" %>
+              </li>
+              <!--/ Visible 1199 and min-->
+              <li class="nav-item secondary-item d-xl-none">
+                <%= link_to 'my account', spree.account_path, class: "nav-link js-nav-link" %>
+              </li>
+              <!--/ Visible 1199 and min-->
+              <li class="nav-item secondary-item d-xl-none">
+                <%= link_to 'my wishlist', 'javascript:;', class: "nav-link js-nav-link" %>
+              </li>
+            <% end %>
+            <!--/ Visible 1199 and min-->
+            <li class="nav-item secondary-item d-xl-none" id="link-to-cart" data-hook>
+              <noscript>
+                <%= link_to 'shopping cart', spree.cart_path, class: "nav-link js-nav-link" %>
+              </noscript>
+            </li>
+            <!--/ Visible 1199 and min-->
+            <li class="nav-item secondary-item d-xl-none">
+              <% if spree_current_user %>
+                <%= link_to Spree.t(:logout), destroy_spree_user_session_path, class: "nav-link js-nav-link" %>
+              <% else %>
+                <%= link_to Spree.t(:login), spree_login_path, class: "nav-link js-nav-link" %>
+              <% end %>
+            </li>
+            <li class="nav-item secondary-item d-xl-none">
+              <hr class="bg-white">
+            </li>
+            <li class="nav-item social-item">
+              <a class="nav-link js-nav-link" href="#" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <!--/ Visible 1199 and min-->
+              <a class="nav-link js-nav-link d-xl-none" href="#" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </li>
+            <!--/ Visible 1200 and more -->
+            <li class="nav-item social-item d-none d-xl-block ml-auto"><a class="nav-link js-nav-link" href="#" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </li>
+
+            <%= render partial: 'spree/shared/nav_bar' %>
+          </ul>
+
+        </div>
+        <!--/ navbar-collapse-->
+      </nav>
+    </div>
+    <!--/ container-->
+  </div>
+  <!--/.header_content-->
+
+  <%#= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
 </header>
+
+<!-- <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+ -->

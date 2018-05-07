@@ -1,8 +1,19 @@
-<nav id="top-nav-bar" class="columns ten">
-  <ul id="nav-bar" class="inline" data-hook>
-    <%= render 'spree/shared/login_bar_items' %>
-    <li id="search-bar" data-hook>
+<!-- <nav id="top-nav-bar" class="columns ten"> -->
+  <!-- <ul id="nav-bar" class="navbar-nav ml-auto js-collapse-activeitem" data-hook> -->
+    <%#= render 'spree/shared/login_bar_items' %>
+    <!-- <li id="search-bar" data-hook> -->
       <%= render partial: 'spree/shared/search' %>
+    <!-- </li> -->
+
+    <!--/ Visible 1200 and more -->
+    <li class="nav-item dropdown d-none d-xl-block"><a class="nav-link dropdown-toggle dropdown-lang" id="navbarDropdownLang" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Eng</a>
+      <div class="dropdown-menu dropdown-menu-lang" aria-labelledby="navbarDropdownLang"><a class="dropdown-item" href="#">Eng1</a><a class="dropdown-item" href="#">Eng2</a>
+      </div>
     </li>
-  </ul>
-</nav>
+    <!--/ Visible 1199 and min-->
+    <li class="nav-item mb-5 d-xl-none">
+      <div class="btn-group-vertical"><a class="btn btn-sm btn-outline-primary active" href="#">Eng1</a><a class="btn btn-sm btn-outline-primary" href="#">Eng2</a><a class="btn btn-sm btn-outline-primary" href="#">Eng3</a>
+      </div>
+    </li>
+  <!-- </ul> -->
+<!-- </nav> -->

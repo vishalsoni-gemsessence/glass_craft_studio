@@ -1,11 +1,40 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
-<%= form_tag spree.products_path, method: :get do %>
-  <% cache [I18n.locale, @taxons] do %>
-    <%= select_tag :taxon,
+<!--/ Visible 1199 and min-->
+<li class="nav-item d-xl-none" id="search-bar" data-hook>
+  <div class="input-group subscribe-input-group">
+
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-sm btn-primary" type="button"> <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</li>
+<!--/ Visible 1200 and more -->
+<li class="nav-item dropdown d-none d-xl-block">
+  <a class="nav-link dropdown-toggle dropdown-toggle__search" id="navbarDropdownSearch" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu__search"
+  aria-labelledby="navbarDropdownSearch">
+    <div class="input-group subscribe-input-group">
+      <input class="form-control" type="text" placeholder="" aria-label="" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-sm btn-primary" type="button">search</button>
+      </div>
+    </div>
+  </div>
+</li>
+
+<%#= form_tag spree.products_path, method: :get do %>
+  <%# cache [I18n.locale, @taxons] do %>
+    <%#= select_tag :taxon,
           options_for_select([[t('spree.all_departments'), '']] +
                                 @taxons.map {|t| [t.name, t.id]},
                                 @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %>
-  <% end %>
-  <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search') %>
-  <%= submit_tag t('spree.search'), name: nil %>
-<% end %>
+  <%# end %>
+  <%#= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search') %>
+  <%#= submit_tag t('spree.search'), name: nil %>
+<%# end %>
+
+
