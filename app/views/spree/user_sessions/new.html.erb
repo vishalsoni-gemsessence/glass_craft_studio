@@ -1,0 +1,26 @@
+<section class="section sign-in-up-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 offset-lg-5">
+        <div class="sing-up-form-border"></div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="subsection subsection-sing-form">
+          <% if flash[:alert] %>
+            <div class="flash errors"><%= flash[:alert] %></div>
+          <% end %>
+
+          <% @body_id = 'login' %>
+          <div id="existing-customer">
+            <h2 class="text-primary"><%= t :'sign_in.sign_in' %></h2>
+            <div data-hook="login">
+              <%= render partial: 'spree/shared/login' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div data-hook="login_extras"></div>

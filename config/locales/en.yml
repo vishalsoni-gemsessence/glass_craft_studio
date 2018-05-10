@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  sign_up:
+    full_name: "Full Name"
+    sign_up: "Sign Up"
+  sign_in:
+    sign_in: "Sign In"
