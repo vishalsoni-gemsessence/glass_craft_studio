@@ -1,0 +1,32 @@
+<section class="section sign-in-up-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 offset-lg-5">
+        <div class="sing-up-form-border"></div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="subsection subsection-sing-form">
+          <div id="change-password">
+            <h2 class="text-primary"><%= Spree.t(:change_my_password) %></h2>
+
+            <%= form_for @spree_user, as: :spree_user, url: spree.update_password_path, method: :put, html: { class: "form forget-password" } do |f| %>
+              <div>
+                <%= f.password_field :password, class: "form-control", placeholder: Spree.t(:password) %>
+                <%= display_error_message(f.object, 'password') %>
+              </div>
+              <div>
+                <%= f.password_field :password_confirmation, class: "form-control", placeholder: Spree.t(:confirm_password) %>
+                <%= display_error_message(f.object, 'password_confirmation') %>     
+              </div>
+              <%= f.hidden_field :reset_password_token %>
+              <div class="text-right pt-1">
+                <%= f.submit Spree.t(:update), class: 'btn btn-info' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

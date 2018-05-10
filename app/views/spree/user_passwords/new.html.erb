@@ -1,0 +1,27 @@
+<section class="section sign-in-up-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 offset-lg-5">
+        <div class="sing-up-form-border"></div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="subsection subsection-sing-form">
+          <div id="forgot-password">
+            <h2 class="text-primary"><%= Spree.t(:forgot_password) %></h2>
+
+            <p class="mb-3 pt-1"><%= Spree.t(:instructions_to_reset_password) %></p>
+
+            <%= form_for Spree::User.new, as: :spree_user, url: spree.reset_password_path, html: { class: "form forget-password" } do |f| %>
+                <%= f.email_field :email, class: "form-control", placeholder: Spree.t(:email) %>
+                <%= display_error_message(f.object, 'email') %>
+              <div class="text-right pt-1">
+                <%= f.submit Spree.t(:reset_password), class: 'btn btn-info' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

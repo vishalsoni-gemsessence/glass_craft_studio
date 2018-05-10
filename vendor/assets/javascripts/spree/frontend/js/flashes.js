@@ -15,7 +15,6 @@ function notification(position, notif_type,icon_class,notif_title,notif_text){
     case 'bottomright' : output_stack = stack_bottomright; break;
     case 'bottomleft' : output_stack = stack_bottomleft; break;
   }
-  debugger;
 
   new PNotify({
     title_escape: true,
