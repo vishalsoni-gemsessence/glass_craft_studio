@@ -1,0 +1,17 @@
+
+<%= f.email_field :full_name, class: 'form-control', placeholder: t(:'sign_up.full_name') %>
+<%= display_error_message(f.object, 'full_name') %>
+
+<%= f.email_field :email, class: 'form-control', placeholder: Spree.t(:email) %>
+<%= display_error_message(f.object, 'email') %>
+
+<div id="password-credentials">
+  <%= f.password_field :password, class: 'form-control', placeholder: Spree.t(:password) %>
+  <%= display_error_message(f.object, 'password') %>
+
+  <%= f.password_field :password_confirmation, class: 'form-control', placeholder: Spree.t(:confirm_password) %>
+  <%= display_error_message(f.object, 'password_confirmation') %>
+  
+</div>
+
+<div data-hook="signup_below_password_fields"></div>

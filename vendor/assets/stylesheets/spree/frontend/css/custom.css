@@ -1,3 +1,8 @@
 figure#logo {
   margin: 0px;
 }
+
+.is-invalid.invalid-feedback.subsection-sm {
+    display: block;
+    margin-left: 10px;
+}

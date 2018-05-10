@@ -1,5 +1,13 @@
 module Spree
   module SpreeApplicationHelper
+    def display_error_message(object, field)
+      if object.errors.present? and object.errors.messages[field.to_sym].present? and object.errors.messages[field.to_sym].first
+        content_tag :div, class: "is-invalid invalid-feedback subsection-sm" do
+          "#{object.errors.messages[field.to_sym].first}"
+        end
+      end
+    end
+
     def display_flash_message(flash)
       rel = '<script type="text/javascript"> '
       rel += "$( window ).on('load', function() {"
