@@ -22,3 +22,63 @@ figure#logo {
 .custom-checkbox .checkbox-label {
   padding-left: 20px;
 }
+
+
+/*Font Awesome Icons For Alert*/
+.ui-pnotify span.brighttheme-icon-sticker::before {
+  font-family: fontAwesome;
+  position: absolute;
+  top: -4px;
+  content: "\f04b";
+}
+
+.ui-pnotify .brighttheme-icon-stuck::before {
+  content: "\f04c" !important;
+}
+
+.ui-pnotify .brighttheme-icon-sticker::after {
+  display: none;
+}
+
+
+
+.ui-pnotify .brighttheme-icon-closer:focus, 
+.ui-pnotify .brighttheme-icon-sticker:focus {
+  outline: none;
+}
+
+.ui-pnotify .ui-pnotify-sticker:focus, 
+.ui-pnotify .ui-pnotify-closer:focus {
+  outline: none;
+}
+
+.ui-pnotify .brighttheme-icon-closer:after {
+  font-family: fontAwesome;
+  content: "\f00d";
+}
+.ui-pnotify .brighttheme-error {
+  background: rgb(244, 170, 162);
+}
+.ui-pnotify-text .menu-text {
+  float: left;
+  width: -webkit-calc(100% - 56px);
+  width: -moz-calc(100% - 56px);
+  width: calc(100% - 56px);
+}
+.ui-pnotify-text .menu-text h5 {
+  margin: 0px;
+}
+.ui-pnotify-text .list-wrapper > div {
+  display: inline-block;
+  width: 100%;
+}
+.ui-pnotify-text .menu-icon {
+  float: left;
+  font-size: 50px;
+  width: 56px;
+  line-height: 0;
+}
+
+.custom-control-label {
+    display: table-row;
+}

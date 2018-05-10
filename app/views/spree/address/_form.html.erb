@@ -11,7 +11,7 @@
 
         <p class="field" id=<%="#{address_id}lastname" %>>
           <!-- <%#= form.label :lastname, t('spree.last_name') %><br /> -->
-          <%= form.text_field :lastname, class: 'form-control', autocomplete: address_type + ' family-name', placeholder: t('spree.last_name') %>
+          <%= form.text_field :lastname, class: 'form-control', autocomplete: address_type + ' family-name', required: true, placeholder: t('spree.last_name') %>
         </p>
       </div>
 
