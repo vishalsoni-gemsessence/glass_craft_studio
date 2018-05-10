@@ -1,44 +1,40 @@
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <% if "spree/products" == params[:controller] && @taxon %>
-      <%= render partial: 'spree/shared/filters' %>
-    <% else %>
-      <%#= render partial: 'spree/shared/taxonomies' %>
-    <% end %>
-  </div>
-<% end %>
+<section class="section text-center">
+  <div class="container bigger">
+    <div class="subsection">
+      <h2 class="text-primary mb-2">Glass Gifts</h2>
+      <h4 class="mb-2">A special gift for a special person</h4>
+      <h4 class="fw400">Personalized photo gifts and photo print on mirror</h4>
+    </div>
 
-
-<% if params[:keywords] %>
-
-  <div data-hook="search_results">
-    <% if @products.empty? %>
-      <h6 class="search-results-title"><%= t('spree.no_products_found') %></h6>
-    <% else %>
-      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-    <% end %>
-  </div>
-
-<% else %>
-  <section class="section text-center">
-
-      <div class="subsection">
-        <h2 class="text-primary mb-2">Glass Gifts</h2>
-        <h4 class="mb-2">A special gift for a special person</h4>
-        <h4 class="fw400">Personalized photo gifts and photo print on mirror</h4>
+    <div class="subsection-sm">
+      <button class="btn btn-sm btn-outline-primary mr-1 ml-1 active" type="button">All</button>
+      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Family</button>
+      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wedding</button>
+      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Decoration</button>
+      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wishdom</button>
+    </div>
+    <% content_for :sidebar do %>
+      <div data-hook="homepage_sidebar_navigation">
+        <% if "spree/products" == params[:controller] && @taxon %>
+          <%= render partial: 'spree/shared/filters' %>
+        <% else %>
+          <%#= render partial: 'spree/shared/taxonomies' %>
+        <% end %>
       </div>
+    <% end %>
 
-      <div class="subsection-sm">
-        <button class="btn btn-sm btn-outline-primary mr-1 ml-1 active" type="button">All</button>
-        <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Family</button>
-        <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wedding</button>
-        <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Decoration</button>
-        <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wishdom</button>
-      </div>
-      <div class="container bigger">
-        <div data-hook="homepage_products">
+    <% if params[:keywords] %>
+      <div data-hook="search_results">
+        <% if @products.empty? %>
+          <h6 class="search-results-title"><%= t('spree.no_products_found') %></h6>
+        <% else %>
           <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-        </div>
+        <% end %>
       </div>
-  </section>
-<% end %>
+    <% else %>
+      <div data-hook="homepage_products">
+        <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+      </div>
+    <% end %>
+  </div>
+</section>

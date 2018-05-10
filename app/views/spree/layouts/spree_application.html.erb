@@ -9,15 +9,15 @@
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
+    <%= render partial: 'spree/shared/header' %>
+    
     <div class="main"> <!-- class="container" -->
 
-      <%= render partial: 'spree/shared/header' %>
-
-      <div id="wrapper" data-hook> <!-- class="row" -->
+      <div id="wrapper" data-hook>
 
         <%#= taxon_breadcrumbs(@taxon) %>
 
-        <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
+        <%#= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
 
         <div id="content" data-hook> <!-- class="columns <%#= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" -->
           <%#= flash_messages %>
