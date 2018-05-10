@@ -14,10 +14,10 @@
 
             <%= form_for Spree::User.new, as: :spree_user, url: spree.reset_password_path, html: { class: "form forget-password" } do |f| %>
                 <%= f.email_field :email, class: "form-control", placeholder: Spree.t(:email) %>
-                <%= display_error_message(f.object, 'email') %>
-              <div class="text-right pt-1">
-                <%= f.submit Spree.t(:reset_password), class: 'btn btn-info' %>
-              </div>
+                <%= display_error_message(@spree_user, 'email') %>
+                <div class="text-right pt-1">
+                  <%= f.submit Spree.t(:reset_password), class: 'btn btn-info' %>
+                </div>
             <% end %>
           </div>
         </div>

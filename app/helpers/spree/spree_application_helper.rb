@@ -15,7 +15,7 @@ module Spree
         next if type == "timedout"
           notify_type = notify_type(type)
           notify_class = notify_class(type)
-          rel += "notification('topright', '#{notify_type}', '#{notify_class}', '#{notify_type.titlecase}', \"#{message}\");  "
+          rel += "notification('topright', '#{notify_type}', '#{notify_class}', '#{notify_type.try(:titlecase)}', \"#{message}\");  "
         end
       rel += "});"
       rel += "</script>"
@@ -27,7 +27,7 @@ module Spree
         case flash_type.to_sym
           when :success, :notice
             "success"
-          when :error, :alert
+          when :error, :alert, :registration_error
             "error"
           when :info
             "info"

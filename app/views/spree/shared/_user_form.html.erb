@@ -1,5 +1,5 @@
 
-<%= f.email_field :full_name, class: 'form-control', placeholder: t(:'sign_up.full_name') %>
+<%= f.text_field :full_name, class: 'form-control', placeholder: t(:'sign_up.full_name') %>
 <%= display_error_message(f.object, 'full_name') %>
 
 <%= f.email_field :email, class: 'form-control', placeholder: Spree.t(:email) %>

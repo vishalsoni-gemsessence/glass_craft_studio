@@ -11,7 +11,7 @@
 
             <% @body_id = 'login' %>
             <div id="existing-customer">
-              <h2 class="text-primary">Sign In</h2>
+              <h2 class="text-primary"><%= t :'sign_in.sign_in' %></h2>
               <div data-hook="login">
                 <%= render partial: 'spree/shared/login' %>
               </div>
@@ -24,10 +24,7 @@
         <div class="col-lg-4">
           <div class="subsection subsection-sing-form">
             <% if Spree::Config[:allow_guest_checkout] %>
-              <h3 class="text-primary"><%= Spree.t(:guest_user_account) %></h3>
-              <% if flash[:registration_error] %>
-                <div class='flash error'><%= flash[:registration_error] %></div>
-              <% end %>
+              <h2 class="text-primary"><%= Spree.t(:guest_user_account) %></h2>
               <div id="guest_checkout" data-hook>
                 <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration', :class => "form" } do |f| %>
                   <%= f.email_field :email, :class => 'form-control', :placeholder => Spree.t(:email) %>

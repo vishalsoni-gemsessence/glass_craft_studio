@@ -4,9 +4,7 @@ figure#logo {
 
 .is-invalid.invalid-feedback.subsection-sm {
     display: block;
-    margin-left: 10px;
-}
-.billing-form{
+}.billing-form{
 	width: 100%;
 }
 .form-content{
