@@ -12,22 +12,31 @@
     <%= form.fields_for :ship_address do |ship_form| %>
       <legend align="center"><%= t('spree.shipping_address') %></legend>
       <p class="field checkbox" data-hook="use_billing">
-        <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
-        <%= label_tag :order_use_billing, t('spree.use_billing_address'), id: 'use_billing' %>
+        <div class="subsection">
+          <div class="custom-control custom-checkbox checkbox-tag">
+            <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address?, class: 'custom-control-input' %>
+            <%= label_tag :order_use_billing, t('spree.use_billing_address'), id: 'use_billing', class: 'checkbox-label custom-control-label text-uppercase' %>
+          </div>
+        </div>
       </p>
       <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
     <% end %>
   </fieldset>
 </div>
-<hr class="clear" />
 
 <div class="form-buttons" data-hook="buttons">
-  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
   <% if try_spree_current_user %>
     <span data-hook="save_user_address">
       &nbsp; &nbsp;
-      <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
-      <%= label_tag :save_user_address, t('spree.save_my_address') %>
+    <div class="subsection">
+      <div class="custom-control custom-checkbox checkbox-tag text-right">
+        <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address), class: 'custom-control-input' %>
+        <%= label_tag :save_user_address, t('spree.save_my_address'), class: 'custom-control-label text-uppercase checkbox-label' %>
+      </div>
+    </div>
     </span>
   <% end %>
+  <div class="text-right">
+    <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
+  </div>
 </div>

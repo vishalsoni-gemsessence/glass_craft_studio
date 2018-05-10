@@ -11692,7 +11692,7 @@ select.form-control:not([multiple]) {
   background-position: 95% 50%;
   background-repeat: no-repeat;
   background-size: 9px;
-  background-image: url(../img/tpl/form-select-arrow.png);
+  background-image: url(../tpl/form-select-arrow.png);
 }
 
 .form-control.number {

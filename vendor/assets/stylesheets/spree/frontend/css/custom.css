@@ -6,3 +6,21 @@ figure#logo {
     display: block;
     margin-left: 10px;
 }
+.billing-form{
+	width: 100%;
+}
+.form-content{
+	float: left;
+}
+.checkbox-tag input {
+  opacity: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 99;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+}
+.custom-checkbox .checkbox-label {
+  padding-left: 20px;
+}

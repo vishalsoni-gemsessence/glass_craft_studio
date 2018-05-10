@@ -14,6 +14,9 @@
  * Flexslider
  *= require spree/frontend/flexslider/flexslider.css
 
+ * Bootstrap
+ *= require spree/frontend/bootstrap/bootstrap.min.css
+
  * Main
  *= require spree/frontend/css/main.css
  *= require spree/frontend/css/custom.css

@@ -6,7 +6,6 @@
 //
 // require jquery
 // require jquery_ujs
-// require spree/frontend
 // require_tree .
 
 //= require spree/frontend/js/jquery-3.2.1.min.js
@@ -16,6 +15,9 @@
 
 // Flexslider
 //= require spree/frontend/flexslider/jquery.flexslider-min.js
+
+// Spree
+//= require spree/frontend
 
 // Framework
 //= require spree/frontend/js/popper.min.js
