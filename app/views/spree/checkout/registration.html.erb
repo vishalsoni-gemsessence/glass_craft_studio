@@ -1,0 +1,45 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+<div class="main">
+  <section class="section sign-in-up-section">
+    <div class="container">
+      <div id="registration" class="row" data-hook>
+        <div id="account" class="col-lg-4 offset-lg-1">
+          <div class="subsection subsection-sing-form">
+            <% if flash[:alert] %>
+              <div class="flash errors"><%= flash[:alert] %></div>
+            <% end %>
+
+            <% @body_id = 'login' %>
+            <div id="existing-customer">
+              <h2 class="text-primary">Sign In</h2>
+              <div data-hook="login">
+                <%= render partial: 'spree/shared/login' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="sing-up-form-border"></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="subsection subsection-sing-form">
+            <% if Spree::Config[:allow_guest_checkout] %>
+              <h3 class="text-primary"><%= Spree.t(:guest_user_account) %></h3>
+              <% if flash[:registration_error] %>
+                <div class='flash error'><%= flash[:registration_error] %></div>
+              <% end %>
+              <div id="guest_checkout" data-hook>
+                <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration', :class => "form" } do |f| %>
+                  <%= f.email_field :email, :class => 'form-control', :placeholder => Spree.t(:email) %>
+                  <div class="text-right pt-2">
+                    <%= f.submit Spree.t(:continue), :class => 'btn btn-info' %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

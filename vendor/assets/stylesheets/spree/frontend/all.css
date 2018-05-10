@@ -17,4 +17,5 @@
  * Main
  *= require spree/frontend/css/main.css
  *= require spree/frontend/css/custom.css
+ *= require pnotify
 */

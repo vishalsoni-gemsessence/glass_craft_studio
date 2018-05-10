@@ -188,6 +188,7 @@ GEM
       terrapin (~> 0.6.0)
     paranoia (2.4.1)
       activerecord (>= 4.0, < 5.3)
+    pnotify-rails (3.0.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     pry (0.11.3)
@@ -382,6 +383,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2
+  pnotify-rails
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.0)

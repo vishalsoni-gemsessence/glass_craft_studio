@@ -23,3 +23,12 @@
 
 // Custom
 //= require spree/frontend/js/main.js
+
+// Validation
+//= require spree/frontend/js/validation.js
+//= require spree/frontend/js/jquery.validate.min.js
+//= require spree/frontend/js/jquery.validate
+
+// PNotify
+//= require pnotify
+//= require spree/frontend/js/flashes.js
