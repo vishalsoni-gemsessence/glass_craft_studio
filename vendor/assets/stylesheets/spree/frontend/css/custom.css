@@ -81,4 +81,5 @@ figure#logo {
 
 .custom-control-label {
     display: table-row;
+    position: initial;
 }
