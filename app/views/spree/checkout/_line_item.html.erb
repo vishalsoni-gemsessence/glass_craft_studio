@@ -1,0 +1,21 @@
+<% variant = line_item.variant -%>
+<%= order_form.fields_for :line_items, line_item do |item_form| -%>
+  <tr>
+    <td>
+      <div class="row">
+        <div class="col-3">
+         <% if variant.images.empty? %>
+          <%= link_to(render('spree/shared/image', image: variant.product.display_image, size: :small), variant.product) %>
+          <% else %>
+            <%= link_to(render('spree/shared/image', image: variant.images.first, size: :small), variant. product) %>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4 class="fw900 text-uppercase"><%= link_to line_item.name, product_path(variant.product) %></h4>
+        </div>
+      </div>
+    </td>
+    <td><%= line_item.display_amount.to_html %></td>
+  </tr>
+
+<% end %>

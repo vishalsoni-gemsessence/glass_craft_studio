@@ -1,77 +1,140 @@
 <fieldset id="payment" data-hook>
-  <legend align="center"><%= t('spree.payment_information') %></legend>
-  <div data-hook="checkout_payment_step">
-    <% if @wallet_payment_sources.present? %>
-      <div class="card_options">
-        <%= radio_button_tag 'use_existing_card', 'yes', true %>
-        <label for="use_existing_card_yes">
-          <%= t('spree.use_existing_cc') %>
-        </label>
-        <br/>
-        <%= radio_button_tag 'use_existing_card', 'no' %>
-        <label for="use_existing_card_no">
-          <%= t('spree.use_new_cc_or_payment_method') %>
-        </label>
-      </div>
+  <legend align="center"><%#= t('spree.payment_information') %></legend>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="subsection">
+        <div class="payment-method-card">
+          <div class="payment-method-card__top">
+            <%= image_tag 'spree/frontend/tpl/card-icons-img.png', id: 'credit-card-image' %>
+          </div>
+          <div class="payment-method-card__bottom">
+            <div class="subsection-sm">
+              <div data-hook="checkout_payment_step">
+                <% if @wallet_payment_sources.present? %>
+                  <div class="card_options text-left">
+                    <%= radio_button_tag 'use_existing_card', 'yes', true %>
+                    <label for="use_existing_card_yes">
+                      <%= t('spree.use_existing_cc') %>
+                    </label>
+                    <br/>
+                    <%= radio_button_tag 'use_existing_card', 'no' %>
+                    <label for="use_existing_card_no">
+                      <%= t('spree.use_new_cc_or_payment_method') %>
+                    </label>
+                  </div>
 
-      <div id="existing_cards">
-        <p class="field" data-hook="existing_cards">
-          <table class="existing-credit-card-list">
-            <tbody>
-              <% @wallet_payment_sources.each do |wallet_payment_source| %>
-                <%=
-                  render(
-                    partial: "spree/checkout/existing_payment/#{wallet_payment_source.payment_source.payment_method.partial_name}",
-                    locals: {
-                      wallet_payment_source: wallet_payment_source,
-                      default: wallet_payment_source == @default_wallet_payment_source,
-                    }
-                  )
-                %>
-              <% end %>
-            </tbody>
-          </table>
-        </p>
-      </div>
-    <% end %>
+                  <div id="existing_cards">
+                    <p class="field" data-hook="existing_cards">
+                      <table class="existing-credit-card-list">
+                        <tbody>
+                          <% @wallet_payment_sources.each do |wallet_payment_source| %>
+                            <%=
+                              render(
+                                partial: "spree/checkout/existing_payment/#{wallet_payment_source.payment_source.payment_method.partial_name}",
+                                locals: {
+                                  wallet_payment_source: wallet_payment_source,
+                                  default: wallet_payment_source == @default_wallet_payment_source,
+                                }
+                              )
+                            %>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </p>
+                  </div>
+                <% end %>
 
-    <div id="payment-method-fields" data-hook>
-      <% @order.available_payment_methods.each do |method| %>
-      <p>
-        <label>
-          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
-          <%= t(method.name, scope: 'spree.payment_methods', default: method.name) %>
-        </label>
-      </p>
-      <% end %>
+                <div id="payment-method-fields" class="text-left" data-hook>
+                  <% @order.available_payment_methods.each do |method| %>
+                  <div>
+                    <label>
+                      <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+                      <%= t(method.name, scope: 'spree.payment_methods', default: method.name) %>
+                    </label>
+                  </div>
+                  <% end %>
+                </div>
+
+                <ul id="payment-methods" class="payment_methods" data-hook>
+                  <% @order.available_payment_methods.each do |method| %>
+                    <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
+                      <fieldset>
+                        <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
+                      </fieldset>
+                    </li>
+                  <% end %>
+                </ul>
+                <br style="clear:both;" />
+                
+
+                <div id='coupon_status'></div>
+              </div>
+            </div>
+            <p class="text-muted">After clicking "Save and Continue", you will be redirected to PayPal to complete your purchase securely.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <ul id="payment-methods" data-hook>
-      <% @order.available_payment_methods.each do |method| %>
-        <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
-          <fieldset>
-            <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
-          </fieldset>
-        </li>
-      <% end %>
-    </ul>
-    <br style="clear:both;" />
-    <p class='field' data-hook='coupon_code'>
-      <%= form.label :coupon_code %><br />
-      <%= form.text_field :coupon_code %>
-      <button type="button" class="button" id="coupon-code-apply-button">
-        <%= t('spree.apply_code') %>
-      </button>
-
-    </p>
-    <div id='coupon_status'></div>
-
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
+          <% order = order_form.object %>
+          <table class="table-payment table table-hover" style="min-width: 500px">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"><span class="subtotal-heading">SUB-TOTAL</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: 'line_item', collection: order.line_items, locals: { order_form: order_form } %>
+              <td colspan="2">
+                <p class='field coupon_code_row row' data-hook='coupon_code'>
+                  <span class="col-md-4 text-left">
+                    <%= form.label :coupon_code %>
+                  </span>
+                  <span class="col-md-8">
+                    <span class="input-group mr-sm-2">
+                      
+                      <%= form.text_field :coupon_code, class: 'form-control' %>
+                      <span class="input-group-prepend">
+                        <button type="button" class="button coupon_code" id="coupon-code-apply-button">
+                          <%= t('spree.apply_code') %>
+                        </button>
+                      </span>
+                    </span>
+                  </span>
+                </p>
+              </td>
+            </tbody>
+            <%= render "spree/orders/adjustments" %>
+          </table>
+        <% end %>
+      </div>
+      <div class="subsection">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-6">
+            <div class="row">
+              <div class="col-4 offset-2">
+                <p class="fw900 text-center"><%= t('spree.total') %>:</p>
+              </div>
+              <div class="col-5">
+                <p class="text-center"><%= @order.display_total.to_html %></p>
+              </div>
+            </div>
+          </div>
+          <!--/col-->
+        </div>
+        <!--/row-->
+      </div>
+    </div>
   </div>
 </fieldset>
 
 <br class="space" />
 
-<div class="form-buttons" data-hook="buttons">
-  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
+<div class="form-buttons subsection-sm text-right" data-hook="buttons">
+  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
   <script>Spree.disableSaveOnClick();</script>
 </div>

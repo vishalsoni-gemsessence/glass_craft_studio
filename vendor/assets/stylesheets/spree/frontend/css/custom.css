@@ -83,6 +83,9 @@ figure#logo {
 .payment-cart-table{
   min-width: 500px
 }
+span.subtotal-heading {
+  font-size: 14px;
+}
 .shipping-methods {
   padding: 0;
   list-style: none;
@@ -109,4 +112,39 @@ figure#logo {
 }
 .stock-location {
   margin-left: 22px;
+}
+.payment_methods {
+  list-style: none;
+  padding: 0px;
+}
+.cvv {
+  float: right;
+}
+.coupon_code {
+  float: right;
+}
+.card-details {
+  border-color: #DCDCDC;
+  color: #808080;
+  border-radius: 8px!important;
+}
+.whatsthis-txt {
+  font-size: 14px;
+}
+
+
+.table-payment th:first-child {
+  width: 80%;
+}
+.table-payment th:last-child {
+  width: 20%;
+}
+.coupon_code_row {
+  margin: 0px -10px;
+}
+
+@media screen and (max-width: 991px) {
+  .whatsthis-txt {
+    font-size: 12px;
+  }
 }
