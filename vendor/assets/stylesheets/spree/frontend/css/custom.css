@@ -4,11 +4,12 @@ figure#logo {
 
 .is-invalid.invalid-feedback.subsection-sm {
     display: block;
-}.billing-form{
-	width: 100%;
+}
+.billing-form{
+  width: 100%;
 }
 .form-content{
-	float: left;
+  float: left;
 }
 .checkbox-tag input {
   opacity: 0;
@@ -22,7 +23,6 @@ figure#logo {
 .custom-checkbox .checkbox-label {
   padding-left: 20px;
 }
-
 
 /*Font Awesome Icons For Alert*/
 .ui-pnotify span.brighttheme-icon-sticker::before {
@@ -40,14 +40,12 @@ figure#logo {
   display: none;
 }
 
-
-
-.ui-pnotify .brighttheme-icon-closer:focus, 
+.ui-pnotify .brighttheme-icon-closer:focus,
 .ui-pnotify .brighttheme-icon-sticker:focus {
   outline: none;
 }
 
-.ui-pnotify .ui-pnotify-sticker:focus, 
+.ui-pnotify .ui-pnotify-sticker:focus,
 .ui-pnotify .ui-pnotify-closer:focus {
   outline: none;
 }
@@ -81,4 +79,34 @@ figure#logo {
 
 .custom-control-label {
   position: initial;
+}
+.payment-cart-table{
+  min-width: 500px
+}
+.shipping-methods {
+  padding: 0;
+  list-style: none;
+}
+.shipping_title {
+  font-size: 26px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 0;
+}
+.rate-name {
+  text-transform: capitalize;
+  font-size: 22px;
+}
+.rate-cost {
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 15px;
+}
+.shipping_instructions {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.stock-location {
+  margin-left: 22px;
 }
