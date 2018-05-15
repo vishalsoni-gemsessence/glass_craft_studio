@@ -61,8 +61,9 @@ $(document).ready(function() {
 
 
 	// ----- INPUT NUMBER -----
-	var upURL = "img/tpl/icon-plus.png";
-	var downURL = "img/tpl/icon-minus.png";
+
+	var upURL = "/assets/spree/frontend/tpl/icon-plus.png"	;
+	var downURL = "/assets/spree/frontend/tpl/icon-minus.png";
 
 
 	$(function(){
