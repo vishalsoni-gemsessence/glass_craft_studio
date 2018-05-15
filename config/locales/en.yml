@@ -36,3 +36,16 @@ en:
     sign_up: "Sign Up"
   sign_in:
     sign_in: "Sign In"
+  address:
+    full_name: "FULL NAME"
+    company: "COMAPNY"
+    billing_address_1: "BILLING ADDRESS"
+    billing_address_2: "ANOTHER BILLING ADDRESS"
+    city: "CITY"
+    state: "STATE"
+    pincode: "PINCODE"
+    country: "COUNTRY"
+    phone: 'PHONE'
+    alternative_phone: 'ALTERNATIVE PHONE'
+  order:
+    order_number: "ORDER NUMBER"

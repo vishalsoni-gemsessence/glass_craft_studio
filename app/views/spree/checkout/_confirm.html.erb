@@ -1,6 +1,6 @@
 <fieldset id="order_details" data-hook>
   <div class="clear"></div>
-  <legend align="center"><%= t('spree.confirm') %></legend>
+  <legend align="center"><%#= t('spree.confirm') %></legend>
   <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
 </fieldset>
 
@@ -15,10 +15,11 @@
         <%= label_tag :accept_terms_and_conditions, t('spree.agree_to_terms_of_service') %>
       </div>
     <% end %>
-
-    <%= submit_tag t('spree.place_order'),
-      disabled: requires_acceptance,
-      class: "continue button primary #{ 'disabled' if requires_acceptance }" %>
+    <div class="form-buttons subsection-sm text-right">
+      <%= submit_tag t('spree.place_order'),
+        disabled: requires_acceptance,
+        class: "continue button primary btn btn-info  #{ 'disabled' if requires_acceptance }" %>
+    </div>
   <% end %>
 
   <script>Spree.disableSaveOnClick();</script>
