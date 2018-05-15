@@ -175,7 +175,10 @@ span.subtotal-heading {
   font-family: fontAwesome;
   margin-right: 5px;
 }
-
+.order-complete-page-links a:hover{
+  color: blue;
+  text-decoration: underline;
+}
 @media screen and (max-width: 991px) {
   .whatsthis-txt {
     font-size: 12px;

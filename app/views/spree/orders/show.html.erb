@@ -1,22 +1,46 @@
 <fieldset id="order_summary" data-hook>
-  <legend><%= t('spree.order_number', number: @order.number) %></legend>
-  <h1><%= accurate_title %></h1>
-  <% if order_just_completed?(@order) %>
-    <strong><%= t('spree.thank_you_for_your_order') %></strong>
-  <% end %>
+  <section class="section p-0">
+    <a href="/.">
+      <%= image_tag 'spree/frontend/tpl/logo.jpg' %>
+    </a>
+  </section>
+  <section class="section bg-primary">
+    <div class="container">
+      <legend><%#= t('spree.order_number', number: @order.number) %></legend>
+      <h1><%#= accurate_title %></h1>
+      <%# if order_just_completed?(@order) %>
+        <div class="subsection text-center text-white">
+          <!-- <h2 class="fw900 text-uppercase"><%#= t('spree.thank_you_for_your_order') %></h2> -->
+          <h2 class="fw900 text-uppercase">YOUR ORDER HAS BEEN successfully sent!</h2>
+          <h3>THANK YOU VERY MUCH!</h3>
+        </div>
+      <%# end %>
+      <div class="confirmation-container">
+        <div id="order" data-hook>
+          <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
 
-  <div id="order" data-hook>
-    <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+          <br class="clear" />
 
-    <br class="clear" />
-
-    <p data-hook="links">
-      <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
-      <% unless order_just_completed?(@order) %>
-        <% if try_spree_current_user && respond_to?(:account_path) %>
-          <%= link_to t('spree.my_account'), spree.account_path, class: "button" %>
-        <% end %>
-      <% end %>
-    </p>
-  </div>
+          <p data-hook="links" class="text-right order-complete-page-links">
+            <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
+            <% unless order_just_completed?(@order) %>
+              <% if try_spree_current_user && respond_to?(:account_path) %>
+                <%= link_to t('spree.my_account'), spree.account_path, class: "button" %>
+              <% end %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="subsection text-center">
+        <h3 class="fw400">If you have any question about your order, <br>please 
+          <%= link_to 'contact us.', '#' %>
+        </h3>
+      </div>
+    </div>
+    <!--/container-->
+  </section>
 </fieldset>

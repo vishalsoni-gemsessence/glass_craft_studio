@@ -5,12 +5,16 @@
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head data-hook="inside_head">
+    
     <%= render partial: 'spree/shared/head' %>
+   
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
-    <%= render partial: 'spree/shared/header' %>
-    
+    <% unless @order.present? && @order.completed? %>
+      <%= render partial: 'spree/shared/header' %>
+    <% end %>
+
     <div class="main"> <!-- class="container" -->
 
       <div id="wrapper" data-hook>
@@ -30,7 +34,8 @@
       </div>
 
     </div>
-
-    <%= render partial: 'spree/shared/footer' %>
+    <% unless @order.present? && @order.completed? %>
+      <%= render partial: 'spree/shared/footer' %>
+    <% end %>
   </body>
 </html>
