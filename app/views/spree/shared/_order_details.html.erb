@@ -8,10 +8,10 @@
     <table class="table table-hover" style="min-width: 500px">
       <thead data-hook>
         <tr data-hook="order_details_line_items_headers">
-          <th width="60%" scope="col"><%= t('spree.item') %></th>
-          <th width="15%" class="price" scope="col"><%= t('spree.price') %></th>
-          <th width="10%" class="qty" scope="col"><%= t('spree.qty') %></th>
-          <th width="15%" class="total" scope="col"><span><%= t('spree.total') %></span></th>
+          <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
+          <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
+          <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
+          <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
         </tr>
       </thead>
       <tbody>
@@ -98,7 +98,7 @@
                     <% order.shipments.each do |shipment| %>
                       <div>
                         <i class='fa fa-truck mr-2 text-primary'></i>
-                        <%= t('spree.shipment_details', stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
+                        <%= t('spree.shipment_details', stock_location: shipment.stock_location.name.capitalize, shipping_method: shipment.selected_shipping_rate.name) %>
                       </div>
                     <% end %>
                   </div>
@@ -134,10 +134,10 @@
 
           <thead data-hook>
             <tr data-hook="order_details_line_items_headers">
-              <th width="60%" scope="col"><%= t('spree.item') %></th>
-              <th width="15%" class="price" scope="col"><%= t('spree.price') %></th>
-              <th width="10%" class="qty" scope="col"><%= t('spree.qty') %></th>
-              <th width="15%" class="total" scope="col"><span><%= t('spree.total') %></span></th>
+              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
+              <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
+              <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
+              <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
             </tr>
           </thead>
 

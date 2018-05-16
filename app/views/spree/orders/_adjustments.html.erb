@@ -11,8 +11,12 @@
 
   <% @order.shipments.each do |shipment| %>
     <tr>
-      <td><h5><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %></h5></td>
-      <td>
+      <% if params["controller"] == "spree/orders" %>
+        <td colspan="4"><h5><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %></h5></td>
+      <% else %>
+        <td><h5><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %></h5></td>
+      <% end %>
+      <td> 
         <h5><%= shipment.display_total_before_tax %></h5>
       </td>
     </tr>

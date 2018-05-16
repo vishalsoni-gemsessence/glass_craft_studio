@@ -56,7 +56,7 @@
                   <!--/col-->
                 </div>
               </div>
-              <div class="subsection-sm text-right">
+              <div class="subsection-sm text-left-sm text-right">
                 <%= button_tag class: 'btn btn-info', id: 'update-button' do %>
                   <%= t('spree.update') %>
                 <% end %>
@@ -70,7 +70,7 @@
 
           </div>
         <% end %>
-        <%= form_tag empty_cart_path, method: :put do %>
+        <%= form_tag empty_cart_path, method: :put, class: "cart-empty-frm" do %>
             <div id="clear_cart_link" data-hook>
               <%= submit_tag t('spree.empty_cart'), class: 'gray btn-empty-cart button checkout btn btn-info' %>
               <%#= t('spree.or') %>

@@ -175,6 +175,10 @@ span.subtotal-heading {
   color: blue;
   text-decoration: underline;
 }
+.cart-empty-frm {
+  margin-top: -76px;
+  width: 50%;
+}
 .product-listing {
   list-style: none;
 }
@@ -278,6 +282,10 @@ span.subtotal-heading {
   }
 }
 @media screen and (max-width: 400px) {
+  .cart-empty-frm {
+    margin-top: 0px;
+    width: 100%;
+  }
   .text-left-sm {
     text-align: left !important;
   }
