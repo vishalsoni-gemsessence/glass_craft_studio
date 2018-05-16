@@ -65,9 +65,6 @@
                   <% end %>
                 </ul>
                 <br style="clear:both;" />
-                
-
-                <div id='coupon_status'></div>
               </div>
             </div>
             <p class="text-muted">After clicking "Save and Continue", you will be redirected to PayPal to complete your purchase securely.</p>
@@ -78,39 +75,58 @@
     </div>
     <div class="col-md-6">
       <div class="table-responsive">
-        <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
-          <% order = order_form.object %>
-          <table class="table-payment table table-hover" style="min-width: 500px">
-            <thead>
+        <table class="table-payment table table-hover" style="min-width: 500px">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"><span class="subtotal-heading">SUB-TOTAL</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.line_items.each do |line_item| %>
+              <% variant = line_item.variant -%>
               <tr>
-                <th scope="col"></th>
-                <th scope="col"><span class="subtotal-heading">SUB-TOTAL</span></th>
+                <td>
+                  <div class="row">
+                    <div class="col-3">
+                     <% if variant.images.empty? %>
+                      <%= link_to(render('spree/shared/image', image: variant.product.display_image, size: :small), variant.product) %>
+                      <% else %>
+                        <%= link_to(render('spree/shared/image', image: variant.images.first, size: :small), variant. product) %>
+                      <% end %>
+                    </div>
+                    <div class="col">
+                      <h4 class="fw900 text-uppercase"><%= link_to line_item.name, product_path(variant.product) %></h4>
+                    </div>
+                  </div>
+                </td>
+                <td><%= line_item.display_amount.to_html %></td>
               </tr>
-            </thead>
-            <tbody>
-              <%= render partial: 'line_item', collection: order.line_items, locals: { order_form: order_form } %>
-              <td colspan="2">
-                <p class='field coupon_code_row row' data-hook='coupon_code'>
-                  <span class="col-md-4 text-left">
-                    <%= form.label :coupon_code %>
-                  </span>
-                  <span class="col-md-8">
-                    <span class="input-group mr-sm-2">
-                      
-                      <%= form.text_field :coupon_code, class: 'form-control' %>
-                      <span class="input-group-prepend">
-                        <button type="button" class="button coupon_code" id="coupon-code-apply-button">
-                          <%= t('spree.apply_code') %>
-                        </button>
+            <% end %>
+              <tr>
+                <td colspan="2">
+                  <p class='field coupon_code_row row' data-hook='coupon_code'>
+                    <span class="col-md-4 text-left">
+                      <%= form.label :coupon_code %>
+                    </span>
+                    <span class="col-md-8">
+                      <span class="input-group mr-sm-2">
+                        
+                        <%= form.text_field :coupon_code, class: 'form-control' %>
+                        <span class="input-group-prepend">
+                          <button type="button" class="button coupon_code" id="coupon-code-apply-button">
+                            <%= t('spree.apply_code') %>
+                          </button>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </p>
-              </td>
-            </tbody>
-            <%= render "spree/orders/adjustments" %>
-          </table>
-        <% end %>
+                  </p>
+                  <div id='coupon_status' class="invalid"></div>
+                </td>
+              </tr>           
+          </tbody>
+          <%= render "spree/orders/adjustments" %>
+        </table>
       </div>
       <div class="subsection">
         <div class="row">
