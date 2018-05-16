@@ -12,4 +12,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w( spree/frontend/* )
+Rails.application.config.assets.precompile += %w( ckeditor/*)
+Rails.application.config.assets.precompile += %w( tinymce-jquery.js )
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
