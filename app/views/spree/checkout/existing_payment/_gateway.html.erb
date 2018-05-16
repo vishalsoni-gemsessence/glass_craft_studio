@@ -1,9 +1,32 @@
 <tr id="<%= dom_id(wallet_payment_source, 'spree')%>" class="<%= cycle('even', 'odd') %>">
-  <td><%= wallet_payment_source.payment_source.name %></td>
-  <td><%= wallet_payment_source.payment_source.display_number %></td>
-  <td><%= wallet_payment_source.payment_source.month %></td>
-  <td><%= wallet_payment_source.payment_source.year %></td>
-  <td>
-    <%= radio_button_tag "order[wallet_payment_source_id]", wallet_payment_source.id, default, class: "existing-cc-radio" %>
+  <td class="cc-name">
+  	<div class="cc-heading">Card Holder</div>
+  	<div class="cc-details"><%= wallet_payment_source.payment_source.name %></div>
+  </td>
+  <td class="cc-number">
+  	<div class="cc-heading">
+  		Card Number
+  	</div>
+  	<div class="cc-details">
+  		<%= wallet_payment_source.payment_source.display_number %>
+  	</div>
+  </td>
+  <td class="cc-expiry">
+  	<div class="cc-heading">
+  		Exp Date
+  	</div>
+  	<div class="cc-exp-details">
+	  	<div class="cc-month cc-details">
+	  		<%= wallet_payment_source.payment_source.month %>
+	  		/
+	  		<%= wallet_payment_source.payment_source.year %>
+	  	</div> 	
+		</div>
+  </td>
+  <td class="cc-radio">
+  	<label class="radio-click">
+			<%= radio_button_tag "order[wallet_payment_source_id]", wallet_payment_source.id, default, class: "existing-cc-radio" %>
+  		<i class="fa fa-toggle-off"></i>
+  	</label>
   </td>
 </tr>

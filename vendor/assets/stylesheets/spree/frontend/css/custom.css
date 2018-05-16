@@ -20,9 +20,6 @@ figure#logo {
   height: 100%;
   cursor: pointer;
 }
-.custom-checkbox .checkbox-label {
-  padding-left: 20px;
-}
 
 /*Font Awesome Icons For Alert*/
 .ui-pnotify span.brighttheme-icon-sticker::before {
@@ -76,7 +73,6 @@ figure#logo {
   width: 56px;
   line-height: 0;
 }
-
 .custom-control-label {
   position: initial;
 }
@@ -179,6 +175,96 @@ span.subtotal-heading {
   color: blue;
   text-decoration: underline;
 }
+.product-listing {
+  list-style: none;
+}
+.save-add-check .custom-control {
+  display: inline-block;
+}
+
+/*==========================
+    credit card design
+==========================*/
+
+.existing-credit-card-list, 
+.existing-credit-card-list tbody, 
+.existing-credit-card-list tr, 
+.existing-credit-card-list td {
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+}
+.existing-credit-card-list tr {
+  width: 290px;
+  height: 190px;
+  background: #003959;
+  margin-bottom: 15px;
+  position: relative; 
+  border-radius: 10px;
+}
+.cc-number {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+}
+.cc-name {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  text-transform: capitalize;
+}
+.cc-expiry {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+}
+.cc-details {
+  padding: 5px 10px;
+  background: #015382;
+}
+.cc-heading {
+  text-align: left;
+  margin-bottom: 5px;
+}
+.cc-exp-details .cc-month.cc-details {
+  display: inline-block;
+  width: 100%;
+}
+.radio-click {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: right;
+  padding: 10px;
+  cursor: pointer;
+}
+.radio-click input {
+  opacity: 0;
+}
+.radio-click .fa {
+  font-size: 28px;
+  color: #2c84b5;
+}
+.radio-click input:checked + .fa-toggle-off::before {
+  content: "\f205";
+  color: #00ccff;
+}
+.cc-name .cc-details {
+  width: 163px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.cc-exp-details {
+  width: 80px;
+}
+/*==========================
+  credit card design end
+==========================*/
+
 @media screen and (max-width: 991px) {
   .whatsthis-txt {
     font-size: 12px;
@@ -189,5 +275,10 @@ span.subtotal-heading {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}
+@media screen and (max-width: 400px) {
+  .text-left-sm {
+    text-align: left !important;
   }
 }
