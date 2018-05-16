@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504095347) do
+ActiveRecord::Schema.define(version: 20180516120664) do
 
   create_table "friendly_id_slugs", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "slug", null: false
@@ -309,6 +309,35 @@ ActiveRecord::Schema.define(version: 20180504095347) do
     t.datetime "updated_at"
     t.index ["order_id", "promotion_id"], name: "index_spree_orders_promotions_on_order_id_and_promotion_id"
     t.index ["promotion_code_id"], name: "index_spree_orders_promotions_on_promotion_code_id"
+  end
+
+  create_table "spree_pages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "show_in_header", default: false, null: false
+    t.boolean "show_in_footer", default: false, null: false
+    t.string "foreign_link"
+    t.integer "position", default: 1, null: false
+    t.boolean "visible", default: true
+    t.string "meta_keywords"
+    t.string "meta_description"
+    t.string "layout"
+    t.boolean "show_in_sidebar", default: false, null: false
+    t.string "meta_title"
+    t.boolean "render_layout_as_partial", default: false
+    t.index ["slug"], name: "index_spree_pages_on_slug"
+  end
+
+  create_table "spree_pages_stores", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "store_id"
+    t.integer "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["page_id"], name: "index_spree_pages_stores_on_page_id"
+    t.index ["store_id"], name: "index_spree_pages_stores_on_store_id"
   end
 
   create_table "spree_payment_capture_events", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

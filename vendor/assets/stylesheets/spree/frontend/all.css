@@ -21,4 +21,5 @@
  *= require spree/frontend/css/main.css
  *= require spree/frontend/css/custom.css
  *= require pnotify
+ *= require spree/frontend/spree_static_content
 */

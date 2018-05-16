@@ -40,8 +40,12 @@ gem 'jbuilder', '~> 2.5'
 # Use figaro for envirnoment variables
 gem 'figaro'
 
+# Use solidus and its extensions for e-commerce solution
 gem 'solidus'
 gem 'solidus_auth_devise'
+gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+
+# Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'
 
 group :development, :test do
