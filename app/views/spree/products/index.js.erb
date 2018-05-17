@@ -1,0 +1,6 @@
+$(".link-wrap").append("<%= j render(@products) %>");
+<% if @products.total_pages == @products.current_page %>
+  $("#loadMore").hide();
+<% else %>
+  $("#loadMore").attr('href','<%= products_path(:page => @products.next_page) %>');
+<% end %>

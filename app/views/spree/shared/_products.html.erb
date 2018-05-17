@@ -24,15 +24,20 @@
 <% if products.any? %>
   <ul id="products" class="inline product-listing" data-hook>
     <div class="subsection-sm">
-      <% products.each do |product| %>
-        <%= render partial: 'product', locals: { product: product } %>
-      <% end %>
+      <div class="link-wrap">
+        <% products.each do |product| %>
+          <%= render partial: 'product', locals: { product: product } %>
+        <% end %>
+      </div>
     </div>
     <div class="subsection-sm">
-      <% if paginated_products.respond_to?(:total_pages) %>
-        <%= paginate paginated_products %>
-        <%= link_to 'Load more', "#", class: 'btn btn-primary' %>
-      <% end %>
+      <div class="load-more-container">
+        <% if paginated_products.respond_to?(:total_pages) %>
+          <%# if paginated_products.next_page %>
+            <%= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
+          <%# end %>
+        <% end %>
+      </div>
     </div>
     <% reset_cycle("classes") %>
   </ul>

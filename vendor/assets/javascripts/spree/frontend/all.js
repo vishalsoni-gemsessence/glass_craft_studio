@@ -30,6 +30,7 @@
 //= require spree/frontend/js/validation.js
 //= require spree/frontend/js/jquery.validate.min.js
 //= require spree/frontend/js/jquery.validate
+//= require spree/frontend/js/custom.js
 
 // PNotify
 //= require pnotify
