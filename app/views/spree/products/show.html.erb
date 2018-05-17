@@ -1,51 +1,107 @@
 <% cache [I18n.locale, current_pricing_options, @product] do %>
-  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product" class="main">
     <% @body_id = 'product-details' %>
+    <section class="section">
+      <div class="container bigger">
+        <div class="row">
+          <div class="col-lg-6 alpha" data-hook="product_left_part">
+            <div class="subsection" data-hook="product_left_part_wrap">
+              <div id="product-images" data-hook="product_images">
+                <div id="main-image" data-hook>
+                  <%= render partial: 'image' %>
+                </div>
+                <div id="thumbnails" data-hook>
+                  <%= render partial: 'thumbnails' %>
+                </div>
+              </div>
 
-    <div class="columns six alpha" data-hook="product_left_part">
-      <div class="row" data-hook="product_left_part_wrap">
+              <div data-hook="product_properties">
+                <%#= render partial: 'properties' %>
+              </div>
 
-        <div id="product-images" data-hook="product_images">
-          <div id="main-image" data-hook>
-            <%= render partial: 'image' %>
+              <div data-hook="promotions">
+                <%= render partial: 'promotions' %>
+              </div>
+
+            </div>
           </div>
-          <div id="thumbnails" data-hook>
-            <%= render partial: 'thumbnails' %>
+
+          <div class="col-lg-6 omega" data-hook="product_right_part">
+            <div data-hook="product_right_part_wrap">
+
+              <div id="product-description" data-hook="product_description">
+                <div class="subsection">
+                  <h1 class="text-primary text-uppercase" itemprop="name"><%= @product.name %></h1>
+                </div>
+
+                <div id="cart-form" data-hook="cart_form">
+                  <div id="product-price" class="row">
+                    <h6 class="product-section-title"><%#= t('spree.price') %></h6>
+                    <div class="col-md-6">
+                      <div class="subsection-sm">
+                        <span class="price selling h2 fw400" itemprop="price" content="<%= @product.price_for(current_pricing_options).to_d %>">
+                          <%= display_price(@product) %>
+                        </span>
+                        <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="subsection-sm">
+                        <% if @product.master.can_supply? %>
+                          <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p>
+                        <% elsif @product.variants.empty? %>
+                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken">Availability: </span><%= t('spree.out_of_stock') %></p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </d   iv>            
+                
+                <div class="subsection-sm separator"></div>
+
+                <div class="subsection-sm" itemprop="description" data-hook="description">
+                  <h5 class="bigger text-uppercase">Description</h5>
+
+                  <p class="text-muted"><%= product_description(@product) rescue t('spree.product_has_no_description') %></p>
+                </div>             
+              </div>
+              <div class="subsection-sm separator"></div>
+
+              <div class="col-lg-6 alpha" data-hook="product_left_part">
+                <div class="subsection" data-hook="product_left_part_wrap">
+                  <div data-hook="product_properties">
+                    <%= render partial: 'properties' %>
+                    <div class="subsection-sm separator"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="subsection-sm">
+                <div data-hook="product_price">
+                  <div class="add-to-cart subsection-sm">
+                    <h5 class="bigger text-uppercase">Quantity:</h5>
+                    <div class="subsection-sm">
+                      <div class="form-group">
+                        <div class="number-wrap">
+                          <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                  </div>
+                </div> 
+              </div>
+
+              <%= render partial: 'cart_form' %>
+
+              <%= render partial: 'taxons' %>
+
+            </div>
           </div>
         </div>
-
-        <div data-hook="product_properties">
-          <%= render partial: 'properties' %>
-        </div>
-
-        <div data-hook="promotions">
-          <%= render partial: 'promotions' %>
-        </div>
-
       </div>
-    </div>
-
-    <div class="columns ten omega" data-hook="product_right_part">
-      <div class="row" data-hook="product_right_part_wrap">
-
-        <div id="product-description" data-hook="product_description">
-
-          <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
-
-          <div itemprop="description" data-hook="description">
-            <%= product_description(@product) rescue t('spree.product_has_no_description') %>
-          </div>
-
-          <div id="cart-form" data-hook="cart_form">
-            <%= render partial: 'cart_form' %>
-          </div>
-
-        </div>
-
-        <%= render partial: 'taxons' %>
-
-      </div>
-    </div>
+    </section>
 
   </div>
 <% end %>

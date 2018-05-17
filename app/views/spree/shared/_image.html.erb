@@ -1,11 +1,10 @@
 <% size ||= :mini %>
 <% itemprop ||= nil %>
-
 <% if image && image.attachment? %>
   <% if itemprop %>
-    <%= image_tag image.attachment(size), itemprop: itemprop %>
+    <%= image_tag image.attachment(size), itemprop: itemprop, class: 'product-img' %>
   <% else %>
-    <%= image_tag image.attachment(size) %>
+    <%= image_tag image.attachment(size), class: 'product-img' %>
   <% end %>
 <% else %>
   <span class="image-placeholder <%= size %>"></span>
