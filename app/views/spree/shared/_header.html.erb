@@ -12,9 +12,9 @@
               <li class="nav-item">
                 <%= link_to 'MY ACCOUT', spree.account_path, class: "nav-link" %>
               </li>
-              <li class="nav-item">
-                <%= link_to 'MY WISHLIST', 'javascript:;', class: "nav-link" %>
-              </li>
+              <!-- <li class="nav-item">
+                <%#= link_to 'MY WISHLIST', 'javascript:;', class: "nav-link" %>
+              </li> -->
             <% end %>
             <li class="nav-item" id="link-to-cart" data-hook>
               <noscript>
@@ -57,10 +57,10 @@
         <div class="navbar-collapse mobile-nav">
           <ul class="navbar-nav ml-auto mr-auto js-collapse-activeitem">
             <li class="nav-item active">
-              <a class="nav-link js-nav-link" href="home.html">Home </a>
+              <%= link_to 'Home', root_path, class: "nav-link js-nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-nav-link" href="glass-gift.html">Glass Gift</a>
+              <%= link_to "Glass Gift", spree.products_path, class: "nav-link js-nav-link" %>
             </li>
             <li class="nav-item dropdown main-dropdown">
               <a class="nav-link dropdown-toggle main-dropdown-toggle" id="navbarDropdownPG" href="#0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Photo on Glass</a>
@@ -97,9 +97,9 @@
                 <%= link_to 'my account', spree.account_path, class: "nav-link js-nav-link" %>
               </li>
               <!--/ Visible 1199 and min-->
-              <li class="nav-item secondary-item d-xl-none">
-                <%= link_to 'my wishlist', 'javascript:;', class: "nav-link js-nav-link" %>
-              </li>
+              <!-- <li class="nav-item secondary-item d-xl-none">
+                <%#= link_to 'my wishlist', 'javascript:;', class: "nav-link js-nav-link" %>
+              </li> -->
             <% end %>
             <!--/ Visible 1199 and min-->
             <li class="nav-item secondary-item d-xl-none" id="link-to-cart" data-hook>
