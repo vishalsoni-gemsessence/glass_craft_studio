@@ -45,6 +45,7 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
+gem 'solidus_on_demand_products', path: '../solidus_on_demand_products'
 
 # Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'

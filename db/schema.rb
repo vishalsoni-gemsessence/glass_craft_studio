@@ -138,6 +138,16 @@ ActiveRecord::Schema.define(version: 20180530094831) do
     t.index ["stock_location_id"], name: "index_spree_cartons_on_stock_location_id"
   end
 
+  create_table "spree_colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "color_code"
+    t.datetime "deleted_at"
+    t.bigint "filter_id"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_id"], name: "index_spree_colors_on_filter_id"
+  end
+
   create_table "spree_contact_us_emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -195,6 +205,14 @@ ActiveRecord::Schema.define(version: 20180530094831) do
     t.integer "stock_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "deleted_at"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_inventory_units", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -862,6 +880,18 @@ ActiveRecord::Schema.define(version: 20180530094831) do
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["country_id"], name: "index_spree_states_on_country_id"
+  end
+
+  create_table "spree_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_stock_items", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

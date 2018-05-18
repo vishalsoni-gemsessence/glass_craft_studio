@@ -35,3 +35,4 @@
 // PNotify
 //= require pnotify
 //= require spree/frontend/js/flashes.js
+//= require spree/frontend/solidus_on_demand_products
