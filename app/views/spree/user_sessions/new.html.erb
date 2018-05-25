@@ -1,7 +1,33 @@
 <section class="section sign-in-up-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-2 offset-lg-5">
+      <div class="col-lg-4 offset-lg-1">
+        <div class="subsection subsection-sing-form">
+          <div id="new-customer">
+            <h2 class="text-primary"><%= t :'sign_up.sign_up' %></h2>
+
+            <div data-hook="signup">
+              <%= form_for resource, as: :spree_user, url: spree.registration_path(resource), html: { class: 'form sign-up'} do |f| %>
+                <div data-hook="signup_inside_form">
+                  <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
+                  <!-- <p class="mb-3 pt-1">
+                    <%#= Spree.t(:or) %>&nbsp;<%#= link_to Spree.t(:login_as_existing), spree.login_path %>
+                  </p> -->
+
+                  <div class="text-right pt-1">
+                    <%= f.submit "Sign Up", class: 'btn btn-info' %>    
+                  </div>
+                </div>
+              <% end %>
+
+            </div>
+
+          </div>
+        </div>
+        <!--/subsection-->
+      </div>
+
+      <div class="col-lg-2">
         <div class="sing-up-form-border"></div>
       </div>
 
