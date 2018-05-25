@@ -246,9 +246,6 @@ $(document).ready(function(){
 			}
 	});
 
-})
-
-
 	$('.js-home-owl-prev-1').click(function(event) {
 		event.preventDefault();
 		owl1.trigger('prev.owl.carousel');
@@ -257,6 +254,9 @@ $(document).ready(function(){
 		event.preventDefault();
 		owl1.trigger('next.owl.carousel');
 	});
+})
+
+
 
 
 

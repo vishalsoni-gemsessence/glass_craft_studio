@@ -54,7 +54,7 @@ en:
     new_contact_us_email: "New Contact Us Email"
     contacts: Contacts
     contact_us_email_details: "Contact Us Email Details"
-    contact_us_success_message: "Your Request Sent Successfully" 
+    contact_us_success_message: "Your Request Sent Successfully"
     contact_us_error_message: "Your request failed"
     contact_details: "Contact Details"
     admin:
@@ -65,3 +65,5 @@ en:
       contact_us_email_cloned: Contact us email has been successfully cloned
       contact_us_email_deleted: Contact us email successfully deleted
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
+    logout: "SIGN OUT"
+    login: "SIGN IN"

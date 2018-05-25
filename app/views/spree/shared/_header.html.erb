@@ -10,18 +10,18 @@
                 <%= link_to "WELCOME, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'MY ACCOUT', spree.account_path, class: "nav-link" %>
+                <%= link_to 'MY ACCOUNT', spree.account_path, class: "nav-link" %>
               </li>
               <!-- <li class="nav-item">
                 <%#= link_to 'MY WISHLIST', 'javascript:;', class: "nav-link" %>
               </li> -->
             <% end %>
             <li class="nav-item" id="link-to-cart" data-hook>
-              <noscript>
+              <!-- <noscript> -->
                 <%= link_to spree.cart_path, class: "nav-link" do %>
                   <i class="fa fa-shopping-cart mr-1" aria-hidden="true"></i> SHOPPING CART
                 <% end %>
-              </noscript>
+              <!-- </noscript> -->
             </li>
             <li class="nav-item">
               <% if spree_current_user %>
