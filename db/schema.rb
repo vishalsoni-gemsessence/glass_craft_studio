@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516175638) do
+ActiveRecord::Schema.define(version: 20180530094831) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -136,6 +136,28 @@ ActiveRecord::Schema.define(version: 20180516175638) do
     t.index ["imported_from_shipment_id"], name: "index_spree_cartons_on_imported_from_shipment_id", unique: true
     t.index ["number"], name: "index_spree_cartons_on_number", unique: true
     t.index ["stock_location_id"], name: "index_spree_cartons_on_stock_location_id"
+  end
+
+  create_table "spree_contact_us_emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.string "slug"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "contact_us_email_id"
+    t.string "name"
+    t.string "email"
+    t.string "subject"
+    t.text "message"
+    t.string "slug"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 
   create_table "spree_countries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

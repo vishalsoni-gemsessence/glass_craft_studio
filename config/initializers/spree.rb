@@ -59,3 +59,16 @@ Spree::Api::Config.configure do |config|
 end
 
 Spree.user_class = "Spree::LegacyUser"
+
+Spree::Backend::Config.configure do |config|
+  config.locale = 'en'
+  config.class::CONTACTS ||= [:contacts, :contact_us_email]
+
+  config.menu_items << config.class::MenuItem.new(
+                          config.class::CONTACTS,
+                          'wrench',
+                          condition: -> { can?(:admin, Spree::Contact) },
+                          partial: 'spree/admin/shared/contacts_sub_menu',
+                          url: :admin_contacts_path
+                        )
+end

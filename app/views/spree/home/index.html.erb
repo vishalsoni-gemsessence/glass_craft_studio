@@ -177,20 +177,17 @@
       <div class="col-lg-6">
         <div class="subsection">
           <h5 class="mb-0"><em>Customer Services and Feedbacks</em></h5>
-          <p>If you find any issue during your purchase or after receiving our products, please don’t hesitate to contact us. Your comments and feedbacks can help us to improve, feel free to leave your message:
-            <br><a class="link" href="support@glassxpertndesign.com" target="blank">support@glassxpertndesign.com</a>
-          </p>
+          <p>If you find any issue during your purchase or after receiving our products, please don’t hesitate to contact us. Your comments and feedbacks can help us to improve.</p>
           <h5 class="mb-0"><em>Customized Glass Gifts</em></h5>
           <p>Put your imagination into reality
-            <br>GlassXpert &amp; Design is happy to help customers designing specific gifts for personal and company use, we offer discount on big volume (minimum order of 10). To discuss your ideas, feel free to contact our designers: <a class="link" href="design@glassxpertndesign.com"
-            target="blank">design@glassxpertndesign.com</a>
+            <br>GlassXpert &amp; Design is happy to help customers designing specific gifts for personal and company use, we offer discount on big volume (minimum order of 10). To discuss your ideas, feel free to contact our designers.
           </p>
           <h5 class="mb-0"><em>Photo Print on Glass </em></h5>
           <p>Customized Size and Shapes
-            <br>For customers who want to do a very special size of photo print such as large glass panels or glass top of furniture (table top or wardrobe), please contact our designers: <a class="link" href="design@glassxpertndesign.com" target="blank">design@glassxpertndesign.com</a>
+            <br>For customers who want to do a very special size of photo print such as large glass panels or glass top of furniture (table top or wardrobe), please contact our designers.
           </p>
           <h5 class="mb-0"><em>Glass for Interior Design</em></h5>
-          <p>To quote price for different patterns and dimensions, please contact our sales: <a class="link" href="sales@glassxpertndesign.com" target="blank">sales@glassxpertndesign.com</a>
+          <p>To quote price for different patterns and dimensions, please contact our sales.
           </p>
         </div>
         <!--/subsection-->
@@ -200,34 +197,45 @@
         <div class="table-parent-md" style="height: 100%;">
           <div class="vertical-middle">
             <div class="subsection">
-              <form class="form">
+              <% @contact_us = Spree::Contact.new if @contact_us.nil? %>
+              <%= form_for @contact_us do |f| %>
                 <fieldset>
+                  <div class="subsection-sm">
+                    <%= f.select(:contact_us_email_id, Spree::ContactUsEmail.all.collect {|c| [ c.name, c.id ] }, {}, {class: "form-control"}) %>
+                    <!-- options_from_collection_for_select(Spree:ContactUsEmail, "name", "email") %> -->
+                  </div>
+                  
                   <div class="row">
                     <div class="col-md-6">
                       <div class="subsection-sm">
-                        <input class="form-control" id="exampleInputName1" type="text" placeholder="Name">
+                        <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+                        <%= display_error_message(f.object, 'name') %>
                       </div>
                     </div>
                     <!--/col-->
                     <div class="col-md-6">
                       <div class="subsection-sm">
-                        <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Email">
+                        <%= f.email_field :email, class: "form-control", placeholder: "Email", 'aria-describedby': "emailHelp", required: true %>
+                        <%= display_error_message(f.object, 'email') %>
                       </div>
                     </div>
                     <!--/col-->
                   </div>
                   <!--/row-->
                   <div class="subsection-sm">
-                    <input class="form-control" id="exampleInputSubject1" type="email" placeholder="Subject">
+                    <%= f.text_field :subject, class: "form-control", placeholder: "Subject", required: true %>
+                    <%= display_error_message(f.object, 'subject') %>
                   </div>
                   <div class="subsection-sm">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="email" placeholder="Message"></textarea>
+                  
+                    <%= f.text_area :message, class: "form-control", placeholder: "Message", required: true %>
+                    <%= display_error_message(f.object, 'message') %>
                   </div>
                   <div class="text-right">
-                    <button class="btn btn-info" type="submit">SEND MESSAGE</button>
+                    <%= f.submit t(:send_msg), class: "btn btn-info" %>
                   </div>
                 </fieldset>
-              </form>
+              <% end %>
             </div>
             <!--/subsection-->
           </div>

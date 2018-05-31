@@ -13,10 +13,10 @@ module Spree
       rel += "$( window ).on('load', function() {"
       flash.each do |type, message|
         next if type == "timedout"
-          notify_type = notify_type(type)
-          notify_class = notify_class(type)
-          rel += "notification('topright', '#{notify_type}', '#{notify_class}', '#{notify_type.try(:titlecase)}', \"#{message}\");  "
-        end
+        notify_type = notify_type(type)
+        notify_class = notify_class(type)
+        rel += "notification('topright', '#{notify_type}', '#{notify_class}', '#{notify_type.try(:titlecase)}', \"#{message}\");  "
+      end
       rel += "});"
       rel += "</script>"
       rel.html_safe

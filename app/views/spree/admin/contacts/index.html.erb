@@ -1,0 +1,75 @@
+<% admin_layout "full-width" %>
+
+<% admin_breadcrumb(plural_resource_name(Spree::Contact)) %>
+
+<% content_for :table_filter_title do %>
+  <%= Spree.t(:search) %>
+<% end %>
+
+<% content_for :table_filter do %>
+  <div data-hook="admin_contacts_sidebar">
+    <%= search_form_for @search, url: admin_contacts_path do |f| %>
+        <%- locals = {f: f} %>
+        <div class="row" data-hook="admin_contacts_index_search" >
+          <div class="col-12">
+            <div class="field">
+              <%= f.label :name_cont, Spree::Contact.human_attribute_name(:name) %>
+              <%= f.text_field :name_cont, size: 15 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions filter-actions" data-hook="admin_contacts_index_search_buttons">
+          <%= button t('spree.search') %>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="new_contact_us_wrapper" data-hook></div>
+
+<%= paginate @collection, theme: "solidus_admin" %>
+
+<% if @collection.any? %>
+  <table class="index" id="listing_contacts">
+    <colgroup>
+       <col style="width: 20%;">
+       <col style="width: 20%;">
+       <col style="width: 20%;">
+       <col style="width: 30%;">
+       <col style="width: 10%;">
+
+    </colgroup>
+    <thead>
+      <tr data-hook="admin_contacts_index_headers">
+        <th><%= sort_link @search, :name, Spree::Contact.human_attribute_name(:name), { default_order: "desc" }, {title: 'admin_contact_us_listing_name_title'} %></th>
+        <th><%= Spree::Contact.human_attribute_name(:email) %></th>
+        <th><%= Spree::Contact.human_attribute_name(:subject) %></th>
+        <th><%= Spree::Contact.human_attribute_name(:message) %></th>
+        <th data-hook="admin_contact_us_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @collection.each do |contact_us| %>
+          <tr <%== "style='color: red;'" if contact_us.deleted? %> id="<%= spree_dom_id contact_us %>" data-hook="admin_contacts_index_rows">
+            <td><%= contact_us.try(:name) %></td>
+            <td><%= contact_us.email %></td>
+            <td><%= contact_us.subject %></td>
+            <td><%= truncate(contact_us.message, length: 25, omission: '...') %></td>
+            <td class="actions" data-hook="admin_contact_us_index_row_actions">
+              <%= link_to_edit_url edit_admin_contact_url(contact_us), no_text: true, class: 'edit' if can?(:edit, contact_us) && !contact_us.deleted? %>
+            </td>
+
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-objects-found">
+    <%#= render 'spree/admin/shared/no_objects_found',
+                  resource: Spree::Contact,
+                  new_resource_url: new_object_url %>
+  </div>
+<% end %>
+
+<%= paginate @collection, theme: "solidus_admin" %>

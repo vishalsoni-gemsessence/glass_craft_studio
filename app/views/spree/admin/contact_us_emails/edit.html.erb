@@ -1,0 +1,20 @@
+<% content_for :page_actions do %>
+  <% if can?(:create, Spree::ContactUsEmail) %>
+    <li id="new_contact_us_email_link">
+      <%= button_link_to t('spree.new_contact_us_email'), new_object_url, { id: 'admin_new_contact_us_email' } %>
+    </li>
+  <% end %>
+<% end %>
+
+<%= render partial: 'spree/shared/error_messages', locals: { target: @contact_us_email } %>
+
+<% admin_breadcrumb(t('spree.contact_us_email_details')) %>
+
+<%= form_for [:admin, @contact_us_email], html: { multipart: true } do |f| %>
+  <fieldset class="no-border-top">
+    <%= render partial: 'form', locals: { f: f } %>
+    <% if can?(:update, @contact_us_email) %>
+      <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+    <% end %>
+  </fieldset>
+<% end %>

@@ -1,0 +1,44 @@
+<div data-hook="admin_contact_us_email_form_fields">
+
+  <div class="row">
+
+    <div class="left col-12" data-hook="admin_contact_us_email_form_first">
+      <div data-hook="admin_contact_us_email_form_name">
+        <%= f.field_container :name do %>
+          <%= f.label :name, class: 'required' %>
+          <%= f.text_field :name, class: 'fullwidth title', readonly: true %>
+          <%= f.error_message_on :name %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="left col-12" data-hook="admin_contact_us_email_form_second">
+      <div data-hook="admin_contact_us_email_form_email">
+        <%= f.field_container :email do %>
+          <%= f.label :email, class: 'required' %>
+          <%= f.email_field :email, class: 'fullwidth title', readonly: true %>
+          <%= f.error_message_on :email %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="left col-12" data-hook="admin_contact_us_email_form_third">
+      <div data-hook="admin_contact_us_email_form_subject">
+        <%= f.field_container :subject do %>
+          <%= f.label :subject, class: 'required' %>
+          <%= f.text_field :subject, class: 'fullwidth title', readonly: true %>
+          <%= f.error_message_on :subject %>
+        <% end %>
+      </div>
+    </div>
+    <div class="left col-12" data-hook="admin_contact_us_email_form_fourth">
+      <div data-hook="admin_contact_us_email_form_message">
+        <%= f.field_container :message do %>
+          <%= f.label :message, class: 'required' %>
+          <%= f.text_area :message, class: 'fullwidth title', readonly: true %>
+          <%= f.error_message_on :message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

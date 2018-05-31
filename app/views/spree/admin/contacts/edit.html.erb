@@ -1,0 +1,19 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @contact_us } %>
+
+<% admin_breadcrumb(t('spree.contact_details')) %>
+
+<% content_for :page_actions do %>
+  <li id="new_contact_us_email_link">
+    <%= button_link_to Spree.t(:contacts), admin_contacts_path, { :id => 'admin_contacts_email' } %>
+  </li>
+<% end if can?(:create, Spree::ContactUsEmail) %>
+
+<%= form_for [:admin, @contact], html: { multipart: true } do |f| %>
+  <fieldset class="no-border-top">
+    <%= render partial: 'form', locals: { f: f } %>
+
+    <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <%= link_to t('spree.actions.cancel'), collection_url, class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

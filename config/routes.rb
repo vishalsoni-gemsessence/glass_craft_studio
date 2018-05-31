@@ -8,4 +8,19 @@ Rails.application.routes.draw do
   mount Spree::Core::Engine, at: '/'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #   get '/about_us', :to => 'spree/about#index', :as => :about_us
+  Spree::Core::Engine.routes.draw do
+    namespace :admin do
+      resources :contact_us_emails do
+        member do
+          post :clone
+        end
+      end
+
+      resources :contacts
+    end
+
+    resources :contacts
+  end
 end

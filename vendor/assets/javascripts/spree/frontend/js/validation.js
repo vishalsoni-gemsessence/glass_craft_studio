@@ -122,4 +122,22 @@ $(function() {
       form.submit();
     }
   });
+
+  $("#new_contact").validate({
+    errorElement: 'div', //default input error message container
+    errorClass: 'invalid-feedback subsection-sm', // default input error message class
+    highlight: function (element, errorClass, validClass) {
+        $(element).addClass("is-invalid")
+    },
+    unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass("is-invalid")
+    },
+    focusInvalid: false, // do not focus the last invalid input
+    ignore: "",
+    rules: {
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
 })
