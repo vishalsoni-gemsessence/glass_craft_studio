@@ -45,7 +45,11 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
-gem 'solidus_on_demand_products', path: '../solidus_on_demand_products'
+# For development on local
+# gem 'solidus_on_demand_products', path: '../solidus_on_demand_products'
+
+# Use solidus_on_demand_products to customize product
+gem 'solidus_on_demand_products', git: 'https://forever_sumit@bitbucket.org/36etcetera/image-editor-plugin.git', branch: "master"
 
 # Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'

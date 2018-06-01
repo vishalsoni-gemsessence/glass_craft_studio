@@ -1,4 +1,12 @@
 GIT
+  remote: https://forever_sumit@bitbucket.org/36etcetera/image-editor-plugin.git
+  revision: 7388ff1b99bfe6878db8d72118a2c291020c002b
+  branch: master
+  specs:
+    solidus_on_demand_products (0.0.1)
+      solidus_core (~> 2.5.0)
+
+GIT
   remote: https://github.com/solidusio-contrib/solidus_editor.git
   revision: 8dc65bda25c14915cf7a88bca14c64068a8e7d22
   branch: master
@@ -17,12 +25,6 @@ GIT
       deface (~> 1.0)
       solidus (>= 1.1, < 3)
       solidus_support
-
-PATH
-  remote: ../solidus_on_demand_products
-  specs:
-    solidus_on_demand_products (0.0.1)
-      solidus_core (~> 2.5.0)
 
 GEM
   remote: https://rubygems.org/

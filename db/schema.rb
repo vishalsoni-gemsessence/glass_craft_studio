@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530094831) do
+ActiveRecord::Schema.define(version: 20180601173916) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -1090,6 +1090,33 @@ ActiveRecord::Schema.define(version: 20180530094831) do
     t.index ["position"], name: "index_spree_taxons_on_position"
     t.index ["rgt"], name: "index_spree_taxons_on_rgt"
     t.index ["taxonomy_id"], name: "index_taxons_on_taxonomy_id"
+  end
+
+  create_table "spree_template_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.decimal "img_width", precision: 10
+    t.decimal "img_height", precision: 10
+    t.decimal "position_x", precision: 10
+    t.decimal "position_y", precision: 10
+    t.decimal "border_radius", precision: 10
+    t.integer "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "description"
+    t.decimal "width", precision: 10
+    t.decimal "height", precision: 10
+    t.decimal "scale", precision: 5, scale: 2
+    t.string "edges"
+    t.string "slug"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_of_images"
+    t.string "weight"
+    t.decimal "price", precision: 5, scale: 2
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
