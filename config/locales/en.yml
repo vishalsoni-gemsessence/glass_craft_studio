@@ -80,6 +80,7 @@ en:
     dimension: "Dimension"
     in_stock: "In Stock"
     no_dimension_available: "No Dimension Available"
+
     order_state:
       address: "SHIPPING INFORMATION"
       payment: "PAYMENT METHOD"
