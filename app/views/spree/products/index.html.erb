@@ -6,13 +6,6 @@
       <h4 class="fw400">Personalized photo gifts and photo print on mirror</h4>
     </div>
 
-    <div class="subsection-sm">
-      <button class="btn btn-sm btn-outline-primary mr-1 ml-1 active" type="button">All</button>
-      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Family</button>
-      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wedding</button>
-      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Decoration</button>
-      <button class="btn btn-sm btn-outline-primary mr-1 ml-1" type="button">Wishdom</button>
-    </div>
     <% content_for :sidebar do %>
       <div data-hook="homepage_sidebar_navigation">
         <% if "spree/products" == params[:controller] && @taxon %>

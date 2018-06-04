@@ -336,6 +336,10 @@ div#thumbnails ul#product-thumbnails li:hover {
 div#main-image {
   padding-left:  70px;
 }
+
+.pay-pagination li {
+  margin-right: 7px;
+}
 /*
 ========================
   Product View End

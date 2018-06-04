@@ -72,3 +72,15 @@ en:
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
     logout: "SIGN OUT"
     login: "SIGN IN"
+    coupon_code: "Promotion Code"
+    checkout: "Proceed to checkout"
+    unit_price: "Unit Price"
+    sub_total: "subtotal"
+    quantity: "Quantity"
+    dimension: "Dimension"
+    in_stock: "In Stock"
+    no_dimension_available: "No Dimension Available"
+    order_state:
+      address: "SHIPPING INFORMATION"
+      payment: "PAYMENT METHOD"
+      confirm: "ORDER CONFIRNATION"

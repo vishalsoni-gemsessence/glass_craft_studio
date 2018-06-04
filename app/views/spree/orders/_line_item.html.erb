@@ -17,20 +17,32 @@
       <%= variant.options_text %>
       <% if line_item.insufficient_stock? %>
         <span class="out-of-stock">
+          <%= line_item.variant.sku %> |
           <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br />
         </span>
+      <% else %>
+        <span class="in-stock">
+          <%= line_item.variant.sku %> |
+          <%= t('spree.in_stock') %>&nbsp;&nbsp;<br />
+        </span>
       <% end %>
-      <span class="line-item-description mb-0" data-hook="line_item_description">
-        <%= line_item_description_text(line_item.description) %>
-      </span>
+      <!-- <span class="line-item-description mb-0" data-hook="line_item_description">
+        # <%= line_item_description_text(line_item.description) %>
+      </span> -->
     </td>
-    <td class="cart-item-price text-muted text-style" data-hook="cart_item_price">
-      <%= line_item.single_money.to_html %>
+    <td class="cart-item-dimension text-muted text-style" data-hook="cart_item_dimension">
+      <%= get_dimension(line_item.variant) %>
+    </td>
+    <td class="cart-item-weight text-muted text-style" data-hook="cart_item_weight">
+      <%= get_weight_in_kg(line_item.variant.weight) %>
     </td>
     <td class="text-center cart-item-quantity" data-hook="cart_item_quantity">
       <div class="number-wrap">
         <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity number mb-0 form-control", size: 5 %>
       </div>
+    </td>
+    <td class="cart-item-price text-muted text-style" data-hook="cart_item_price">
+      <%= line_item.single_money.to_html %>
     </td>
     <td class="cart-item-total text-muted text-style" data-hook="cart_item_total">
       <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>

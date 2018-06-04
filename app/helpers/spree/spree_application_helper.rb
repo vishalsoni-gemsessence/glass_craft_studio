@@ -22,6 +22,18 @@ module Spree
       rel.html_safe
     end
 
+    def get_dimension(variant)
+      if(!variant.height.present? && !variant.width.present?)
+        Spree.t(:"no_dimension_available")
+      else
+        "#{variant.height}X#{variant.width}"
+      end 
+    end
+
+    def  get_weight_in_kg(weight)
+      "#{weight*0.0283495} kg"
+    end
+
     private
       def notify_type(flash_type)
         case flash_type.to_sym
