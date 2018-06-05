@@ -1,0 +1,6 @@
+$(".taxon_children").append("<%= j render(@childrens) %>");
+<% if @childrens.total_pages == @childrens.current_page %>
+  $("#loadMore").hide();
+<% else %>
+  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @childrens.next_page) %>');
+<% end %>

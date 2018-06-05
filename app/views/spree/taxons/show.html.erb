@@ -9,43 +9,33 @@
         <%= raw @taxon.description %>
       </div>
 
-      <% content_for :sidebar do %>
-        <div data-hook="homepage_sidebar_navigation">
-          <% if "spree/products" == params[:controller] && @taxon %>
-            <%= render partial: 'spree/shared/filters' %>
-          <%# else %>
-            <%#= render partial: 'spree/shared/taxonomies' %>
-          <% end %>
-        </div>
-      <% end %>
-
   		<div class="subsection-sm">
-      <% if @taxon.children.present? %>  
-        <% @taxon.children.each_with_index do |taxon, i| %>      
-  			<div class="gift-card">
-  				<div class="gift-card-img">
-  					<img src="<%= taxon.icon.url(:original) %>" alt="" />
-  				</div>
-  				<ul class="gift-card-link">
-  					<li>
-              <%= link_to taxon.permalink do %>
-                <i class="fa fa-link" aria-hidden="true"></i>
-              <% end %>
-  					</li>
-  				</ul>
-  				<div class="gift-card-blink"></div>
-  				<div class="gift-card-text">
-  					<h4 class="gift-card-title">
-              <%= link_to taxon.permalink do %>
-                <%= simple_format(taxon.name) %>
-              <% end %>  
-            </h4>
-            <!-- <p class="gift-card-description"></p> -->
-  				</div>
-  			</div>
-  			<!--/gift-card-->
+        <% if @taxon.children.present? %>  
+          <% @taxon.children.each_with_index do |taxon, i| %>      
+    			<div class="gift-card">
+    				<div class="gift-card-img">
+    					<img src="<%= taxon.icon.url(:original) %>" alt="" />
+    				</div>
+    				<ul class="gift-card-link">
+    					<li>
+                <%= link_to taxon.permalink do %>
+                  <i class="fa fa-link" aria-hidden="true"></i>
+                <% end %>
+    					</li>
+    				</ul>
+    				<div class="gift-card-blink"></div>
+    				<div class="gift-card-text">
+    					<h4 class="gift-card-title">
+                <%= link_to taxon.permalink do %>
+                  <%= simple_format(taxon.name) %>
+                <% end %>  
+              </h4>
+              <!-- <p class="gift-card-description"></p> -->
+    				</div>
+    			</div>
+    			<!--/gift-card-->
+          <% end %>
         <% end %>
-      <% end %>  
   		</div>
   		<!--/subsection-->
 

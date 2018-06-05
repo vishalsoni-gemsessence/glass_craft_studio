@@ -22,11 +22,12 @@
 </div>
 
 <% if products.any? %>
-  <ul id="products" class="inline product-listing" data-hook>
+  <div id="products" class="inline product-listing" data-hook>
     <div class="subsection-sm">
       <div class="link-wrap">
         <% products.each do |product| %>
-          <%= render partial: 'spree/shared/product', locals: { product: product, taxon: taxon } %>
+          <%#= render partial: 'spree/shared/product', locals: { product: product, taxon: taxon } %>
+          <%= render partial: 'spree/products/product', locals: { product: product } %>
         <% end %>
       </div>
     </div>
@@ -40,5 +41,5 @@
       </div>
     </div>
     <% reset_cycle("classes") %>
-  </ul>
+  </div>
 <% end %>

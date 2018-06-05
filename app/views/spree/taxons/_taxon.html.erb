@@ -1,4 +1,36 @@
-<div class="taxon" data-hook="taxon">
-  <h5 class="subtaxon-title"><%= link_to taxon.name, seo_url(taxon), class: 'breadcrumbs' %></h5>
-  <%= render partial: 'spree/shared/products', locals: { products: taxon_preview(taxon), taxon: taxon } %>
+<!-- <div class="gift-card">
+  <div class="taxon" data-hook="taxon">
+    <div class="product-image gift-card-img"> -->
+      <%#binding.pry %>
+      <%#= link_to(image_tag taxon.icon(:small), itemprop: seo_url(taxon), class: 'product-img') %>
+
+      <!-- image_tag image.icon(size), itemprop: taxon.icon.url, class: 'product-img' -->
+    <!-- </div>
+    <h5 class="subtaxon-title"><%#= link_to taxon.name, seo_url(taxon), class: 'breadcrumbs' %></h5> -->
+    <%#= render partial: 'spree/shared/products', locals: { products: taxon_preview(taxon), taxon: taxon } %>
+  <!-- </div>
+</div> -->
+
+<div class="gift-card">
+  <div class="taxon" data-hook="taxon">
+    <div class="gift-card-img">
+      <%= image_tag taxon.icon.url, size: :small, class: 'product-img', alt: "" %>
+      <!-- <img src="img/media/gift-card-img-1.jpg" alt="" /> -->
+    </div>
+    <ul class="gift-card-link">
+      <!-- <li><a href="#0"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+      </li> -->
+      <!-- <li><a href="01-new-born-baby.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+      </li> -->
+      <li> <%= link_to '', seo_url(taxon), class: "fa fa-link", 'aria-hidden': true %>
+      </li>
+    </ul>
+    <div class="gift-card-blink"></div>
+    <div class="gift-card-text">
+      <h4 class="gift-card-title subtaxon-title">
+        <%= link_to taxon.name, seo_url(taxon), class: 'breadcrumbs' %>
+      </h4>
+      <!-- <p class="gift-card-description"></p> -->
+    </div>
+  </div>
 </div>
