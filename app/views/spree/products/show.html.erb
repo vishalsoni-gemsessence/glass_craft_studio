@@ -48,10 +48,12 @@
 
                     <div class="col-md-6">
                       <div class="subsection-sm">
+                        <p class="text-lg fw700"><span class="text-muted-darken"><%= t('spree.product_code') %>: </span><%= @product.sku %></p>
                         <% if @product.master.can_supply? %>
-                          <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p>
+                          <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
+                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.in_stock') %></p>
                         <% elsif @product.variants.empty? %>
-                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken">Availability: </span><%= t('spree.out_of_stock') %></p>
+                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %></p>
                         <% end %>
                       </div>
                     </div>
@@ -61,21 +63,22 @@
                 <div class="subsection-sm separator"></div>
 
                 <div class="subsection-sm" itemprop="description" data-hook="description">
-                  <h5 class="bigger text-uppercase">Description</h5>
+                  <h5 class="bigger text-uppercase"><%= t('spree.description') %></h5>
 
                   <p class="text-muted"><%= product_description(@product) rescue t('spree.product_has_no_description') %></p>
                 </div>
               </div>
               <div class="subsection-sm separator"></div>
 
-              <div class="col-lg-6 alpha" data-hook="product_left_part">
-                <div class="subsection" data-hook="product_left_part_wrap">
+              <div class="col-lg-12 alpha" data-hook="product_left_part">
+                <div data-hook="product_left_part_wrap">
                   <div data-hook="product_properties">
                     <%= render partial: 'properties' %>
-                    <div class="subsection-sm separator"></div>
                   </div>
                 </div>
               </div>
+
+              <div class="subsection-sm separator"></div>
 
               <div class="subsection-sm">
                 <div data-hook="product_price">

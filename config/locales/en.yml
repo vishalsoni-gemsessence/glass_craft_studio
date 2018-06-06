@@ -86,3 +86,8 @@ en:
       payment: "PAYMENT METHOD"
       confirm: "ORDER CONFIRNATION"
     products: "Products"
+    in_stock: "In Stock"
+    availability: "Availability"
+    product_code: "Product code"
+    description: "Description"
+    specifications: "Specifications"
