@@ -22,7 +22,10 @@
       </li> -->
       <!-- <li><a href="01-new-born-baby.html"><i class="fa fa-link" aria-hidden="true"></i></a>
       </li> -->
-      <li> <%= link_to '', seo_url(taxon), class: "fa fa-link", 'aria-hidden': true %>
+      <li>
+        <%= link_to seo_url(taxon) do %>
+          <i class="fa fa-link" aria-hidden="true"></i>
+        <% end %>
       </li>
     </ul>
     <div class="gift-card-blink"></div>

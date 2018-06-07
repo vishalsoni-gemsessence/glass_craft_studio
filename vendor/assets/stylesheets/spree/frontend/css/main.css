@@ -12014,6 +12014,11 @@ hr {
   transition: all .4s ease-in-out;
 }
 
+.gift-card-text p {
+  margin-bottom: 0;
+  transition: all .4s ease-in-out;
+}
+
 .gift-card:hover .gift-card-blink {
   border-bottom: 325px solid rgba(6, 57, 88, 0.7);
 }

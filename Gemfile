@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use figaro for envirnoment variables
 gem 'figaro'
+gem 'truncate_html'
 
 # Use solidus and its extensions for e-commerce solution
 gem 'solidus'

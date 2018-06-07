@@ -22,7 +22,7 @@
 </div>
 
 <% if products.any? %>
-  <div id="products" class="inline product-listing" data-hook>
+  <ul id="products" class="inline product-listing" data-hook>
     <div class="subsection-sm">
       <div class="link-wrap">
         <% products.each do |product| %>
@@ -41,5 +41,5 @@
       </div>
     </div>
     <% reset_cycle("classes") %>
-  </div>
+  </ul>
 <% end %>

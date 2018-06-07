@@ -13,15 +13,5 @@ module Spree
 
       @childrens = @taxon.children.page(params[:page]).per(params[:per_page])
     end
-
-    private
-
-    def accurate_title
-      if @taxon
-        @taxon.seo_title
-      else
-        super
-      end
-    end
   end
 end
