@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604095958) do
+ActiveRecord::Schema.define(version: 20180609103200) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -505,6 +505,8 @@ ActiveRecord::Schema.define(version: 20180604095958) do
     t.boolean "promotionable", default: true
     t.string "meta_title"
     t.integer "template_id"
+    t.boolean "is_personalize_product", default: false
+    t.integer "personalize_by_id"
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["name"], name: "index_spree_products_on_name"
