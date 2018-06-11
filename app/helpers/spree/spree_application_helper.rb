@@ -34,6 +34,11 @@ module Spree
       "#{weight*0.0283495} kg"
     end
 
+    def render_snippet(slug)
+      page = Spree::Page.find_by_slug(slug)
+      raw page.body if page
+    end
+    
     private
       def notify_type(flash_type)
         case flash_type.to_sym

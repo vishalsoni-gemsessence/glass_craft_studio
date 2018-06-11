@@ -1,0 +1,22 @@
+<% 
+  shape_property = product.product_properties.find_by_property_id(product.properties.find_by_name('Shape')) 
+  
+  height_property = product.product_properties.find_by_property_id(product.properties.find_by_name('Height')) 
+  width_property = product.product_properties.find_by_property_id(product.properties.find_by_name('Width')) 
+  
+%>
+<% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+<a class="frame-selection-card <%= cycle("", "light-bg", "", "light-bg", "light-bg", "", "light-bg", "", name: "classes") %>" href="<%= url %>">
+	<div class="table-parent-md">
+		<div class="vertical-middle">
+			<div class="frame-view <%= shape_property.value.downcase %>-<%= height_property.value %>-<%= width_property.value %>">
+				<div class="table-parent-md">
+					<div class="vertical-middle">
+						<p class="frame-title"><%= product.name %></p>
+					</div>
+				</div>
+			</div>
+			<p class="frame-price">$120</p>
+		</div>
+	</div>
+</a>

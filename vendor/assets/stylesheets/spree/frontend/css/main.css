@@ -12617,13 +12617,13 @@ hr {
   opacity: 0.5;
 }
 
-.frame-view.circle-10 {
+.frame-view.circle-10-10 {
   border-radius: 50%;
   width: 150px;
   height: 150px;
 }
 
-.frame-view.circle-15 {
+.frame-view.circle-15-15 {
   border-radius: 50%;
   width: 180px;
   height: 180px;
@@ -12640,28 +12640,33 @@ hr {
 }
 
 .frame-view.rectangular-15-20 {
-  width: 235px;
+  width: 180px;
   height: 135px;
 }
 
 .frame-view.rectangular-20-25 {
-  width: 275px;
   height: 160px;
+  width: 200px;
 }
 
-.frame-view.rectangular-30-38 {
-  width: 280px;
+.frame-view.rectangular-30-40 {
+  width: 227px;
   height: 170px;
 }
 
 .frame-view.rectangular-50-60 {
-  width: 290px;
+  width: 246px;
   height: 205px;
 }
 
 .frame-view.rectangular-30-90 {
   width: 290px;
   height: 125px;
+}
+
+.frame-view.rectangular-40-90 {
+  width: 290px;
+  height: 167px;
 }
 
 .frame-title {

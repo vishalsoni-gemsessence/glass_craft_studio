@@ -30,6 +30,8 @@ plugins:
   - visualchars
   - nonbreaking
   - template
+  - link
+  - image
 
 # Each line is a toolbar
 toolbar:

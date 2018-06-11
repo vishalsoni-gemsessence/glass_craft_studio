@@ -1,0 +1,58 @@
+<section class="section print-glass-hero">
+	<div class="container bigger">
+		<div class="print-glass-container">
+			<div class="print-glass-hero__img">
+        <%= image_tag 'glass-photo-prints/print-glass.jpg' %>
+        <!-- <img src="img/media/print-glass-img-1.jpg" alt=""> -->
+				<div class="glass-layer">
+					<div class="glass-layer-top">
+						<p>first layer of glass, we print photo on the bottom surface</p>
+						<div class="layer-line layer-line-top"></div>
+					</div>
+					<div class="glass-layer-middle">
+						<p>glue, laminated two
+							<br>glasses together</p>
+					</div>
+					<div class="glass-layer-bottom">
+						<div class="layer-line layer-line-bottom"></div>
+						<p>second layer of glass</p>
+					</div>
+				</div>
+			</div>
+			<!--/print-glass-hero__img-->
+			<div class="print-glass-hero__text">
+				<div class="table-parent-md">
+					<div class="vertical-middle">
+						<h2><%= @taxon.name %></h2>
+            <%= render_snippet "/taxon-glass-photo-prints" %>          
+            <!-- </p><a class="btn btn-info" href="upload-photo.html">upload your images</a> -->
+					</div>
+					<!--/vertical-middle-->
+				</div>
+				<!--/table-parent-md-->
+			</div>
+			<!--/print-glass-hero__text-->
+		</div>
+		<!--/print-glass-container-->
+	</div>
+	<!--/container-->
+</section>
+<!--/print-glass-hero-->
+
+
+<section class="section section-standard-sizes">
+	<div class="container bigger">
+		<div class="subsection standard-sizes-text">
+			<h2><%= @taxon.products.size %> standard sizes </h2>
+		</div>
+        
+		<div class="frame-selection-box">    
+      <% cache [I18n.locale, @taxon] do %>        
+        <%= render partial: 'spree/shared/glass_photo_prints_products', locals: { products: @taxon.products, taxon: @taxon } %>        
+          <%#= render partial: 'spree/shared/glass_photo_prints_products', locals: { products: taxon_preview(@taxon, @taxon.products.size), taxon: @taxon } %>
+      <% end %>
+		</div>
+	</div>
+	<!--/container-->
+</section>
+<!--/section-->
