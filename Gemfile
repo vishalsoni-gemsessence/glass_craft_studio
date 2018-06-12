@@ -47,9 +47,12 @@ gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 # For development on local
 # gem 'solidus_on_demand_products', path: '../solidus_on_demand_products'
+gem 'tinymce-rails-langs'
 
 # Use solidus_on_demand_products to customize product
-gem 'solidus_on_demand_products', git: 'https://forever_sumit@bitbucket.org/36etcetera/image-editor-plugin.git', branch: "master"
+gem 'solidus_on_demand_products', git: 'https://bitbucket.org/36etcetera/image-editor-plugin.git', branch: "master"
+
+gem 'solidus_prototypes'
 
 # Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'

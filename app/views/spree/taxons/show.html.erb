@@ -1,28 +1,68 @@
 <% slug = @taxon.permalink %>
-<% if slug == "glass-gifts" %>
-  <%= render "spree/shared/glass_gifts" %>
-<% elsif slug == "glass-photo-prints" %>
+<% if slug == "glass-photo-prints" %>
   <%= render "spree/shared/glass_photo_prints" %>
 <% else %>
+  <section class="section text-center">
+    <div class="container bigger">
+      <div class="subsection">
+        <h2 class="text-primary mb-2"><%= strip_tags @taxon.name %></h2>
+        <%= raw @taxon.description %>
+      </div>
 
-  <h1 class="taxon-title"><%= @taxon.name %></h1>
+      <% content_for :sidebar do %>
+        <div data-hook="homepage_sidebar_navigation">
+          <% if "spree/products" == params[:controller] && @taxon %>
+            <%= render partial: 'spree/shared/filters' %>
+          <%# else %>
+            <%#= render partial: 'spree/shared/taxonomies' %>
+          <% end %>
+        </div>
+      <% end %>
 
-  <% content_for :sidebar do %>
-    <div data-hook="taxon_sidebar_navigation">
-      <%= render partial: 'spree/shared/taxonomies' %>
-      <%= render partial: 'spree/shared/filters' if @taxon.children.empty? %>
-    </div>
-  <% end %>
+  		<div class="subsection-sm">
+      <% if @taxon.children.present? %>  
+        <% @taxon.children.each_with_index do |taxon, i| %>      
+  			<div class="gift-card">
+  				<div class="gift-card-img">
+  					<img src="<%= taxon.icon.url(:original) %>" alt="" />
+  				</div>
+  				<ul class="gift-card-link">
+  					<li>
+              <%= link_to taxon.permalink do %>
+                <i class="fa fa-link" aria-hidden="true"></i>
+              <% end %>
+  					</li>
+  				</ul>
+  				<div class="gift-card-blink"></div>
+  				<div class="gift-card-text">
+  					<h4 class="gift-card-title">
+              <%= link_to taxon.permalink do %>
+                <%= simple_format(taxon.name) %>
+              <% end %>  
+            </h4>
+            <!-- <p class="gift-card-description"></p> -->
+  				</div>
+  			</div>
+  			<!--/gift-card-->
+        <% end %>
+      <% end %>  
+  		</div>
+  		<!--/subsection-->
 
-  <div data-hook="taxon_products">
-    <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-  </div>
 
-  <% unless params[:keywords].present? %>
-    <div data-hook="taxon_children">
-      <% cache [I18n.locale, @taxon] do %>
-        <%= render partial: 'taxon', collection: @taxon.children %>
+      <% if params[:keywords] %>
+        <div data-hook="search_results">
+          <% if @products.empty? %>
+            <h6 class="search-results-title"><%= t('spree.no_products_found') %></h6>
+          <% else %>
+            <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+          <% end %>
+        </div>
+      <% else %>
+        <div data-hook="homepage_products">
+          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+        </div>
       <% end %>
     </div>
-  <% end %>
+  </section>
 <% end %>

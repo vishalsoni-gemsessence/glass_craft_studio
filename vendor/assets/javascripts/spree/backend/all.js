@@ -9,3 +9,4 @@
 //= require spree/backend
 //= require_tree .
 //= require spree/backend/solidus_on_demand_products
+//= require spree/backend/solidus_prototypes
