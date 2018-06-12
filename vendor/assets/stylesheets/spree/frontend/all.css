@@ -24,4 +24,5 @@
  *= require spree/frontend/spree_static_content
  *= require spree/frontend/solidus_on_demand_products
  *= require spree/frontend/solidus_prototypes
+ *= require spree/frontend/solidus_paypal_braintree
 */

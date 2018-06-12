@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611093319) do
+ActiveRecord::Schema.define(version: 20180612074844) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -36,6 +36,37 @@ ActiveRecord::Schema.define(version: 20180611093319) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "solidus_paypal_braintree_configurations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "paypal", default: false, null: false
+    t.boolean "apple_pay", default: false, null: false
+    t.integer "store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "credit_card", default: false, null: false
+    t.index ["store_id"], name: "index_solidus_paypal_braintree_configurations_on_store_id"
+  end
+
+  create_table "solidus_paypal_braintree_customers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "braintree_customer_id"
+    t.index ["braintree_customer_id"], name: "index_braintree_customers_on_braintree_customer_id", unique: true
+    t.index ["user_id"], name: "index_braintree_customers_on_user_id", unique: true
+  end
+
+  create_table "solidus_paypal_braintree_sources", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nonce"
+    t.string "token"
+    t.string "payment_type", null: false
+    t.integer "user_id"
+    t.integer "customer_id"
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_solidus_paypal_braintree_sources_on_customer_id"
+    t.index ["payment_method_id"], name: "index_solidus_paypal_braintree_sources_on_payment_method_id"
+    t.index ["user_id"], name: "index_solidus_paypal_braintree_sources_on_user_id"
   end
 
   create_table "spree_addresses", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1265,6 +1296,7 @@ ActiveRecord::Schema.define(version: 20180611093319) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "solidus_paypal_braintree_sources", "spree_payment_methods", column: "payment_method_id"
   add_foreign_key "spree_promotion_code_batches", "spree_promotions", column: "promotion_id"
   add_foreign_key "spree_promotion_codes", "spree_promotion_code_batches", column: "promotion_code_batch_id"
   add_foreign_key "spree_tax_rate_tax_categories", "spree_tax_categories", column: "tax_category_id"

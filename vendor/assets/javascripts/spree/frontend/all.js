@@ -37,3 +37,5 @@
 //= require spree/frontend/js/flashes.js
 //= require spree/frontend/solidus_on_demand_products
 //= require spree/frontend/solidus_prototypes
+//= require solidus_paypal_braintree/frontend
+//= require spree/frontend/paypal_button

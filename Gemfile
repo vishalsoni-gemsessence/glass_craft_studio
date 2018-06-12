@@ -54,6 +54,9 @@ gem 'solidus_on_demand_products', git: 'https://bitbucket.org/36etcetera/image-e
 
 gem 'solidus_prototypes'
 
+gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
+
+
 # Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'
 
