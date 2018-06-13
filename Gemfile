@@ -47,7 +47,7 @@ gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 # For development on local
-# gem 'solidus_on_demand_products', path: '../solidus_on_demand_products'
+# gem 'solidus_on_demand_products', path: '../image-editor-plugin'
 gem 'tinymce-rails-langs'
 
 # Use solidus_on_demand_products to customize product
