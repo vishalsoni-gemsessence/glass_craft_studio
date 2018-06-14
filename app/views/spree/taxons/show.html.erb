@@ -6,52 +6,38 @@
     <div class="container bigger">
       <div class="subsection">
         <h2 class="text-primary mb-2"><%= strip_tags @taxon.name %></h2>
-        <%= raw @taxon.description %>
+        <h4 class="fw400"><%= raw @taxon.description %></h4>
       </div>
 
-  		<div class="subsection-sm">
-        <% if @taxon.children.present? %>  
-          <% @taxon.children.each_with_index do |taxon, i| %>      
-    			<div class="gift-card">
-    				<div class="gift-card-img">
-    					<img src="<%= taxon.icon.url(:original) %>" alt="" />
-    				</div>
-    				<ul class="gift-card-link">
-    					<li>
-                <%= link_to taxon.permalink do %>
-                  <i class="fa fa-link" aria-hidden="true"></i>
-                <% end %>
-    					</li>
-    				</ul>
-    				<div class="gift-card-blink"></div>
-    				<div class="gift-card-text">
-    					<h4 class="gift-card-title">
-                <%= link_to taxon.permalink do %>
-                  <%= simple_format(taxon.name) %>
-                <% end %>  
-              </h4>
-              <!-- <p class="gift-card-description"></p> -->
-    				</div>
-    			</div>
-    			<!--/gift-card-->
-          <% end %>
-        <% end %>
-  		</div>
-  		<!--/subsection-->
+      <div class="subsection-sm">
+        <% unless params[:keywords].present? %>
+          <div class="taxon_children" data-hook="taxon_children">
 
-      <% if params[:keywords] %>
-        <div data-hook="search_results">
-          <% if @products.empty? %>
-            <h6 class="search-results-title"><%= t('spree.no_products_found') %></h6>
-          <% else %>
-            <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+            <% cache [I18n.locale, @taxon] do %>
+              <%= render partial: 'taxon', collection: @childrens %>
+            <% end %>
+          </div>
+
+          <div class="load-more-container">
+            <% if @childrens.next_page %>
+              <%= link_to 'Load More', nested_taxons_path(page: @childrens.next_page), class: 'btn btn-primary', id: 'loadMore' %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div data-hook="taxon_products">
+          <% if !@taxon.products.empty? %>
+            <% if @childrens.present? %>
+              <h2 class="text-primary mb-2"><%= Spree.t(:'products') %></h2>
+            <% end %>
+            <%= render partial: 'spree/shared/products', locals: { products: @taxon.products, taxon: @taxon } %>
+          <% elsif !@childrens.present? %>
+            <div data-hook="products_search_results_heading_no_results_found">
+              <%= t('spree.no_products_found') %>
+            </div>
           <% end %>
         </div>
-      <% else %>
-        <div data-hook="homepage_products">
-          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </section>
 <% end %>
