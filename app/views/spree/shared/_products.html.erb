@@ -26,17 +26,14 @@
     <div class="subsection-sm">
       <div class="link-wrap">
         <% products.each do |product| %>
-          <%#= render partial: 'spree/shared/product', locals: { product: product, taxon: taxon } %>
           <%= render partial: 'spree/products/product', locals: { product: product } %>
         <% end %>
       </div>
     </div>
     <div class="subsection-sm">
       <div class="load-more-container">
-        <% if paginated_products.respond_to?(:total_pages) %>
-          <%# if paginated_products.next_page %>
-            <%= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
-          <%# end %>
+        <% if paginated_products.next_page %>
+          <%= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
         <% end %>
       </div>
     </div>

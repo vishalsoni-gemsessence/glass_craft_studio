@@ -340,6 +340,10 @@ div#main-image {
 .pay-pagination li {
   margin-right: 7px;
 }
+
+.product-listing {
+  padding: 0px;
+}
 /*
 ========================
   Product View End
