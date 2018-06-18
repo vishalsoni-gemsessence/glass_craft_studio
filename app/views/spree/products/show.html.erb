@@ -56,15 +56,15 @@
                       </div>
                     </div>
                   </div>
-                </d   iv>            
-                
+                </div>
+
                 <div class="subsection-sm separator"></div>
 
                 <div class="subsection-sm" itemprop="description" data-hook="description">
                   <h5 class="bigger text-uppercase">Description</h5>
 
                   <p class="text-muted"><%= product_description(@product) rescue t('spree.product_has_no_description') %></p>
-                </div>             
+                </div>
               </div>
               <div class="subsection-sm separator"></div>
 
@@ -84,13 +84,15 @@
                     <div class="subsection-sm">
                       <div class="form-group">
                         <div class="number-wrap">
+                          <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
                           <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
+                          <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
                         </div>
                       </div>
-                    </div> 
-                    
+                    </div>
+
                   </div>
-                </div> 
+                </div>
               </div>
 
               <%= render partial: 'cart_form' %>

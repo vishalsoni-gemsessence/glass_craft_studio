@@ -61,15 +61,7 @@ $(document).ready(function() {
 
 
 	// ----- INPUT NUMBER -----
-
-	var upURL = "/assets/spree/frontend/tpl/icon-plus.png"	;
-	var downURL = "/assets/spree/frontend/tpl/icon-minus.png";
-
-
 	$(function(){
-		$('input.number').each(function(){
-			$(this).after('<img src="'+upURL+'" class="arrow up"></img>').before('<img src="'+downURL+'" class="arrow down"></img>')
-		});
 		$('.number-wrap').on('click', '.arrow', function(e){
 			var input = $(this).parents('div.number-wrap').children('input');
 			var value = parseInt(input.attr('value'));
