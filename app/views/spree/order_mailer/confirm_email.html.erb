@@ -1,206 +1,143 @@
-<!doctype html>
-<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
-<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
-  <head>    
-    <!-- Meta-->
-    <meta charset="utf-8">
-
-    <!-- Viewport-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
-
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <%== meta_data_tags %>
-
-    <!-- Favicon-->
-    <%= favicon_link_tag 'favicon.ico' %>
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url 'apple-touch-icon.png' %>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url 'favicon-32x32.png' %>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url 'favicon-16x16.png' %>">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- Fonts-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel|Lato:400,700,900" />
-
-    <!-- Font Awesome-->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
-
-    <%= stylesheet_link_tag 'spree/frontend/all', media: 'screen' %>
-    <%= javascript_include_tag 'spree/frontend/all' %>
-
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="main"> <!-- class="container" -->
-
-      <div id="wrapper" data-hook>
-        <div id="content" data-hook> <!-- class="columns <%#= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" -->
-
-          <section class="section p-0">
-            <a href="/">
-              <%= image_tag 'spree/frontend/tpl/logo.jpg' %>
-            </a>
-          </section>
-          <section class="section bg-primary">
-            <div class="container">
-              <div class="subsection text-center text-white">
-                <h2 class="fw900 text-uppercase">YOUR ORDER HAS BEEN successfully sent!</h2>
-                <h3>THANK YOU VERY MUCH!</h3>
-              </div>
-              <div class="confirmation-container">
-                <div class="subsection">
-                  <div class="order-details-card">
-                    <h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
-                    <%= render partial: 'spree/shared/address', locals: { address: @order.ship_address, type: "shipping", order: @order } %>
-                    <%= render partial: 'spree/shared/address', locals: { address: @order.bill_address, type: "billing", order: @order } %>
-                  </div>
-                </div>
-                <div class="table-responsive">
-                  <table class="table table-hover" style="min-width: 500px">
-                    <thead>
-                      <tr>
-                        <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
-                        <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
-                        <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
-                        <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @order.line_items.each do |item| %>
-                        <tr>
-                          <td>
-                            <div class="row">
-                              <div class="col-3">
-                              <% if item.variant.images.empty? %>
-                                <%= render('spree/shared/image', image: item.variant.product.display_image, size: :small) %>
-                              <% else %>
-                              <div class="product-img">
-                                <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
-                              </div>
-                              <% end %>
-                              </div>
-                              <div class="col">
-                                <h4><%= item.variant.product.name %></h4>
-                                <%= item.variant.options_text %>
-                                <% if item.insufficient_stock? %>
-                                  <span class="out-of-stock">
-                                    <%= item.variant.sku %> |
-                                    <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br />
-                                  </span>
-                                <% else %>
-                                  <span class="in-stock">
-                                    <%= item.variant.sku %> |
-                                    <%= t('spree.in_stock') %>&nbsp;&nbsp;<br />
-                                  </span>                                                  
-                                <% end %>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="price"><%= item.single_money.to_html %></td>
-                          <td><%= item.quantity %></td>
-                          <td class="total"><span><%= item.display_amount.to_html %></span></td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                    <tfoot id="order-total" data-hook="order_details_total">
-                      <tr class="total">
-                        <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
-                        <td class="total"><span id="order_total"><%= @order.display_order_total_after_store_credit.to_html %></span></td>
-                      </tr>
-                    </tfoot>
-
-                    <tfoot id="subtotal" data-hook="order_details_subtotal">
-                      <tr class="total" id="subtotal-row">
-                        <td colspan="3"><b><%= t('spree.subtotal') %>:</b></td>
-                        <td class="total"><span><%= @order.display_item_total.to_html %></span></td>
-                      </tr>
-                    </tfoot>
-
-                    <% if @order.line_item_adjustments.exists? %>
-                      <% if @order.line_item_adjustments.promotion.eligible.exists? %>
-                        <tfoot id="price-adjustments" data-hook="order_details_price_adjustments">
-                          <% @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
-                            <tr class="total">
-                              <td colspan="3"><%= t('spree.promotion') %>: <strong><%= label %></strong></td>
-                              <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
-                            </tr>
-                          <% end %>
-                        </tfoot>
-                      <% end %>
-                    <% end %>
-
-                    <tfoot id='shipment-total'>
-                      <% @order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
-                        <tr class="total" data-hook='shipment-row'>
-                          <td colspan="3"><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i><%= t('spree.shipping') %>: <strong><%= name %></strong></td>
-                          <td class="total"><span><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: @order.currency).to_html %></span></td>
-                        </tr>
-                      <% end %>
-                    </tfoot>
-
-                    <% if @order.all_adjustments.tax.exists? %>
-                      <tfoot id="tax-adjustments" data-hook="order_details_tax_adjustments">
-                        <% @order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
-                          <tr class="total">
-                            <td colspan="3"><%= t('spree.tax') %>: <strong><%= label %></strong></td>
-                            <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
-                          </tr>
-                        <% end %>
-                      </tfoot>
-                    <% end %>
-
-                    <% if @order.total_applicable_store_credit > 0.0 %>
-                      <tfoot id="store-credit" data-hook="order_details_store_credit">
-                        <tr class="total">
-                          <td colspan='3'><%= t('spree.store_credit.store_credit') %>:</td>
-                          <td class='total'><span><%= @order.display_total_applicable_store_credit.to_html %></span></td>
-                        </tr>
-                      </tfoot>
-                    <% end %>
-
-                    <div class="subsection">
-                      <div class="row">
-                        <div class="col-lg-6 offset-lg-6">
-                          <tfoot id="order-charges" data-hook="order_details_adjustments">
-                            <% @order.adjustments.eligible.each do |adjustment| %>
-                            <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
-                            <div class="row">
-                              <tr class="total">
-                                <div class="col-4 offset-3">
-                                  <td colspan="3" class="fw900 text-center"><strong><%= adjustment.label %></strong></td>
-                                </div>
-                                <div class="col-5">
-                                  <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
-                                </div>
-                              </tr>
-                            </div>
-                            <% end %>
-                          </tfoot>
-                        </div>
-                      </div>
-                    </div>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="section">
-            <div class="container">
-              <div class="subsection text-center">
-                <h3 class="fw400">If you have any question about your order, <br>please 
-                  <%= link_to 'contact us', '/contact-us', class: "link" %>.
-                </h3>
-              </div>
-            </div>
-            <!--/container-->
-          </section>
-
+<section class="section bg-primary">
+  <div class="container">
+    <div class="subsection text-center text-white">
+      <h2 class="fw900 text-uppercase">YOUR ORDER HAS BEEN successfully sent!</h2>
+      <h3>THANK YOU VERY MUCH!</h3>
+    </div>
+    <div class="confirmation-container">
+      <div class="subsection">
+        <div class="order-details-card">
+          <h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
+          <%= render partial: 'spree/shared/address', locals: { address: @order.ship_address, type: "shipping", order: @order } %>
+          <%= render partial: 'spree/shared/address', locals: { address: @order.bill_address, type: "billing", order: @order } %>
         </div>
       </div>
+      <div class="table-responsive">
+        <table class="table table-hover" style="min-width: 500px">
+          <thead>
+            <tr>
+              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
+              <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
+              <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
+              <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.line_items.each do |item| %>
+              <tr>
+                <td>
+                  <div class="row">
+                    <div class="col-3">
+                    <% if item.variant.images.empty? %>
+                      <%= render('spree/shared/image', image: item.variant.product.display_image, size: :small) %>
+                    <% else %>
+                    <div class="product-img">
+                      <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                    </div>
+                    <% end %>
+                    </div>
+                    <div class="col">
+                      <h4><%= item.variant.product.name %></h4>
+                      <%= item.variant.options_text %>
+                      <% if item.insufficient_stock? %>
+                        <span class="out-of-stock">
+                          <%= item.variant.sku %> |
+                          <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br />
+                        </span>
+                      <% else %>
+                        <span class="in-stock">
+                          <%= item.variant.sku %> |
+                          <%= t('spree.in_stock') %>&nbsp;&nbsp;<br />
+                        </span>                                                  
+                      <% end %>
+                    </div>
+                  </div>
+                </td>
+                <td class="price"><%= item.single_money.to_html %></td>
+                <td><%= item.quantity %></td>
+                <td class="total"><span><%= item.display_amount.to_html %></span></td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot id="order-total" data-hook="order_details_total">
+            <tr class="total">
+              <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
+              <td class="total"><span id="order_total"><%= @order.display_order_total_after_store_credit.to_html %></span></td>
+            </tr>
+          </tfoot>
+
+          <tfoot id="subtotal" data-hook="order_details_subtotal">
+            <tr class="total" id="subtotal-row">
+              <td colspan="3"><b><%= t('spree.subtotal') %>:</b></td>
+              <td class="total"><span><%= @order.display_item_total.to_html %></span></td>
+            </tr>
+          </tfoot>
+
+          <% if @order.line_item_adjustments.exists? %>
+            <% if @order.line_item_adjustments.promotion.eligible.exists? %>
+              <tfoot id="price-adjustments" data-hook="order_details_price_adjustments">
+                <% @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+                  <tr class="total">
+                    <td colspan="3"><%= t('spree.promotion') %>: <strong><%= label %></strong></td>
+                    <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
+                  </tr>
+                <% end %>
+              </tfoot>
+            <% end %>
+          <% end %>
+
+          <tfoot id='shipment-total'>
+            <% @order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
+              <tr class="total" data-hook='shipment-row'>
+                <td colspan="3"><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i><%= t('spree.shipping') %>: <strong><%= name %></strong></td>
+                <td class="total"><span><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: @order.currency).to_html %></span></td>
+              </tr>
+            <% end %>
+          </tfoot>
+
+          <% if @order.all_adjustments.tax.exists? %>
+            <tfoot id="tax-adjustments" data-hook="order_details_tax_adjustments">
+              <% @order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
+                <tr class="total">
+                  <td colspan="3"><%= t('spree.tax') %>: <strong><%= label %></strong></td>
+                  <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
+                </tr>
+              <% end %>
+            </tfoot>
+          <% end %>
+
+          <% if @order.total_applicable_store_credit > 0.0 %>
+            <tfoot id="store-credit" data-hook="order_details_store_credit">
+              <tr class="total">
+                <td colspan='3'><%= t('spree.store_credit.store_credit') %>:</td>
+                <td class='total'><span><%= @order.display_total_applicable_store_credit.to_html %></span></td>
+              </tr>
+            </tfoot>
+          <% end %>
+
+          <div class="subsection">
+            <div class="row">
+              <div class="col-lg-6 offset-lg-6">
+                <tfoot id="order-charges" data-hook="order_details_adjustments">
+                  <% @order.adjustments.eligible.each do |adjustment| %>
+                  <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+                  <div class="row">
+                    <tr class="total">
+                      <div class="col-4 offset-3">
+                        <td colspan="3" class="fw900 text-center"><strong><%= adjustment.label %></strong></td>
+                      </div>
+                      <div class="col-5">
+                        <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
+                      </div>
+                    </tr>
+                  </div>
+                  <% end %>
+                </tfoot>
+              </div>
+            </div>
+          </div>
+        </table>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</section>
