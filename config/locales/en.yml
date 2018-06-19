@@ -43,18 +43,20 @@ en:
   sign_in:
     sign_in: "Sign In"
   address:
-    full_name: "FULL NAME"
-    company: "COMAPNY"
-    billing_address_1: "BILLING ADDRESS"
-    billing_address_2: "ANOTHER BILLING ADDRESS"
-    city: "CITY"
-    state: "STATE"
-    pincode: "PINCODE"
-    country: "COUNTRY"
-    phone: 'PHONE'
-    alternative_phone: 'ALTERNATIVE PHONE'
+    full_name: "Full Name"
+    company: "Company"
+    billing_address: "Billing Address"
+    shipping_address: "Shipping Address"
+    address_1: "BILLING ADDRESS"
+    address_2: "BILLING ADDRESS"
+    city: "City"
+    state: "State"
+    zipcode: "Zipcode"
+    country: "Country"
+    phone: 'Mobile'
+    alternative_phone: 'Alternative Phone'
   order:
-    order_number: "ORDER NUMBER"
+    order_number: "Order Number"
   spree:
     new_contact_us_email: "New Contact Us Email"
     contacts: Contacts
@@ -84,7 +86,7 @@ en:
     order_state:
       address: "SHIPPING INFORMATION"
       payment: "PAYMENT METHOD"
-      confirm: "ORDER CONFIRNATION"
+      confirm: "ORDER CONFIRMATION"
     products: "Products"
     in_stock: "In Stock"
     availability: "Availability"

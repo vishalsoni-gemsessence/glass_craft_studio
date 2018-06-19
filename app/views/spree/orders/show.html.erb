@@ -1,46 +1,39 @@
-<fieldset id="order_summary" data-hook>
-  <section class="section p-0">
-    <a href="/.">
-      <%= image_tag 'spree/frontend/tpl/logo.jpg' %>
-    </a>
-  </section>
-  <section class="section bg-primary">
-    <div class="container">
-      <legend><%#= t('spree.order_number', number: @order.number) %></legend>
-      <h1><%#= accurate_title %></h1>
-      <%# if order_just_completed?(@order) %>
-        <div class="subsection text-center text-white">
-          <!-- <h2 class="fw900 text-uppercase"><%#= t('spree.thank_you_for_your_order') %></h2> -->
-          <h2 class="fw900 text-uppercase">YOUR ORDER HAS BEEN successfully sent!</h2>
-          <h3>THANK YOU VERY MUCH!</h3>
+<section class="section table-section">
+  <div class="container">
+    <div id="checkout" data-hook>
+      <div data-hook="checkout_header">
+        <h1 class="columns three alpha" data-hook="checkout_title"><%#= t('spree.checkout') %></h1>
+        <div class="columns thirteen omega" data-hook="checkout_progress">
+          <div class="subsection">
+            <%= checkout_progress %>
+          </div>
         </div>
-      <%# end %>
-      <div class="confirmation-container">
-        <div id="order" data-hook>
-          <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+      </div>
 
-          <br class="clear" />
+      <div class="row" data-hook="checkout_content">
+        <div class="columns <%= if @order.state != 'confirm' then 'alpha twelve billing-form' else 'alpha omega sixteen' end %>" data-hook="checkout_form_wrapper">
+          <div class="subsection">
+            <fieldset id="order_details" data-hook>
+              <div class="clear"></div>
+              <legend align="center"><%#= t('spree.confirm') %></legend>
+              <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+            </fieldset>
 
-          <p data-hook="links" class="text-right order-complete-page-links">
-            <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
-            <% unless order_just_completed?(@order) %>
-              <% if try_spree_current_user && respond_to?(:account_path) %>
-                <%= link_to t('spree.my_account'), spree.account_path, class: "button" %>
-              <% end %>
-            <% end %>
-          </p>
+            <br/>
+
+            <div class="links alpha omega" data-hook="cart_buttons">
+              <div class="row">
+                <div class="col-lg-12">
+                 <div id="empty-cart" data-hook style="margin: 0px;  ">
+                  <i class="fa fa-angle-left mr-2" aria-hidden="true"></i>
+                    <%= link_to t('spree.continue_shopping'), spree.root_path, class: 'continue button gray btn-empty-cart ' %>
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="subsection text-center">
-        <h3 class="fw400">If you have any question about your order, <br>please 
-          <%= link_to 'contact us.', '#' %>
-        </h3>
-      </div>
-    </div>
-    <!--/container-->
-  </section>
-</fieldset>
+  </div>
+</section>

@@ -13,6 +13,17 @@
 <% elsif source.is_a?(Spree::StoreCredit) %>
   <%= content_tag(:span, payment.payment_method.name) %>:
   <%= content_tag(:span, payment.display_amount) %>
+<% elsif source.is_a?(SolidusPaypalBraintree::Source) %>
+  <% if payment.source.payment_type == "CreditCard" %>
+    <div>
+      <p>
+        <strong class="text-uppercase"><%= payment.source.friendly_payment_type %>: </strong>
+        <% if payment.source.last_digits %>
+          <%= t('spree.ending_in') %> <%= source.last_digits %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
 <% else %>
   <%= content_tag(:span, payment.payment_method.name) %>
 <% end %>
