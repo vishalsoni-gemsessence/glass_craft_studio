@@ -5,7 +5,34 @@
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head>    
-    <%= render partial: 'spree/shared/head' %>   
+    <!-- Meta-->
+    <meta charset="utf-8">
+
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
+
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <%== meta_data_tags %>
+
+    <!-- Favicon-->
+    <%= favicon_link_tag 'favicon.ico' %>
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url 'apple-touch-icon.png' %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url 'favicon-32x32.png' %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url 'favicon-16x16.png' %>">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel|Lato:400,700,900" />
+
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <%= stylesheet_link_tag 'spree/frontend/all', media: 'screen' %>
+    <%= javascript_include_tag 'spree/frontend/all' %>
+
+    <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="main"> <!-- class="container" -->
