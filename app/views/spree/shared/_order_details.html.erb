@@ -1,7 +1,7 @@
 <% if order.completed? %>
 	<div class="subsection text-center">
 		<hr>
-		<h2 class="fw900 text-uppercase text-primary">Your Order [<%= order.number %>] Has Been Successfully Sent!</h2>
+		<h2 class="fw900 text-uppercase text-primary">Your Order Has Been Successfully Sent!</h2>
     <h3 class="fw900">Thank you very much!</h3>		
     <p class="text-lg">An information e-mail containing your recipt has beed sent to <u><%= order.email %></u>
 		</p>
@@ -14,6 +14,7 @@
         <div class="order-details-card">
           <div class="steps-data"><!-- row-->
             <div class="columns order-confirm-address alpha four" data-hook="order-ship-address">
+              <h3 class="fw900"><%= t('order.order_number') %>: <%= order.number %></h3>
               <%= render partial: 'spree/shared/address', locals: { address: order.ship_address, type: "shipping", order: order } %>
               <%= render partial: 'spree/shared/address', locals: { address: order.bill_address, type: "billing", order: order } %>
             </div>
@@ -180,8 +181,7 @@
 		<hr>
 		<h2 class="fw900 text-uppercase text-primary">One more step before completing your order....</h2>
     <h3 class="fw900"><%= t('order.order_number') %>: <%= order.number %></h3>		
-    <!-- <p class="text-lg">An information e-mail containing your recipt has beed sent to <a class="link" href="mailto:andychan@gmai.com">andychan@gmail.com</a> -->
-		</p>
+  </p>
 		<hr>
 	</div>
 

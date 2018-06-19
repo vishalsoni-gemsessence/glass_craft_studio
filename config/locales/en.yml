@@ -93,3 +93,5 @@ en:
     product_code: "Product code"
     description: "Description"
     specifications: "Specifications"
+    confirm_email: 
+      contact_us
