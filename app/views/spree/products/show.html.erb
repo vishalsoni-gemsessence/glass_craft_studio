@@ -31,7 +31,7 @@
 
               <div id="product-description" data-hook="product_description">
                 <div class="subsection">
-                  <h1 class="text-primary text-uppercase" itemprop="name"><%= @product.name %></h1>
+                  <h1 class="text-primary text-uppercase" itemprop="name"><%= simple_format(@product.name) %></h1>
                 </div>
 
                 <div id="cart-form" data-hook="cart_form">

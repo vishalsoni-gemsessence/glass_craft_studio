@@ -13,7 +13,7 @@
       </ul>
       <div class="gift-card-blink"></div>
       <div class="gift-card-text">
-        <%= link_to simple_format(truncate(product.name, length: 50)), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>
+        <%= link_to truncate_html(simple_format(product.name), length: 50), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>
         <p class="gift-card-description"><%= strip_tags truncate_html(product.description, length: 15) %></p>
         <span itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
           <% if price = product.price_for(current_pricing_options) %>
