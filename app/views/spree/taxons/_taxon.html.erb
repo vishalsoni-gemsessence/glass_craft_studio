@@ -14,7 +14,7 @@
 <div class="gift-card">
   <div class="taxon" data-hook="taxon">
     <div class="gift-card-img">
-      <%= image_tag taxon.icon.url, size: :small, class: 'product-img', alt: "" %>
+      <%= image_tag taxon.icon(:original), class: 'product-img', alt: "" %>
       <!-- <img src="img/media/gift-card-img-1.jpg" alt="" /> -->
     </div>
     <ul class="gift-card-link">
@@ -31,7 +31,7 @@
     <div class="gift-card-blink"></div>
     <div class="gift-card-text">
       <h4 class="gift-card-title subtaxon-title">
-        <%= link_to taxon.name, seo_url(taxon), class: 'breadcrumbs' %>
+        <%= link_to simple_format(taxon.name), seo_url(taxon), class: 'breadcrumbs' %>
       </h4>
       <!-- <p class="gift-card-description"></p> -->
     </div>
