@@ -47,7 +47,7 @@
               <!-- end -->
                 <div id="payment-method-fields" class="text-left" data-hook>
                   <% @order.available_payment_methods.each do |method| %>
-                  <div>
+                  <div style="display:none">
                     <label>
                       <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
                       <%= t(method.name, scope: 'spree.payment_methods', default: method.name) %>
@@ -68,7 +68,7 @@
                 <br style="clear:both;" />
               </div>
             </div>
-            <p class="text-muted">After clicking "Save and Continue", you will be redirected to PayPal to complete your purchase securely.</p>
+            <!-- <p class="text-muted">After clicking "Save and Continue", you will be redirected to PayPal to complete your purchase securely.</p> -->
           </div>
         </div>
 

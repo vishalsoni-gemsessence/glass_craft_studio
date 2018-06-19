@@ -9,7 +9,7 @@
 
       <div data-hook="empty_cart">
         <p><%= t('spree.your_cart_is_empty') %></p>
-        <p><%= link_to t('spree.continue_shopping'), products_path, class: 'btn btn-info' %></p>
+        <p><%= link_to t('spree.continue_shopping'), spree.root_path, class: 'btn btn-info' %></p>
       </div>
 
     <% else %>
@@ -27,13 +27,13 @@
                 <div class="col-lg-6">
                  <div id="empty-cart" data-hook style="margin: 0px;  ">
                   <i class="fa fa-angle-left mr-2" aria-hidden="true"></i>
-                    <%= link_to t('spree.continue_shopping'), products_path, class: 'continue button gray btn-empty-cart ' %>
+                    <%= link_to t('spree.continue_shopping'), spree.root_path, class: 'continue button gray btn-empty-cart ' %>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group row">
                     <div class="col-md-3"></div>
-                    <label class="col-md-4 col-form-label text-center" for="couponCode"><%= t('spree.coupon_code') %></label>
+                    <label class="col-md-4 col-form-label text-center" for="couponCode"><%= t('spree.coupon_code') %>:</label>
                     <div class="col-md-5">
                       <%= order_form.text_field :coupon_code, size: 10, class: 'form-control' %>
                     </div>

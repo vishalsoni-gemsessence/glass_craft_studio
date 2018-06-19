@@ -26,12 +26,12 @@ module Spree
       if(!variant.height.present? && !variant.width.present?)
         Spree.t(:"no_dimension_available")
       else
-        "#{variant.height}X#{variant.width}"
+        "#{variant.height} cm x #{variant.width} cm"
       end 
     end
 
     def  get_weight_in_kg(weight)
-      "#{weight*0.0283495} kg"
+      "#{weight} kg"
     end
 
     def render_snippet(slug)

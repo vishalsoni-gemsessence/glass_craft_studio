@@ -10,16 +10,7 @@
   <% end %>
 
   <% @order.shipments.each do |shipment| %>
-    <tr>
-      <% if params["controller"] == "spree/orders" %>
-        <td colspan="4"><h5><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %></h5></td>
-      <% else %>
-        <td><h5><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %></h5></td>
-      <% end %>
-      <td> 
-        <h5><%= shipment.display_total_before_tax %></h5>
-      </td>
-    </tr>
+    <%= render "spree/orders/delivery", shipment: shipment %>
   <% end %>
 
   <% @order.adjustments.eligible.group_by(&:label).each do |label, adjustments| %>

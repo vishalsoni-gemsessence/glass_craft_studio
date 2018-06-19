@@ -60,24 +60,43 @@
                   </div>
                 </div>
 
+              <% unless @product.description.empty? %>                  
                 <div class="subsection-sm separator"></div>
-
+                
                 <div class="subsection-sm" itemprop="description" data-hook="description">
                   <h5 class="bigger text-uppercase"><%= t('spree.description') %></h5>
 
                   <p class="text-muted"><%= product_description(@product) rescue t('spree.product_has_no_description') %></p>
                 </div>
+              <% end %>
               </div>
+
               <div class="subsection-sm separator"></div>
 
-              <div class="col-lg-12 alpha" data-hook="product_left_part">
-                <div data-hook="product_left_part_wrap">
-                  <div data-hook="product_properties">
-                    <%= render partial: 'properties' %>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="subsection-sm">
+                    <h5 class="bigger text-uppercase"><%= t(:'spree.dimensions') %></h5>
+                    <p class="h5 bigger"><%= get_dimension(@product) %></p>
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="subsection-sm">
+                    <h5 class="bigger text-uppercase"><%= t(:'spree.weights') %></h5>
+                    <p class="h5 bigger"><%= get_weight_in_kg(@product.weight)%></p>
+                  </div>
+                </div>
+              </div>                    
+            <% unless @product_properties.empty? %>  
+              <div class="subsection-sm separator"></div>
+              <div class="row" data-hook="product_left_part">
+                <!-- <div data-hook="product_left_part_wrap"> -->
+                  <!-- <div data-hook="product_properties"> -->
+                    <%= render partial: 'properties' %>
+                  <!-- </div> -->
+                <!-- </div> -->
               </div>
-
+            <% end %>  
               <div class="subsection-sm separator"></div>
 
               <div class="subsection-sm">

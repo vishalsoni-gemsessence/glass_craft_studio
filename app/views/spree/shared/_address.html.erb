@@ -1,37 +1,27 @@
 <div class="address vcard">
-<h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
-  <div class="fn"><p> <strong><%= t('address.full_name') %>: </strong><%= address.full_name.capitalize %></p></div>
+
+<% if order.has_checkout_step?("delivery") && type == "shipping" %>
+  <div class="fn">
+    <p>
+      <strong class="text-uppercase"><%= t('address.full_name') %>: </strong><%= address.full_name %>
+    </p>
+  </div>
+
+  <div class="fn">
+    <p>
+      <strong class="text-uppercase"><%= t('spree.email') %>: </strong><%= order.email %>
+    </p>
+  </div>
 
   <% unless address.company.blank? %>
     <div class="org">
-      <p><strong><%= t('address.company') %>: </strong><%= address.company %></p>
+      <p><strong class="text-uppercase"><%= t('address.company') %>: </strong><%= address.company %></p>
     </div>
   <% end %>
 
-  <div class="adr">
-    <div class="street-address">
-      <div class="street-address-line">
-        <p><strong><%= t('address.billing_address_1') %>: </strong></p>
-        <p><%= address.address1.capitalize %></p>
-      </div>
-      <% unless address.address2.blank? %>
-        <div class="street-address-line">
-          <p><strong><%= t('address.billing_address_2') %>: </strong></p>
-          <p><%= address.address2.capitalize %></p>
-        </div>
-      <% end %>
-    </div>
-    <div class="local">
-      <span class="locality"><p><strong><%= t('address.city') %>: </strong><%= address.city.capitalize %></p></span>
-      <span class="region"><p><strong><%= t('address.state') %>: </strong><%= address.state_text %></p></span>
-      <span class="postal-code"><p><strong><%= t('address.pincode') %>: </strong><%= address.zipcode %></p></span>
-      <div class="country-name"><p><strong><%= address.country %>: </strong><%= address.country.try(:name) %></p></div>
-    </div>
-  </div>
   <% unless address.phone.blank? %>
     <div class="tel">
-      <span class="type"><strong><%= t('address.phone') %></strong></span>
-      <%= address.phone %>
+      <p class="type"><strong class="text-uppercase"><%= t('address.phone') %>: </strong><%= address.phone %></p>      
     </div>
   <% end %>
   <% unless address.alternative_phone.blank? %>
@@ -40,4 +30,29 @@
       <%= address.alternative_phone %>
     </div>
   <% end %>
+<% end %>
+
+  <div class="adr">
+    <div class="street-address">
+      <div class="street-address-line">
+        <p>
+          <strong class="text-uppercase"><%= t("address.#{type}_address") %>: </strong>&nbsp;
+          <% unless order.completed? %>
+            <%= link_to checkout_state_path(:address)  do %>
+              <i class='fa fa-edit text-primary'></i><%= t('spree.actions.edit') %>
+            <% end %>
+          <% end %>
+        </p>
+        <p>
+          <%= address.address1 %> <% unless address.address2.blank? %>, <%= address.address2 %><% end %>, <%= address.city %>, <% unless address.state_text.blank? %><%= address.state_text %><% end %> <%= address.zipcode %>, <%= address.country.try(:name) %>
+        </p>
+      </div>
+    </div>
+    <!-- <div class="local">
+      <span class="locality"><p><strong><%= t('address.city') %>: </strong><%= address.city.capitalize %></p></span>
+      <span class="region"><p><strong><%= t('address.state') %>: </strong><%= address.state_text %></p></span>
+      <span class="postal-code"><p><strong><%= t('address.zipcode') %>: </strong><%= address.zipcode %></p></span>
+      <div class="country-name"><p><strong><%= address.country %>: </strong><%= address.country.try(:name) %></p></div>
+    </div> -->
+  </div>
 </div>

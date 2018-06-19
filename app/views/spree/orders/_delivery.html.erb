@@ -1,0 +1,18 @@
+<tr class="adjustment">
+  <% if params["controller"] == "spree/orders" %>
+    <td colspan="6">
+      <h5>
+        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %>
+      </h5>
+    </td>
+  <% else %>
+    <td>
+      <h5>
+        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %>
+      </h5>
+    </td>
+  <% end %>
+  <td> 
+    <h5><%= shipment.display_total_before_tax %></h5>
+  </td>
+</tr>

@@ -5,7 +5,8 @@
       <%= form.fields_for :shipments do |ship_form| %>
         <div class="shipment">
           <h3 class="stock-location text-capitalize" data-hook="stock-location">
-            <%= t('spree.package_from') %>
+            <%#= t('spree.package_from') %>
+            <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i>
             <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
           </h3>
           <div class="row">
@@ -13,17 +14,17 @@
               <div class="subsection">
                 <div class="payment-method-card">
                   <div class="payment-method-card__top">     
-                    <h5 class="stock-shipping-method-title text-center shipping_title"><%= t('spree.shipping_method') %></h5>
+                    <h5 class="stock-shipping-method-title shipping_title"><%= t('spree.shipping_method') %></h5>
                   </div>
                   <div class="payment-method-card__bottom">
                     <div class="subsection-sm">
-                      <ul class="field radios shipping-methods">
+                      <ul class="field radios shipping-methods text-left">
                         <% ship_form.object.shipping_rates.each do |rate| %>
                           <li class="shipping-method">
                             <label>
                               <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
                               <span class="rate-name"><%= rate.name %></span>
-                              <span class="rate-cost"><%= rate.display_cost %></span>
+                              <span class="rate-cost"><%= rate.display_cost %> <!-- [<%#= @shipping_rate %>] --></span>
                             </label>
                           </li>
                         <% end %>

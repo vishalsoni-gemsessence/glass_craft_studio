@@ -72,27 +72,30 @@
     <!--/row-->
   </div>
 <% else %>
+	<div class="subsection text-center">
+		<hr>
+		<h2 class="fw900 text-uppercase text-primary">One more step before completing your order....</h2>
+    <h3 class="fw900"><%= t('order.order_number') %>: <%= order.number %></h3>		
+    <!-- <p class="text-lg">An information e-mail containing your recipt has beed sent to <a class="link" href="mailto:andychan@gmai.com">andychan@gmail.com</a> -->
+		</p>
+		<hr>
+	</div>
+
   <div class="row">
     <div class="col-md-6">
       <div class="subsection">
         <div class="order-details-card">
           <div class="steps-data"><!-- row-->
-
+            
             <% if order.has_checkout_step?("address") %>
-
-              <div class="columns order-confirm-address alpha four" data-hook="order-bill-address">
-                <h6><%= t('spree.billing_address') %> 
-                <%= link_to "#{t('spree.actions.edit')}", checkout_state_path(:address) unless order.completed? %></h6>
-                <%= render partial: 'spree/shared/address', locals: { address: order.bill_address } %>
-              </div>
 
               <% if order.has_checkout_step?("delivery") %>
                 <div class="columns order-confirm-address alpha four" data-hook="order-ship-address">
-                  <h6><%= t('spree.shipping_address') %> <%= link_to "#{t('spree.actions.edit')}", checkout_state_path(:address) unless order.completed? %></h6>
-                  <%= render partial: 'spree/shared/address', locals: { address: order.ship_address } %>
+                  <%= render partial: 'spree/shared/address', locals: { address: order.ship_address, type: "shipping", order: order } %>
+                  <%= render partial: 'spree/shared/address', locals: { address: order.bill_address, type: "billing", order: order } %>
                 </div>
 
-                <div class="columns order-confirm-address alpha four" data-hook="order-shipment">
+                <!-- <div class="columns order-confirm-address alpha four" data-hook="order-shipment">
                   <h6><%= t('spree.shipments') %> <%= link_to "#{t('spree.actions.edit')}", checkout_state_path(:delivery) unless order.completed? %></h6>
                   <div class="delivery">
                     <% order.shipments.each do |shipment| %>
@@ -103,9 +106,19 @@
                     <% end %>
                   </div>
                   <%= render(partial: 'spree/shared/shipment_tracking', locals: {order: order}) if order.shipped? %>
-                </div>
+                </div> -->
+              <% else %>    
+                <div class="columns order-confirm-address alpha four" data-hook="order-bill-address">
+                  <!-- <h6><%#= t('spree.billing_address') %>
+                  <%#= link_to "#{t('spree.actions.edit')}", checkout_state_path(:address) unless order.completed? %></h6> -->
+                  <%= render partial: 'spree/shared/address', locals: { address: order.bill_address, type: "billing", order: order } %>
+                </div>                  
               <% end %>
+              
+              
             <% end %>
+
+
 
             <% if order.has_checkout_step?("payment") %>
               <div class="columns order-confirm-address omega four">
