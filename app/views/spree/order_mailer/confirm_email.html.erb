@@ -1,10 +1,29 @@
 <section class="section bg-primary">
   <div class="container">
     <div class="subsection text-center text-white">
-      <h2 class="fw900 text-uppercase">YOUR ORDER HAS BEEN successfully sent!</h2>
-      <h3>THANK YOU VERY MUCH!</h3>
-    </div>
+      <h2 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('spree.order_mailer.confirm_email.subject')}" %></h2>
+      <h3><%= "#{t('spree.order_mailer.ref')}: #{@order.store.name} #{t('order.order_number')} ##{@order.number}" %></h3>
+    </div>    
     <div class="confirmation-container">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <td>
+              <h4>
+                <%= t('.dear_customer') %>
+              </h4>
+              <h4>
+                <%= t('.instructions_html') %>
+              </h4>
+              <br>
+              <h4>
+                <%= t('.thanks_html') %>
+              </h4>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </div>
       <div class="subsection">
         <div class="order-details-card">
           <h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
