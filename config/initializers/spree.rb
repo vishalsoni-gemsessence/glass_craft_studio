@@ -72,3 +72,10 @@ Spree::Backend::Config.configure do |config|
                           url: :admin_contacts_path
                         )
 end
+
+
+Spree::Config.order_number_generator = Spree::Order::DateNumberGenerator.new(
+  prefix: 'GX',
+  length: 5,
+  letters: false
+)
