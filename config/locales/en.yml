@@ -82,7 +82,30 @@ en:
     dimension: "Dimension"
     in_stock: "In Stock"
     no_dimension_available: "No Dimension Available"
-
+    order_mailer:
+      your: Your
+      ref: Ref
+      cancel_email:
+        dear_customer: Dear Customer,
+        instructions: Your order has been CANCELED.  Please retain this cancellation information for your records.
+        order_summary_canceled: Order Summary [CANCELED]
+        subject: Cancellation of Order
+        subtotal: ! 'Subtotal:'
+        total: ! 'Order Total:'
+      confirm_email:
+        dear_customer: Dear Customer,
+        instructions_html: Thank you for shopping with us. This email acknowledges the receipt of your order and payment. We will arrange delivery within 5-10 working days and will deliver the product to the delivery address you provided as soon our quality team is happy with the finisehd goods.<br><br>A separate email with the tracking number and delivery arrangement will be sent out to your shortly.
+        personalized_instructions_html: Thank you for shopping with us. This email acknowledges the receipt of your order and payment. We will arrange delivery within 1-2 working days to the delivery address you provided.<br><br>A separate email with the tracking number and delivery arrangement will be sent out to your shortly.<br><br>A separate email with the tracking number and delivery arrangement will be sent out to your shortly.
+        order_summary: Order Summary
+        subject: order has been confirmed
+        subtotal: ! 'Subtotal:'
+        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        total: ! 'Order Total:'
+      inventory_cancellation:
+        dear_customer: Dear Customer,
+        instructions: Some items in your order have been CANCELED.  Please retain this cancellation information for your records.
+        order_summary_canceled: Canceled Items
+        subject: Cancellation of Items
     order_state:
       address: "SHIPPING INFORMATION"
       payment: "PAYMENT METHOD"
@@ -95,3 +118,13 @@ en:
     specifications: "Specifications"
     confirm_email: 
       contact_us
+    shipment_mailer:
+      shipped_email:
+        dear_customer: Dear Customer,
+        instructions_hong_kong_html: Your GlassXpert order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the statis via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        shipment_summary: Shipment Summary
+        subject: is on its way
+        thanks: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        track_information: ! 'Tracking Information: %{tracking}'
+        track_link: ! 'Tracking Link: %{url}'
