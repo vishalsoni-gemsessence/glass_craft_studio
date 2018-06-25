@@ -1,0 +1,48 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">    
+    <%= render partial: 'spree/shared/head' %>   
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <%= render partial: 'spree/shared/header' %>
+    <div class="main"> <!-- class="container" -->
+      <!-- <section class="template-home-section" style="background-image: url(img/media/about-us-img.jpg);"></section> -->
+  		<section class="section">
+  			<div class="container smaller">
+          <h1><%= @page.title %></h1>  				
+          <% taxon = Spree::Taxon.find_by!(permalink: "pages/faq") %>
+          <% children = taxon.children %>
+          <div class="accordion" id="faq-accordion">
+            <% children.each_with_index do |child, index| %>
+            <div class="card">
+              <div class="card-header">              
+                <!-- <button class="btn btn-link" type="button" > -->
+                  <h4 data-toggle="collapse" data-target="#collapse-<%= index %>" aria-expanded="true" aria-controls="collapse-<%= index %>" style="cursor: pointer">
+                    <%= index + 1 %>. <%= child.name %>
+                  </h4>
+                <!-- </button> -->
+              </div>
+              <div id="collapse-<%= index %>" class="collapse show" aria-labelledby="heading-<%= index %>" data-parent="#faq-accordion">
+                <div class="card-body">
+                  <p class="lead">
+                    <%= raw child.description %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        
+      </section>
+    </div>
+    <%= render partial: 'spree/shared/footer' %>
+    <script>
+      $('.collapse').collapse();
+    </script>
+  </body>
+</html>
