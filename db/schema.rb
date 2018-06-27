@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625090804) do
-
+ActiveRecord::Schema.define(version: 20180627071404) do
+    
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -1189,7 +1189,7 @@ ActiveRecord::Schema.define(version: 20180625090804) do
     t.datetime "updated_at", null: false
     t.integer "number_of_images"
     t.string "weight"
-    t.decimal "price", precision: 5, scale: 2
+    t.decimal "price", precision: 10, scale: 2
     t.integer "number_of_text_boxes"
     t.string "background_image_file_name"
     t.string "background_image_content_type"
