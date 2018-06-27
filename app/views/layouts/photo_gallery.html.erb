@@ -1,0 +1,52 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+
+  <head data-hook="inside_head">    
+    <%= render partial: 'spree/shared/head' %>   
+  </head>
+  
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <%= render partial: 'spree/shared/header' %>
+  	<!--/ .header-->
+  	<div class="main">
+  		<section class="section section-photo-gallery">
+  			<div class="container-fluid">
+  				<div class="subsection">
+  					<h2 class="text-primary text-uppercase text-center"><%= @page.title %></h2>
+  				</div>
+  				<div class="photo-gallery-box">
+            <% taxon = Spree::Taxon.find_by!(permalink: "photo-gallery") %>
+            <% children = taxon.products %>
+            <% children.each_with_index do |child, index| %>            
+  					<div class="photo-gallery-card">
+              <%= image_tag child.display_image.attachment(:product) %>
+  						<div class="photo-gallery-blink">
+                <a class="photo-gallery-link" href="upload-photo-gallery.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+  							<div class="photo-gallery-text">
+  								<h4 class="photo-gallery-title">Title:  <%= child.name %></h4>
+  								<p>Price: <%= child.price == 0.0 ? 'Free' : child.price %></p>
+                <% product_properties = child.product_properties %>
+                <% product_properties.each do |product_property| %>                  
+  								<p><%= product_property.property.presentation %>: <%= product_property.value %></p>
+                <% end %>  
+  							</div>
+  						</div>
+  					</div>
+            <% end %>
+  					<!--/gallery-card-->
+  				</div>
+  			</div>
+  			<!--/container-->
+  		</section>
+  		<!--/section-->
+  	</div>
+  	<!--.footer - _footer.pug-->
+    <%= render partial: 'spree/shared/footer' %>
+  	<!--/.footer-->
+  </body>
+
+</html>
