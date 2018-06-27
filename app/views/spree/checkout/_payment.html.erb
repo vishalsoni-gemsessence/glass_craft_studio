@@ -76,17 +76,19 @@
     </div>
     <div class="col-md-6">
       <div class="table-responsive">
-        <table class="table-payment table table-hover" style="min-width: 500px">
+        <table class="stock-contents table table-hover" data-hook="stock-contents" style="min-width: 500px">
+        <!-- <table class="table-payment table table-hover" style="min-width: 500px"> -->
           <thead>
             <tr>
-              <th scope="col"></th>
-              <th scope="col"><span class="subtotal-heading">SUB-TOTAL</span></th>
+              <th align='left' scope="col"><%= t('spree.item') %></th>
+              <th scope="col"><%= t('spree.qty') %></th>
+              <th scope="col"><%= t('spree.price') %></th>
             </tr>
           </thead>
           <tbody>
             <% @order.line_items.each do |line_item| %>
               <% variant = line_item.variant -%>
-              <tr>
+              <tr class="stock-item">
                 <td>
                   <div class="row">
                     <div class="col-3">
@@ -101,11 +103,12 @@
                     </div>
                   </div>
                 </td>
+                <td class="item-qty"><%= line_item.quantity %></td>                
                 <td><%= line_item.display_amount.to_html %></td>
               </tr>
             <% end %>
               <tr>
-                <td colspan="2">
+                <td colspan="3">
                   <p class='field coupon_code_row row' data-hook='coupon_code'>
                     <span class="col-md-4 text-left">
                       <%= form.label :coupon_code %>
@@ -127,23 +130,19 @@
               </tr>           
           </tbody>
           <%= render "spree/orders/adjustments" %>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                <h5>
+                  <%= t('spree.total') %>
+                </h5>
+              </td>
+              <td> 
+                <h5><%= @order.display_total.to_html %></h5>
+              </td>
+            </tr>
+          </tfoot>
         </table>
-      </div>
-      <div class="subsection">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-6">
-            <div class="row">
-              <div class="col-4 offset-2">
-                <p class="fw900 text-center"><%= t('spree.total') %>:</p>
-              </div>
-              <div class="col-5">
-                <p class="text-center"><%= @order.display_total.to_html %></p>
-              </div>
-            </div>
-          </div>
-          <!--/col-->
-        </div>
-        <!--/row-->
       </div>
     </div>
   </div>
