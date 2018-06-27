@@ -68,9 +68,18 @@
             <li class="nav-item">
               <%= link_to "Photo Gallery", "/photo-gallery", class: "nav-link js-nav-link" %>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-nav-link" href="interior-design.html">Interior Design</a>
-            </li>
+            <!-- <li class="nav-item">
+              <%#= link_to "Interior Decorative Glass", "/interior-design", class: "nav-link js-nav-link" %>
+            </li> -->
+						<li class="nav-item dropdown main-dropdown">
+              <a class="nav-link dropdown-toggle main-dropdown-toggle" id="navbarDropdownIDG" href="#0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorative Glass</a>
+              <div class="dropdown-menu main-dropdown-menu" aria-labelledby="navbarDropdownIDG">
+                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/superior">Superior</a>
+                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/aletheia">Aletheia</a>
+                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/top-town">TopTown</a>                
+              </div>
+						</li>
+            
             <li class="nav-item mb-0">
               <%= link_to "Contact Us", "/contact-us", class: "nav-link js-nav-link" %>
             </li>
@@ -112,9 +121,9 @@
               <hr class="bg-white">
             </li>
             <li class="nav-item social-item">
-              <a class="nav-link js-nav-link" href="#" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a class="nav-link js-nav-link" href="https://www.facebook.com/glassxpertndesign/" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
               <!--/ Visible 1199 and min-->
-              <a class="nav-link js-nav-link d-xl-none" href="#" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a class="nav-link js-nav-link d-xl-none" href="https://www.instagram.com/glassxpert" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             </li>
             <!--/ Visible 1200 and more -->
             <li class="nav-item social-item d-none d-xl-block ml-auto"><a class="nav-link js-nav-link" href="#" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
