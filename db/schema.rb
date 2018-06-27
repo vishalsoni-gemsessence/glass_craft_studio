@@ -1162,6 +1162,20 @@ ActiveRecord::Schema.define(version: 20180625090804) do
     t.decimal "rotate", precision: 10
   end
 
+  create_table "spree_template_texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "font_size"
+    t.integer "position_x"
+    t.integer "position_y"
+    t.string "font_color"
+    t.decimal "width", precision: 10
+    t.decimal "height", precision: 10
+    t.decimal "rotate", precision: 10
+    t.string "font_family"
+    t.integer "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "description"
@@ -1176,6 +1190,12 @@ ActiveRecord::Schema.define(version: 20180625090804) do
     t.integer "number_of_images"
     t.string "weight"
     t.decimal "price", precision: 5, scale: 2
+    t.integer "number_of_text_boxes"
+    t.string "background_image_file_name"
+    t.string "background_image_content_type"
+    t.integer "background_image_file_size"
+    t.datetime "background_image_updated_at"
+    t.string "background_color"
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

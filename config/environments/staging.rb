@@ -24,7 +24,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -88,7 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   ActionMailer::Base.smtp_settings = {
     :address        => ENV["MAIL_ADDRESS"],
     :port           => 587,
@@ -100,5 +100,5 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.asset_host = ENV["MAIL_HOST"]
   config.action_mailer.default_url_options = { host: ENV["MAIL_HOST"] }
-  
+
 end
