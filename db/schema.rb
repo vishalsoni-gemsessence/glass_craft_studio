@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614162650) do
+ActiveRecord::Schema.define(version: 20180625090804) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20180614162650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "easyship_shipments", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "courier_id"
+    t.string "courier_name"
+    t.string "easyship_shipment_id"
+    t.string "shipping_label_state"
+    t.string "shipping_status"
+    t.string "shipping_label_url"
+    t.string "tracking_number"
+    t.string "tracking_page_url"
+    t.decimal "total_charge", precision: 10
+    t.string "currency"
+    t.integer "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["order_id"], name: "index_easyship_shipments_on_order_id"
   end
 
   create_table "friendly_id_slugs", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -820,6 +837,13 @@ ActiveRecord::Schema.define(version: 20180614162650) do
     t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
+    t.string "easyship_shipment_id"
+    t.string "courier_id"
+    t.string "courier_name"
+    t.string "shipping_label_state"
+    t.string "shipping_label_url"
+    t.string "tracking_number"
+    t.string "currency"
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
@@ -1135,6 +1159,7 @@ ActiveRecord::Schema.define(version: 20180614162650) do
     t.integer "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "rotate", precision: 10
   end
 
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

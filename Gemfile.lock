@@ -37,6 +37,14 @@ GIT
       solidus (>= 1.0, < 3)
       solidus_support (>= 0.1.3)
 
+PATH
+  remote: ../solidus-easyship
+  specs:
+    solidus_easyship (0.0.1)
+      rest-client
+      solidus_backend
+      solidus_core
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -165,6 +173,8 @@ GEM
       devise (>= 2.1.0)
     discard (1.0.0)
       activerecord (>= 4.2, < 6)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -180,6 +190,8 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -228,6 +240,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
+    netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -291,6 +304,10 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -409,6 +426,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     unicorn (5.4.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -450,6 +470,7 @@ DEPENDENCIES
   selenium-webdriver
   solidus
   solidus_auth_devise
+  solidus_easyship!
   solidus_editor!
   solidus_on_demand_products!
   solidus_paypal_braintree!
