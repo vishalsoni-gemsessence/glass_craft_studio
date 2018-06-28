@@ -58,6 +58,7 @@ gem 'solidus_prototypes'
 gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
 
 # # For development on local
+gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: :master
 # gem 'solidus_easyship', path: '../solidus-easyship'
 
 

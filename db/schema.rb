@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627071404) do
-    
+ActiveRecord::Schema.define(version: 20180628083456) do
+
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -844,6 +844,17 @@ ActiveRecord::Schema.define(version: 20180627071404) do
     t.string "shipping_label_url"
     t.string "tracking_number"
     t.string "currency"
+    t.integer "min_delivery_time"
+    t.integer "max_delivery_time"
+    t.integer "value_for_money_rank"
+    t.integer "delivery_time_rank"
+    t.decimal "shipment_charge", precision: 10, scale: 2, default: "0.0"
+    t.decimal "shipment_charge_total", precision: 10, scale: 2, default: "0.0"
+    t.decimal "insurance_fee", precision: 10, scale: 2, default: "0.0"
+    t.decimal "import_tax_charge", precision: 10, scale: 2, default: "0.0"
+    t.decimal "import_duty_charge", precision: 10, scale: 2, default: "0.0"
+    t.decimal "ddp_handling_fee", precision: 10, scale: 2, default: "0.0"
+    t.decimal "total_charge", precision: 10, scale: 2, default: "0.0"
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"

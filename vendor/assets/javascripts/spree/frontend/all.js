@@ -39,3 +39,4 @@
 //= require spree/frontend/solidus_prototypes
 //= require solidus_paypal_braintree/frontend
 //= require spree/frontend/paypal_button
+//= require spree/frontend/solidus_easyship

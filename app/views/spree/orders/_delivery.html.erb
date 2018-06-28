@@ -2,17 +2,35 @@
   <% if params["controller"] == "spree/orders" %>
     <td colspan="6">
       <h5>
-        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %>
+        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.courier_name %>
       </h5>
     </td>
   <% else %>
-    <td>
+    <td colspan="2">
       <h5>
-        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.shipping_method.name %>
+        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.courier_name %>
       </h5>
     </td>
   <% end %>
   <td> 
-    <h5><%= shipment.display_total_before_tax %></h5>
+    <h5><%= shipment.display_shipment_charge_total %></h5>
+  </td>
+</tr>
+<tr class="adjustment">
+  <% if params["controller"] == "spree/orders" %>
+    <td colspan="6">
+      <h5>
+        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.insurance') %>
+      </h5>
+    </td>
+  <% else %>
+    <td colspan="2">
+      <h5>
+        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.insurance') %>
+      </h5>
+    </td>
+  <% end %>
+  <td>
+    <h5><%= shipment.display_insurance_fee %></h5>
   </td>
 </tr>
