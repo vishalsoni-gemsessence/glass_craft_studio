@@ -1,14 +1,4 @@
 GIT
-  remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 4fd48409c5f8f0508b882424a1d62c8824d4b9fb
-  branch: master
-  specs:
-    solidus_easyship (0.1.0)
-      rest-client
-      solidus_backend
-      solidus_core
-
-GIT
   remote: https://bitbucket.org/36etcetera/image-editor-plugin.git
   revision: a6d1f85b639720e125def4f6ed0b96ec6c59bc2a
   branch: master
@@ -46,6 +36,14 @@ GIT
       braintree (~> 2.65)
       solidus (>= 1.0, < 3)
       solidus_support (>= 0.1.3)
+
+PATH
+  remote: ../solidus-easyship
+  specs:
+    solidus_easyship (0.1.0)
+      rest-client
+      solidus_backend
+      solidus_core
 
 GEM
   remote: https://rubygems.org/
