@@ -34,9 +34,6 @@ en:
     email: "E-mail"
     confirm_password: "Confirmation Password"
     forgot_password: "Forgot your password?"
-
-  hello: "Hello world"
-  send_msg: "SEND MESSAGE"
   sign_up:
     full_name: "Full name"
     sign_up: "Sign Up"
@@ -128,3 +125,10 @@ en:
         thanks: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
         track_information: ! 'Tracking Information: %{tracking}'
         track_link: ! 'Tracking Link: %{url}'
+  activerecord:
+    attributes:
+      spree/product:
+        height: Height (mm)
+        width: Width (mm)
+        depth: Depth (mm)
+        weight: Weight (kg)

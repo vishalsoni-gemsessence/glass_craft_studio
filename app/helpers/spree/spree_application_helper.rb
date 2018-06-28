@@ -26,7 +26,7 @@ module Spree
       if(!variant.height.present? && !variant.width.present?)
         Spree.t(:"no_dimension_available")
       else
-        "#{variant.height} cm x #{variant.width} cm"
+        "#{variant.depth / 10.0} cm x #{variant.width / 10.0} cm x #{variant.height / 10.0} cm"
       end 
     end
 
