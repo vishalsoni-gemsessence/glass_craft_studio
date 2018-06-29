@@ -40,24 +40,22 @@ gem 'jbuilder', '~> 2.5'
 # Use figaro for envirnoment variables
 gem 'figaro'
 gem 'truncate_html'
+gem 'tinymce-rails-langs'
 
 # Use solidus and its extensions for e-commerce solution
 gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
-# For development on local
-# gem 'solidus_on_demand_products', path: '../image-editor-plugin'
-gem 'tinymce-rails-langs'
-
-# Use solidus_on_demand_products to customize product
-gem 'solidus_on_demand_products', git: 'https://bitbucket.org/36etcetera/image-editor-plugin.git', branch: "master"
-
+gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
 gem 'solidus_prototypes'
 
-gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
+# Use solidus_on_demand_products to customize product
+# For development on local
+gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', branch: "master"
+# gem 'solidus_on_demand_products', path: '../image-editor-plugin'
 
-# # For development on local
+# For development on local
 gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: :master
 #gem 'solidus_easyship', path: '../solidus-easyship'
 
