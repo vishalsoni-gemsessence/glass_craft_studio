@@ -59,7 +59,7 @@ gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', br
 
 # # For development on local
 gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: :master
-# gem 'solidus_easyship', path: '../solidus-easyship'
+#gem 'solidus_easyship', path: '../solidus-easyship'
 
 
 # Use pnotify-rails for show messages on popup
