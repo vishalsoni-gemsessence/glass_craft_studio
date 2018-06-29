@@ -57,7 +57,7 @@ gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', b
 
 # For development on local
 gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: :master
-#gem 'solidus_easyship', path: '../solidus-easyship'
+# gem 'solidus_easyship', path: '../solidus-easyship'
 
 
 # Use pnotify-rails for show messages on popup
