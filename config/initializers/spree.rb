@@ -79,3 +79,19 @@ Spree::Config.order_number_generator = Spree::Order::DateNumberGenerator.new(
   length: 5,
   letters: false
 )
+
+Spree::Money.default_formatting_rules[:with_currency] = false
+Spree::Money.default_formatting_rules[:symbol_position] = :before
+
+Money::Currency.register({
+    :priority        => 1,
+    :iso_code        => "HKD",
+    :iso_numeric     => "344",
+    :name            => "HKD",
+    :symbol          => "HKD ",
+    :subunit         => "Cent",
+    :subunit_to_unit => 100,
+    :separator       => ",",
+    :delimiter       => ".",
+    :html_entity     => "HKD ",
+})

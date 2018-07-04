@@ -30,10 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  spree:
-    email: "E-mail"
-    confirm_password: "Confirmation Password"
-    forgot_password: "Forgot your password?"
   sign_up:
     full_name: "Full name"
     sign_up: "Sign Up"
@@ -55,6 +51,9 @@ en:
   order:
     order_number: "Order Number"
   spree:
+    email: "E-mail"
+    confirm_password: "Confirmation Password"
+    forgot_password: "Forgot your password?"
     new_contact_us_email: "New Contact Us Email"
     contacts: Contacts
     contact_us_email_details: "Contact Us Email Details"
@@ -76,9 +75,10 @@ en:
     unit_price: "Unit Price"
     sub_total: "subtotal"
     quantity: "Quantity"
-    dimension: "Dimension"
+    dimensions: "Package Dimension"
+    dimensions_unit_mm: "mm"
     in_stock: "In Stock"
-    no_dimension_available: "No Dimension Available"
+    no_dimension_available: "No Package Dimension Available"
     order_mailer:
       your: Your
       ref: Ref
