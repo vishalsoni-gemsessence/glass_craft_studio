@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628083456) do
+ActiveRecord::Schema.define(version: 20180703072502) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -1207,6 +1207,10 @@ ActiveRecord::Schema.define(version: 20180628083456) do
     t.integer "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.string "background_color"
+    t.string "frame_file_name"
+    t.string "frame_content_type"
+    t.integer "frame_file_size"
+    t.datetime "frame_updated_at"
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
