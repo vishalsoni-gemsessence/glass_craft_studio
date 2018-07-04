@@ -75,7 +75,7 @@ en:
     unit_price: "Unit Price"
     sub_total: "subtotal"
     quantity: "Quantity"
-    dimensions: "Package Dimension"
+    dimensions: "Package Dimensions"
     dimensions_unit_mm: "mm"
     in_stock: "In Stock"
     no_dimension_available: "No Package Dimension Available"
