@@ -107,27 +107,6 @@
                 <td><%= line_item.display_amount.to_html %></td>
               </tr>
             <% end %>
-              <tr>
-                <td colspan="3">
-                  <p class='field coupon_code_row row' data-hook='coupon_code'>
-                    <span class="col-md-4 text-left">
-                      <%= form.label :coupon_code %>
-                    </span>
-                    <span class="col-md-8">
-                      <span class="input-group mr-sm-2">
-                        
-                        <%= form.text_field :coupon_code, class: 'form-control' %>
-                        <span class="input-group-prepend">
-                          <button type="button" class="button coupon_code" id="coupon-code-apply-button">
-                            <%= t('spree.apply_code') %>
-                          </button>
-                        </span>
-                      </span>
-                    </span>
-                  </p>
-                  <div id='coupon_status' class="invalid"></div>
-                </td>
-              </tr>           
           </tbody>
           <%= render "spree/orders/adjustments" %>
           <tfoot>
