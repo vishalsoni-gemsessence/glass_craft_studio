@@ -11899,6 +11899,7 @@ hr {
   max-height: 240px;
   min-height: 240px;
   display: inline-block;
+/*  background-color: #ffffff;*/
   background-color: #787878;
   margin: 15px;
   position: relative;
@@ -11994,7 +11995,8 @@ hr {
   bottom: 10px;
   right: 20px;
   z-index: 4;
-  max-width: 165px;
+/*  max-width: 165px;*/
+  max-width: 285px;
   white-space: nowrap;
   overflow: hidden;
 }
