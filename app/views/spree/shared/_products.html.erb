@@ -26,7 +26,7 @@
     <div class="subsection-sm">
       <div class="link-wrap">
         <% products.each do |product| %>
-          <%= render partial: 'spree/products/product', locals: { product: product } %>
+          <%= render partial: 'spree/shared/product', locals: { product: product, taxon: @taxon } %>
         <% end %>
       </div>
     </div>

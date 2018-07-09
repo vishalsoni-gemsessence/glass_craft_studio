@@ -1,8 +1,8 @@
     <% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
 		<div class="gift-card">
-			<div class="gift-card-img">
-				<img src="<%= product.display_image %>" alt="" />
-			</div>
+      <div class="product-image gift-card-img">
+        <%= link_to(render('spree/shared/image', image: product.display_image, size: :taxon, itemprop: "image"), url, itemprop: 'url') %>
+      </div>      
 			<ul class="gift-card-link">
 				<li>          
           <%= link_to url do %>
@@ -13,11 +13,21 @@
 			<div class="gift-card-blink"></div>
 			<div class="gift-card-text">
 				<h4 class="gift-card-title">
-          <%= link_to url do %>
+          <%= link_to url, class: 'info gift-card-title', itemprop: "name", title: product.name do %>
             <%= simple_format(product.name) %>
           <% end %>  
         </h4>
-        <!-- <p class="gift-card-description"></p> -->
+        <!-- <p class="gift-card-description"></p> -->        
+        <span itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
+          <% if price = product.price_for(current_pricing_options) %>
+            <span class="price selling" itemprop="price" content="<%= price.to_d %>">
+              <%= price.to_html %>
+            </span>
+          <% end %>
+          <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
+        </span>
+        
 			</div>
 		</div>
 		<!--/gift-card-->
+

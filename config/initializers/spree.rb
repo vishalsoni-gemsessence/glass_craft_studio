@@ -95,3 +95,5 @@ Money::Currency.register({
     :delimiter       => ".",
     :html_entity     => "HKD ",
 })
+
+Rails.application.config.spree.stock_splitters = []
