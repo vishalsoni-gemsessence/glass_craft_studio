@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180703072502) do
+ActiveRecord::Schema.define(version: 20180712074541) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -1161,6 +1161,15 @@ ActiveRecord::Schema.define(version: 20180703072502) do
     t.index ["taxonomy_id"], name: "index_taxons_on_taxonomy_id"
   end
 
+  create_table "spree_template_fields_permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "flexibility_for_text", default: false
+    t.boolean "flexibility_for_background", default: false
+    t.boolean "flexibility_for_sticker", default: false
+    t.integer "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_template_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "img_width", precision: 10
     t.decimal "img_height", precision: 10
@@ -1199,8 +1208,6 @@ ActiveRecord::Schema.define(version: 20180703072502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number_of_images"
-    t.string "weight"
-    t.decimal "price", precision: 10, scale: 2
     t.integer "number_of_text_boxes"
     t.string "background_image_file_name"
     t.string "background_image_content_type"
