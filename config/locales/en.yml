@@ -60,6 +60,7 @@ en:
     contact_us_success_message: "Your Request Sent Successfully"
     contact_us_error_message: "Your request failed"
     contact_details: "Contact Details"
+    country: "Country / Major City"
     admin:
       tab:
         contacts: "Contacts"
