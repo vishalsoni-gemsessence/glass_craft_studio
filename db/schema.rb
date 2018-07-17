@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712074541) do
+ActiveRecord::Schema.define(version: 20180717103134) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -215,6 +215,10 @@ ActiveRecord::Schema.define(version: 20180712074541) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "file_file_name"
+    t.string "file_content_type"
+    t.integer "file_file_size"
+    t.datetime "file_updated_at"
     t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 
@@ -855,6 +859,8 @@ ActiveRecord::Schema.define(version: 20180712074541) do
     t.decimal "import_duty_charge", precision: 10, scale: 2, default: "0.0"
     t.decimal "ddp_handling_fee", precision: 10, scale: 2, default: "0.0"
     t.decimal "total_charge", precision: 10, scale: 2, default: "0.0"
+    t.string "taxes_duties_paid_by", default: "Receiver"
+    t.boolean "is_insured", default: false
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
@@ -926,6 +932,8 @@ ActiveRecord::Schema.define(version: 20180712074541) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "tax_rate_id"
+    t.integer "min_delivery_time"
+    t.integer "max_delivery_time"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 

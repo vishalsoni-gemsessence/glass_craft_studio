@@ -14,7 +14,7 @@ module Spree
 
     private
       def permitted_review_attributes
-        [:contact_us_email_id, :name, :email, :subject, :message]
+        [:contact_us_email_id, :name, :email, :subject, :message, :file]
       end
 
       def contact_us_params

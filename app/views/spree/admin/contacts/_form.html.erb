@@ -41,4 +41,17 @@
       </div>
     </div>
   </div>
+  
+  <div class="row">
+    <div class="col-12" data-hook="admin_contact_us_email_form_file">
+      <div data-hook="admin_contact_us_email_form_file">
+      <% if @contact.file.present? %>  
+        <%= f.label :file, class: 'required' %>
+        <%= f.field_container :file do %>
+          <%= image_tag @contact.file.url(:original) %>
+        <% end %>
+      <% end %>  
+      </div>      
+    </div>
+  </div>
 </div>

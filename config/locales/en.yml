@@ -51,35 +51,39 @@ en:
   order:
     order_number: "Order Number"
   spree:
-    email: "E-mail"
+    admin:
+      tab:
+        contacts: "Contacts"
+        contact_us_emails: "Email Setting"
+    availability: "Availability"
+    checkout: "Proceed to checkout"
     confirm_password: "Confirmation Password"
-    forgot_password: "Forgot your password?"
-    new_contact_us_email: "New Contact Us Email"
-    contacts: Contacts
+    contact_form:
+      images:
+        label: Image
+        placeholder: "Support JPG, PNG and GIF under 10MB"
+    contact_us: Contact Us
     contact_us_email_details: "Contact Us Email Details"
     contact_us_success_message: "Your Request Sent Successfully"
     contact_us_error_message: "Your request failed"
     contact_details: "Contact Details"
+    contacts: Contacts
     country: "Country / Major City"
-    admin:
-      tab:
-        contacts: "Contacts"
-        contact_us_emails: "Contact Us Emails"
+    coupon_code: "Promotion Code"
+    description: "Description"
+    dimensions: "Package Dimensions"
+    dimensions_unit_mm: "mm"
+    email: "E-mail"
+    forgot_password: "Forgot your password?"
+    in_stock: "In Stock"
+    login: "SIGN IN"
+    logout: "SIGN OUT"
+    new_contact_us_email: "New Contact Us Email"
+    no_dimension_available: "No Package Dimension Available"
     notice_messages:
       contact_us_email_cloned: Contact us email has been successfully cloned
       contact_us_email_deleted: Contact us email successfully deleted
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
-    logout: "SIGN OUT"
-    login: "SIGN IN"
-    coupon_code: "Promotion Code"
-    checkout: "Proceed to checkout"
-    unit_price: "Unit Price"
-    sub_total: "subtotal"
-    quantity: "Quantity"
-    dimensions: "Package Dimensions"
-    dimensions_unit_mm: "mm"
-    in_stock: "In Stock"
-    no_dimension_available: "No Package Dimension Available"
     order_mailer:
       your: Your
       ref: Ref
@@ -109,13 +113,9 @@ en:
       payment: "PAYMENT METHOD"
       confirm: "ORDER CONFIRMATION"
     products: "Products"
-    in_stock: "In Stock"
-    availability: "Availability"
     product_code: "Product code"
-    description: "Description"
-    specifications: "Specifications"
-    confirm_email: 
-      contact_us
+    quantity: "Quantity"
+    send_msg: "Send Message"
     shipment_mailer:
       shipped_email:
         dear_customer: Dear Customer,
@@ -126,6 +126,9 @@ en:
         thanks: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
         track_information: ! 'Tracking Information: %{tracking}'
         track_link: ! 'Tracking Link: %{url}'
+    specifications: "Specifications"
+    sub_total: "subtotal"
+    unit_price: "Unit Price"
   activerecord:
     attributes:
       spree/product:

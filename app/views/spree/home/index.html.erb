@@ -163,7 +163,7 @@
 <!--/section-->
 <section class="section bg-primary text-white">
   <div class="container">
-    <h2>Contact Us</h2>
+    <h2><%= t("spree.contact_us") %></h2>
     <div class="row">
       <div class="col-lg-6">
         <%= render_snippet "/home-contact-us" %>
@@ -175,11 +175,10 @@
           <div class="vertical-middle">
             <div class="subsection">
               <% @contact_us = Spree::Contact.new if @contact_us.nil? %>
-              <%= form_for @contact_us do |f| %>
+              <%= form_for @contact_us, html: { multipart: true } do |f| %>
                 <fieldset>
                   <div class="subsection-sm">
                     <%= f.select(:contact_us_email_id, Spree::ContactUsEmail.all.collect {|c| [ c.name, c.id ] }, {}, {class: "form-control"}) %>
-                    <!-- options_from_collection_for_select(Spree:ContactUsEmail, "name", "email") %> -->
                   </div>
                   
                   <div class="row">
@@ -208,8 +207,17 @@
                     <%= f.text_area :message, class: "form-control", placeholder: "Message", required: true %>
                     <%= display_error_message(f.object, 'message') %>
                   </div>
+    							<div class="subsection-sm">
+    								<div class="form-group">
+                      <%#= f.label :file, t("spree.contact_form.images.label") %>
+                      <%= f.file_field :file, class: "form-control-file" %>
+                      <small class="form-text text-muted">
+                        <%= t("spree.contact_form.images.placeholder") %>
+                      </small>
+    								</div>
+    							</div>                        
                   <div class="text-right">
-                    <%= f.submit t(:send_msg), class: "btn btn-info" %>
+                    <%= f.submit t("spree.send_msg"), class: "btn btn-info" %>
                   </div>
                 </fieldset>
               <% end %>
