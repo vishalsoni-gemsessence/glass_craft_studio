@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180717103134) do
+ActiveRecord::Schema.define(version: 20180718031615) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(version: 20180717103134) do
     t.string "file_content_type"
     t.integer "file_file_size"
     t.datetime "file_updated_at"
+    t.string "reference_number", limit: 32
     t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 

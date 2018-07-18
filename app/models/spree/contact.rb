@@ -12,7 +12,7 @@ module Spree
     self.discard_column = :deleted_at
 
     has_attached_file :file,
-                      styles: { mini: '48x48>' },
+                      styles: { mini: '48x48>', email: '150x150>' },
                       default_style: :mini,
                       default_url: 'noimage/:style.png',
                       url: '/spree/contacts/:id/:style/:basename.:extension',
@@ -27,10 +27,17 @@ module Spree
 
     belongs_to :contact_us_email, class_name: 'Spree::ContactUsEmail'
 
+    before_validation :generate_reference_number, on: :create
     after_create :send_email
 
     def send_email
-      ContactsMailer.send_email(self).deliver_later
+      if Rails.env.development?
+        ContactMailer.notify_email(self).deliver_now
+        ContactMailer.acknowledge_email(self).deliver_now
+      else  
+        ContactMailer.notify_email(self).deliver_later
+        ContactMailer.acknowledge_email(self).deliver_later
+      end
     end
 
     def slug_candidates
@@ -42,5 +49,32 @@ module Spree
     def deleted?
       !!deleted_at
     end
+    
+    private 
+    
+    def generate_reference_number
+      prefix = 'GX-ENQ-'
+      length = 8
+      letters = false
+      possible = (0..9).to_a
+      possible += ('A'..'Z').to_a if letters
+
+      random = ''
+      
+      loop do
+        # Make a random number.
+        random = "#{prefix}#{(0...length).map { possible.sample }.join}"
+        # Use the random number if no other order exists with it.
+        if Spree::Contact.exists?(reference_number: random)
+          # If over half of all possible options are taken add another digit.
+          length += 1 if Spree::Contact.count > (10**length / 2)
+        else
+          break random
+        end
+      end
+            
+      self.reference_number = random
+    end
+    
   end
 end

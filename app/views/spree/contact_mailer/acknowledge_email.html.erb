@@ -1,0 +1,33 @@
+<section class="section bg-primary">
+  <div class="container">
+    <div class="confirmation-container">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <td>
+              <h4>
+                <%= t('.dear_customer') %>
+              </h4>
+              <h4>
+              <% if @contact.contact_us_email.slug == 'customer-services-and-feedbacks' %>
+                <%= t('.customer_services_and_feedbacks_html', reference_number: @contact.reference_number) %>
+              <% elsif @contact.contact_us_email.slug == 'customized-glass-gifts' %>  
+                <%= t('.customized_glass_gifts_html', reference_number: @contact.reference_number) %>
+              <% elsif @contact.contact_us_email.slug == 'glass-photo-prints' %>  
+                <%= t('.glass_photo_prints_html', reference_number: @contact.reference_number) %>
+              <% elsif @contact.contact_us_email.slug == 'glass-for-interior-design' %>  
+                <%= t('.glass_for_interior_design_html', reference_number: @contact.reference_number) %>
+              <% end %>  
+              </h4>
+              <br>
+              <h4>
+                <%= t('.thanks_html') %>
+              </h4>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

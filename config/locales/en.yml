@@ -62,6 +62,22 @@ en:
       images:
         label: Image
         placeholder: "Support JPG, PNG and GIF under 10MB"
+    contact_mailer:
+      notify_email:
+        dear_team: "Dear team,"
+        contents_html: "There is an enquiry (Reference Number: %{reference_number} from customer."
+        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+      acknowledge_email:
+        dear_customer: "Dear customer,"
+        customer_services_and_feedbacks_title: GlassXpert – Customer Services and Feedbacks
+        customer_services_and_feedbacks_html: 'Thanks for your interest in our products. Your message has been forwarded to our customer support team. Your enquiry was assigned following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our customer support team will look into your concern or request as soon as possible, they will reply to you within 5 working days.'
+        customized_glass_gifts_title: GlassXpert – Customized Glass Gifts
+        customized_glass_gifts_html: 'Thanks for your interest in our products. Your message has been forwarded to our design team. Your enquiry was assigned following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our design team will look into your request as soon as possible, they will reply to you within 5 working days.'
+        glass_photo_prints_title: GlassXpert – Customized Glass Photo Prints
+        glass_photo_prints_html: 'Thanks for your interest in our products. Your message has been forwarded to our sales team. Your enquiry was assigned with the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our sales team will look into your request as soon as possible, they will reply to you within 5 working days.'
+        glass_for_interior_design_title: GlassXpert – Interior Decorative Glass
+        glass_for_interior_design_html: 'Thanks for your interest in our products. Your message has been forwarded to our sales team. Your enquiry was assigned with the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our sales team will look into your request as soon as possible, they will reply to you within 5 working days.'
+        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
     contact_us: Contact Us
     contact_us_email_details: "Contact Us Email Details"
     contact_us_success_message: "Your Request Sent Successfully"
