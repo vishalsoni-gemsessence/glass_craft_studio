@@ -861,8 +861,6 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.decimal "import_duty_charge", precision: 10, scale: 2, default: "0.0"
     t.decimal "ddp_handling_fee", precision: 10, scale: 2, default: "0.0"
     t.decimal "total_charge", precision: 10, scale: 2, default: "0.0"
-    t.string "taxes_duties_paid_by", default: "Receiver"
-    t.boolean "is_insured", default: false
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
@@ -935,9 +933,6 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "tax_rate_id"
-    t.integer "min_delivery_time"
-    t.integer "max_delivery_time"
-    t.integer "value_for_money_rank"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 
@@ -1213,7 +1208,6 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.string "description"
     t.decimal "width", precision: 10
     t.decimal "height", precision: 10
-    t.decimal "scale", precision: 5, scale: 2
     t.string "edges"
     t.string "slug"
     t.datetime "deleted_at"
