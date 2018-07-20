@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718031615) do
+ActiveRecord::Schema.define(version: 20180720014904) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -849,6 +849,7 @@ ActiveRecord::Schema.define(version: 20180718031615) do
     t.string "shipping_label_url"
     t.string "tracking_number"
     t.string "currency"
+    t.string "tracking_url"
     t.integer "min_delivery_time"
     t.integer "max_delivery_time"
     t.integer "value_for_money_rank"
@@ -912,6 +913,7 @@ ActiveRecord::Schema.define(version: 20180718031615) do
     t.string "carrier"
     t.string "service_level"
     t.boolean "available_to_users", default: true
+    t.string "courier_id"
     t.index ["tax_category_id"], name: "index_spree_shipping_methods_on_tax_category_id"
   end
 
@@ -935,6 +937,7 @@ ActiveRecord::Schema.define(version: 20180718031615) do
     t.integer "tax_rate_id"
     t.integer "min_delivery_time"
     t.integer "max_delivery_time"
+    t.integer "value_for_money_rank"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 
