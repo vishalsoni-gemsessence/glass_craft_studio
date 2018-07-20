@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 1dff70825d7028a9cedc089da9b2b4e81a84a934
-  branch: master
+  revision: 074f20f517ab022956a7d2da83dca828dbf97911
+  branch: custom-calculator-for-easyship
   specs:
     solidus_easyship (0.1.0)
       rest-client
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/solidusio/solidus_paypal_braintree.git
-  revision: dcc20f3a5ab272c78cbe78168e7c81b75d7e7230
+  revision: da9343edf6558061535ca3b7b5afeb356225a149
   branch: master
   specs:
     solidus_paypal_braintree (0.3.0)
@@ -312,7 +312,7 @@ GEM
       netrc (~> 0.8)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    sass (3.5.6)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)

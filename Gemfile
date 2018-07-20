@@ -48,6 +48,7 @@ gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
+# gem 'solidus_paypal_braintree', path: '../solidus_paypal_braintree-master'
 gem 'solidus_prototypes'
 
 # Use solidus_on_demand_products to customize product
@@ -56,7 +57,7 @@ gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', b
 # gem 'solidus_on_demand_products', path: '../image-editor-plugin'
 
 # For development on local
-gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: :master
+gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "custom-calculator-for-easyship"
 # gem 'solidus_easyship', path: '../solidus-easyship'
 
 

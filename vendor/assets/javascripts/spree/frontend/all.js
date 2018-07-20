@@ -4,11 +4,11 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-// require jquery
-// require jquery_ujs
+//= require jquery
+//= require jquery_ujs
 // require_tree .
 
-//= require spree/frontend/js/jquery-3.2.1.min.js
+// require spree/frontend/js/jquery-3.2.1.min.js
 
 // Owl Carousel
 //= require spree/frontend/owlcarousel/owl.carousel.min.js

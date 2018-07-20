@@ -8,5 +8,6 @@ class AddEasyhipToShipments < ActiveRecord::Migration[4.2]
     add_column :spree_shipments, :shipping_label_url, :string
     add_column :spree_shipments, :tracking_number, :string
     add_column :spree_shipments, :currency, :string
+    add_column :spree_shipments, :tracking_url, :string
   end
 end
