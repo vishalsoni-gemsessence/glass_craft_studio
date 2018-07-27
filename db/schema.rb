@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180720014904) do
+ActiveRecord::Schema.define(version: 20180725143534) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -511,6 +511,19 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.index ["variant_id", "currency"], name: "index_spree_prices_on_variant_id_and_currency"
   end
 
+  create_table "spree_product_backgrounds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.string "background_image_file_name"
+    t.string "background_image_content_type"
+    t.integer "background_image_file_size"
+    t.datetime "background_image_updated_at"
+    t.string "background_color"
+    t.integer "background_width"
+    t.integer "background_height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_product_option_types", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "position"
     t.integer "product_id"
@@ -520,6 +533,20 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.index ["option_type_id"], name: "index_spree_product_option_types_on_option_type_id"
     t.index ["position"], name: "index_spree_product_option_types_on_position"
     t.index ["product_id"], name: "index_spree_product_option_types_on_product_id"
+  end
+
+  create_table "spree_product_pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.string "custom_width"
+    t.decimal "opacity", precision: 5, scale: 2
+    t.string "product_image_file_name"
+    t.string "product_image_content_type"
+    t.integer "product_image_file_size"
+    t.datetime "product_image_updated_at"
+    t.integer "product_width"
+    t.integer "product_height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_product_promotion_rules", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -861,6 +888,8 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.decimal "import_duty_charge", precision: 10, scale: 2, default: "0.0"
     t.decimal "ddp_handling_fee", precision: 10, scale: 2, default: "0.0"
     t.decimal "total_charge", precision: 10, scale: 2, default: "0.0"
+    t.string "taxes_duties_paid_by", default: "Receiver"
+    t.boolean "is_insured", default: false
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
@@ -933,6 +962,9 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "tax_rate_id"
+    t.integer "min_delivery_time"
+    t.integer "max_delivery_time"
+    t.integer "value_for_money_rank"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 
