@@ -1,0 +1,4 @@
+<div class="field">
+  <label><%= t('spree.country_rule.choose_countries') %></label><br>
+  <input type='hidden' name='<%= param_prefix %>[country_ids_string]' class='country_picker fullwidth' value='<%= promotion_rule.country_ids.join(",") %>'>
+</div>

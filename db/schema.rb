@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180720014904) do
+ActiveRecord::Schema.define(version: 20180726080239) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -630,6 +630,15 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.index ["value"], name: "index_spree_promotion_codes_on_value", unique: true
   end
 
+  create_table "spree_promotion_rule_countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "country_id", null: false
+    t.bigint "promotion_rule_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_spree_promotion_rule_countries_on_country_id"
+    t.index ["promotion_rule_id"], name: "index_spree_promotion_rule_countries_on_promotion_rule_id"
+  end
+
   create_table "spree_promotion_rule_taxons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "taxon_id"
     t.integer "promotion_rule_id"
@@ -861,6 +870,8 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.decimal "import_duty_charge", precision: 10, scale: 2, default: "0.0"
     t.decimal "ddp_handling_fee", precision: 10, scale: 2, default: "0.0"
     t.decimal "total_charge", precision: 10, scale: 2, default: "0.0"
+    t.string "taxes_duties_paid_by", default: "Receiver"
+    t.boolean "is_insured", default: false
     t.index ["deprecated_address_id"], name: "index_spree_shipments_on_deprecated_address_id"
     t.index ["number"], name: "index_shipments_on_number"
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
@@ -933,6 +944,9 @@ ActiveRecord::Schema.define(version: 20180720014904) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "tax_rate_id"
+    t.integer "min_delivery_time"
+    t.integer "max_delivery_time"
+    t.integer "value_for_money_rank"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 

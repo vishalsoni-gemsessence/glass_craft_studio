@@ -78,6 +78,8 @@ server '173.255.248.242', user: 'deploy', roles: %w{app db web}
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
+    # invoke 'unicorn:reload'
+    invoke 'unicorn:stop'
     invoke 'unicorn:reload'
   end
 end

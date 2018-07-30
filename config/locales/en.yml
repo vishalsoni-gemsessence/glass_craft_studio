@@ -85,6 +85,8 @@ en:
     contact_details: "Contact Details"
     contacts: Contacts
     country: "Country / Major City"
+    country_rule:
+      choose_countries: Choose Countries
     coupon_code: "Promotion Code"
     description: "Description"
     dimensions: "Package Dimensions"

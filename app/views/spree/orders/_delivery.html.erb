@@ -1,36 +1,47 @@
 <tr class="adjustment">
-  <% if params["controller"] == "spree/orders" %>
-    <td colspan="6">
-      <h5>
-        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.courier_name %>
-      </h5>
-    </td>
-  <% else %>
-    <td colspan="2">
-      <h5>
-        <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.courier_name %>
-      </h5>
-    </td>
-  <% end %>
+<% if params["controller"] == "spree/orders" %>
+  <td colspan="6">
+<% else %>    
+  <td colspan="2">
+<% end %>  
+    <h5>
+      <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.shipping') %>: <%= shipment.courier_name %>
+    </h5>
+  </td>
   <td> 
     <h5><%= shipment.display_shipment_charge_total %></h5>
   </td>
 </tr>
 <tr class="adjustment">
-  <% if params["controller"] == "spree/orders" %>
-    <td colspan="6">
-      <h5>
-        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.insurance') %>
-      </h5>
-    </td>
-  <% else %>
-    <td colspan="2">
-      <h5>
-        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.insurance') %>
-      </h5>
-    </td>
-  <% end %>
+<% if params["controller"] == "spree/orders" %>
+  <td colspan="6">
+<% else %>
+  <td colspan="2">
+<% end %>
+    <h5>
+      <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.insurance') %>
+    </h5>
+  </td>
   <td>
     <h5><%= shipment.display_insurance_fee %></h5>
   </td>
 </tr>
+<!-- Any shipment related adjustment -->
+<% @order.all_adjustments.non_tax.eligible.group_by(&:label).each do |label, adjustments| %>
+  <% if adjustments.sum(&:amount) != 0 %>
+    <tr class="adjustment">
+    <% if params["controller"] == "spree/orders" %>
+      <td colspan="6">
+    <% else %>
+      <td colspan="2">
+    <% end %>
+        <h5>
+          <i class="fa fa-minus mr-2 text-primary" aria-hidden="true"></i> <%= label %>
+        </h5>
+      </td>
+      <td>
+        <h5><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></h5>
+      </td>
+    </tr>
+  <% end %>  
+<% end %>  

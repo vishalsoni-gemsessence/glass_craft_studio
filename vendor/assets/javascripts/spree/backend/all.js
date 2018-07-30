@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require spree/backend
 //= require_tree .
+//= require spree/backend/country_picker
 //= require spree/backend/solidus_on_demand_products
 //= require spree/backend/solidus_prototypes
 //= require spree/backend/solidus_paypal_braintree
