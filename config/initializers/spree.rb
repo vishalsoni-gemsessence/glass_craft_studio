@@ -27,7 +27,7 @@ Spree.config do |config|
   # Template to use when rendering layout
   # config.layout = "spree/layouts/spree_application"
 
-
+  config.products_per_page = 30
   # Admin:
 
   # Custom logo for the admin
