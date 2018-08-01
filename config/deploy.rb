@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.10.2"
+lock "~> 3.11.0"
 
 set :application, "GlassXpert"
 set :repo_url, "git@bitbucket.org:36etcetera/glassxpert-shop.git"
