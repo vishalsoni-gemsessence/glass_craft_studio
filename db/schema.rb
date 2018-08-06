@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20180726080239) do
+
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -567,6 +568,34 @@ ActiveRecord::Schema.define(version: 20180726080239) do
     t.index ["position"], name: "index_spree_product_properties_on_position"
     t.index ["product_id"], name: "index_product_properties_on_product_id"
     t.index ["property_id"], name: "index_spree_product_properties_on_property_id"
+  end
+
+  create_table "spree_product_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.integer "sticker_layer_id"
+    t.integer "rotate"
+    t.decimal "opacity", precision: 5, scale: 2
+    t.integer "position_x"
+    t.integer "position_y"
+    t.integer "sticker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_product_texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.integer "text_layer_id"
+    t.string "text_content"
+    t.decimal "rotate", precision: 10
+    t.integer "line_height"
+    t.integer "font_size"
+    t.string "font_family"
+    t.decimal "opacity", precision: 5, scale: 2
+    t.string "alignment"
+    t.string "style"
+    t.string "font_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
