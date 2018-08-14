@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726080239) do
+ActiveRecord::Schema.define(version: 20180808113335) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -522,6 +522,10 @@ ActiveRecord::Schema.define(version: 20180726080239) do
     t.integer "background_height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_frame_file_name"
+    t.string "product_frame_content_type"
+    t.integer "product_frame_file_size"
+    t.datetime "product_frame_updated_at"
   end
 
   create_table "spree_product_option_types", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -572,7 +576,6 @@ ActiveRecord::Schema.define(version: 20180726080239) do
 
   create_table "spree_product_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_id"
-    t.integer "sticker_layer_id"
     t.integer "rotate"
     t.decimal "opacity", precision: 5, scale: 2
     t.integer "position_x"
@@ -580,11 +583,11 @@ ActiveRecord::Schema.define(version: 20180726080239) do
     t.integer "sticker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sticker_layer"
   end
 
   create_table "spree_product_texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_id"
-    t.integer "text_layer_id"
     t.string "text_content"
     t.decimal "rotate", precision: 10
     t.integer "line_height"
@@ -596,6 +599,7 @@ ActiveRecord::Schema.define(version: 20180726080239) do
     t.string "font_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "text_layer"
   end
 
   create_table "spree_products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: f77c65af3ff2ec362662208b763e0ebada403c5f
+  revision: e3ab217ce5bd15967b9e51f0b3916899812a9a0d
   branch: master
   specs:
     solidus_on_demand_products (0.0.1)
@@ -76,7 +76,7 @@ GEM
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
-    activemerchant (1.81.0)
+    activemerchant (1.82.0)
       activesupport (>= 4.2, < 6.x)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -226,16 +226,16 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mime-types (3.1)
+    mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types-data (3.2018.0812)
     mimemagic (0.3.2)
-    mini_mime (1.0.0)
+    mini_mime (1.0.1)
     mini_portile2 (2.1.0)
     minitest (5.11.3)
-    monetize (1.8.0)
-      money (~> 6.11.2)
-    money (6.11.3)
+    monetize (1.9.0)
+      money (~> 6.12)
+    money (6.12.0)
       i18n (>= 0.6.4, < 1.1)
     multi_json (1.13.1)
     mysql2 (0.5.1)
