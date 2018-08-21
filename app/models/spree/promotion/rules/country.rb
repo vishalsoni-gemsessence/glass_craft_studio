@@ -27,7 +27,7 @@ module Spree
         
         # Country in an order
         def country_in_order(order)
-          order.ship_address.country
+          order.ship_address.country if order.ship_address.present?
         end
         
         
