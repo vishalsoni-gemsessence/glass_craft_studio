@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180808113335) do
+ActiveRecord::Schema.define(version: 20180817132932) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -1250,6 +1250,16 @@ ActiveRecord::Schema.define(version: 20180808113335) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spree_template_frames", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "template_id"
+    t.string "frame_image_file_name"
+    t.string "frame_image_content_type"
+    t.integer "frame_image_file_size"
+    t.datetime "frame_image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_template_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "img_width", precision: 10
     t.decimal "img_height", precision: 10
@@ -1293,10 +1303,6 @@ ActiveRecord::Schema.define(version: 20180808113335) do
     t.integer "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.string "background_color"
-    t.string "frame_file_name"
-    t.string "frame_content_type"
-    t.integer "frame_file_size"
-    t.datetime "frame_updated_at"
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
