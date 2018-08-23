@@ -1,5 +1,5 @@
 <fieldset id='shipping_method' data-hook>
-  <legend align="center"><%#= t('spree.delivery') %></legend>
+  <!-- <legend align="center"><%#= t('spree.delivery') %></legend> -->
   <div class="inner" data-hook="shipping_method_inner">
     <div id="methods">
       <%= form.fields_for :shipments do |ship_form| %>
@@ -83,21 +83,24 @@
                     </tr>
                   </tfoot>                  
                 </table>
+                <div class="form-buttons subsection-sm text-right" data-hook="buttons">
+                 <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
+                </div>                
               </div>
             </div>
+          <% if Spree::Config[:shipping_instructions] %>
             <div class="col-md-6">
-              <% if Spree::Config[:shipping_instructions] %>
-                <p id="minstrs" data-hook>
-                  <%= form.label :special_instructions, t('spree.shipping_instructions'), class: 'shipping_instructions' %><br />
-                  <div class="payment-method-card">
-                    <%= form.text_area :special_instructions, cols: 40, rows: 7 %>
-                  </div>
-                </p>
-              <% end %>
+              <p id="minstrs" data-hook>
+                <%= form.label :special_instructions, t('spree.shipping_instructions'), class: 'shipping_instructions' %><br />
+                <div class="payment-method-card">
+                  <%= form.text_area :special_instructions, cols: 40, rows: 7 %>
+                </div>
+              </p>
             </div>
-            <div class="col-md-6">
-              <% if @differentiator.try(:missing?) %>
-                <div class="shipment unshippable">
+          <% end %>
+          <% if @differentiator.try(:missing?) %>
+            <div class="col-md-6">              
+              <div class="shipment unshippable">
                   <h3 class="stock-location" data-hook="stock-location">
                     <%= t('spree.unshippable_items') %>
                   </h3>
@@ -137,16 +140,11 @@
                     </table>
                   </div>
                 </div>
-              <% end %>
             </div>
+          <% end %>          
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </fieldset>
-<br />
-
-<div class="form-buttons subsection-sm text-right" data-hook="buttons">
-  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
-</div>
