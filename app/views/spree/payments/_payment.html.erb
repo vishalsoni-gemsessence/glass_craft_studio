@@ -14,15 +14,32 @@
   <%= content_tag(:span, payment.payment_method.name) %>:
   <%= content_tag(:span, payment.display_amount) %>
 <% elsif source.is_a?(SolidusPaypalBraintree::Source) %>
-  <% if payment.source.payment_type == "CreditCard" %>
+  <% if payment.source.credit_card? %>    
     <div>
-      <p>
-        <strong class="text-uppercase"><%= payment.source.friendly_payment_type %>: </strong>
-        <% if payment.source.last_digits %>
-          <%= t('spree.ending_in') %> <%= source.last_digits %>
-        <% end %>
-      </p>
+      <% if payment.source.card_type == "American Express" %>
+        <i class="fa fa-cc-amex mr-2 fa-2x text-primary"></i>&nbsp;
+      <% elsif payment.source.card_type == "Visa" %>
+        <i class="fa fa-cc-visa mr-2 fa-2x text-primary"></i>&nbsp;
+      <% elsif payment.source.card_type == "MasterCard" %>
+        <i class="fa fa-cc-mastercard mr-2 fa-2x text-primary"></i>&nbsp;
+      <% elsif payment.source.card_type == "Diners Club" %>
+        <i class="fa fa-cc-diners-club mr-2 fa-2x text-primary"></i>&nbsp;
+      <% elsif payment.source.card_type == "Discover" %>
+        <i class="fa fa-cc-discover mr-2 fa-2x text-primary"></i>&nbsp;
+      <% elsif payment.source.card_type == "JCB" %>
+        <i class="fa fa-cc-jcb mr-2 fa-2x text-primary"></i>&nbsp;
+      <% end %>  
+      <%= payment.source.display_number %> <%#= "(#{payment.source.card_type})" %>
     </div>
+  <% elsif payment.source.paypal? %>
+    <h4 class="default-font">
+      <i class="fab fa-paypal mr-2 fa-2x text-primary"></i>&nbsp;
+      <strong>Express</strong>
+    </h4>
+  <% elsif payment.source.apple_pay? %>  
+    <h4 class="default-font">
+      <i class="fab fa-apple-pay mr-2 fa-2x text-primary"></i>&nbsp;
+    </h4>
   <% end %>
 <% else %>
   <%= content_tag(:span, payment.payment_method.name) %>

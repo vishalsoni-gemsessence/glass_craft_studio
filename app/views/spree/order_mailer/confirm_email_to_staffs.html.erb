@@ -1,7 +1,7 @@
 <section class="section bg-primary">
   <div class="container">
     <div class="subsection text-center text-white">
-      <h4 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('.subject')}" %></h4>
+      <h4 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('spree.order_mailer.confirm_email.subject')}" %></h4>
       <h6><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h6>
     </div>    
     <div class="confirmation-container">
@@ -28,17 +28,6 @@
               <td class="expander"></td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2">
-                <%= button_tag class: 'button checkout btn btn-info', name: 'checkout' do %>
-                  <%= link_to "View your order", token_order_url(@order.number, @order.guest_token) %>
-                <% end %>
-                &nbsp;&nbsp;or&nbsp;&nbsp;
-                <%= link_to 'Visit our store', spree.root_url, class: "link" %>                
-              </td>
-            </tr>
-          </tfoot>
         </table>
       </div>
       <hr>

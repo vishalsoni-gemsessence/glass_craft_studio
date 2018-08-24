@@ -99,24 +99,6 @@
             <% end %>  
               <div class="subsection-sm separator"></div>
 
-              <div class="subsection-sm">
-                <div data-hook="product_price">
-                  <div class="add-to-cart subsection-sm">
-                    <h5 class="bigger text-uppercase">Quantity:</h5>
-                    <div class="subsection-sm">
-                      <div class="form-group">
-                        <div class="number-wrap">
-                          <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
-                          <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
-                          <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
               <%= render partial: 'cart_form' %>
 
               <%= render partial: 'taxons' %>

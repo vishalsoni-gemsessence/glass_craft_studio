@@ -1,0 +1,93 @@
+<section class="section bg-primary">
+  <div class="container">
+    <div class="subsection text-center text-white">
+      <h4 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('.subject')}" %></h4>
+      <h6><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h6>
+    </div>    
+    <div class="confirmation-container">
+      <div class="table-responsive">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <h6>
+                  <%= t('.dear_customer') %>
+                </h6>
+                <h6>
+                  <%= t('.instructions') %>
+                </h6>
+                <br>
+                <h6>
+                  <%= t('.thanks_html') %>
+                </h6>
+              </td>
+              <td class="expander"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                <%= button_tag class: 'button checkout btn btn-info', name: 'checkout' do %>
+                  <%= link_to "Visit our store", spree.root_url %>
+                <% end %>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <hr>
+      <div class="subsection">
+        <div class="table-responsive">
+          <h5><%= "#{t('.order_summary_canceled')}"%></h5>
+          <table class="table table-responsive table-hover" style="min-width: 500px">
+            <tbody>
+              <% @order.line_items.each do |item| %>
+                <tr>
+                  <td width="55%">
+                    <div class="row">
+                      <div class="col-3">
+                      <% if item.variant.images.empty? %>
+                        <%= render('spree/shared/image', image: item.variant.product.display_image, size: :small) %>
+                      <% else %>
+                        <div class="product-img">
+                          <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                        </div>
+                      <% end %>
+                      </div>
+                      <div class="col">
+                        <h5><%= item.variant.product.name %></h5>
+                        <%= item.variant.options_text %>
+                        <span><%= t('spree.quantity') %> x <%= item.quantity %></span><br>
+                      </div>
+                    </div>
+                  </td>
+                  <td width="45%" class="total"><%= item.display_amount.to_html %></td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot id="order-total" data-hook="order_details_total">
+              <tr class="total">
+                <td><b><%= t('.total') %></b></td>
+                <td class="total"><span id="order_total"><%= @order.display_total.to_html %></span></td>
+              </tr>
+            </tfoot>
+            <tfoot id="order-charges" data-hook="order_details_adjustments">
+            <% @order.adjustments.eligible.each do |adjustment| %>
+              <tr class="total">
+                <td class="fw900 text-center"><strong><%= sanitize(adjustment.label) %></strong></td>
+                <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
+              </tr>
+              <% end %>
+            </tfoot>            
+            <tfoot id="subtotal" data-hook="order_details_subtotal">
+              <tr class="total" id="subtotal-row">
+                <td><b><%= t('.subtotal') %></b></td>
+                <td class="total"><span><%= @order.display_item_total.to_html %></span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

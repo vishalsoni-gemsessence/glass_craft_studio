@@ -15,7 +15,10 @@
           <div class="subsection">
             <fieldset id="order_details" data-hook>
               <div class="clear"></div>
-              <legend align="center"><%#= t('spree.confirm') %></legend>
+              <legend align="center">
+                <i class="fa fa-check-circle mr-2 fa-3x text-primary"></i>
+                <h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
+              </legend>
               <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
             </fieldset>
 

@@ -9,37 +9,43 @@
 	</div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="subsection">
         <div class="order-details-card">
           <div class="steps-data"><!-- row-->
-            <div class="columns order-confirm-address alpha four" data-hook="order-ship-address">
-              <h3 class="fw900"><%= t('order.order_number') %>: <%= order.number %></h3>
+            <div class="columns order-confirm-address alpha four" data-hook="order-ship-address">              
               <%= render partial: 'spree/shared/address', locals: { address: order.ship_address, type: "shipping", order: order } %>
               <%= render partial: 'spree/shared/address', locals: { address: order.bill_address, type: "billing", order: order } %>
             </div>
 
             <div class="columns order-confirm-address alpha four" data-hook="order-shipment">
-              <h6>
-                <%= t('spree.shipments') %> <%= link_to "#{t('spree.actions.edit')}", checkout_state_path(:delivery) unless order.completed? %>
-              </h6>
+              <h6><%= t('spree.shipments') %></h6>
               <div class="delivery">
                 <% order.shipments.each do |shipment| %>
                   <div>
-                    <i class='fa fa-truck mr-2 text-primary'></i>
+                    <i class='fa fa-truck mr-2 fa-2x text-primary'></i>
                     <%= t('spree.shipment_details', stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
                   </div>
                 <% end %>
               </div>
               <%= render(partial: 'spree/shared/shipment_tracking', locals: {order: order}) if order.shipped? %>
             </div>
+            <div class="columns order-confirm-address omega four" data-hook="order-payment">
+              <h6><%= t('spree.payment_information') %></h6>
+              <div class="payment-info">
+                <% order.payments.valid.each do |payment| %>
+                  <%= render payment %><br/>
+                <% end %>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
     </div>
     <hr />
     
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="table-responsive-md">
         <table id='line-items' class="table table-hover table-confirm-order" data-hook="order_details">
           <thead data-hook>
@@ -186,7 +192,7 @@
 	</div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="subsection">
         <div class="order-details-card">
           <div class="steps-data"><!-- row-->
@@ -206,7 +212,7 @@
                   <div class="delivery">
                     <% order.shipments.each do |shipment| %>
                       <div>
-                        <i class='fa fa-truck mr-2 text-primary'></i>
+                        <i class='fa fa-truck mr-2 fa-2x text-primary'></i>
                         <%= t('spree.shipment_details', stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
                       </div>
                     <% end %>
@@ -225,7 +231,6 @@
             <% end %>
 
 
-
             <% if order.has_checkout_step?("payment") %>
               <div class="columns order-confirm-address omega four">
                 <h6><%= t('spree.payment_information') %> <%= link_to "#{t('spree.actions.edit')}", checkout_state_path(:payment) unless order.completed? %></h6>
@@ -242,7 +247,7 @@
     </div>
     <hr />
     
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="table-responsive-md">
         <table id='line-items' class="table table-hover table-confirm-order" data-hook="order_details">
           <!-- <col width="15%" valign="middle" halign="center"> -->

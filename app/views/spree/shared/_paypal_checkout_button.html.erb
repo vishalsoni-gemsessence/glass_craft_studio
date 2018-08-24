@@ -1,4 +1,5 @@
 <% address = current_order.ship_address %>
+<% state = address.state.present?? address.state.name : '' %>
 
 <div id="paypal-button" class="text-left"></div>
 
@@ -7,7 +8,7 @@
     line1: '<%= address.address1 %>',
     line2: '<%= address.address2 %>',
     city: '<%= address.city %>',
-    state: '<%= address.state.name %>',
+    state: '<%= state %>',
     postalCode: '<%= address.zipcode %>',
     countryCode: '<%= address.country.iso %>',
     phone: '<%= address.phone %>',

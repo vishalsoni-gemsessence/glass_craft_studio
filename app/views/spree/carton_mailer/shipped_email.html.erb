@@ -1,55 +1,69 @@
 <section class="section bg-primary">
   <div class="container">
     <div class="subsection text-center text-white">
-      <h2 class="fw900 text-uppercase">
-        <%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('spree.shipment_mailer.shipped_email.subject')}" %>
-      </h2>
-      <h3><%= "#{t('spree.order_mailer.ref')}: #{@order.store.name} #{t('order.order_number')} ##{@order.number}" %></h3>
+      <h4 class="fw900 text-uppercase">
+        <%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('.subject')}" %>
+      </h4>
+      <h6><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h6>
     </div>    
     <div class="confirmation-container">
       <div class="table-responsive">
         <table>
-          <tr>
-            <td>
-              <h4>
-                <%= t('spree.shipment_mailer.shipped_email.dear_customer') %>
-              </h4>
-              <h4>
-              <% if @order.ship_address.country.iso == "HK" %>  
-                <%= t('spree.shipment_mailer.shipped_email.instructions_hong_kong_html') %>
-              <% else %>
-                <%= t('spree.shipment_mailer.shipped_email.instructions_outside_hong_kong_html') %>
+          <tbody>
+            <tr>
+              <td>
+                <h6>
+                  <%= t('.dear_customer') %>
+                </h6>
+                <h6>
+                <% if @order.ship_address.country.iso == "HK" %>  
+                  <%= t('.instructions_hong_kong_html') %>
+                <% else %>
+                  <%= t('.instructions_outside_hong_kong_html') %>
+                <% end %>  
+                </h6>
+              <% if @carton.tracking %>
+                <br>
+                <h6>
+                  <%= t('.track_information', tracking: @carton.tracking) %>
+                </h6>
+                <% if @carton.tracking_url%>
+                <h6>
+                  <%= t('.track_link', url: @carton.tracking_url) %>
+                </h6>
+                <% end %>
               <% end %>  
-              </h4>
-              <br>
-              <h4>
-                <%= t('spree.shipment_mailer.shipped_email.track_information', tracking: @carton.tracking) if @carton.tracking %>
-              </h4>
-              <h4>
-                <%= t('spree.shipment_mailer.shipped_email.track_link', url: @carton.tracking_url) if @carton.tracking_url %>
-              </h4>
-              <br>
-              <h4>
-                <%= t('spree.shipment_mailer.shipped_email.thanks_html') %>
-              </h4>
-            </td>
-            <td class="expander"></td>
-          </tr>
+                <br>
+                <h6>
+                  <%= t('.thanks_html') %>
+                </h6>
+              </td>
+              <td class="expander"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                <%= button_tag class: 'button checkout btn btn-info', name: 'checkout' do %>
+                  <%= link_to "View your order", token_order_url(@order.number, @order.guest_token) %>
+                <% end %>
+                &nbsp;&nbsp;or&nbsp;&nbsp;
+                <%= link_to 'Visit our store', spree.root_url, class: "link" %>                
+              </td>
+            </tr>
+          </tfoot>          
         </table>
       </div>
+      <hr>
       <div class="subsection">
-        <div class="order-details-card">
-          <h3 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h3>
-          <%= render partial: 'spree/shared/address', locals: { address: @order.ship_address, type: "shipping", order: @order } %>
-        </div>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-hover" style="min-width: 500px">
+        <div class="table-responsive">
+        <h5><%= "#{t('spree.order_mailer.order_summary')}"%></h5>
+        <table class="table table-responsive table-hover" style="min-width: 500px">
           <thead>
             <tr>
               <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
-              <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
-              <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
+              <!-- <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
+              <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th> -->
             </tr>
           </thead>
           <tbody>
@@ -69,15 +83,17 @@
                     <div class="col">
                       <h4><%= item.variant.product.name %></h4>
                       <%= item.variant.options_text %>
+                      <span><%= t('spree.quantity') %> x <%= item.quantity %></span><br>
                     </div>
                   </div>
                 </td>
-                <td class="price"><%= item.single_money.to_html %></td>
-                <td><%= item.quantity %></td>
+                <!-- <td class="price"><%#= item.single_money.to_html %></td> -->
+                <!-- <td><%#= item.quantity %></td> -->
               </tr>
             <% end %>
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   </div>

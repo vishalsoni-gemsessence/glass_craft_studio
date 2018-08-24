@@ -1,0 +1,63 @@
+<section class="section bg-primary">
+  <div class="container">
+    <div class="subsection text-center text-white">
+      <h4 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('.subject')}" %></h4>
+      <h6><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h6>
+    </div>    
+    <div class="confirmation-container">
+      <div class="table-responsive">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <h6>
+                  <%= t('.dear_customer') %>
+                </h6>
+                <h6>              
+                  <%= t('.instructions') %>
+                </h6>
+                <br>
+                <h6>
+                  <%= t('.thanks_html') %>
+                </h6>
+              </td>
+              <td class="expander"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <div class="subsection">
+        <div class="table-responsive">
+          <h5><%= "#{t('.order_summary_canceled')}"%></h5>
+          <table class="table table-responsive table-hover" style="min-width: 500px">
+            <tbody>
+              <% @inventory_units.each do |item| %>
+                <tr>
+                  <td width="55%">
+                    <div class="row">
+                      <div class="col-3">
+                      <% if item.variant.images.empty? %>
+                        <%= render('spree/shared/image', image: item.variant.product.display_image, size: :small) %>
+                      <% else %>
+                        <div class="product-img">
+                          <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                        </div>
+                      <% end %>
+                      </div>
+                      <div class="col">
+                        <h5><%= item.variant.product.name %></h5>
+                        <%= item.variant.options_text %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</section>
