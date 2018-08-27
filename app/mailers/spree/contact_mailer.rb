@@ -1,6 +1,6 @@
 module Spree
   class ContactMailer < BaseMailer    
-    default from: 'info@glassxpertndesign.com'
+    default from: Rails.application.secrets.mailer[:contacts][:from]
     
     def notify_email(contact)
       @contact = contact
