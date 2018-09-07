@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: d2a9ca8b012966b99245309ee6c66fa347480c9e
+  revision: b189b0a4109d50a80e3efb310ad69c4a4850f7bb
   branch: master
   specs:
     solidus_on_demand_products (0.0.1)
@@ -76,7 +76,7 @@ GEM
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
-    activemerchant (1.82.0)
+    activemerchant (1.83.0)
       activesupport (>= 4.2, < 6.x)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
