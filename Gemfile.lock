@@ -6,6 +6,7 @@ GIT
     solidus_on_demand_products (0.0.1)
       solidus_core (~> 2.5.0)
 
+
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
   revision: dc1dddef24f97df9d6f552b2eb5d5932c11a458e
