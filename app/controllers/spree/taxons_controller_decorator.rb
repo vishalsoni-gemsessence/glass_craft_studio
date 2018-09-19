@@ -12,6 +12,8 @@ module Spree
       @products = @searcher.retrieve_products
 
       @childrens = @taxon.children.page(params[:page]).per(params[:per_page])
+      
+      @taxon_products = @taxon.products.page(params[:page]).per(params[:per_page])
     end
   end
 end

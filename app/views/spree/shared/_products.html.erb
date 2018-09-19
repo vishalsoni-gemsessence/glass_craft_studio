@@ -33,7 +33,8 @@
     <div class="subsection-sm">
       <div class="load-more-container">
         <% if paginated_products.next_page %>
-          <%= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
+          <%#= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
+          <%= link_to 'Load More', nested_taxons_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>          
         <% end %>
       </div>
     </div>

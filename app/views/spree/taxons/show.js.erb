@@ -4,3 +4,10 @@ $(".taxon_children").append("<%= j render(@childrens) %>");
 <% else %>
   $("#loadMore").attr('href','<%= nested_taxons_path(:page => @childrens.next_page) %>');
 <% end %>
+
+$(".link-wrap").append("<%= j render(@taxon_products) %>");
+<% if @taxon_products.total_pages == @taxon_products.current_page %>
+  $("#loadMore").hide();
+<% else %>
+  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+<% end %>
