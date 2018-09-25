@@ -25,7 +25,7 @@
   					<div class="photo-gallery-card">
               <%= image_tag child.display_image.attachment(:product) %>
   						<div class="photo-gallery-blink">
-                <a class="photo-gallery-link" href="upload-photo-gallery.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+                <!-- <a class="photo-gallery-link" href="upload-photo-gallery.html"> --><!-- <i class="fa fa-link" aria-hidden="true"></i></a> -->
   							<div class="photo-gallery-text">
   								<h4 class="photo-gallery-title">Title:  <%= child.name %></h4>
   								<p>Price: <%= child.price == 0.0 ? 'Free' : child.price %></p>
@@ -36,6 +36,7 @@
   							</div>
   						</div>
   					</div>
+            <div class="uploaded-product-variant"></div>
             <% end %>
   					<!--/gallery-card-->
   				</div>
