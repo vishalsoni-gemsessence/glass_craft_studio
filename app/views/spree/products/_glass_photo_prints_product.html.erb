@@ -7,8 +7,6 @@
 %>
 <%# url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
 <% url = spree.nested_taxons_path(taxon.permalink) %>
-<% add_params = spree.nested_taxons_path(taxon.permalink, selected: true) %>
-<% url = params[:selected] == "true" ?  add_params : url %>
 <a class="frame-selection-card <%= cycle("", "light-bg", "", "light-bg", "light-bg", "", "light-bg", "", name: "classes") %>" href="<%= url %>">
 	<div class="table-parent-md">
 		<div class="vertical-middle">

@@ -1,6 +1,4 @@
     <% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
-    <% add_params = spree.product_path(product, taxon_id: taxon.try(:id), selected: true) %>
-    <% url = params[:selected] == "true" ?  add_params : url %>
 		<div class="gift-card">
       <div class="product-image gift-card-img">
         <%= link_to(render('spree/shared/image', image: product.display_image, size: :taxon, itemprop: "image"), url, itemprop: 'url') %>
