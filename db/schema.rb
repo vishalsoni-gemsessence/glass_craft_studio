@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180903094941) do
+ActiveRecord::Schema.define(version: 20180928105525) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -276,6 +276,7 @@ ActiveRecord::Schema.define(version: 20180903094941) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gallery_image_layer"
   end
 
   create_table "spree_inventory_units", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -558,6 +559,7 @@ ActiveRecord::Schema.define(version: 20180903094941) do
     t.integer "product_height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_picture_layer"
   end
 
   create_table "spree_product_promotion_rules", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
