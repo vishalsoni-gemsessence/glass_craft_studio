@@ -157,8 +157,9 @@ en:
         track_information: ! 'Tracking Information: %{tracking}'
         track_link: ! 'Tracking Link: %{url}'
     specifications: "Specifications"
-    sub_total: "subtotal"
+    sub_total: "sub-total"
     unit_price: "Unit Price"
+    current_order_summary: "current order summary"
   activerecord:
     attributes:
       spree/product:

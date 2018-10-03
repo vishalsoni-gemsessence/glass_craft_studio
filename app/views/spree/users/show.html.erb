@@ -1,116 +1,124 @@
-	<div class="main">
-		<section class="section account-section">
-			<div class="container bigger">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="account-box">
-							<h2 class="text-primary account-box-title">My Account</h2>
-							<ul class="account-nav">
-								<li><a href="#0">My Wishlist</a>
-								</li>
-								<li><a href="#0">Current Order</a>
-								</li>
-								<li><a href="#0">Shopping cart</a>
-								</li>
-								<li><a href="#0">Order History</a>
-								</li>
-							</ul>
-						</div>
-						<!--/account-box-->
-					</div>
-					<!--/- col-->
-					<div class="col-md-9">
-						<h2 class="fw900 text-primary text-uppercase">CURRENT ORDER SUMMARY</h2>
-						<div class="row">
-							<div class="col-lg-5">
-								<div class="subsection">
-									<div class="order-details-card">
-										<h3 class="fw900">ORDER NUMBER: GX00001</h3>
-										<p> <strong>FULL NAME: </strong>Andy Chan</p>
-										<p> <strong>MOBILE: </strong>852 1234 5678</p>
-										<p> <strong>E-MAIL: </strong>andychan1234@gmail.com</p>
-										<p><strong>BILLING ADDRESS: </strong>
-										</p>
-										<p>Flat 05, Floor 11, Wonder Building, 8 Start st., Wai Chai, HKSAR</p>
-										<p><strong>MAILLING ADDRESS:</strong>
-										</p>
-										<p>Flat 03, Floor 27, Super Star Garden, 8 Super start st., Ho Man Tin, KLN, HKSAR</p>
-									</div>
-									<!--/order-details-card-->
-								</div>
-								<!--/subsection-->
-							</div>
-							<!--/col-->
-							<div class="col-lg-7">
-								<div class="table-responsive">
-									<table class="table table-hover" style="min-width: 500px">
-										<thead>
-											<tr>
-												<th scope="col"></th>
-												<th scope="col">SUB-TOTAL</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>
-													<div class="row">
-														<div class="col-3">
-															<img class="shopping-cart-img" src="http://via.placeholder.com/75x75" alt="" />
-														</div>
-														<div class="col">
-															<h4 class="fw900 text-uppercase"><a href="#0">BIRTHDAY GIFT</a></h4>
-														</div>
-													</div>
-												</td>
-												<td>$300.00</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="row">
-														<div class="col-3">
-															<img class="shopping-cart-img" src="http://via.placeholder.com/75x75" alt="" />
-														</div>
-														<div class="col">
-															<h4 class="fw900 text-uppercase"><a href="#0">PHOTO PRINT ON GLASS</a></h4>
-														</div>
-													</div>
-												</td>
-												<td>$300.00</td>
-											</tr>
-											<tr>
-												<td><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i> Delivery fee</td>
-												<td>$30.00</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="subsection">
-									<div class="row">
-										<div class="col-lg-6 offset-lg-6">
-											<div class="row">
-												<div class="col-4 offset-3">
-													<p class="fw900 text-center">Total:</p>
-												</div>
-												<div class="col-5">
-													<p class="text-center">$630.00</p>
-												</div>
-											</div>
-										</div>
-										<!--/col-->
-									</div>
-									<!--/row-->
-								</div>
-								<!--/subsection-->
-							</div>
-							<!--/col-->
-						</div>
-						<!--/row-->
-					</div>
-					<!--/- col-->
-				</div>
-				<!--/row-->
-			</div>
-			<!--/container-->
-		</section>
-		<!--/section-->
-	</div>
+<div class="main">
+  <section class="section account-section">
+    <div class="container bigger">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="account-box">
+            <h2 class="text-primary account-box-title"><%= accurate_title %></h2>
+            <ul class="account-nav">
+              <li><a href="/account">Current Order</a>
+              </li>
+              <li><a href=<%= cart_path %>>Shopping cart</a>
+              </li>
+              <li><a href="#0">Order History</a>
+              </li>
+              <li>
+                <div data-hook="account_summary" class="account-summary">
+                  <dl id="user-info">
+                    <dd><%= link_to Spree.t(:edit_profile), spree.edit_account_path %></dd>
+                  </dl>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!--/account-box-->
+        </div>
+        <!--/- col-->
+        <div class="col-md-9">
+          <h2 class="fw900 text-primary text-uppercase"><%= Spree.t(:current_order_summary) %></h2>
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="subsection">
+                <div class="order-details-card">
+                  <% @orders.each do | order| %>
+                    <h3 class="fw900 text-uppercase"><%= t("order.order_number") %>: <%= order.number %></h3>
+                    <div class="columns order-confirm-address alpha four" data-hook="order-ship-address">
+                      <%= render partial: 'spree/shared/address', locals: { address: order.ship_address, type: "shipping", order: order } %>
+                      <%= render partial: 'spree/shared/address', locals: { address: order.bill_address, type: "billing", order: order } %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <!--/subsection-->
+            </div>
+            <!--/col-->
+            <div class="col-lg-7">
+              <div class="table-responsive">
+                <table class="table table-hover" style="min-width: 500px">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">SUB-TOTAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @orders.each do |order| %>
+                      <% order.line_items.each do |item| %>
+                        <tr>
+                          <td>
+                            <div class="row">
+                              <div class="col-3">
+                                <div data-hook="order_item_image">
+                                  <% if item.variant.images.empty? %>
+                                    <%= link_to(render('spree/shared/image', image: item.variant.product.display_image, size: :small), item.variant.product, class: 'order-img') %>
+                                  <% else %>
+                                    <div class="product-img ">
+                                      <%= link_to(render('spree/shared/image', image: item.variant.images.first, size: :small), item.variant.product, class: 'order-img') %>
+                                    </div>
+                                  <% end %>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div data-hook="order_item_description">
+                                  <h4 class="fw900 text-uppercase"><%= item.variant.product.name %></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td data-hook="order_item_total" class="total"><span><%= item.display_amount.to_html %></span></td>
+                        </tr>
+                        <tbody id='shipment-total'>
+                          <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
+                            <tr class="total" data-hook='shipment-row'>
+                              <td><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i><%= t('spree.shipping') %>: <strong><%= name %></strong></td>
+                              <td class="total"><span><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: order.currency).to_html %></span></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                        <tfoot class="subsection">
+                          <tr>
+                            <td colspan="2">
+                              <div class="row m-0">
+                                <div class="col-lg-6 offset-lg-6">
+                                  <div class="row">
+                                    <div class="col-4 offset-2">
+                                      <p class="fw900 text-center"><%= t('spree.total') %>:</p>
+                                    </div>
+                                    <div class="col-6">
+                                      <p class="text-center" id="order_total"><%= order.display_order_total_after_store_credit.to_html %></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!--/subsection-->
+            </div>
+            <!--/col-->
+          </div>
+          <!--/row-->
+        </div>
+        <!--/- col-->
+      </div>
+      <!--/row-->
+    </div>
+    <!--/container-->
+  </section>
+  <!--/section-->
+</div>
