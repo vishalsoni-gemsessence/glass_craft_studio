@@ -38,7 +38,9 @@
     </td>
     <td class="text-center cart-item-quantity" data-hook="cart_item_quantity">
       <div class="number-wrap">
+        <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
         <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity number mb-0 form-control", size: 5 %>
+        <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
       </div>
     </td>
     <td class="cart-item-price text-muted text-style" data-hook="cart_item_price">

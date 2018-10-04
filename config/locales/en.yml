@@ -145,6 +145,7 @@ en:
     products: "Products"
     product_code: "Product code"
     quantity: "Quantity"
+    qty: "qty"
     send_msg: "Send Message"
     carton_mailer:
       shipped_email:

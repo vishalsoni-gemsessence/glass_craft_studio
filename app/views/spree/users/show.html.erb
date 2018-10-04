@@ -8,7 +8,7 @@
             <ul class="account-nav">
               <li><a href="/account">Current Order</a>
               </li>
-              <li><a href=<%= cart_path %>>Shopping cart</a>
+              <li><a href="/cart">Shopping cart</a>
               </li>
               <li><a href="#0">Order History</a>
               </li>
@@ -42,74 +42,76 @@
               <!--/subsection-->
             </div>
             <!--/col-->
-            <div class="col-lg-7">
-              <div class="table-responsive">
-                <table class="table table-hover" style="min-width: 500px">
-                  <thead>
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">SUB-TOTAL</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% @orders.each do |order| %>
-                      <% order.line_items.each do |item| %>
-                        <tr>
-                          <td>
-                            <div class="row">
-                              <div class="col-3">
-                                <div data-hook="order_item_image">
-                                  <% if item.variant.images.empty? %>
-                                    <%= link_to(render('spree/shared/image', image: item.variant.product.display_image, size: :small), item.variant.product, class: 'order-img') %>
-                                  <% else %>
-                                    <div class="product-img ">
-                                      <%= link_to(render('spree/shared/image', image: item.variant.images.first, size: :small), item.variant.product, class: 'order-img') %>
-                                    </div>
-                                  <% end %>
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div data-hook="order_item_description">
-                                  <h4 class="fw900 text-uppercase"><%= item.variant.product.name %></h4>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td data-hook="order_item_total" class="total"><span><%= item.display_amount.to_html %></span></td>
-                        </tr>
-                        <tbody id='shipment-total'>
-                          <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
-                            <tr class="total" data-hook='shipment-row'>
-                              <td><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i><%= t('spree.shipping') %>: <strong><%= name %></strong></td>
-                              <td class="total"><span><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: order.currency).to_html %></span></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                        <tfoot class="subsection">
+            <% if @orders.present? %>
+              <div class="col-lg-7">
+                <div class="table-responsive">
+                  <table class="table table-hover" style="min-width: 500px">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-uppercase"><%= Spree.t(:sub_total) %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @orders.each do |order| %>
+                        <% order.line_items.each do |item| %>
                           <tr>
-                            <td colspan="2">
-                              <div class="row m-0">
-                                <div class="col-lg-6 offset-lg-6">
-                                  <div class="row">
-                                    <div class="col-4 offset-2">
-                                      <p class="fw900 text-center"><%= t('spree.total') %>:</p>
-                                    </div>
-                                    <div class="col-6">
-                                      <p class="text-center" id="order_total"><%= order.display_order_total_after_store_credit.to_html %></p>
-                                    </div>
+                            <td>
+                              <div class="row">
+                                <div class="col-3">
+                                  <div data-hook="order_item_image">
+                                    <% if item.variant.images.empty? %>
+                                      <%= link_to(render('spree/shared/image', image: item.variant.product.display_image, size: :small), item.variant.product, class: 'order-img') %>
+                                    <% else %>
+                                      <div class="product-img ">
+                                        <%= link_to(render('spree/shared/image', image: item.variant.images.first, size: :small), item.variant.product, class: 'order-img') %>
+                                      </div>
+                                    <% end %>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div data-hook="order_item_description">
+                                    <h4 class="fw900 text-uppercase"><%= item.variant.product.name %></h4>
                                   </div>
                                 </div>
                               </div>
                             </td>
+                            <td data-hook="order_item_total" class="total"><span><%= item.display_amount.to_html %></span></td>
                           </tr>
-                        </tfoot>
+                          <tbody id='shipment-total'>
+                            <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
+                              <tr class="total" data-hook='shipment-row'>
+                                <td><i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i><%= t('spree.shipping') %>: <strong><%= name %></strong></td>
+                                <td class="total"><span><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: order.currency).to_html %></span></td>
+                              </tr>
+                            <% end %>
+                          </tbody>
+                          <tfoot class="subsection">
+                            <tr>
+                              <td colspan="2">
+                                <div class="row m-0">
+                                  <div class="col-lg-6 offset-lg-6">
+                                    <div class="row">
+                                      <div class="col-4 offset-2">
+                                        <p class="fw900 text-center"><%= t('spree.total') %>:</p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p class="text-center" id="order_total"><%= order.display_order_total_after_store_credit.to_html %></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tfoot>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
+                </div>
+                <!--/subsection-->
               </div>
-              <!--/subsection-->
-            </div>
+            <% end %>
             <!--/col-->
           </div>
           <!--/row-->
