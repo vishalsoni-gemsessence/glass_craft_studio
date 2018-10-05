@@ -49,12 +49,14 @@
                     <div class="col-md-6">
                       <div class="subsection-sm">
                         <p class="text-lg fw700"><span class="text-muted-darken"><%= t('spree.product_code') %>: </span><%= @product.sku %></p>
-                        <% if @product.master.can_supply? %>
-                          <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
-                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.in_stock') %></p>
-                        <% elsif @product.variants.empty? %>
-                          <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %></p>
-                        <% end %>
+                        <div class="product-details">
+                          <% if @product.master.can_supply? %>
+                            <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
+                            <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.in_stock') %></p>
+                          <% elsif @product.variants.empty? %>
+                            <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %></p>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -98,9 +100,9 @@
               </div>
             <% end %>  
               <div class="subsection-sm separator"></div>
-
-              <%= render partial: 'cart_form' %>
-
+              <div class="product-details">
+                <%= render partial: 'cart_form' %>
+              </div>
               <%= render partial: 'taxons' %>
 
             </div>
