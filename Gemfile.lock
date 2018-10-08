@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: b2f434c588d0d9d43d4c94734b093e2bdb393118
+  revision: 291fa19e2392c2784a7fa56282aecc001a95fea3
   branch: master
   specs:
     solidus_on_demand_products (0.0.1)
@@ -194,7 +194,7 @@ GEM
       tilt (>= 1.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.0.1)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -235,8 +235,8 @@ GEM
     minitest (5.11.3)
     monetize (1.9.0)
       money (~> 6.12)
-    money (6.12.0)
-      i18n (>= 0.6.4, < 1.1)
+    money (6.13.0)
+      i18n (>= 0.6.4, <= 2)
     multi_json (1.13.1)
     mysql2 (0.5.1)
     net-scp (1.2.1)
