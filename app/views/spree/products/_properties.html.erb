@@ -11,10 +11,12 @@
       <tbody>
         <% @product_properties.each do |product_property| %>
           <% css_class = cycle('even', 'odd', name: "properties") %>
-          <tr>
-            <td><h5 class="h5 bigger"><%= product_property.property.presentation %>:</h5></td>
-            <td><p class="bigger"><%= product_property.value %></p></td>
-          </tr>
+          <% if product_property.property.presentation != t('spree.factory_code') %>
+            <tr>
+              <td><h5 class="h5 bigger"><%= product_property.property.presentation %>:</h5></td>
+              <td><p class="bigger"><%= product_property.value %></p></td>
+            </tr>
+          <% end %>
         <% end %>
         <% reset_cycle('properties') %>
       </tbody>

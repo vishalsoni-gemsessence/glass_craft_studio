@@ -161,6 +161,7 @@ en:
     sub_total: "sub-total"
     unit_price: "Unit Price"
     current_order_summary: "current order summary"
+    factory_code: Factory Code
   activerecord:
     attributes:
       spree/product:
