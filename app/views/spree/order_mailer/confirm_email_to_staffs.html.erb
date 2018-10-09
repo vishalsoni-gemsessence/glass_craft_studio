@@ -1,3 +1,4 @@
+<% @order = Spree::Order.last %>
 <section class="section bg-primary">
   <div class="container">
     <div class="subsection text-center text-white">
@@ -14,8 +15,8 @@
                   <%= t('.dear_customer') %>
                 </h6>
                 <h6>
-                <% if @order.has_personalized_product %>  
-                  <%= t('.personalized_instructions_html') %>                
+                <% if @order.has_personalized_product %>
+                  <%= t('.personalized_instructions_html') %>
                 <% else %>
                   <%= t('.instructions_html') %>
                 <% end %>  
@@ -31,26 +32,29 @@
         </table>
       </div>
       <hr>
+
       <div class="subsection">
         <div class="table-responsive">
           <h5><%= "#{t('spree.order_mailer.order_summary')}"%></h5>
           <table class="table table-responsive table-hover" style="min-width: 500px">
             <tbody>
               <% @order.line_items.each do |item| %>
+              <% variant_product = item.variant.product %>
+              <% product_image = variant_product.display_image %>
                 <tr>
                   <td width="55%">
                     <div class="row">
                       <div class="col-3">
-                      <% if item.variant.images.empty? %>
-                        <%= render('spree/shared/image', image: item.variant.product.display_image, size: :small) %>
-                      <% else %>
-                        <div class="product-img">
-                          <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
-                        </div>
-                      <% end %>
+                        <% if item.variant.images.empty? %>
+                          <%= render('spree/shared/image', image: product_image, size: :small) %>
+                        <% else %>
+                          <div class="product-img">
+                            <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                          </div>
+                        <% end %>
                       </div>
                       <div class="col">
-                        <h5><%= item.variant.product.name %></h5>
+                        <h5><%= variant_product.name %></h5>
                         <%= item.variant.options_text %>
                         <span><%= t('spree.quantity') %> x <%= item.quantity %></span><br>
                         <% if item.insufficient_stock? %>
@@ -62,13 +66,107 @@
                           <span class="in-stock">
                             <%= item.variant.sku %> |
                             <%= t('spree.in_stock') %>&nbsp;&nbsp;<br />
-                          </span>                                                  
+                          </span>                                              
+                        <% end %>
+                        <% variant_product.product_properties.each do |product_property| %>
+                          <% if product_property.property.presentation == t('spree.factory_code') %>
+                             <span>
+                              <%= product_property.value %>
+                            </span>
+                          <% end %>
                         <% end %>
                       </div>
                     </div>
                   </td>
                   <td width="45%" class="total"><%= item.display_amount.to_html %></td>
                 </tr>
+
+                <tr>
+                  <td width="55%">
+                    <div class="row">
+                      <div class="col-3">
+                        <% if item.variant.images.empty? %>
+                          <%= render('spree/shared/image', image: product_image, size: :small) %>
+                        <% else %>
+                          <div class="product-img">
+                            <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="col">
+                        <span><%= product_image.attachment_width %> x <%= product_image.attachment_height %></span>
+                      </div>
+                    </div>
+                  </td>
+                  <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_path(variant_product, product_image), no_text: true %></td>
+                </tr>
+
+                <% product_pictures = variant_product.product_pictures %>
+                <% if product_pictures.present? %>
+                  <% product_pictures.each do |picture| %>
+                    <tr>
+                      <td width="55%">
+                        <div class="row">
+                          <div class="col-3">
+                            <%= render 'spree/admin/shared/product_images', image: picture, size: :mini %>
+                          </div>
+                          <div class="col">
+                            <span><%= picture.product_width %> x <%= picture.product_height %></span><br>
+                            <span><%= t('spree.resize') %> : <%= picture.custom_width %>, <%= t('spree.opacity') %> : <%= picture.opacity %></span>
+                          </div>
+                        </div>
+                      </td>
+                      <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), download_product_product_picture_path(variant_product, picture), no_text: true %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+
+                <% gallery_images = variant_product.gallery_uploaded_images %>
+                <% if gallery_images.present? %>
+                  <% gallery_images.each do |gallery_img| %>
+                    <tr>
+                      <% product_id = gallery_img.uploaded_photo_id %>
+                      <% uploaded_product = Spree::Product.find product_id %>
+                      <td><%= uploaded_product.display_image.attachment.url(:small) %></td>
+                      <td><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_path(variant_product, uploaded_product.display_image), no_text: true %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+
+                <% product_texts = variant_product.product_texts %>
+                <% if product_texts.present? %>
+                  <% product_texts.each do |text| %>
+                    <tr>
+                      <td>
+                        <h5>Product Text Content</h5>
+                        <%= text.text_content %>
+                      </td>
+                      <td>
+                      <% if text.rotate.present? %>
+                        <span><%= t('spree.rotate') %> | <%= text.rotate %></span></br>
+                      <% end %>
+                      <% if text.line_height.present? %>
+                        <span><%= t('spree.line_height') %> | <%= text.line_height %></span></br>
+                      <% end %>
+                      <% if text.font_size.present? %>
+                        <span><%= t('spree.font_size') %> | <%= text.font_size %></span></br>
+                      <% end %>
+                      <% if text.font_family.present? %>
+                        <span><%= t('spree.font_family') %> | <%= text.font_family %></span></br>
+                      <% end %>
+                      <% if text.opacity.present? %>
+                        <span><%= t('spree.opacity') %> | <%= text.opacity %></span></br>
+                      <% end %>
+                      <% if text.font_color.present? %>
+                        <span><%= t('spree.font_color') %> | <%= text.font_color %></span></br>
+                      <% end %>
+                      <% if text.alignment.present? %>
+                        <span><%= t('spree.alignment') %> | <%= text.alignment %></span></br>
+                      <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <% end %>
               <% end %>
             </tbody>
             <tfoot id="order-total" data-hook="order_details_total">
@@ -84,20 +182,20 @@
               </tr>
             </tfoot>
             
-        <% if @order.line_item_adjustments.exists? %>
-          <% if @order.line_item_adjustments.promotion.eligible.exists? %>
-            <tfoot id="price-adjustments" data-hook="order_details_price_adjustments">
-              <% @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
-                <tr class="total">
-                  <td><%= t('spree.promotion') %> <strong><%= label %></strong></td>
-                  <td class="total">
-                    <span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span>
-                  </td>
-                </tr>
+            <% if @order.line_item_adjustments.exists? %>
+              <% if @order.line_item_adjustments.promotion.eligible.exists? %>
+                <tfoot id="price-adjustments" data-hook="order_details_price_adjustments">
+                  <% @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+                    <tr class="total">
+                      <td><%= t('spree.promotion') %> <strong><%= label %></strong></td>
+                      <td class="total">
+                        <span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tfoot>
               <% end %>
-            </tfoot>
-          <% end %>
-        <% end %>
+            <% end %>
 
             <tfoot id='shipment-total'>
               <% @order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
@@ -112,7 +210,7 @@
               <tfoot id="tax-adjustments" data-hook="order_details_tax_adjustments">
                 <% @order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
                   <tr class="total">
-                    <td colspan="3"><%= t('spree.tax') %>: <strong><%= label %></strong></td>
+                    <td colspan=""><%= t('spree.tax') %>: <strong><%= label %></strong></td>
                     <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
                   </tr>
                 <% end %>
@@ -153,6 +251,7 @@
         </div>
       </div>
       <hr>
+
       <div class="subsection">
         <div>
           <h4 class="fw900"><%= t('order.order_number') %>: <%= @order.number %></h4>
