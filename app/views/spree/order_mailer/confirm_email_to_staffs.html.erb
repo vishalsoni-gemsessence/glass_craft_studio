@@ -1,4 +1,3 @@
-<% @order = Spree::Order.last %>
 <section class="section bg-primary">
   <div class="container">
     <div class="subsection text-center text-white">
@@ -98,7 +97,7 @@
                       </div>
                     </div>
                   </td>
-                  <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_path(variant_product, product_image), no_text: true %></td>
+                  <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_url(variant_product, product_image), no_text: true %></td>
                 </tr>
 
                 <% product_pictures = variant_product.product_pictures %>
@@ -128,7 +127,7 @@
                       <% product_id = gallery_img.uploaded_photo_id %>
                       <% uploaded_product = Spree::Product.find product_id %>
                       <td><%= uploaded_product.display_image.attachment.url(:small) %></td>
-                      <td><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_path(variant_product, uploaded_product.display_image), no_text: true %></td>
+                      <td><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_url(variant_product, uploaded_product.display_image), no_text: true %></td>
                     </tr>
                   <% end %>
                 <% end %>
