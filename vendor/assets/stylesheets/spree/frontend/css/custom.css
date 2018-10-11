@@ -356,3 +356,8 @@ div#main-image {
 .edit-profile {
   float: right;
 }
+.custom-height-section {
+  min-height: calc(100vh - 561px);
+  min-height: -webkit-calc(100vh - 561px);
+  min-height: -moz-calc(100vh - 561px);
+}
