@@ -18,7 +18,7 @@
   				<div class="subsection">
   					<h2 class="text-primary text-uppercase text-center"><%= @page.title %></h2>
   				</div>
-  				<div class="photo-gallery-box">
+  				<div class="photo-gallery-box" id="basicExample">
             <% taxon = Spree::Taxon.find_by!(permalink: "photo-gallery") %>
             <% children = taxon.products %>
             <% children.each_with_index do |child, index| %>            
@@ -35,8 +35,8 @@
                 <% end %>  
   							</div>
   						</div>
-  					</div>
-            <div class="uploaded-product-variant"></div>
+              
+            </div>
             <% end %>
   					<!--/gallery-card-->
   				</div>
@@ -48,6 +48,7 @@
   	<!--.footer - _footer.pug-->
     <%= render partial: 'spree/shared/footer' %>
   	<!--/.footer-->
+    <div class="uploaded-product-variant"></div>
   </body>
 
 </html>

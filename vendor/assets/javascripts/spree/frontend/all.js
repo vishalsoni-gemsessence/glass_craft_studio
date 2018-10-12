@@ -26,6 +26,10 @@
 // Custom
 //= require spree/frontend/js/main.js
 
+//Justify
+//= require spree/frontend/justified/jquery.justifiedGallery.js
+//= require spree/frontend/justified/jquery.justifiedGallery.min.js
+
 // Validation
 //= require spree/frontend/js/validation.js
 //= require spree/frontend/js/jquery.validate.min.js

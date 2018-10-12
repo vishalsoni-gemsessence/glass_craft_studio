@@ -17,6 +17,10 @@
  * Bootstrap
  *= require spree/frontend/bootstrap/bootstrap.min.css
 
+ * Justify
+ *= require spree/frontend/justified/justifiedGallery.css
+ *= require spree/frontend/justified/justifiedGallery.min.css
+
  * Main
  *= require spree/frontend/css/main.css
  *= require spree/frontend/css/custom.css

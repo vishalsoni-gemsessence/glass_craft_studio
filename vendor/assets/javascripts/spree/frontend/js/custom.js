@@ -12,6 +12,7 @@ var ready;
 ready = function() {
   LoadMoreProductEvents();
   scrollContactsForm();
+  justifiedPhotoGallery();
 };
 
 $(document).ready(ready);
@@ -24,4 +25,10 @@ function scrollContactsForm(){
                               scrollTop: target.offset().top + 450
                             }, 1000);
   }
+}
+
+function justifiedPhotoGallery(){
+  $('#basicExample').justifiedGallery({
+    rowHeight : 300
+  });
 }
