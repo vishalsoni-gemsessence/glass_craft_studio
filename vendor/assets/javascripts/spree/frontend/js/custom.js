@@ -28,7 +28,7 @@ function scrollContactsForm(){
 }
 
 function justifiedPhotoGallery(){
-  $('#basicExample').justifiedGallery({
+  $('#JustifiedGallery').justifiedGallery({
     rowHeight : 300
   });
 }

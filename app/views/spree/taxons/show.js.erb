@@ -11,3 +11,12 @@ $(".link-wrap").append("<%= j render(@taxon_products) %>");
 <% else %>
   $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
 <% end %>
+
+$(".photo-gallery-box").append("<%= j render(partial: 'spree/shared/gallery_product') %>");
+<% if @taxon_products.total_pages == @taxon_products.current_page %>
+  $("#loadMore").hide();
+<% else %>
+  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+<% end %>
+
+$('#JustifiedGallery').justifiedGallery();
