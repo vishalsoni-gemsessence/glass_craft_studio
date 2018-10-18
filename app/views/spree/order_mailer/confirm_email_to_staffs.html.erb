@@ -67,6 +67,7 @@
                             <%= t('spree.in_stock') %>&nbsp;&nbsp;<br />
                           </span>                                              
                         <% end %>
+                        <span><%= product_image.attachment_width %> x <%= product_image.attachment_height %></span>
                         <% variant_product.product_properties.each do |product_property| %>
                           <% if product_property.property.presentation == t('spree.factory_code') %>
                              <span>
@@ -77,27 +78,10 @@
                       </div>
                     </div>
                   </td>
-                  <td width="45%" class="total"><%= item.display_amount.to_html %></td>
-                </tr>
-
-                <tr>
-                  <td width="55%">
-                    <div class="row">
-                      <div class="col-3">
-                        <% if item.variant.images.empty? %>
-                          <%= render('spree/shared/image', image: product_image, size: :small) %>
-                        <% else %>
-                          <div class="product-img">
-                            <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="col">
-                        <span><%= product_image.attachment_width %> x <%= product_image.attachment_height %></span>
-                      </div>
-                    </div>
+                  <td width="30%" class="total"><%= item.display_amount.to_html %></td>
+                  <td width="15%">
+                    <%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_url(variant_product, product_image), no_text: true %>
                   </td>
-                  <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_url(variant_product, product_image), no_text: true %></td>
                 </tr>
 
                 <% product_pictures = variant_product.product_pictures %>
@@ -107,7 +91,9 @@
                       <td width="55%">
                         <div class="row">
                           <div class="col-3">
-                            <%= render 'spree/admin/shared/product_images', image: picture, size: :mini %>
+                            <div class="product-img">
+                              <%= render 'spree/admin/shared/product_images', image: picture, size: :small %>
+                            </div>
                           </div>
                           <div class="col">
                             <span><%= picture.product_width %> x <%= picture.product_height %></span><br>
@@ -115,19 +101,8 @@
                           </div>
                         </div>
                       </td>
-                      <td width="45%"><%= link_to_with_icon 'download', t('spree.actions.download'), download_product_product_picture_path(variant_product, picture), no_text: true %></td>
-                    </tr>
-                  <% end %>
-                <% end %>
-
-                <% gallery_images = variant_product.gallery_uploaded_images %>
-                <% if gallery_images.present? %>
-                  <% gallery_images.each do |gallery_img| %>
-                    <tr>
-                      <% product_id = gallery_img.uploaded_photo_id %>
-                      <% uploaded_product = Spree::Product.find product_id %>
-                      <td><%= uploaded_product.display_image.attachment.url(:small) %></td>
-                      <td><%= link_to_with_icon 'download', t('spree.actions.download'), product_download_image_url(variant_product, uploaded_product.display_image), no_text: true %></td>
+                      <td width="30%"></td>
+                      <td width="15%"><%= link_to_with_icon 'download', t('spree.actions.download'), download_product_product_picture_path(variant_product, picture), no_text: true %></td>
                     </tr>
                   <% end %>
                 <% end %>
