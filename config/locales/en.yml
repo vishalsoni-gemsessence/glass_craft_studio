@@ -51,6 +51,7 @@ en:
   order:
     order_number: "Order Number"
   spree:
+    sign_up: "Sign Up"
     admin:
       tab:
         contacts: "Contacts"
