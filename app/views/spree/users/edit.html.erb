@@ -3,27 +3,46 @@
 <section class="section sign-in-up-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 offset-lg-1">
-        <div class="subsection subsection-sing-form" id="edit-account">
-          <h2 class="text-primary"><%= Spree.t(:editing_user) %></h2>
-            <div data-hook="account_edit">
-              <%= form_for Spree::User.new, as: @user, url: spree.user_path(@user), method: :put do |f| %>
-                <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
-                <p>
-                  <%= f.submit Spree.t(:update), class: 'btn btn-info edit-profile' %>
-                </p>
-              <% end %>
-            </div>
+
+      <div class="col-md-3">
+        <div class="account-box">
+          <h2 class="text-primary account-box-title"><%= accurate_title %></h2>
+          <ul class="account-nav">
+            <li><a href="/account">Current Order</a>
+            </li>
+            <li><a href="/cart">Shopping cart</a>
+            </li>
+            <li><a href="#0">Order History</a>
+            </li>
+            <li>
+              <div data-hook="account_summary" class="account-summary">
+                <dl id="user-info">
+                  <dd><%= link_to Spree.t(:edit_profile), spree.edit_account_path %></dd>
+                </dl>
+              </div>
+            </li>
+          </ul>
         </div>
-        <!--/subsection-->
+        <!--/account-box-->
       </div>
-      <!--/col-->
-      <div class="col-lg-2">
-        <div class="sing-up-form-border"></div>
+
+      <div class="col-md-9">
+        <h2 class="text-primary"><%= Spree.t(:editing_user) %></h2>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="subsection" id="edit-account">
+              <div data-hook="account_edit">
+                <%= form_for Spree::User.new, as: @user, url: spree.user_path(@user), method: :put do |f| %>
+                  <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
+                  <p>
+                    <%= f.submit Spree.t(:update), class: 'btn btn-info' %>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
   </div>
-  <!--/container-->
 </section>
