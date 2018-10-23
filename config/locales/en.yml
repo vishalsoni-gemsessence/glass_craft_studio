@@ -30,11 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  sign_up:
-    full_name: "Full name"
-    sign_up: "Sign Up"
-  sign_in:
-    sign_in: "Sign In"
+  activerecord:
+    attributes:
+      spree/product:
+        height: Height (mm)
+        width: Width (mm)
+        depth: Depth (mm)
+        weight: Weight (kg)        
   address:
     full_name: "Full Name"
     company: "Company"
@@ -50,13 +52,27 @@ en:
     alternative_phone: 'Alternative Phone'
   order:
     order_number: "Order Number"
-  spree:
+  sign_in:
+    sign_in: "Sign In"
+  sign_up:
+    full_name: "Full name"
     sign_up: "Sign Up"
+  spree:
     admin:
       tab:
         contacts: "Contacts"
         contact_us_emails: "Email Setting"
     availability: "Availability"
+    carton_mailer:
+      shipped_email:
+        dear_customer: Dear Customer,
+        instructions_hong_kong_html: Your GlassXpert order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the statis via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        shipment_summary: Shipment Summary
+        subject: order is on its way
+        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        track_information: ! 'Tracking Information: %{tracking}'
+        track_link: ! 'Tracking Link: %{url}'
     checkout: "Proceed to checkout"
     confirm_password: "Confirmation Password"
     contact_form:
@@ -89,12 +105,15 @@ en:
     country_rule:
       choose_countries: Choose Countries
     coupon_code: "Promotion Code"
+    current_order_summary: "current order summary"
     description: "Description"
     dimensions: "Package Dimensions"
     dimensions_unit_mm: "mm"
     email: "E-mail"
+    factory_code: Factory Code
     forgot_password: "Forgot your password?"
     in_stock: "In Stock"
+    load_more: Load More
     login: "SIGN IN"
     logout: "SIGN OUT"
     new_contact_us_email: "New Contact Us Email"
@@ -148,25 +167,7 @@ en:
     quantity: "Quantity"
     qty: "qty"
     send_msg: "Send Message"
-    carton_mailer:
-      shipped_email:
-        dear_customer: Dear Customer,
-        instructions_hong_kong_html: Your GlassXpert order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
-        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the statis via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
-        shipment_summary: Shipment Summary
-        subject: order is on its way
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
-        track_information: ! 'Tracking Information: %{tracking}'
-        track_link: ! 'Tracking Link: %{url}'
+    sign_up: "Sign Up"
     specifications: "Specifications"
     sub_total: "sub-total"
     unit_price: "Unit Price"
-    current_order_summary: "current order summary"
-    factory_code: Factory Code
-  activerecord:
-    attributes:
-      spree/product:
-        height: Height (mm)
-        width: Width (mm)
-        depth: Depth (mm)
-        weight: Weight (kg)

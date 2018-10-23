@@ -9,17 +9,17 @@
   <% end %>
 <% end %>
 
-<div data-hook="products_search_results_heading">
-  <% if products.empty? %>
+<!-- <div data-hook="products_search_results_heading">
+  <%# if products.empty? %>
     <div data-hook="products_search_results_heading_no_results_found">
-      <%= t('spree.no_products_found') %>
+      <%#= t('spree.no_products_found') %>
     </div>
-  <% elsif params.key?(:keywords) %>
+  <%# elsif params.key?(:keywords) %>
     <div data-hook="products_search_results_heading_results_found">
-      <h6 class="search-results-title"><%= t('spree.search_results', keywords: h(params[:keywords])) %></h6>
+      <h6 class="search-results-title"><%#= t('spree.search_results', keywords: h(params[:keywords])) %></h6>
     </div>
-  <% end %>
-</div>
+  <%# end %>
+</div> -->
 
 <% if products.any? %>
   <ul id="products" class="inline product-listing" data-hook>
@@ -33,8 +33,7 @@
     <div class="subsection-sm">
       <div class="load-more-container">
         <% if paginated_products.next_page %>
-          <%#= link_to 'Load More', products_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
-          <%= link_to 'Load More', nested_taxons_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>          
+          <%= link_to t('spree.load_more'), nested_taxons_path(page: paginated_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>          
         <% end %>
       </div>
     </div>
