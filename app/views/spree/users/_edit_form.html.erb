@@ -1,0 +1,15 @@
+<%#= render partial: 'spree/shared/error_messages', locals: { target: @user } %>
+<div class="row">
+  <div class="col-lg-5">
+    <div class="subsection" id="edit-account">
+      <div data-hook="account_edit">
+        <%= form_for Spree::User.new, as: @user, url: spree.user_path(@user), method: :put do |f| %>
+          <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
+          <p>
+            <%= f.submit Spree.t(:update), class: 'btn btn-info' %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

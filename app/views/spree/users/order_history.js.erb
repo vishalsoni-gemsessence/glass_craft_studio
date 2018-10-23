@@ -1,0 +1,2 @@
+$('.order_summary').html('');
+$('.order_summary').html("<div class='col-md-9'><h2 class='fw900 text-primary text-uppercase'><%= Spree.t(:order_history) %></h2><%= escape_javascript (render partial: 'order_summary') %></div>");

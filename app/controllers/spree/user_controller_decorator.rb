@@ -1,12 +1,13 @@
 Spree::UsersController.class_eval do
-  before_action :get_user_completed_orders, only: [:show, :user_order_history]
+  prepend_before_action :load_object, only: [:show, :edit, :update, :order_history]
+  before_action :get_user_completed_orders, only: [:show, :order_history]
 
   def show 
-    @current_orders = @orders.joins(:shipments).where("spree_shipments.state = 'pending'")
+    @user_orders = @orders.joins(:shipments).where("spree_shipments.state = 'pending'")
   end
 
-  def user_order_history
-    @completed_orders = @orders.joins(:shipments).where("spree_shipments.state = 'shipped'")
+  def order_history
+    @user_orders = @orders.joins(:shipments).where("spree_shipments.state = 'shipped'")
   end
 
  private

@@ -23,5 +23,7 @@ mount SolidusPaypalBraintree::Engine, at: '/solidus_paypal_braintree'
     end
 
     resources :contacts
+
+    get '/order_history', to: 'users#order_history', as: 'order_history'
   end
 end
