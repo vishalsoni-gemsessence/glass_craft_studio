@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: f3c71b23374cf63d09d7115219bf9324273fa29a
+  revision: 4b0a233601086208a2e0fdaaddcf51a741fa9b42
   branch: master
   specs:
     solidus_on_demand_products (0.0.1)
@@ -408,7 +408,7 @@ GEM
     state_machines-activemodel (0.5.1)
       activemodel (>= 4.1, < 6.0)
       state_machines (>= 0.5.0)
-    state_machines-activerecord (0.5.1)
+    state_machines-activerecord (0.5.2)
       activerecord (>= 4.1, < 6.0)
       state_machines-activemodel (>= 0.5.0)
     terrapin (0.6.0)
