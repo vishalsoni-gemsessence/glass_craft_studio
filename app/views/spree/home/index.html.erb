@@ -16,11 +16,9 @@
       <div class="owl-carousel js-owl-home owl-theme">
         <div class="item">
           <%= image_tag 'spree/frontend/media/home-slide-img-1.jpg', alt: '' %>
-          <!-- <img src="img/media/home-slide-img-1.jpg" alt=""> -->
         </div>
         <div class="item">
           <%= image_tag 'spree/frontend/media/home-slide-img-2.jpg', alt: '' %>
-          <!-- <img src="img/media/home-slide-img-1.jpg" alt=""> -->
         </div>
         <div class="item">
           <%#= image_tag 'spree/frontend/media/home-slide-img-1.jpg', alt: '' %>
@@ -33,73 +31,64 @@
       <a class="js-home-owl-next-1 owl-arr owl-arr__next text-primary" href="#0">
         <i class="fa fa-angle-right" aria-hidden="true"></i>
       </a>
-      <a class="btn btn-outline-primary btn-more-carousel btn-sm" href="#">Know more</a>
+      <a class="btn btn-outline-primary btn-more-carousel btn-sm" href="#"><%= t('spree.know_more') %></a>
     </div>
-    <!--/home-carousel-container-->
   </div>
-  <!--/container-->
 </section>
-<!--/section-->
+
 <section class="section bg-white text-center">
   <div class="container">
     <div class="subsection">
-      <h2 class="text-primary fw900">Background</h2>
-      <h3 class="text-primary fw400">GlassXpert &amp; Design is passionate in glass products, we mainly focus on three areas:</h3>
+      <h2 class="text-primary fw900"><%= t('home.background') %></h2>
+      <h3 class="text-primary fw400"><%= t('home.background_text') %></h3>
     </div>
-    <!--/subsection-->
+
     <div class="row">
       <div class="col-lg-4 col-md-6">
         <div class="subsection">
           <div class="card" style="max-width: 23rem;">
             <div class="card-body">
               <%= image_tag 'spree/frontend/tpl/gift@2x.png', class: "mb-4", style: "width: 124px;" %>
-              <h2 class="card-title"><a class="text-primary" href="#">Glass Gifts </a></h2>
-              <p class="card-text text-lg fw700">especially personalized photo gifts</p>
+              <h2 class="card-title"><a class="text-primary" href="#"><%= t('top_header.glass_gifts') %></a></h2>
+              <p class="card-text text-lg fw700"><%= t('home.glass_gift_text') %></p>
             </div>
           </div>
-          <!--/card-->
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
+
       <div class="col-lg-4 col-md-6">
         <div class="subsection">
           <div class="card" style="max-width: 23rem;">
             <div class="card-body">
               <%= image_tag 'spree/frontend/tpl/print@2x.png', class: "mb-4", style: "width: 124px;" %>
-              <h2 class="card-title"><a class="text-primary" href="#">Glass Photo Prints</a></h2>
+              <h2 class="card-title"><a class="text-primary" href="#"><%= t('top_header.glass_photo_prints') %></a></h2>
             </div>
           </div>
-          <!--/card-->
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
+
       <div class="col-lg-4 col-md-6">
         <div class="subsection">
           <div class="card" style="max-width: 23rem;">
             <div class="card-body">
               <%= image_tag 'spree/frontend/tpl/interior@2x.png', class: "mb-4", style: "width: 124px;" %>
-              <h2 class="card-title"><a class="text-primary" href="#">Interior Decorative Glass</a></h2>
-              <p class="card-text text-lg fw700">laminated and decorative glass and mirror for interior design</p>
+              <h2 class="card-title"><a class="text-primary" href="#"><%= t('top_header.interior_decorative_glass') %></a></h2>
+              <p class="card-text text-lg fw700"><%= t('home.interior_decorative_glass_text') %></p>
             </div>
           </div>
-          <!--/card-->
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
+
     <div class="subsection">
       <p class="card-text text-lg fw700">
         <%= render_snippet "/glassxpert-n-design-background" %>
       </p>      
     </div>
   </div>
-  <!--/container-->
+
 </section>
-<!--/section-->
+
 <section class="section bg-blue-light">
   <div class="container">
     <div class="row">
@@ -107,68 +96,54 @@
         <div class="subsection">
           <%= image_tag 'spree/frontend/media/content-img-1.jpg', class: "img-full-widt", alt: "" %>
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
+
       <div class="col-lg-6">
         <div class="subsection">
-          <h2 class="text-primary">Glass Gifts </h2>
+          <h2 class="text-primary"><%= t('top_header.glass_gifts') %></h2>
           <%= render_snippet "/home-glass-gifts" %>
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
+
     <div class="row">
       <div class="col-lg-6 order-lg-12">
         <div class="subsection">
           <%= image_tag "spree/frontend/media/content-img-2.jpg", class: "img-full-width", alt: '' %>
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
+
       <div class="col-lg-6 order-lg-1">
         <div class="subsection">
-          <h2 class="text-primary">Glass Photo Prints</h2>
+          <h2 class="text-primary"><%= t('top_header.glass_photo_prints') %></h2>
           <%= render_snippet "/home-glass-photo-prints" %>
-        </div>
-        <!--/subsection-->
+
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
+
     <div class="row">
       <div class="col-lg-6">
         <div class="subsection">
           <%= image_tag "spree/frontend/media/content-img-3.jpg", class: "img-full-width", alt: '' %>
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
       <div class="col-lg-6">
         <div class="subsection">
-          <h2 class="text-primary">Interior Decorative Glass</h2>
+          <h2 class="text-primary"><%= t('top_header.interior_decorative_glass') %></h2>
           <%= render_snippet "/home-glass-for-interior-design" %>
         </div>
-        <!--/subsection-->
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
   </div>
-  <!--/container-->
 </section>
-<!--/section-->
+
 <section class="section bg-primary text-white">
   <div class="container">
-    <h2><%= t("spree.contact_us") %></h2>
+    <h2><%= t("top_header.contact_us") %></h2>
     <div class="row">
       <div class="col-lg-6">
         <%= render_snippet "/home-contact-us" %>
-        <!--/subsection-->
       </div>
-      <!--/col-->
       <div class="col-lg-6">
         <div class="table-parent-md" style="height: 100%;">
           <div class="vertical-middle">
@@ -183,32 +158,29 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="subsection-sm">
-                        <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+                        <%= f.text_field :name, class: "form-control", placeholder: t("contact_us_form.name"), required: true %>
                         <%= display_error_message(f.object, 'name') %>
                       </div>
                     </div>
-                    <!--/col-->
                     <div class="col-md-6">
                       <div class="subsection-sm">
-                        <%= f.email_field :email, class: "form-control", placeholder: "Email", 'aria-describedby': "emailHelp", required: true %>
+                        <%= f.email_field :email, class: "form-control", placeholder: t("contact_us_form.email"), 'aria-describedby': "emailHelp", required: true %>
                         <%= display_error_message(f.object, 'email') %>
                       </div>
                     </div>
-                    <!--/col-->
                   </div>
-                  <!--/row-->
                   <div class="subsection-sm">
-                    <%= f.text_field :subject, class: "form-control", placeholder: "Subject", required: true %>
+                    <%= f.text_field :subject, class: "form-control", placeholder: t("contact_us_form.subject"), required: true %>
                     <%= display_error_message(f.object, 'subject') %>
                   </div>
                   <div class="subsection-sm">
                   
-                    <%= f.text_area :message, class: "form-control", placeholder: "Message", required: true %>
+                    <%= f.text_area :message, class: "form-control", placeholder: t("contact_us_form.message"), required: true %>
                     <%= display_error_message(f.object, 'message') %>
                   </div>
     							<div class="subsection-sm">
     								<div class="form-group">
-                      <%#= f.label :file, t("spree.contact_form.images.label") %>
+                      <%= f.label :file, t("spree.contact_form.images.label") %>
                       <%= f.file_field :file, class: "form-control-file" %>
                       <small class="form-text text-muted">
                         <%= t("spree.contact_form.images.placeholder") %>
@@ -221,17 +193,12 @@
                 </fieldset>
               <% end %>
             </div>
-            <!--/subsection-->
           </div>
         </div>
       </div>
-      <!--/col-->
     </div>
-    <!--/row-->
   </div>
-  <!--/container-->
 </section>
-<!--/section-->
 <section class="map-section">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5893.742302827572!2d114.21126000448042!3d22.31644198349825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404013624b0b1d1%3A0x9e7842ffbf794210!2zVW5pZnkgQ29tbWVyY2lhbCBJbmR1c3RyaWFsIEJ1aWxkaW5nLCAzMSBUYWkgWWlwIFN0LCDQk9C-0L3QutC-0L3Qsw!5e0!3m2!1suk!2sua!4v1524213217005"
   max-width="100%" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>

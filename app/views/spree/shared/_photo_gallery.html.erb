@@ -8,7 +8,7 @@
     </div>
     <div class="load-more-container">
       <% if @taxon_products.next_page %>
-        <%= link_to 'Load More', nested_taxons_path(page: @taxon_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
+        <%= link_to t('spree.load_more'), nested_taxons_path(page: @taxon_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
       <% end %>
     </div>
   </div>
