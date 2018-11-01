@@ -358,3 +358,17 @@ div#main-image {
   min-height: -webkit-calc(100vh - 561px);
   min-height: -moz-calc(100vh - 561px);
 }
+
+select#navbarDropdownLang {
+  height: auto;
+  background: none;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 5px;
+  border: 2px solid #fff;
+  width: 90px;
+}
+select#navbarDropdownLang:focus,
+select#navbarDropdownLang:active {
+  border: 2px #fcbc1f solid;
+}

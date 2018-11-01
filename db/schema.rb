@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181010113141) do
+ActiveRecord::Schema.define(version: 20181030102009) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -685,6 +685,7 @@ ActiveRecord::Schema.define(version: 20181010113141) do
     t.string "state", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "join_characters", default: "_", null: false
     t.index ["promotion_id"], name: "index_spree_promotion_code_batches_on_promotion_id"
   end
 
@@ -727,6 +728,15 @@ ActiveRecord::Schema.define(version: 20181010113141) do
     t.text "preferences"
     t.index ["product_group_id"], name: "index_promotion_rules_on_product_group_id"
     t.index ["promotion_id"], name: "index_spree_promotion_rules_on_promotion_id"
+  end
+
+  create_table "spree_promotion_rules_stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "store_id", null: false
+    t.bigint "promotion_rule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_rule_id"], name: "index_spree_promotion_rules_stores_on_promotion_rule_id"
+    t.index ["store_id"], name: "index_spree_promotion_rules_stores_on_store_id"
   end
 
   create_table "spree_promotion_rules_users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1121,6 +1131,7 @@ ActiveRecord::Schema.define(version: 20181010113141) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "update_reason_id"
+    t.decimal "amount_remaining", precision: 8, scale: 2
     t.index ["deleted_at"], name: "index_spree_store_credit_events_on_deleted_at"
     t.index ["store_credit_id"], name: "index_spree_store_credit_events_on_store_credit_id"
   end
@@ -1167,6 +1178,15 @@ ActiveRecord::Schema.define(version: 20181010113141) do
     t.index ["store_id"], name: "index_spree_store_payment_methods_on_store_id"
   end
 
+  create_table "spree_store_shipping_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "store_id", null: false
+    t.bigint "shipping_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shipping_method_id"], name: "index_spree_store_shipping_methods_on_shipping_method_id"
+    t.index ["store_id"], name: "index_spree_store_shipping_methods_on_store_id"
+  end
+
   create_table "spree_stores", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "url"
@@ -1180,6 +1200,7 @@ ActiveRecord::Schema.define(version: 20181010113141) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "cart_tax_country_iso"
+    t.string "available_locales"
     t.index ["code"], name: "index_spree_stores_on_code"
     t.index ["default"], name: "index_spree_stores_on_default"
   end

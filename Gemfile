@@ -43,7 +43,7 @@ gem 'truncate_html'
 gem 'tinymce-rails-langs'
 
 # Use solidus and its extensions for e-commerce solution
-gem 'solidus'
+gem 'solidus', '2.6'
 gem 'solidus_auth_devise'
 gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
@@ -62,7 +62,11 @@ gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "custo
 
 
 # Use pnotify-rails for show messages on popup
-gem 'pnotify-rails'
+gem 'pnotify-rails'   
+gem 'solidus_i18n'
+gem 'rails-i18n'
+gem 'kaminari-i18n'
+gem 'routing-filter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
