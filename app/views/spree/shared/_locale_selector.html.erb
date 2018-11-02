@@ -7,7 +7,7 @@
           :switch_to_locale,
           options_for_select(
             available_locales.map do |locale|
-              [I18n.t("spree.i18n.locale_#{locale.to_s}", locale: locale, fallback: false, default: locale.to_s), locale, class: 'dropdown-item']
+              [I18n.t("spree.i18n.this_file_language", locale: locale, fallback: false, default: locale.to_s), locale, class: 'dropdown-item']
             end.sort,
             selected: I18n.locale
           ),
@@ -18,4 +18,3 @@
     </li>
   <% end %>
 <% end %>
-

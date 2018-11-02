@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     attributes:
@@ -50,6 +19,33 @@ en:
     country: "Country"
     phone: 'Mobile'
     alternative_phone: 'Alternative Phone'
+  contact_us_form:
+    name: Name
+    email: Email
+    subject: Subject
+    message: Message
+  footer:
+    about_us: About Us
+    our_production: Our Production
+    ask_questions: Frequently Asked Questions
+    terms_and_conditions: Terms and Conditions
+    privacy_policy: Privacy Policy
+    return_policy: Return Policy
+    shipping_info: Shipping Info
+  glassxpert_details:
+    fax: Fax
+    rights_reserved: All rights reserved.
+    glassxpert_design: "GlassXpert & Design"
+    glassxpert_design_company_limited: GlassXpert & Design Company Limited
+  glass_photo_prints:
+    first_layer: First layer of glass
+    middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
+    second_layer: Second layer of glass
+  home:
+    background: Background
+    background_text: GlassXpert &amp; Design is passionate in glass products, we mainly focus on three areas
+    glass_gift_text: especially personalized photo gifts
+    interior_decorative_glass_text: laminated and decorative glass and mirror for interior design
   order:
     order_number: "Order Number"
   sign_in:
@@ -57,6 +53,10 @@ en:
   sign_up:
     full_name: "Full name"
     sign_up: "Sign Up"
+  social_links:
+    facebook: Facebook
+    instagram: Instagram
+    partnership: Business Partnership
   spree:
     admin:
       tab:
@@ -113,6 +113,12 @@ en:
     email: "E-mail"
     factory_code: Factory Code
     forgot_password: "Forgot your password?"
+    i18n:
+      locale_en: English (US)
+      locale_zh_HK: Chinese(Traditional)
+      locals:
+          displayed_on_frontend_select_box: displayed on frontend select box
+      this_file_language: Eng
     in_stock: "In Stock"
     load_more: Load More
     login: "SIGN IN"
@@ -179,18 +185,6 @@ en:
     editing_user: Editing User
     factory_code: Factory Code
     know_more: Know More
-    i18n:
-        locale_en: English (US)
-        locale_zh_HK: Chinese(Traditional)
-        locals:
-            displayed_on_frontend_select_box: displayed on frontend select box
-  activerecord:
-    attributes:
-      spree/product:
-        height: Height (mm)
-        width: Width (mm)
-        depth: Depth (mm)
-        weight: Weight (kg)
   top_header:
     welcome: Welcome
     my_account: My Account
@@ -203,34 +197,3 @@ en:
     superior: Superior
     aletheia: Aletheia
     top_town: TopTown
-  home:
-    background: Background
-    background_text: GlassXpert &amp; Design is passionate in glass products, we mainly focus on three areas
-    glass_gift_text: especially personalized photo gifts
-    interior_decorative_glass_text: laminated and decorative glass and mirror for interior design
-  contact_us_form:
-    name: Name
-    email: Email
-    subject: Subject
-    message: Message
-  footer:
-    about_us: About Us
-    our_production: Our Production
-    ask_questions: Frequently Asked Questions
-    terms_and_conditions: Terms and Conditions
-    privacy_policy: Privacy Policy
-    return_policy: Return Policy
-    shipping_info: Shipping Info
-  social_links:
-    facebook: Facebook
-    instagram: Instagram
-    partnership: Business Partnership
-  glassxpert_details:
-    fax: Fax
-    rights_reserved: All rights reserved.
-    glassxpert_design: GlassXpert &amp; Design
-    glassxpert_design_company_limited: GlassXpert &amp; Design Company Limited
-  glass_photo_prints:
-    first_layer: First layer of glass
-    middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
-    second_layer: Second layer of glass
