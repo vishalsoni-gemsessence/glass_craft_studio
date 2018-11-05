@@ -62,7 +62,7 @@ gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "custo
 
 
 # Use pnotify-rails for show messages on popup
-gem 'pnotify-rails'   
+gem 'pnotify-rails'
 gem 'solidus_i18n'
 gem 'rails-i18n'
 gem 'kaminari-i18n'
