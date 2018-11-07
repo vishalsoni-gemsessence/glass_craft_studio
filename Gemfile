@@ -63,10 +63,17 @@ gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "custo
 
 # Use pnotify-rails for show messages on popup
 gem 'pnotify-rails'
-gem 'solidus_i18n'
+
+gem 'globalize', github: 'globalize/globalize'
+gem 'friendly_id-globalize'
+
+gem 'solidus_i18n', github: 'solidusio-contrib/solidus_i18n'
 gem 'rails-i18n'
 gem 'kaminari-i18n'
 gem 'routing-filter'
+
+# gem 'solidus_globalize', path: '../solidus_globalize'
+gem 'solidus_globalize', bitbucket: '36etcetera/solidus-globalize', branch: "master"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

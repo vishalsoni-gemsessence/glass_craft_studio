@@ -13,3 +13,4 @@
 //= require spree/backend/solidus_prototypes
 //= require spree/backend/solidus_paypal_braintree
 //= require spree/backend/solidus_easyship
+//= require spree/backend/solidus_globalize

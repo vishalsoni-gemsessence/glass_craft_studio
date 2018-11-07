@@ -98,3 +98,5 @@ Money::Currency.register({
 
 Rails.application.config.spree.stock_splitters = []
 Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::Country
+
+SolidusGlobalize::Config.supported_locales = [:en, :'zh-HK']

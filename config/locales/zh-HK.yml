@@ -74,6 +74,18 @@ zh-HK:
         phone: "電話"
         state: "省/州"
         zipcode: "郵遞區號"
+      spree/adjustment:
+        adjustable: "可調整的"
+        amount: "調整金額"
+        label: "標記"
+        name: "名稱"
+        state: "狀態"
+        adjustment_reason_id: "原因"
+      spree/adjustment_reason:
+        active: Active
+        code: "代碼"
+        name: "名稱"
+        state: "狀態"
       spree/calculator/tiered_flat_rate:
         preferred_base_amount:
         preferred_tiers:
@@ -94,6 +106,14 @@ zh-HK:
         number: "卡號"
         verification_value: "驗證碼"
         year: "年份"
+      spree/customer_return:
+        number: "退貨號碼"
+        pre_tax_total: "稅前總額"
+        total: "總額"
+        total_excluding_vat: "稅前總額"
+        created_at: "日期/時間"
+        reimbursement_status: "報銷狀態"
+        name: Name        
       spree/inventory_unit:
         state: "狀態"
       spree/line_item:
@@ -103,17 +123,26 @@ zh-HK:
         name: "名稱"
         presentation: "描述"
       spree/order:
+        additional_tax_total: "稅總額"
+        approved_at: "核准日期"
+        approver: "核准者"
+        approver_id: "核准者"
+        canceled_at: "取消日期"
+        canceler: "取消者"        
+        canceler_id: "取消者"        
         checkout_complete: "完成結帳"
         completed_at: "結帳日期"
         considered_risky:
         coupon_code: "優惠代碼"
         created_at: "訂單日期"
         email: "電子信箱"
+        included_tax_total: "稅總額 (已包括在價格中)"
         ip_address: IP 位址
         item_total: "項目總計"
         number: "訂單號碼"
         payment_state: "付款狀態"
-        shipment_state: "物流狀態"
+        shipment_state: "出貨狀態"
+        shipment_total: "運輸金額"
         special_instructions: "特別說明"
         state: "狀態"
         total: "總計"
@@ -135,6 +164,11 @@ zh-HK:
         zipcode: "郵遞區號"
       spree/payment:
         amount: "金額"
+        created_at:  日期/時間
+        number: "識別碼"
+        payment_method: "付款方式"
+        response_code: "交易編號"
+        state: "狀態"        
       spree/payment_method:
         name: "名稱"
       spree/product:
@@ -267,9 +301,10 @@ zh-HK:
               cannot_destroy_default_store:
     models:
       spree/address: "地址"
+      spree/adjustment: "調整"
       spree/country: "國家"
       spree/credit_card: "信用卡"
-      spree/customer_return:
+      spree/customer_return: "客戶退貨"
       spree/inventory_unit: "庫存單位"
       spree/line_item:
         one: "單項"
@@ -334,7 +369,8 @@ zh-HK:
     add: "增加"
     add_action_of_type: "增加促銷優惠"
     add_country: "增加國家"
-    add_coupon_code:
+    add_coupon_code: "優惠券代碼"
+    add_line_item: "新加訂單項"
     add_new_header: "增加新 Header"
     add_new_style: "增加新樣式"
     add_one: "新增"
@@ -359,23 +395,35 @@ zh-HK:
     adjustments: "其他項目"
     admin:
       tab:
+        braintree: "Braintree"
+        checkout: "退款和退貨"
         configuration: "設定"
         contacts: "聯絡人"
         contact_us_emails: "電郵設定"
+        display_order: "顯示順序"
         locals: Locals        
-        option_types:
+        option_types: "選項類型"
         orders: "訂單"
         overview: "總覽"
+        Pages: "網頁"
+        payments: "付款方法"
         products: "產品"
         promotions: "宣傳"
-        properties:
-        prototypes:
+        promotion_categories: "宣傳類別"
+        properties: "性質"
+        prototypes: "樣板"
         reports: "報表"
+        rma: "RMA"
         settings: "設定"
+        shipping: "運輸"
         stock: "庫存"
-        taxonomies:
-        taxons:
+        stock_itmes: "庫存物品"
+        stores: "商店"
+        taxes: "稅項"
+        taxonomies: "分類"
+        taxons: "分類群"
         users: "使用者"
+        zones: "地區"
       user:
         account:
         addresses:
@@ -425,12 +473,14 @@ zh-HK:
     avs_response:
     back: "返回"
     back_end: "後端"
-    back_to_payment:
+    back_to_payment: "返回付款方法"
     back_to_resource_list:
     back_to_rma_reason_list:
+    back_to_static_pages_list: "返回網頁列表"
     back_to_store: "回商店"
     back_to_users_list: "返回使用者列表"
     backorderable: "可預購"
+    backorderable_header: "可預購"
     backorderable_default:
     backordered: "待補"
     backorders_allowed: "已允許預購"
@@ -445,8 +495,9 @@ zh-HK:
     calculator: "計算規則"
     calculator_settings_warning: "如果你更改了計算規則, 需要先儲存才能進行修改"
     cancel: "取消"
-    canceled_at:
-    canceler:
+    cancel_inventory: "取消項目"
+    canceled_at: "取消日期時間"
+    canceler: "取消訂單"
     cannot_create_customer_returns:
     cannot_create_payment_without_payment_methods: "你無法在未定義付費方法前產生訂單的付費資訊."
     cannot_create_returns: "無法建立退貨資訊, 因為這筆訂單不需要配送"
@@ -552,9 +603,11 @@ zh-HK:
     coupon_code_not_found: "您輸入的優惠代碼不存在. 請再試一次."
     coupon_code_unknown_error:
     create: "建立"
+    create_one: ""
     create_a_new_account: "建立新帳號"
     create_new_order:
     create_reimbursement:
+    create_one: "建立新"
     created_at: "建立於"
     credit: "額度"
     credit_card: "信用卡"
@@ -573,8 +626,8 @@ zh-HK:
     customer: "客戶"
     customer_details: "客戶資料"
     customer_details_updated: "客戶資料更新完成"
-    customer_return:
-    customer_returns:
+    customer_return: "客戶退貨"
+    customer_returns: "客戶退貨"
     customer_search: "搜尋客戶"
     cut: "剪下"
     cvv_response:
@@ -678,6 +731,7 @@ zh-HK:
     filter_results: "過濾結果"
     finalize: "完成"
     finalized:
+    finalize_all_adjustments: "所有調整的最終結果"
     find_a_taxon:
     first_item: "第一項商品價格"
     first_name: "名"
@@ -738,7 +792,12 @@ zh-HK:
     inventory: "庫存"
     inventory_adjustment: "庫存調整"
     inventory_error_flash_for_insufficient_quantity: "您購物車內的商品已無法使用."
-    inventory_state:
+    inventory_states:
+      backordered: "缺貨"
+      canceled: "取消"
+      on_hand: "有庫存"
+      returned: "退貨"
+      shipped: "送出"
     is_not_available_to_shipment_address: "沒有可用的出貨地址"
     in_stock: "有現貨"
     iso_name: ISO 名稱
@@ -784,7 +843,8 @@ zh-HK:
     make_refund: "退款"
     make_sure_the_above_reimbursement_amount_is_correct:
     manage_promotion_categories:
-    manage_variants:
+    manage_stock: "管理庫存"
+    manage_variants: "管理產品"
     manual_intervention_required:
     master_price: "主要定價"
     match_choices:
@@ -980,12 +1040,13 @@ zh-HK:
       balance_due: "未入帳"
       checkout: "付款"
       completed: "已完成"
-      credit_owed:
+      credit_owed: "欠款"
       failed: "失敗"
       paid: "已付費"
       pending: "擱置"
       processing: "處理中"
-      void: "無效"
+      void: "作廢"
+      invalid: "無效"
     payment_updated: "付費資料已更新"
     payments: "付費資料"
     pending:
@@ -1185,7 +1246,7 @@ zh-HK:
     settings: "設定"
     ship: "出貨"
     ship_address: "出貨地址"
-    ship_total:
+    ship_total: "運輸金額"
     shipment: "出貨資料"
     shipment_adjustments:
     shipment_details:
@@ -1198,10 +1259,11 @@ zh-HK:
         thanks: "謝謝你的購物和信賴。"
         track_information: "貨運單號： %{tracking}"
         track_link: "追蹤連結: %{url}"
+    shipment_number: "出貨編號"
     shipment_state: "出貨狀態"
     shipment_states:
       backorder: "預購"
-      canceled:
+      canceled: "取消"
       partial: "部份出貨"
       pending: "擱置"
       ready: "準備出貨"
@@ -1221,7 +1283,7 @@ zh-HK:
     shipping_method: "出貨方式"
     shipping_methods: "出貨方式"
     shipping_price_sack:
-    shipping_total:
+    shipping_total: "出貨總金額"
     shop_by_taxonomy: "依照%{taxonomy}排序"
     shopping_cart: "購物車"
     show: "顯示"
@@ -1278,6 +1340,9 @@ zh-HK:
       void:
     states: "省份"
     states_required: "需要州別"
+    static_content:
+      editing_page: "編輯網頁"
+      static_pages: ""
     status: "狀態"
     stock:
     stock_location: "庫存區域"
@@ -1293,6 +1358,7 @@ zh-HK:
     stock_transfers: "庫存轉移"
     stop: "停止"
     store: "商店"
+    stores: "商店"
     street_address: "地址"
     street_address_2: "地址(繼續)"
     subtotal: "小計"
@@ -1363,6 +1429,7 @@ zh-HK:
     unable_to_connect_to_gateway: "無法連上 gateway"
     unable_to_create_reimbursements:
     under_price: Under %{price}
+    unfinalize_all_adjustments: "取消所有調整的最終結果"
     unit_price: "單價"
     unlock: "解鎖"
     unrecognized_card_type: "無法辨識的信用卡類別"
@@ -1388,7 +1455,8 @@ zh-HK:
       unpaid_amount_not_zero:
     value: "值"
     variant: "具體型號"
-    variant_placeholder: "選擇具体型号"
+    variant_placeholder: "選擇具體型號"
+    variant_search_placeholder: "選擇具體型號"
     variants: "款式系列"
     version: "版本"
     void: "無效"
@@ -1404,3 +1472,8 @@ zh-HK:
     zipcode: "區域代碼"
     zone: "區域"
     zones: "區域"
+  time:
+    formats:
+      solidus:
+        long: '%Y年%b%d日 %p%-l:%M'
+        short: "%b %-d '%y %-l:%M%P"

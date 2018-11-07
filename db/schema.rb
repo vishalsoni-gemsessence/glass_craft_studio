@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181029144934) do
+ActiveRecord::Schema.define(version: 20181107163223) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
+    t.string "locale"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["locale"], name: "index_friendly_id_slugs_on_locale"
+    t.index ["slug", "sluggable_type", "locale"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_locale", length: { slug: 140, locale: 2 }
+    t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true, length: { slug: 70, scope: 70, locale: 2 }
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
@@ -337,6 +339,17 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.datetime "updated_at"
   end
 
+  create_table "spree_option_type_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_option_type_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "presentation"
+    t.index ["locale"], name: "index_spree_option_type_translations_on_locale"
+    t.index ["spree_option_type_id"], name: "index_spree_option_type_translations_on_spree_option_type_id"
+  end
+
   create_table "spree_option_types", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", limit: 100
     t.string "presentation", limit: 100
@@ -344,6 +357,17 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["position"], name: "index_spree_option_types_on_position"
+  end
+
+  create_table "spree_option_value_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_option_value_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "presentation"
+    t.index ["locale"], name: "index_spree_option_value_translations_on_locale"
+    t.index ["spree_option_value_id"], name: "index_spree_option_value_translations_on_spree_option_value_id"
   end
 
   create_table "spree_option_values", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -583,6 +607,16 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.index ["property_id"], name: "index_spree_product_properties_on_property_id"
   end
 
+  create_table "spree_product_property_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_product_property_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "value"
+    t.index ["locale"], name: "index_spree_product_property_translations_on_locale"
+    t.index ["spree_product_property_id"], name: "index_0968f57fbd8fb9f31050820cbb66109a266c516a"
+  end
+
   create_table "spree_product_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_id"
     t.integer "rotate"
@@ -609,6 +643,22 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "text_layer"
+  end
+
+  create_table "spree_product_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_product_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "slug"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_spree_product_translations_on_deleted_at"
+    t.index ["locale"], name: "index_spree_product_translations_on_locale"
+    t.index ["spree_product_id"], name: "index_spree_product_translations_on_spree_product_id"
   end
 
   create_table "spree_products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -748,6 +798,17 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.index ["user_id"], name: "index_promotion_rules_users_on_user_id"
   end
 
+  create_table "spree_promotion_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_promotion_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.index ["locale"], name: "index_spree_promotion_translations_on_locale"
+    t.index ["spree_promotion_id"], name: "index_spree_promotion_translations_on_spree_promotion_id"
+  end
+
   create_table "spree_promotions", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "description"
     t.datetime "expires_at"
@@ -775,7 +836,7 @@ ActiveRecord::Schema.define(version: 20181029144934) do
 
   create_table "spree_properties", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "presentation", null: false
+    t.string "presentation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -785,6 +846,17 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.integer "property_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "spree_property_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_property_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "presentation"
+    t.index ["locale"], name: "index_spree_property_translations_on_locale"
+    t.index ["spree_property_id"], name: "index_spree_property_translations_on_spree_property_id"
   end
 
   create_table "spree_prototype_taxons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -979,6 +1051,16 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.datetime "updated_at"
     t.index ["shipping_method_id"], name: "shipping_method_id_spree_sm_sl"
     t.index ["stock_location_id"], name: "sstock_location_id_spree_sm_sl"
+  end
+
+  create_table "spree_shipping_method_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_shipping_method_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["locale"], name: "index_spree_shipping_method_translations_on_locale"
+    t.index ["spree_shipping_method_id"], name: "index_c713dce023452222dbb97ceedfc9eddb4f02a87f"
   end
 
   create_table "spree_shipping_method_zones", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1187,6 +1269,19 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.index ["store_id"], name: "index_spree_store_shipping_methods_on_store_id"
   end
 
+  create_table "spree_store_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_store_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "meta_description"
+    t.text "meta_keywords"
+    t.string "seo_title"
+    t.index ["locale"], name: "index_spree_store_translations_on_locale"
+    t.index ["spree_store_id"], name: "index_spree_store_translations_on_spree_store_id"
+  end
+
   create_table "spree_stores", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "url"
@@ -1237,18 +1332,43 @@ ActiveRecord::Schema.define(version: 20181029144934) do
     t.index ["zone_id"], name: "index_spree_tax_rates_on_zone_id"
   end
 
+  create_table "spree_taxon_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_taxon_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "permalink"
+    t.index ["locale"], name: "index_spree_taxon_translations_on_locale"
+    t.index ["spree_taxon_id"], name: "index_spree_taxon_translations_on_spree_taxon_id"
+  end
+
   create_table "spree_taxonomies", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "position", default: 0
     t.index ["position"], name: "index_spree_taxonomies_on_position"
   end
 
+  create_table "spree_taxonomy_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_taxonomy_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["locale"], name: "index_spree_taxonomy_translations_on_locale"
+    t.index ["spree_taxonomy_id"], name: "index_spree_taxonomy_translations_on_spree_taxonomy_id"
+  end
+
   create_table "spree_taxons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "parent_id"
     t.integer "position", default: 0
-    t.string "name", null: false
+    t.string "name"
     t.string "permalink"
     t.integer "taxonomy_id"
     t.integer "lft"

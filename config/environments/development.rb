@@ -1,3 +1,5 @@
+require Rails.root.join('lib/development_mail_interceptor') # unless you are autoloading lib folder
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -51,4 +53,19 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.mailgun.org',
+    :port           => 587,
+    :authentication => :login,
+    :user_name      => 'talent-pro@mg.36etcetera.com',
+    :password       => '6bcb448e',
+    :domain         => 'localhost:3000'
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { host: 'http://localhost:3000/' }
+  config.action_mailer.asset_host = "http://localhost:3000"
+
+  ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) # Intercept emails
 end
