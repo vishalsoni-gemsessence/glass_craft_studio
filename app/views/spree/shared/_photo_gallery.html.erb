@@ -6,7 +6,8 @@
     <div class="photo-gallery-box" id="JustifiedGallery">   
       <%= render partial: 'spree/shared/gallery_product' %>
     </div>
-    <div class="load-more-container">
+    <br>
+    <div class="load-more-container text-center">
       <% if @taxon_products.next_page %>
         <%= link_to t('spree.load_more'), nested_taxons_path(page: @taxon_products.next_page), class: 'btn btn-primary', id: 'loadMore' %>
       <% end %>
