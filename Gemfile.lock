@@ -18,10 +18,10 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-globalize.git
-  revision: 4b228cc0bbbabfcb1f366f051787800d62cd291c
+  revision: 4f42cbfdd0da59ab13c28caaa26126954de6a4ca
   branch: master
   specs:
-    solidus_globalize (3.1.0.beta)
+    solidus_globalize (1.0.0)
       friendly_id-globalize
       globalize (~> 5.0)
       solidus_i18n (~> 2.0)
