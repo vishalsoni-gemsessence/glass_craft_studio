@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181107163223) do
+ActiveRecord::Schema.define(version: 20181108161233) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -450,6 +450,23 @@ ActiveRecord::Schema.define(version: 20181107163223) do
     t.datetime "updated_at"
     t.index ["order_id", "promotion_id"], name: "index_spree_orders_promotions_on_order_id_and_promotion_id"
     t.index ["promotion_code_id"], name: "index_spree_orders_promotions_on_promotion_code_id"
+  end
+
+  create_table "spree_page_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_page_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.string "foreign_link"
+    t.string "meta_keywords"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "layout"
+    t.index ["locale"], name: "index_spree_page_translations_on_locale"
+    t.index ["spree_page_id"], name: "index_spree_page_translations_on_spree_page_id"
   end
 
   create_table "spree_pages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

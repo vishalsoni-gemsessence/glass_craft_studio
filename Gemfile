@@ -45,7 +45,7 @@ gem 'tinymce-rails-langs'
 # Use solidus and its extensions for e-commerce solution
 gem 'solidus', '2.6'
 gem 'solidus_auth_devise'
-gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
 # gem 'solidus_paypal_braintree', path: '../solidus_paypal_braintree-master'
@@ -74,6 +74,10 @@ gem 'routing-filter'
 
 # gem 'solidus_globalize', path: '../solidus_globalize'
 gem 'solidus_globalize', bitbucket: '36etcetera/solidus-globalize', branch: "master"
+
+# gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+# gem 'solidus_static_content', path: '../solidus_static_content'
+gem 'solidus_static_content', bitbucket: '36etcetera/solidus-static-content', branch: "master"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
