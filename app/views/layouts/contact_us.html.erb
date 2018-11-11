@@ -34,14 +34,14 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="subsection-sm">
-                              <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+                              <%= f.text_field :name, class: "form-control", placeholder: t("contact_us_form.name"), required: true %>
                               <%= display_error_message(f.object, 'name') %>
                             </div>
                           </div>
                           <!--/col-->
                           <div class="col-md-6">
                             <div class="subsection-sm">
-                              <%= f.email_field :email, class: "form-control", placeholder: "Email", 'aria-describedby': "emailHelp", required: true %>
+                              <%= f.email_field :email, class: "form-control", placeholder: t("contact_us_form.email"), 'aria-describedby': "emailHelp", required: true %>
                               <%= display_error_message(f.object, 'email') %>
                             </div>
                           </div>
@@ -49,11 +49,11 @@
                         </div>
                         <!--/row-->
                         <div class="subsection-sm">
-                          <%= f.text_field :subject, class: "form-control", placeholder: "Subject", required: true %>
+                          <%= f.text_field :subject, class: "form-control", placeholder: t("contact_us_form.subject"), required: true %>
                           <%= display_error_message(f.object, 'subject') %>
                         </div>
                         <div class="subsection-sm">                  
-                          <%= f.text_area :message, class: "form-control", placeholder: "Message", required: true %>
+                          <%= f.text_area :message, class: "form-control", placeholder: t("contact_us_form.message"), required: true %>
                           <%= display_error_message(f.object, 'message') %>
                         </div>
           							<div class="subsection-sm">

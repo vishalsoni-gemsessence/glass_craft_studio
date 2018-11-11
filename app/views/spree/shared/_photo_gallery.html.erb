@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <div class="subsection">
       <h2 class="text-primary text-uppercase text-center"><%= strip_tags @taxon.name %></h2>
+      <h4 class="fw400 text-center"><%= raw @taxon.description %></h4>
     </div>
     <div class="photo-gallery-box" id="JustifiedGallery">   
       <%= render partial: 'spree/shared/gallery_product' %>
