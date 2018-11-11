@@ -41,6 +41,7 @@ en:
     first_layer: First layer of glass
     middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
     second_layer: Second layer of glass
+    standard_sizes: "%{number_of_sizes} standard sizes"
   home:
     background: Background
     background_text: GlassXpert &amp; Design is passionate in glass products, we mainly focus on three areas
