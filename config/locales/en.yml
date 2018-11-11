@@ -39,6 +39,10 @@ en:
     glassxpert_design_company_limited: GlassXpert & Design Company Limited
   glass_photo_prints:
     first_layer: First layer of glass
+    layout_number: 
+      zero: "With %{count} layouts"
+      one: "With %{count} layout"
+      other: "With %{count} layouts"
     middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
     second_layer: Second layer of glass
     standard_sizes: "%{number_of_sizes} standard sizes"
