@@ -31,13 +31,13 @@ zh-HK:
     glassxpert_design: "玻璃設計館GlassXpert＆Design"
     glassxpert_design_company_limited: "GlassXpert & Design Company Limited"
   glass_photo_prints:
-    first_layer: First layer of glass
+    first_layer: 第一層玻璃
     layout_number: 
       zero: "有%{count}款設計"
       one: "有%{count}款設計"
       other: "有%{count}款設計"
-    middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
-    second_layer: Second layer of glass
+    middle_layer: Glasslam CIP 或 EVA<br>把兩塊玻璃結合在一起
+    second_layer: 第二層玻璃
     standard_sizes: "%{number_of_sizes}種尺碼及價格"
   home:
     background: "背景"

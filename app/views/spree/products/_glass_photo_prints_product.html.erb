@@ -5,11 +5,14 @@
 			<div class="frame-view <%= taxon.meta_title %>">
 				<div class="table-parent-md">
 					<div class="vertical-middle">
-						<p class="frame-title"><%= taxon.name %></p>
+						<p class="frame-title">
+              <%= taxon.name %>
+            </p>
 					</div>
 				</div>
 			</div>
-			<p class="frame-price"><%= t :'glass_photo_prints.layout_number', count: taxon.products.size %></p>
+      <p class="frame-price text-center"><%= t :'glass_photo_prints.layout_number', count: taxon.products.size %></p>
+      <!-- <p class="frame-price"><%= t :'glass_photo_prints.layout_number', count: taxon.products.size %></p> -->
 		</div>
 	</div>
 </a>

@@ -12685,8 +12685,8 @@ hr {
   position: absolute;
   bottom: 15px;
   margin: 0;
-  left: 50%;
-  margin-left: -20px;
+  left: 35%;
+/*  margin-left: -20px;*/
   opacity: 0.5;
 }
 
