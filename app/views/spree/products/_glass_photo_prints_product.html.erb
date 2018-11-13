@@ -6,7 +6,10 @@
 				<div class="table-parent-md">
 					<div class="vertical-middle">
 						<p class="frame-title">
-              <%= taxon.name %>
+              <%= taxon.name %><br>
+            <% if taxon.products.size > 0 %>  
+              <%= display_price(taxon.products.first) %>
+            <% end %>  
             </p>
 					</div>
 				</div>
