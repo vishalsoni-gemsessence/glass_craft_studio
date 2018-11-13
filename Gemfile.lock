@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 8dfacd72973506b420446f276f7c12bcca3a59eb
+  revision: b60a830dbff5abb8d5bc41381287d0afe30524bc
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -259,7 +259,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    method_source (0.9.1)
+    method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
