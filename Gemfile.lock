@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: b60a830dbff5abb8d5bc41381287d0afe30524bc
+  revision: de46148c0cbe8b761bb8e8c69e329e7c04710a63
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -227,6 +227,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
+    i18n-js (3.1.0)
+      i18n (>= 0.6.6, < 2)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -506,6 +508,7 @@ DEPENDENCIES
   figaro
   friendly_id-globalize
   globalize!
+  i18n-js
   jbuilder (~> 2.5)
   kaminari-i18n
   listen (>= 3.0.5, < 3.2)

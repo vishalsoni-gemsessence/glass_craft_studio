@@ -44,3 +44,8 @@
 //= require solidus_paypal_braintree/frontend
 //= require spree/frontend/paypal_button
 //= require spree/frontend/solidus_easyship
+
+//I18n
+//= require i18n
+//= require i18n.js
+//= require i18n/translations

@@ -71,6 +71,7 @@ gem 'solidus_i18n', github: 'solidusio-contrib/solidus_i18n'
 gem 'rails-i18n'
 gem 'kaminari-i18n'
 gem 'routing-filter'
+gem "i18n-js"
 
 # gem 'solidus_globalize', path: '../solidus_globalize'
 gem 'solidus_globalize', bitbucket: '36etcetera/solidus-globalize', branch: "master"
