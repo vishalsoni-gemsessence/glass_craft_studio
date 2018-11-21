@@ -12,26 +12,8 @@
     <% available_locales = current_store.available_locales %>
     <% if available_locales.many? %>
       <%= form_tag spree.select_locale_path do %>
-        <li class="nav-item mb-5 d-xl-none">
-          <%=
-            select_tag(
-              :switch_to_locale,
-              options_for_select(
-                available_locales.map do |locale|
-                  [I18n.t("spree.i18n.this_file_language", locale: locale, fallback: false, default: locale.to_s), locale, class: 'dropdown-item']
-                end.sort,
-                selected: I18n.locale
-              ),
-              class: 'nav-link dropdown-toggle dropdown-lang',  id: 'navbarDropdownLang', href: "#", role: 'button', data: {toggle: 'dropdown'} 
-            )
-          %>
-          <noscript><%= submit_tag t("spree.select") %></noscript>
-
-          <!-- <div class="btn-group-vertical">
-            <a class="btn btn-sm btn-outline-primary active" href="#">Eng1</a>
-            <a class="btn btn-sm btn-outline-primary" href="#">Eng2</a>
-            <a class="btn btn-sm btn-outline-primary" href="#">Eng3</a>
-          </div> -->
+        <li class="nav-item dropdown mb-5 d-xl-none" id="locale_selector" data-hook>
+          <%= render partial: 'spree/shared/select_locale', locals: {available_locales: available_locales} %>
         </li>
       <% end %>  
     <% end %>
