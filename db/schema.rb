@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181113141457) do
+ActiveRecord::Schema.define(version: 20181121102823) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -268,6 +268,7 @@ ActiveRecord::Schema.define(version: 20181113141457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "slug"
     t.index ["locale"], name: "index_spree_filter_translations_on_locale"
     t.index ["spree_filter_id"], name: "index_spree_filter_translations_on_spree_filter_id"
   end
@@ -1156,6 +1157,7 @@ ActiveRecord::Schema.define(version: 20181113141457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "slug"
     t.index ["locale"], name: "index_spree_sticker_translations_on_locale"
     t.index ["spree_sticker_id"], name: "index_spree_sticker_translations_on_spree_sticker_id"
   end
@@ -1323,6 +1325,7 @@ ActiveRecord::Schema.define(version: 20181113141457) do
     t.datetime "updated_at"
     t.string "cart_tax_country_iso"
     t.string "available_locales"
+    t.text "preferences"
     t.index ["code"], name: "index_spree_stores_on_code"
     t.index ["default"], name: "index_spree_stores_on_default"
   end
@@ -1472,6 +1475,7 @@ ActiveRecord::Schema.define(version: 20181113141457) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "description"
+    t.string "slug"
     t.index ["locale"], name: "index_spree_template_translations_on_locale"
     t.index ["spree_template_id"], name: "index_spree_template_translations_on_spree_template_id"
   end
