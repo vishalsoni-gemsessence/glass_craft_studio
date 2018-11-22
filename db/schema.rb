@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181122150353) do
+ActiveRecord::Schema.define(version: 20181121102823) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -1079,16 +1079,6 @@ ActiveRecord::Schema.define(version: 20181122150353) do
     t.datetime "updated_at"
     t.index ["shipping_method_id"], name: "shipping_method_id_spree_sm_sl"
     t.index ["stock_location_id"], name: "sstock_location_id_spree_sm_sl"
-  end
-
-  create_table "spree_shipping_method_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_shipping_method_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["locale"], name: "index_spree_shipping_method_translations_on_locale"
-    t.index ["spree_shipping_method_id"], name: "index_c713dce023452222dbb97ceedfc9eddb4f02a87f"
   end
 
   create_table "spree_shipping_method_zones", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
