@@ -45,7 +45,7 @@
 		</div>
         
 		<div class="frame-selection-box">    
-      <% cache [I18n.locale, @taxon] do %>        
+      <% cache [@taxon] do %>        
         <%= render partial: 'spree/shared/glass_photo_prints_products', locals: { taxons: @taxon.children, taxon: @taxon } %>        
           <%#= render partial: 'spree/shared/glass_photo_prints_products', locals: { products: taxon_preview(@taxon, @taxon.products.size), taxon: @taxon } %>
       <% end %>

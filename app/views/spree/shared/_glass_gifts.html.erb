@@ -9,7 +9,7 @@
       <% unless params[:keywords].present? %>
         <div class="taxon_children" data-hook="taxon_children">
 
-          <% cache [I18n.locale, @taxon] do %>
+          <% cache [@taxon] do %>
             <%= render partial: 'taxon', collection: @childrens %>
           <% end %>
         </div>

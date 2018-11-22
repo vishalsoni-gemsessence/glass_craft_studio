@@ -1,7 +1,7 @@
 <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
 <div class="gift-card">
   <!-- <li id="product_<%= product.id %>" class="columns three <%= cycle("alpha", "secondary", "", "omega secondary", name: "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product"> -->
-    <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
+    <% cache(@taxon.present? ? [current_pricing_options, @taxon, product] : [current_pricing_options, product]) do %>
       <div class="product-image gift-card-img">
         <%= link_to(render('spree/shared/image', image: product.display_image, size: :taxon, itemprop: "image"), url, itemprop: 'url') %>
       </div>
