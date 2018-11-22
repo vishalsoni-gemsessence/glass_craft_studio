@@ -1,22 +1,28 @@
-$(".taxon_children").append("<%= j render(@childrens) %>");
-<% if @childrens.total_pages == @childrens.current_page %>
-  $("#loadMore").hide();
-<% else %>
-  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @childrens.next_page) %>');
+<% if params[:id] == 'glass-gifts' %>
+  $(".taxon_children").append("<%= j render(@childrens) %>");
+  <% if @childrens.total_pages == @childrens.current_page %>
+    $("#loadMore").hide();
+  <% else %>
+    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @childrens.next_page) %>');
+  <% end %>
 <% end %>
 
-$(".link-wrap").append("<%= j render(@taxon_products) %>");
-<% if @taxon_products.total_pages == @taxon_products.current_page %>
-  $("#loadMore").hide();
-<% else %>
-  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+<% if params[:id] == 'glass-photo-prints' %>
+  $(".link-wrap").append("<%= j render(@taxon_products) %>");
+  <% if @taxon_products.total_pages == @taxon_products.current_page %>
+    $("#loadMore").hide();
+  <% else %>
+    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+  <% end %>
 <% end %>
 
-$(".photo-gallery-box").append("<%= j render(partial: 'spree/shared/gallery_product') %>");
-<% if @taxon_products.total_pages == @taxon_products.current_page %>
-  $("#loadMore").hide();
-<% else %>
-  $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+<% if params[:id] == 'photo-gallery' %>
+  $(".photo-gallery-box").append("<%= j render(partial: 'spree/shared/gallery_product') %>");
+  <% if @taxon_products.total_pages == @taxon_products.current_page %>
+    $("#loadMore").hide();
+  <% else %>
+    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+  <% end %>
 <% end %>
 
 $('#JustifiedGallery').justifiedGallery();
