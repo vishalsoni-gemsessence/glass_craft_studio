@@ -61,8 +61,7 @@
                     </div>
                   </div>
                 </div>
-
-              <% unless @product.description.empty? %>                  
+              <% unless @product.description.nil? %>
                 <div class="subsection-sm separator"></div>
                 
                 <div class="subsection-sm" itemprop="description" data-hook="description">
@@ -88,7 +87,7 @@
                     <p class="h5 bigger"><%= get_weight_in_kg(@product.weight)%></p>
                   </div>
                 </div>
-              </div>                    
+              </div>
             <% unless @product_properties.empty? %>  
               <div class="subsection-sm separator"></div>
               <div class="row" data-hook="product_left_part">
