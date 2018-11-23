@@ -6,6 +6,9 @@ en:
         width: Width (mm)
         depth: Depth (mm)
         weight: Weight (kg)        
+      spree/credit_card:
+        card_code: Security Code
+        expiration: Expiry Date (MM/YY)
   address:
     full_name: "Full Name"
     company: "Company"

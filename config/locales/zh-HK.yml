@@ -105,7 +105,9 @@ zh-HK:
         numcode: ISO 編碼
       spree/credit_card:
         base:
+        card_code: 信用卡代碼
         cc_type: "信用卡類型"
+        expiration: 到期日 (MM/YY)
         month: "月份"
         name:
         number: "卡號"
