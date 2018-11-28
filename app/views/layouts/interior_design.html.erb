@@ -13,82 +13,86 @@
     <%= render partial: 'spree/shared/header' %>
   	<!--/ .header-->
   	<div class="main">
-		<section class="section interior-design-hero">
-			<div class="container">
-				<div class="interior-slider-container">
-					<div class="flexslider main-interior-slider" id="jsInteriorSlider">
-						<ul class="slides">
-            <% @page.slug[0] = '' %>
-            <% taxon_access = @page.slug %>
-            <% interior_decorative_glass_taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
-            <% photos = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/photos") %>
-            <% children = photos.children %>
-            <% children.each do |child| %>
-							<li>
-								<img src="<%= child.icon(:original) %>">
-        				<div class="project-description">
-        					<h2 class="fw900"><%= child.name %></h2>
-        					<p class="h3 fw400 mb-0">
-                    <%= raw child.description %>
-                  </p>
-        				</div>
-        				<!--/project-description-->
-							</li>
-            <% end %>  
-						</ul>            
-					</div>
-          <div class="flexslider thumbnail-interior-slider" id="jsInteriorCarousel">
-            <ul class="slides">
-            <% children.each do |child| %>
-              <li>
-                <img src="<%= child.icon(:normal) %>">
-              </li>
-            <% end %>
-            </ul>
+      <section class="section interior-design-calltoaction">
+  			<div class="container-fluid">
+  				<div class="subsection">
+  					<h2 class="text-primary fw900"><%= @page.title %></h2>
+            <!-- <h3>Partner of your home design</h3> -->
+            <p class="text-lg mb-4">
+              <%= render_snippet "/interior-design" %>
+            </p>
           </div>
-				</div>
-				<!--/interior-slider-container-->
-			</div>
-			<!--/container-->
-		</section>
-		<!--/section-->
-    <section class="section interior-design-calltoaction">
-			<div class="container-fluid">
-				<div class="subsection">
-					<h2 class="text-primary fw900"><%= @page.title %></h2>
-          <!-- <h3>Partner of your home design</h3> -->
-          <p class="text-lg mb-4">
-            <%= render_snippet "/interior-design" %>
-          </p>
         </div>
-        <div class="row">
-        <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
-        <% children = newsletter.children %>
-        <% children.each do |child| %>                      
-          <div class="col-lg-3 col-md-3 mb-3">
-            <%= image_tag child.icon(:normal) %><br>
-            <span><%= child.name %></span>
-          </div>
-        <% end %>  
-        </div>
-          <!-- <div class="row">
+      </section>
+  		<section class="section interior-design-hero">
+  			<div class="container">
+  				<div class="interior-slider-container">
+  					<div class="flexslider main-interior-slider" id="jsInteriorSlider">
+  						<ul class="slides">
+              <% @page.slug[0] = '' %>
+              <% taxon_access = @page.slug %>
+              <% interior_decorative_glass_taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
+              <% photos = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/photos") %>
+              <% children = photos.children %>
+              <% children.each do |child| %>
+  							<li>
+  								<img src="<%= child.icon(:original) %>">
+          				<div class="project-description">
+          					<h2 class="fw900"><%= child.name %></h2>
+          					<p class="h3 fw400 mb-0">
+                      <%= raw child.description %>
+                    </p>
+          				</div>
+          				<!--/project-description-->
+  							</li>
+              <% end %>  
+  						</ul>            
+  					</div>
+            <div class="flexslider thumbnail-interior-slider" id="jsInteriorCarousel">
+              <ul class="slides">
+              <% children.each do |child| %>
+                <li>
+                  <img src="<%= child.icon(:normal) %>">
+                </li>
+              <% end %>
+              </ul>
+            </div>
+  				</div>
+  				<!--/interior-slider-container-->
+  			</div>
+  			<!--/container-->
+  		</section>
+  		<!--/section-->
+      <section class="section interior-design-calltoaction">
+  			<div class="container-fluid">          
+          <div class="row">
           <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
           <% children = newsletter.children %>
-          <% children.each do |child| %>
+          <% children.each do |child| %>                      
             <div class="col-lg-3 col-md-3 mb-3">
               <%= image_tag child.icon(:normal) %><br>
               <span><%= child.name %></span>
             </div>
-          <% end %>
-          </div> -->
+          <% end %>  
+          </div>
+            <!-- <div class="row">
+            <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
+            <% children = newsletter.children %>
+            <% children.each do |child| %>
+              <div class="col-lg-3 col-md-3 mb-3">
+                <%= image_tag child.icon(:normal) %><br>
+                <span><%= child.name %></span>
+              </div>
+            <% end %>
+            </div> -->
           
-          <a class="btn btn-info mb-0" href="/contact-us">Contact us</a>
-				</div>
-				<!--/subsection-->
-			</div>
-			<!--/container-->
-		</section>
-		<!--/section-->
+            <a class="btn btn-info mb-0" href="/contact-us">Contact us</a>
+  				</div>
+  				<!--/subsection-->
+  			</div>
+  			<!--/container-->
+  		</section>
+  		<!--/section-->
   	</div>
   	<!--.footer - _footer.pug-->
     <%= render partial: 'spree/shared/footer' %>
