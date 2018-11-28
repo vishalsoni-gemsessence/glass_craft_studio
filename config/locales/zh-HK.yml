@@ -44,6 +44,9 @@ zh-HK:
     background_text: "玻璃設計館GlassXpert & Design主要從事三種業務"
     glass_gift_text: "尤其是個人化的玻璃相禮品"
     interior_decorative_glass_text: "室內裝修用之夹層裝飾玻璃及鏡子"
+  interior_decorative_glass:
+    for_detail_reference: "For design reference, you can refer to the previous newsletter:"
+    for_enquiry: "To quote prices for different patterns and dimensions, please contact our sales. Please tell us the purpose, dimensions (height and width) and any other specifications, e.g. whether to have lamination, tempered, heat soak or DFI (water and oil repellent, increase in surface brilliance) ...etc."        
   order:
     order_number: "訂單號碼"
   sign_in:

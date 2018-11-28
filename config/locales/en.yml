@@ -48,12 +48,15 @@ en:
       other: "With %{count} layouts"
     middle_layer: Glasslam CIP or EVA, <br>laminated two glasses together
     second_layer: Second layer of glass
-    standard_sizes: "%{number_of_sizes} standard sizes"
+    standard_sizes: "%{number_of_sizes} standard sizes"    
   home:
     background: Background
     background_text: GlassXpert &amp; Design is passionate in glass products, we mainly focus on three areas
     glass_gift_text: especially personalized photo gifts
     interior_decorative_glass_text: laminated and decorative glass and mirror for interior design
+  interior_decorative_glass:
+    for_detail_reference: "For design reference, you can refer to the previous newsletter:"
+    for_enquiry: "To quote prices for different patterns and dimensions, please contact our sales. Please tell us the purpose, dimensions (height and width) and any other specifications, e.g. whether to have lamination, tempered, heat soak or DFI (water and oil repellent, increase in surface brilliance) ...etc."
   order:
     order_number: "Order Number"
   sign_in:

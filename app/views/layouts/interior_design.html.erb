@@ -12,14 +12,19 @@
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
     <%= render partial: 'spree/shared/header' %>
   	<!--/ .header-->
+    
+    <% @page.slug[0] = '' %>
+    <% taxon_access = @page.slug %>
+    <% interior_decorative_glass_taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
+    
   	<div class="main">
       <section class="section interior-design-calltoaction">
   			<div class="container-fluid">
   				<div class="subsection">
   					<h2 class="text-primary fw900"><%= @page.title %></h2>
             <!-- <h3>Partner of your home design</h3> -->
-            <p class="text-lg mb-4">
-              <%= render_snippet "/interior-design" %>
+            <p class="text-lg mb-0">
+              <%= raw strip_tags interior_decorative_glass_taxon.description %>
             </p>
           </div>
         </div>
@@ -29,9 +34,6 @@
   				<div class="interior-slider-container">
   					<div class="flexslider main-interior-slider" id="jsInteriorSlider">
   						<ul class="slides">
-              <% @page.slug[0] = '' %>
-              <% taxon_access = @page.slug %>
-              <% interior_decorative_glass_taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
               <% photos = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/photos") %>
               <% children = photos.children %>
               <% children.each do |child| %>
@@ -40,7 +42,7 @@
           				<div class="project-description">
           					<h2 class="fw900"><%= child.name %></h2>
           					<p class="h3 fw400 mb-0">
-                      <%= raw child.description %>
+                      <%#= raw child.description %>
                     </p>
           				</div>
           				<!--/project-description-->
@@ -58,35 +60,40 @@
               </ul>
             </div>
   				</div>
-  				<!--/interior-slider-container-->
+  				<!--/interior-slider-container-->          
   			</div>
   			<!--/container-->
   		</section>
   		<!--/section-->
       <section class="section interior-design-calltoaction">
-  			<div class="container-fluid">          
-          <div class="row">
-          <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
-          <% children = newsletter.children %>
-          <% children.each do |child| %>                      
-            <div class="col-lg-3 col-md-3 mb-3">
-              <%= image_tag child.icon(:normal) %><br>
-              <span><%= child.name %></span>
-            </div>
-          <% end %>  
-          </div>
-            <!-- <div class="row">
+  			<div class="container-fluid">
+  				<div class="subsection">          
+            <p class="text-lg mb-4 text-center">
+              <%= t("interior_decorative_glass.for_detail_reference") %>
+            </p>
+            <div class="row">
             <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
             <% children = newsletter.children %>
             <% children.each do |child| %>
+              <% newsletter_url = strip_tags(child.description) %>
               <div class="col-lg-3 col-md-3 mb-3">
-                <%= image_tag child.icon(:normal) %><br>
-                <span><%= child.name %></span>
+                <%= link_to newsletter_url, target: "_blank" do %>
+                  <%= image_tag child.icon(:normal) %>
+                <% end %>
+                <p class="text-lg mb-4 text-center">
+                  <%= link_to newsletter_url, target: "_blank" do %>
+                    <%= raw child.name %>
+                  <% end %>
+                </p>
               </div>
-            <% end %>
-            </div> -->
+            <% end %>  
+            </div>
           
-            <a class="btn btn-info mb-0" href="/contact-us">Contact us</a>
+            <p class="text-lg mb-4 text-center">
+              <%= t("interior_decorative_glass.for_enquiry") %>
+            </p>            
+          
+            <%= link_to t("spree.contact_us"), "/contact-us", class: "btn btn-info mb-0" %>
   				</div>
   				<!--/subsection-->
   			</div>
