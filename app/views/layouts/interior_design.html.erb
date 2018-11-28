@@ -20,8 +20,9 @@
 						<ul class="slides">
             <% @page.slug[0] = '' %>
             <% taxon_access = @page.slug %>
-            <% taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
-            <% children = taxon.children %>
+            <% interior_decorative_glass_taxon = Spree::Taxon.find_by!(permalink: taxon_access) %>
+            <% photos = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/photos") %>
+            <% children = photos.children %>
             <% children.each do |child| %>
 							<li>
 								<img src="<%= child.icon(:original) %>">
@@ -55,10 +56,22 @@
 			<div class="container">
 				<div class="subsection">
 					<h2 class="text-primary fw900"><%= @page.title %></h2>
-					<h3>Partner of your home design</h3>
-					<p class="text-lg mb-4">
+          <!-- <h3>Partner of your home design</h3> -->
+          <p class="text-lg mb-4">
             <%= render_snippet "/interior-design" %>
           </p>
+          
+          <div class="row">
+          <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
+          <% children = newsletter.children %>
+          <% children.each do |child| %>            
+            <div class="col-lg-3 col-md-3 mb-3">
+              <%= image_tag child.icon(:normal) %><br>
+              <span><%= child.name %></span>
+            </div>
+          <% end %>  
+          </div>
+          
           <a class="btn btn-info mb-0" href="/contact-us">Contact us</a>
 				</div>
 				<!--/subsection-->
