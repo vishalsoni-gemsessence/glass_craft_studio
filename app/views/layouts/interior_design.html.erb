@@ -65,14 +65,9 @@
         <% newsletter = interior_decorative_glass_taxon.children.find_by!(permalink: "#{taxon_access}/newsletter") %>
         <% children = newsletter.children %>
         <% children.each do |child| %>                      
-          <div class="photo-gallery-card col-md-3 mb-3">
-            <%= image_tag child.icon(:normal) %>
-            <div class="photo-gallery-blink">
-              <div class="photo-gallery-text">
-                <h4 class="photo-gallery-title"><%= child.name %></h4>
-                <p><%= raw child.description %></p>
-              </div>
-            </div>  
+          <div class="col-lg-3 col-md-3 mb-3">
+            <%= image_tag child.icon(:normal) %><br>
+            <span><%= child.name %></span>
           </div>
         <% end %>  
         </div>
