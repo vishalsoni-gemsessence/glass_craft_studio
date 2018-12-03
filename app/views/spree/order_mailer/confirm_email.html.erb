@@ -123,7 +123,7 @@
               <tfoot id="tax-adjustments" data-hook="order_details_tax_adjustments">
                 <% @order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
                   <tr class="total">
-                    <td colspan="3"><%= t('spree.tax') %>: <strong><%= label %></strong></td>
+                    <td colspan=""><%= t('spree.tax') %>: <strong><%= label %></strong></td>
                     <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
                   </tr>
                 <% end %>
