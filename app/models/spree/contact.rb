@@ -11,6 +11,8 @@ module Spree
     include Discard::Model
     self.discard_column = :deleted_at
 
+    translates :name, :subject, :message, :slug
+
     has_attached_file :file,
                       styles: { mini: '48x48>', email: '150x150>' },
                       default_style: :mini,

@@ -11,6 +11,8 @@ module Spree
     include Discard::Model
     self.discard_column = :deleted_at
 
+    translates :name, :slug
+
     has_many :contacts, class_name: 'Spree::Contact', dependent: :destroy
 
     validates_presence_of :name, :email
