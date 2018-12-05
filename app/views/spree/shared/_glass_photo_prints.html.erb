@@ -38,19 +38,19 @@
 </section>
 <!--/print-glass-hero-->
 
+<% @taxon.children.each do |taxon| %>
 <section class="section section-standard-sizes">
 	<div class="container bigger">
 		<div class="subsection standard-sizes-text">
-			<h2><%= t :'glass_photo_prints.standard_sizes', number_of_sizes: @taxon.children.size %> </h2>
+			<h2><%= t :'glass_photo_prints.standard_sizes', number_of_sizes: taxon.children.size %> </h2>
 		</div>
         
 		<div class="frame-selection-box">    
-      <% cache [@taxon] do %>        
-        <%= render partial: 'spree/shared/glass_photo_prints_products', locals: { taxons: @taxon.children, taxon: @taxon } %>        
-          <%#= render partial: 'spree/shared/glass_photo_prints_products', locals: { products: taxon_preview(@taxon, @taxon.products.size), taxon: @taxon } %>
-      <% end %>
+      <% cache [taxon] do %>        
+        <%= render partial: 'spree/shared/glass_photo_prints_products', locals: { taxons: taxon.children, taxon: taxon } %>         <% end %>
 		</div>
 	</div>
 	<!--/container-->
 </section>
 <!--/section-->
+<% end %>
