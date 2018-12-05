@@ -42,7 +42,10 @@
 <section class="section section-standard-sizes">
 	<div class="container bigger">
 		<div class="subsection standard-sizes-text">
-			<h2><%= t :'glass_photo_prints.standard_sizes', number_of_sizes: taxon.children.size %> </h2>
+			<h2>
+        <%= t :'glass_photo_prints.standard_sizes', number_of_sizes: taxon.children.size %><br>
+        <%= taxon.name %>
+      </h2>      
 		</div>
         
 		<div class="frame-selection-box">    
