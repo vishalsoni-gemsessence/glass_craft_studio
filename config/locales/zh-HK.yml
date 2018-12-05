@@ -45,8 +45,8 @@ zh-HK:
     glass_gift_text: "尤其是個人化的玻璃相禮品"
     interior_decorative_glass_text: "室內裝修用之夹層裝飾玻璃及鏡子"
   interior_decorative_glass:
-    for_detail_reference: "For design reference, you can refer to the previous newsletter:"
-    for_enquiry: "To quote prices for different patterns and dimensions, please contact our sales. Please tell us the purpose, dimensions (height and width) and any other specifications, e.g. whether to have lamination, tempered, heat soak or DFI (water and oil repellent, increase in surface brilliance) ...etc."        
+    for_detail_reference: "有關設計參考，您可以預灠我們以前的業務通訊:"
+    for_enquiry: "如欲查詢不同款式的價格，請與我們的銷售員聯絡。請把用途和尺寸 (高度和寬度) 告訴我們。"
   order:
     order_number: "訂單號碼"
   sign_in:
