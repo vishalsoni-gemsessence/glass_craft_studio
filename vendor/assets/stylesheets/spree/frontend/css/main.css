@@ -12637,13 +12637,18 @@ hr {
 }
 
 .frame-view.square-15-15 {
+  width: 180px;
+  height: 180px;
+}
+
+.frame-view.square-20-20 {
   width: 200px;
   height: 200px;
 }
 
-.frame-view.square-20-20 {
-  width: 225px;
-  height: 225px;
+.frame-view.square-30-30 {
+  width: 220px;
+  height: 220px;
 }
 
 .frame-view.rectangular-15-20 {
