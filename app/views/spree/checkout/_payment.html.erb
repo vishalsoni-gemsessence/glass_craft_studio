@@ -89,14 +89,14 @@
               <tr class="stock-item">
                 <td>
                   <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                      <% if variant.images.empty? %>
                       <%= link_to(render('spree/shared/image', image: variant.product.display_image, size: :small), variant.product) %>
                       <% else %>
                         <%= link_to(render('spree/shared/image', image: variant.images.first, size: :small), variant. product) %>
                       <% end %>
                     </div>
-                    <div class="col">
+                    <div class="col-8">
                       <h4 class="fw900 text-uppercase"><%= link_to line_item.name, product_path(variant.product) %></h4>
                     </div>
                   </div>
