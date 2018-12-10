@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 554a736460823786b71c95b3769705283385d024
+  revision: 220a63e238a373b62c51a62b4410d9d82ef73bbc
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -332,7 +332,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.19.0)
-    rake (12.3.1)
+    rake (12.3.2)
     ransack (1.8.8)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
