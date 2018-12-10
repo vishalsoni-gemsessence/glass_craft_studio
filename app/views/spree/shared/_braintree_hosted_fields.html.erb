@@ -15,7 +15,7 @@
     <div class="form-group col-sm-4" data-hook="card_expiration">
       <%= label_tag "card_expiry#{id}", Spree::CreditCard.human_attribute_name(:expiry_date), class: "required control-label" %>
       <div class="form-control" id="card_expiry<%= id %>"></div>
-      <span class="helper-text"></span>
+      <span class="helper-text">(MM/YYYY)</span>
     </div>
   </div>
   <div class="row">
