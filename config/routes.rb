@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  filter :locale
   mount SolidusPaypalBraintree::Engine, at: '/solidus_paypal_braintree'
   mount Ckeditor::Engine => '/ckeditor'
   # This line mounts Solidus's routes at the root of your application.
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
   #   get '/about_us', :to => 'spree/about#index', :as => :about_us
   Spree::Core::Engine.routes.draw do
     namespace :admin do
+      filter :locale
       resources :contact_us_emails do
         member do
           post :clone
