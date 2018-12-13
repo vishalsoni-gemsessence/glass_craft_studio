@@ -22,6 +22,8 @@ set :rvm_ruby_version, 'ruby-2.5.0@GlassXpert-Shop --create'
 # Set the bundler to skip the listed env from Gemfile
 set :bundle_without, %w{development test}.join(' ')
 
+append :linked_files, "lib/staging_mail_interceptor.rb"
+
 server '173.255.248.242', user: 'deploy', roles: %w{app db web}
 
 # role-based syntax
