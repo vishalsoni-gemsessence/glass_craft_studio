@@ -56,7 +56,7 @@
           <tr <%== "style='color: red;'" if contact_us.deleted? %> id="<%= spree_dom_id contact_us %>" data-hook="admin_contacts_index_rows">
             <td><%= contact_us.try(:name) %></td>
             <td><%= contact_us.email %></td>
-            <td><%= contact_us.contact_us_email.name %></td>
+            <td><%= contact_us.contact_us_email.try(:name) %></td>
             <td><%= contact_us.subject %></td>
             <td><%= truncate(contact_us.message, length: 25, omission: '...') %></td>
             <td><%= image_tag contact_us.file.url(:mini) %></td>
