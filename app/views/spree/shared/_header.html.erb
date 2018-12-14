@@ -16,6 +16,9 @@
             <li class="nav-item" id="link-to-cart" data-hook>
               <%= link_to spree.cart_path, class: "nav-link" do %>
                 <i class="fa fa-shopping-cart mr-1" aria-hidden="true"></i><%= t('spree.shopping_cart') %>
+                <span class="badge badge-primary badge-pill">
+                  <%= current_order.item_count %>
+                </span>
               <% end %>
             </li>
             <li class="nav-item">
@@ -64,14 +67,6 @@
             <li class="nav-item">
               <%= link_to t('top_header.interior_decorative_glass'), "/pages/interior-decorative-glass", class: "nav-link js-nav-link" %>
             </li>
-            <!-- <li class="nav-item dropdown main-dropdown">
-              <a class="nav-link dropdown-toggle main-dropdown-toggle" id="navbarDropdownIDG" href="#0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t('top_header.interior_decorative_glass') %></a>
-              <div class="dropdown-menu main-dropdown-menu" aria-labelledby="navbarDropdownIDG">
-                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/superior"><%= t('top_header.superior') %></a>
-                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/aletheia"><%= t('top_header.aletheia') %></a>
-                <a class="dropdown-item js-nav-link" href="/pages/interior-decorative-glass/top-town"><%= t('top_header.top_town') %></a>
-              </div>
-            </li> -->            
             <li class="nav-item mb-0">
               <%= link_to t('top_header.contact_us'), "/contact-us", class: "nav-link js-nav-link" %>
             </li>
@@ -93,9 +88,12 @@
             <% end %>
             <!--/ Visible 1199 and min-->
             <li class="nav-item secondary-item d-xl-none" id="link-to-cart" data-hook>
-              <noscript>
-                <%= link_to t('spree.shopping_cart'), spree.cart_path, class: "nav-link js-nav-link" %>
-              </noscript>
+              <%= link_to spree.cart_path, class: "nav-link js-nav-link" do %>
+                <i class="fa fa-shopping-cart mr-1" aria-hidden="true"></i><%= t('spree.shopping_cart') %>
+                <span class="badge badge-primary badge-pill">
+                  <%= current_order.item_count %>
+                </span>                
+              <% end %>
             </li>
             <!--/ Visible 1199 and min-->
             <li class="nav-item secondary-item d-xl-none">
@@ -109,12 +107,19 @@
               <hr class="bg-white">
             </li>
             <li class="nav-item social-item">
-              <a class="nav-link js-nav-link" href="https://www.facebook.com/glassxpertndesign/" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a class="nav-link js-nav-link" href="https://www.facebook.com/glassxpertndesign/" target="blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
               <!--/ Visible 1199 and min-->
-              <a class="nav-link js-nav-link d-xl-none" href="https://www.instagram.com/glassxpert" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a class="nav-link js-nav-link d-xl-none" href="https://www.instagram.com/glassxpert" target="blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
             </li>
             <!--/ Visible 1200 and more -->
-            <li class="nav-item social-item d-none d-xl-block ml-auto"><a class="nav-link js-nav-link" href="https://www.instagram.com/glassxpert" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <li class="nav-item social-item d-none d-xl-block ml-auto">
+              <a class="nav-link js-nav-link" href="https://www.instagram.com/glassxpert" target="blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
             </li>
 
             <%= render partial: 'spree/shared/nav_bar' %>
@@ -131,5 +136,5 @@
   <%#= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
 </header>
 
-<!-- <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
- -->
+<!-- <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script> -->
+
