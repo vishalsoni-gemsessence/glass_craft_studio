@@ -66,7 +66,7 @@ Spree::Backend::Config.configure do |config|
 
   config.menu_items << config.class::MenuItem.new(
                           config.class::CONTACTS,
-                          'user',
+                          'vcard',
                           condition: -> { can?(:admin, Spree::Contact) },
                           partial: 'spree/admin/shared/contacts_sub_menu',
                           url: :admin_contacts_path
