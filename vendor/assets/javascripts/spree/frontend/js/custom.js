@@ -13,6 +13,7 @@ ready = function() {
   LoadMoreProductEvents();
   scrollContactsForm();
   justifiedPhotoGallery();
+  addActiveClass();
 };
 
 $(document).ready(ready);
@@ -30,5 +31,11 @@ function scrollContactsForm(){
 function justifiedPhotoGallery(){
   $('#JustifiedGallery').justifiedGallery({
     rowHeight : 300
+  });
+}
+
+function addActiveClass(){
+  $('.search-btn').click(function(){
+    $(this).addClass('btn-active')
   });
 }

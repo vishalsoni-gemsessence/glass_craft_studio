@@ -17,7 +17,20 @@
 <% end %>
 
 <% if params[:id] == 'photo-gallery' %>
-  $(".photo-gallery-box").append("<%= j render(partial: 'spree/shared/gallery_product') %>");
+  <% if params[:taxon_children].present? %>
+    var photoGalleryBox = $(".photo-gallery-box");
+    
+    if(photoGalleryBox.attr('gallery-search-result') == undefined || !photoGalleryBox.attr('gallery-search-result') == "true"){
+      photoGalleryBox.html('');
+    }
+
+    photoGalleryBox.attr('gallery-search-result', true);
+    photoGalleryBox.prepend("<%= j render(partial: 'spree/shared/gallery_product') %>");
+  <% else %>
+    photoGalleryBox.append("<%= j render(partial: 'spree/shared/gallery_product') %>");
+    photoGalleryBox.attr('gallery-search-result', false);
+  <% end %>
+
   <% if @taxon_products.total_pages == @taxon_products.current_page %>
     $("#loadMore").hide();
   <% else %>

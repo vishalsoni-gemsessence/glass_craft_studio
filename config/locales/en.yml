@@ -59,6 +59,7 @@ en:
     for_enquiry: "To quote price for different patterns and dimensions, please contact our sales. Please tell us the purpose and dimensions (height and width)."
   photo_gallery:
     price: Price
+    filter: Filter
   order:
     order_number: "Order Number"
   sign_in:

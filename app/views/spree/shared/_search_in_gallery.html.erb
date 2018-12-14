@@ -1,0 +1,8 @@
+<div class="search-gallery">
+  <button class="btn btn-sm filter-btn"><%= t('photo_gallery.filter') %>:</button>
+  <% @taxon.children.each do |children| %>
+    <button class="btn btn-primary btn-sm search-btn">
+      <%= link_to children.name, nested_taxons_path(taxon_children: children.name, id: @taxon), remote: true %>
+    </button>
+  <% end %>
+</div>

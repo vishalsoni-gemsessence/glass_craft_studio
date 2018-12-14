@@ -372,3 +372,18 @@ select#navbarDropdownLang:focus,
 select#navbarDropdownLang:active {
   border: 2px #fcbc1f solid;
 }
+.search-btn{
+  padding: 1px 5px;
+  font-size: 11px;
+  text-transform: capitalize;
+  border-radius: 5px;
+}
+.filter-btn{
+  padding: 1px 5px;
+  font-size: 11px;
+  text-transform: capitalize;
+  background: transparent;
+}
+.btn-active {
+  background: #008000!important;
+}
