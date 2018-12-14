@@ -1,16 +1,23 @@
-<!-- <li id="search-bar" data-hook> -->
-<%#= render partial: 'spree/shared/search' %>
-<!-- </li> -->
+<!-- <nav id="top-nav-bar" class="columns ten"> -->
+  <!-- <ul id="nav-bar" class="navbar-nav ml-auto js-collapse-activeitem" data-hook> -->
+    <%#= render 'spree/shared/login_bar_items' %>
+    <!-- <li id="search-bar" data-hook> -->
+      <%= render partial: 'spree/shared/search' %>
+    <!-- </li> -->
 
-<!--/ Visible 1200 and more -->
-<%= render partial: 'spree/shared/locale_selector' %>
+    <!--/ Visible 1200 and more -->
+    <%= render partial: 'spree/shared/locale_selector' %>
 
-<!--/ Visible 1199 and min-->
-<% available_locales = current_store.available_locales %>
-<% if available_locales.many? %>
-  <%= form_tag spree.select_locale_path do %>
-    <li class="nav-item dropdown mb-5 d-xl-none" id="locale_selector" data-hook>
-      <%= render partial: 'spree/shared/select_locale', locals: {available_locales: available_locales} %>
-    </li>
-  <% end %>  
-<% end %>
+    <!--/ Visible 1199 and min-->
+    <% available_locales = current_store.available_locales %>
+    <% if available_locales.many? %>
+      <%= form_tag spree.select_locale_path do %>
+        <li class="nav-item dropdown mb-5 d-xl-none" id="locale_selector" data-hook>
+          <%= render partial: 'spree/shared/select_locale', locals: {available_locales: available_locales} %>
+        </li>
+      <% end %>  
+    <% end %>
+    
+    
+  <!-- </ul> -->
+<!-- </nav> -->
