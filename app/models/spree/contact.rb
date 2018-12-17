@@ -56,12 +56,12 @@ module Spree
     
     def generate_reference_number
       prefix = 'GX-ENQ-'
-      length = 8
+      length = 4
       letters = false
       possible = (0..9).to_a
       possible += ('A'..'Z').to_a if letters
 
-      random = ''
+      random = Date.current.strftime("%Y%m%d")
       
       loop do
         # Make a random number.
