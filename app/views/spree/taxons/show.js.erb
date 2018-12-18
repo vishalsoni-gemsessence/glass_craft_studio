@@ -17,24 +17,21 @@
 <% end %>
 
 <% if params[:id] == 'photo-gallery' %>
-  <% if params[:taxon_children].present? %>
-    var photoGalleryBox = $(".photo-gallery-box");
-    
-    if(photoGalleryBox.attr('gallery-search-result') == undefined || !photoGalleryBox.attr('gallery-search-result') == "true"){
-      photoGalleryBox.html('');
-    }
-
-    photoGalleryBox.attr('gallery-search-result', true);
-    photoGalleryBox.prepend("<%= j render(partial: 'spree/shared/gallery_product') %>");
-  <% else %>
-    photoGalleryBox.append("<%= j render(partial: 'spree/shared/gallery_product') %>");
-    photoGalleryBox.attr('gallery-search-result', false);
+  <% if params[:selected_taxon].present? && !params[:page].present? %>
+    $(".photo-gallery-box").empty();
   <% end %>
+
+  <% if @taxon_products.next_page %>
+    $("#loadMore").show();
+    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page, selected_taxon: params[:selected_taxon]) %>');
+  <% end %>
+
+  $(".photo-gallery-box").append("<%= j render(partial: 'spree/shared/gallery_product') %>");
 
   <% if @taxon_products.total_pages == @taxon_products.current_page %>
     $("#loadMore").hide();
   <% else %>
-    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page) %>');
+    $("#loadMore").attr('href','<%= nested_taxons_path(:page => @taxon_products.next_page, selected_taxon: params[:selected_taxon]) %>');
   <% end %>
 <% end %>
 

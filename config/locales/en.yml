@@ -60,6 +60,7 @@ en:
   photo_gallery:
     price: Price
     filter: Filter
+    all: All
   order:
     order_number: "Order Number"
   sign_in:
