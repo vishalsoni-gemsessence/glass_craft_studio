@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 9e9a7f2c5aa44af9fe6818c1711af1d2f6209861
+  revision: c56fffbc6b9e0b1b4458a0aa68f189a2226eec45
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -105,7 +105,7 @@ GEM
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
-    activemerchant (1.88.0)
+    activemerchant (1.89.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -187,7 +187,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.3)
+    concurrent-ruby (1.1.4)
     crass (1.0.4)
     deface (1.0.2)
       colorize (>= 0.5.8)
@@ -206,7 +206,7 @@ GEM
       activerecord (>= 4.2, < 6)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    erubi (1.7.1)
+    erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.9.25)
     figaro (1.1.1)
