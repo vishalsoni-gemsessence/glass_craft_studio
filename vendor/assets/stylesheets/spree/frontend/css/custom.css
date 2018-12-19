@@ -1,4 +1,4 @@
-figure#logo {
+#logo {
   margin: 0px;
 }
 
@@ -393,7 +393,6 @@ select#navbarDropdownLang:active {
   position: relative;
 }
 .all-photos .btn{
-  /*padding: 1px 5px;*/
   font-size: 12px;
 }
 
@@ -402,9 +401,6 @@ select#navbarDropdownLang:active {
   padding: 3px 12px;
     border-radius: 4px;
 }
-.custom-checkbox{
-    position: absolute;
-  }
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;

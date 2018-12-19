@@ -11,7 +11,8 @@ module Spree
     include Discard::Model
     self.discard_column = :deleted_at
 
-    translates :name, :slug
+    translates :name, :slug, fallbacks_for_empty_translations: true
+    include SolidusGlobalize::Translatable
 
     has_many :contacts, class_name: 'Spree::Contact', dependent: :destroy
 
