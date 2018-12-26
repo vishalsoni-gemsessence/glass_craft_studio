@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   Spree::Core::Engine.routes.draw do
     namespace :admin do
       filter :locale
+      get '/search/countries', to: "search#countries", as: :search_countries
       resources :contact_us_emails do
         member do
           post :clone

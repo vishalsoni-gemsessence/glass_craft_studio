@@ -12,9 +12,11 @@ $.fn.countryAutocomplete = function () {
     multiple: true,
     initSelection: function (element, callback) {
       Spree.ajax({
-        url: Spree.routes.countries_api,
+        url: Spree.pathFor('admin/search/countries'),
+        datatype: 'json',
         data: {
-          ids: element.val()
+          ids: element.val().split(','),
+          token: Spree.api_key
         },
         success: function(data) {
           callback(data.countries);
@@ -22,14 +24,15 @@ $.fn.countryAutocomplete = function () {
       });
     },
     ajax: {
-      url: Spree.routes.countries_api,
+      url: Spree.pathFor('admin/search/countries'),
       datatype: 'json',
       params: { "headers": { "X-Spree-Token": Spree.api_key } },
       data: function (term) {
         return {
           q: {
             name_start: term
-          }
+          },
+          token: Spree.api_key
         };
       },
       results: function (data) {
