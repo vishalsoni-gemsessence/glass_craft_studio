@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181203145423) do
+ActiveRecord::Schema.define(version: 20190104120904) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -198,19 +198,6 @@ ActiveRecord::Schema.define(version: 20181203145423) do
     t.index ["filter_id"], name: "index_spree_colors_on_filter_id"
   end
 
-  create_table "spree_contact_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_contact_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.string "subject"
-    t.text "message"
-    t.index ["locale"], name: "index_spree_contact_translations_on_locale"
-    t.index ["spree_contact_id"], name: "index_spree_contact_translations_on_spree_contact_id"
-  end
-
   create_table "spree_contact_us_email_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "spree_contact_us_email_id", null: false
     t.string "locale", null: false
@@ -284,17 +271,6 @@ ActiveRecord::Schema.define(version: 20181203145423) do
     t.integer "stock_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "spree_filter_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_filter_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_filter_translations_on_locale"
-    t.index ["spree_filter_id"], name: "index_spree_filter_translations_on_spree_filter_id"
   end
 
   create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1186,17 +1162,6 @@ ActiveRecord::Schema.define(version: 20181203145423) do
     t.index ["country_id"], name: "index_spree_states_on_country_id"
   end
 
-  create_table "spree_sticker_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_sticker_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_sticker_translations_on_locale"
-    t.index ["spree_sticker_id"], name: "index_spree_sticker_translations_on_spree_sticker_id"
-  end
-
   create_table "spree_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "slug"
@@ -1360,7 +1325,6 @@ ActiveRecord::Schema.define(version: 20181203145423) do
     t.datetime "updated_at"
     t.string "cart_tax_country_iso"
     t.string "available_locales"
-    t.text "preferences"
     t.index ["code"], name: "index_spree_stores_on_code"
     t.index ["default"], name: "index_spree_stores_on_default"
   end
@@ -1504,21 +1468,9 @@ ActiveRecord::Schema.define(version: 20181203145423) do
     t.string "text_content", default: "This is dummy text"
   end
 
-  create_table "spree_template_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_template_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "description"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_template_translations_on_locale"
-    t.index ["spree_template_id"], name: "index_spree_template_translations_on_spree_template_id"
-  end
-
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.decimal "width", precision: 10
     t.decimal "height", precision: 10
     t.string "edges"

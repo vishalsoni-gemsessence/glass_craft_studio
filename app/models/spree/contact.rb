@@ -2,16 +2,12 @@ require 'discard'
 
 module Spree
   class Contact < Spree::Base
-    extend FriendlyId
-    friendly_id :slug_candidates, use: :history
-
+    
     acts_as_paranoid
     include Spree::ParanoiaDeprecations
 
     include Discard::Model
     self.discard_column = :deleted_at
-
-    translates :name, :subject, :message, :slug
 
     has_attached_file :file,
                       styles: { mini: '48x48>', email: '150x150>' },
