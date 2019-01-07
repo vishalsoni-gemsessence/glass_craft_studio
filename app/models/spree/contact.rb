@@ -16,8 +16,6 @@ module Spree
                       url: '/spree/contacts/:id/:style/:basename.:extension',
                       path: ':rails_root/public/spree/contacts/:id/:style/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
-
-    translates :name, :subject, :message, :slug
     
     validates_attachment :file, 
       content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }, 
