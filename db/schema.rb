@@ -220,11 +220,7 @@ ActiveRecord::Schema.define(version: 20190104120904) do
 
   create_table "spree_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "contact_us_email_id"
-    t.string "name"
     t.string "email"
-    t.string "subject"
-    t.text "message"
-    t.string "slug"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -274,9 +270,7 @@ ActiveRecord::Schema.define(version: 20190104120904) do
   end
 
   create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
     t.datetime "deleted_at"
-    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -1163,8 +1157,6 @@ ActiveRecord::Schema.define(version: 20190104120904) do
   end
 
   create_table "spree_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "slug"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
@@ -1469,12 +1461,9 @@ ActiveRecord::Schema.define(version: 20190104120904) do
   end
 
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.text "description"
     t.decimal "width", precision: 10
     t.decimal "height", precision: 10
     t.string "edges"
-    t.string "slug"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
