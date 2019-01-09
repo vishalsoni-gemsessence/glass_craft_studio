@@ -27,6 +27,8 @@ module Spree
         return I18n.t('spree.contact_mailer.acknowledge_email.glass_photo_prints_title')
       elsif contact.contact_us_email.slug == 'glass-for-interior-design'
         return I18n.t('spree.contact_mailer.acknowledge_email.glass_for_interior_design_title')
+      elsif contact.contact_us_email.slug == 'business-partnership'
+        return I18n.t('spree.contact_mailer.acknowledge_email.business_partnership_title')
       else
         return I18n.t('spree.contact_mailer.acknowledge_email.customer_services_and_feedbacks_title')
       end      

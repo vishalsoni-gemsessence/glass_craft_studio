@@ -17,6 +17,8 @@
                 <%= t('.glass_photo_prints_html', reference_number: @contact.reference_number) %>
               <% elsif @contact.contact_us_email.slug == 'glass-for-interior-design' %>  
                 <%= t('.glass_for_interior_design_html', reference_number: @contact.reference_number) %>
+              <% elsif @contact.contact_us_email.slug == 'business-partnership' %>  
+                <%= t('.business_partnership_html', reference_number: @contact.reference_number) %>
               <% end %>  
               </h4>
               <br>

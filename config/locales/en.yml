@@ -102,6 +102,8 @@ en:
         thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
       acknowledge_email:
         dear_customer: "Dear customer,"
+        business_partnership_title: "GlassXpert – Business Partnership"
+        business_partnership_html: "Thanks for your interest in our products and to discuss with us for any potential co-operation. Your message has been forwarded to our management team. Your enquiry was assigned to the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our management team will explore the potential co-operation, they will reply to you as soon as possible."
         customer_services_and_feedbacks_title: GlassXpert – Customer Services and Feedbacks
         customer_services_and_feedbacks_html: 'Thanks for your interest in our products. Your message has been forwarded to our customer support team. Your enquiry was assigned following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our customer support team will look into your concern or request as soon as possible, they will reply to you within 5 working days.'
         customized_glass_gifts_title: GlassXpert – Customized Glass Gifts

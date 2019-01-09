@@ -572,6 +572,8 @@ zh-HK:
         thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
       acknowledge_email:
         dear_customer: "尊貴的客戶，"
+        business_partnership_title: "玻璃設計館GlassXpert – 商業夥伴"
+        business_partnership_html: "感謝您對我們產品的興趣及與我們商討任何合作機會。你的信息已經發送給我們的管理團隊，您的查詢編號已被分配以下編號：[查詢編號 %{reference_number}] ，若您希望為這信息添加一些資料，請使用此編號。<br><br>我們的管理團隊將研究與您合作的機會，並會盡快回覆。"
         customer_services_and_feedbacks_title: "玻璃設計館GlassXpert – 客戶服務和意見"
         customer_services_and_feedbacks_html: '感謝您對我們產品的興趣。你的信息已經發送給我們的支援團隊，您的查詢已被分配以下編號：[查詢編號 %{reference_number}]。 若您希望為這信息添加一些資料，請使用此編號。<br><br>我們的支援團隊將盡快研究您的查詢或要求，並會在不多於5個工作天內回覆。'
         customized_glass_gifts_title: "玻璃設計館GlassXpert – 訂製玻璃禮品"

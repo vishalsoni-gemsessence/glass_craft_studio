@@ -57,11 +57,12 @@ module Spree
       possible = (0..9).to_a
       possible += ('A'..'Z').to_a if letters
 
-      random = Date.current.strftime("%Y%m%d")
+      date = Date.current.strftime("%Y%m%d")
+      random = ''
       
       loop do
         # Make a random number.
-        random = "#{prefix}#{(0...length).map { possible.sample }.join}"
+        random = "#{prefix}#{date}#{(0...length).map { possible.sample }.join}"
         # Use the random number if no other order exists with it.
         if Spree::Contact.exists?(reference_number: random)
           # If over half of all possible options are taken add another digit.
