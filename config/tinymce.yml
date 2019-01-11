@@ -32,6 +32,7 @@ plugins:
   - template
   - link
   - image
+  - textcolor
 
 # Each line is a toolbar
 toolbar:
