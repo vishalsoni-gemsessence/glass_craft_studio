@@ -42,6 +42,7 @@ function addActiveClass(){
       }
       else{
         $(this).addClass('btn-active');
+        $('.custom-all-btn').removeClass('btn-active');
         $('.all-photos input').prop('checked', false);
       }
       var arr = []
@@ -65,7 +66,8 @@ function addActiveClass(){
 }
 
 function LoadAllGalleryPhotos(){
-  $('.all-photos input').click(function(){
+  $('.custom-all-btn').click(function(){
+    $(this).addClass('btn-active');
     $('.search-gallery').find('.filter-taxon-btn.btn-active').each(function(){
       $(this).trigger('click');
     });

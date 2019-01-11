@@ -1,14 +1,8 @@
 <div class="search-gallery">
-  <button class="btn btn-sm filter-btn"><%= t('photo_gallery.filter') %>:</button>
   <% @taxon.children.each do |children| %>
     <button class="btn btn-primary btn-sm filter-taxon-btn" data-t_child= "<%= children.name %>">
         <%= children.name %>
     </button>
   <% end %>
-  <div class="all-photos">
-      <%= check_box_tag 'all', 'all', true,class: "custom-checkbox" %>
-      <label for="custom-checkbox">
-         <button class="btn btn-primary btn-sm custom-all-btn"><%= t('photo_gallery.all') %></button>
-      </label>
-  </div>
+  <button class="btn btn-primary btn-sm custom-all-btn"><%= t('photo_gallery.all') %></button>
 </div>
