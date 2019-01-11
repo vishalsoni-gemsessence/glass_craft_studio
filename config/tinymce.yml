@@ -33,8 +33,9 @@ plugins:
   - link
   - image
   - textcolor
+  - colorpicker
 
 # Each line is a toolbar
 toolbar:
   - bold italic underline strikethrough | justifyleft justifycenter justifyright justifyfull | sub sup | bullist numlist | outdent indent blockquote | cut copy paste pastetext pasteword | search replace | undo redo | link unlink anchor image cleanup code | insertdate inserttime preview
-  - styleselect formatselect fontselect fontsizeselect | forecolor backcolor | tablecontrols | hr removeformat media
+  - styleselect formatselect fontselect fontsizeselect | forecolor | tablecontrols | hr removeformat media
