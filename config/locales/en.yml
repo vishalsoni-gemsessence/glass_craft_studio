@@ -93,7 +93,7 @@ en:
     confirm_password: "Confirmation Password"
     contact_form:
       images:
-        label: Image
+        label: No file chosen
         placeholder: Support JPG, PNG and GIF under 10MB
     contact_mailer:
       notify_email:
