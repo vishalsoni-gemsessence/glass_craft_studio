@@ -48,7 +48,8 @@ zh-HK:
     for_detail_reference: "有關設計參考，您可以預灠我們以前的業務通訊:"
     for_enquiry: "如欲查詢不同款式的價格，請與我們的銷售員聯絡。請把用途和尺寸 (高度和寬度) 告訴我們。"
   photo_gallery:
-    price: Price
+    all: 全部   
+    free: 免費 
   order:
     order_number: "訂單號碼"
   sign_in:

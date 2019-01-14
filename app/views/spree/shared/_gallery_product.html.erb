@@ -3,8 +3,8 @@
     <%= image_tag child.display_image.attachment(:product) %>
     <div class="photo-gallery-blink">
       <div class="photo-gallery-text">
-        <h4 class="photo-gallery-title">Title:  <%= child.name %></h4>
-        <p><%= t('photo_gallery.price') %>: <%= child.price == 0.0 ? 'Free' : Spree::Money.parse(child.price) %></p>
+        <h4 class="photo-gallery-title"><%= child.name %></h4>
+        <p><%= t('photo_gallery.price') %>: <%= child.price == 0.0 ? t('photo_gallery.free') : Spree::Money.parse(child.price) %></p>
       <% product_properties = child.product_properties %>
       <% product_properties.each do |product_property| %>                  
         <p><%= product_property.property.presentation %>: <%= product_property.value %></p>
