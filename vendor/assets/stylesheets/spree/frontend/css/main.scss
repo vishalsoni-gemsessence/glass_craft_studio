@@ -6475,7 +6475,10 @@ tbody.collapse.show {
 }
 
 .custom-file-input:lang(en) ~ .custom-file-label::after {
-  content: "Browse";
+  content: "Choose file...";
+}
+.custom-file-input:lang("zh-HK") ~ .custom-file-label::after {
+  content: "選擇檔案";
 }
 
 .custom-file-label {

@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+ * require spree/frontend
+ * = require_self
+ * require_tree .
+
+ * Owl Carousel
+ * = require spree/frontend/owlcarousel/owl.carousel.min.css
+ * = require spree/frontend/owlcarousel/owl.theme.default.css
+
+ * Flexslider
+ * = require spree/frontend/flexslider/flexslider.css
+
+ * Bootstrap
+ * = require spree/frontend/bootstrap/bootstrap.min.css
+
+ * Justify
+ * = require spree/frontend/justified/justifiedGallery.css
+ * = require spree/frontend/justified/justifiedGallery.min.css
+
+ * Main
+ * = require spree/frontend/css/main
+ * = require spree/frontend/css/custom.css
+ * = require pnotify
+ * = require spree/frontend/spree_static_content
+ * = require spree/frontend/solidus_on_demand_products
+ * = require spree/frontend/solidus_prototypes
+ * = require spree/frontend/solidus_paypal_braintree
+ * = require spree/frontend/solidus_easyship
+*/
+@import "owlcarousel/owl.carousel.min.css";
+@import "owlcarousel/owl.theme.default.css";
+
+@import "flexslider/flexslider.css";
+@import "bootstrap/bootstrap.min.css";
+
+@import "justified/justifiedGallery.css";
+@import "justified/justifiedGallery.min.css";
+
+@import "css/main";
+@import "css/custom.css";
+@import "pnotify";
+@import "spree/frontend/spree_static_content";
+@import "spree/frontend/solidus_on_demand_products";
+@import "spree/frontend/solidus_prototypes";
+@import "spree/frontend/solidus_paypal_braintree";
+@import "spree/frontend/solidus_easyship";
