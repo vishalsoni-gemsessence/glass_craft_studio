@@ -123,10 +123,12 @@ en:
     country_rule:
       choose_countries: Choose Countries
     coupon_code: "Promotion Code"
+    current_order: Current Order
     current_order_summary: "current order summary"
     description: "Description"
     dimensions: "Package Dimensions"
     dimensions_unit_mm: "mm"
+    editing_user: Editing User
     email: "E-mail"
     factory_code: Factory Code
     forgot_password: "Forgot your password?"
@@ -137,6 +139,7 @@ en:
           displayed_on_frontend_select_box: displayed on frontend select box
       this_file_language: Eng
     in_stock: "In Stock"
+    know_more: Know More
     load_more: Load More
     login: "SIGN IN"
     logout: "SIGN OUT"
@@ -146,6 +149,7 @@ en:
       contact_us_email_cloned: Contact us email has been successfully cloned
       contact_us_email_deleted: Contact us email successfully deleted
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
+    order_history: Order History
     order_mailer:
       your: Your
       ref: Ref
@@ -191,18 +195,13 @@ en:
     quantity: "Quantity"
     qty: "qty"
     send_msg: "Send Message"
+    shopping_cart: Shopping Cart
     sign_up: "Sign Up"
     specifications: "Specifications"
     stores: "Stores"
     sub_total: "sub-total"
     unit_price: "Unit Price"
-    current_order_summary: "current order summary"
-    current_order: Current Order
-    shopping_cart: Shopping Cart
-    order_history: Order History
-    editing_user: Editing User
-    factory_code: Factory Code
-    know_more: Know More
+    weights_unit_kg: kg
     zip: Postal Code / ZIP
   top_header:
     welcome: Welcome

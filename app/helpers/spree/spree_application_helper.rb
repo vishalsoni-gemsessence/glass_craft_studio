@@ -31,7 +31,7 @@ module Spree
     end
 
     def  get_weight_in_kg(weight)
-      "#{weight} kg"
+      "#{weight} #{I18n.t('spree.weights_unit_kg')}"
     end
 
     def render_snippet(slug)

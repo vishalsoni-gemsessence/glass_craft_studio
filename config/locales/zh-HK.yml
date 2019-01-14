@@ -674,7 +674,7 @@ zh-HK:
     destination: "目的地"
     destroy: "刪除"
     details:
-    dimensions: "包裝尺寸"
+    dimensions: "產品尺寸"
     dimensions_unit_mm: "毫米"      
     discount_amount: "折扣金額"
     dismiss_banner: "不。謝謝！我沒有興趣，不要再顯示此訊息。"
@@ -1475,6 +1475,8 @@ zh-HK:
     version: "版本"
     void: "無效"
     weight: "重"
+    weights: "重量"
+    weights_unit_kg: "公斤"
     what_is_a_cvv: "什麼是 (CVV) 信用卡代碼?"
     what_is_this: "這是什麼？"
     width: "寬"
