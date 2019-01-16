@@ -15,6 +15,7 @@ ready = function() {
   scrollContactsForm();
   justifiedPhotoGallery();
   LoadAllGalleryPhotos();
+  disableRightClickForImage();
 };
 
 $(document).ready(ready);
@@ -71,5 +72,11 @@ function LoadAllGalleryPhotos(){
     $('.search-gallery').find('.filter-taxon-btn.btn-active').each(function(){
       $(this).trigger('click');
     });
+  });
+}
+
+disableRightClickForImage = function(){
+  $('img').bind('contextmenu', function(e) {
+    return false;
   });
 }
