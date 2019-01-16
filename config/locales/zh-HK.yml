@@ -113,7 +113,8 @@ zh-HK:
         base:
         card_code: 信用卡代碼
         cc_type: "信用卡類型"
-        expiration: 到期日 (MM/YY)
+        expiration: 到期日 (MM/YYYY)
+        expiry_date: 到期日
         month: "月份"
         name:
         number: "卡號"
@@ -328,7 +329,7 @@ zh-HK:
       spree/payment: "付款"
       spree/payment_method:
       spree/product: "產品"
-      spree/promotion: "促銷"
+      spree/promotion: "優惠"
       spree/promotion_category:
       spree/property: "屬性"
       spree/prototype: "原型"
@@ -400,8 +401,16 @@ zh-HK:
     address1: "地址"
     address2: "地址 (接續)"
     adjustable:
-    adjustment: "其他項目"
+    adjustment: "折扣調整"
     adjustment_amount: "金額"
+    adjustment_labels:
+      line_item: '%{promotion} (%{promotion_name})'
+      order: '%{promotion} (%{promotion_name})'
+      tax_rates:
+        sales_tax: '%{name}'
+        vat: '%{name} (已包含在價格中)'
+        sales_tax_with_rate: '%{name} %{amount}'
+        vat_with_rate: '%{name} %{amount} (已包含在價格中)'
     adjustment_successfully_closed: "其他項目已成功停用!"
     adjustment_successfully_opened: "其他項目已成功啓用!"
     adjustment_total: "其他項目總計"
@@ -533,7 +542,7 @@ zh-HK:
         thanks_html: 玻璃設計館(GlassXpert) 敬上<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
         track_information: ! '追踪: %{tracking}'
         track_link: ! '追踪URL: %{url}'    
-    cart_subtotal:
+    cart_subtotal: "購物車小計"
     categories: "分類"
     category: "分類"
     charged:
@@ -607,8 +616,8 @@ zh-HK:
       US:
     country_rule:
       choose_countries: "選擇國家"
-    coupon: "促銷代碼"
-    coupon_code: "促銷代碼"
+    coupon: "優惠代碼"
+    coupon_code: "優惠代碼"
     coupon_code_already_applied: "優惠代碼已經被使用在這個訂單"
     coupon_code_applied: "優惠代碼已經成功使用在您的訂單."
     coupon_code_better_exists: "上一組優惠代碼比較划算"
@@ -758,6 +767,7 @@ zh-HK:
     free_shipping: "免運費"
     free_shipping_amount:
     front_end: "前端"
+    full_name: "全名"    
     gateway: Gateway
     gateway_config_unavailable: Gateway unavailable for environment
     gateway_error: Gateway Error
@@ -815,6 +825,7 @@ zh-HK:
       shipped: "送出"
     is_not_available_to_shipment_address: "沒有可用的出貨地址"
     in_stock: "有現貨"
+    insurance: "航運保險"
     iso_name: ISO 名稱
     item: "商品"
     item_description: "商品描述"
@@ -873,6 +884,7 @@ zh-HK:
     meta_title:
     metadata: Metadata
     minimal_amount: "最小個數"
+    mobile_phone: '手機號碼'
     month: "月"
     more: More
     move_stock_between_locations: "移動庫存位置"
@@ -967,14 +979,18 @@ zh-HK:
     order_already_updated:
     order_approved:
     order_canceled:
+    order_completing_message: "請在確認之前查看您的訂單"
     order_details: "訂單資料"
     order_email_resent: "重新發送了訂單郵件"
     order_history: "訂單歷史"
     order_information: "訂單資訊"
     order_mailer:
-      your: "您的"
-      ref: "訂單號碼"
+      or: "或"
       order_summary: "訂單總覽"
+      ref: "訂單號碼"
+      view_your_order: "查看您的訂單"
+      visit_our_store: "繼續購物"
+      your: "您的"
       cancel_email:
         dear_customer: "尊貴的客戶，"
         instructions: "您的訂單已被取消。請保留此取消信息記錄。"
@@ -1010,6 +1026,8 @@ zh-HK:
     order_not_found: "找不到您的訂單. 請再試一次."
     order_number: "訂單編號 %{number}"
     order_processed_successfully: "您的訂單已被接收"
+    order_processed_thank_you_very_much: "感謝您的購買和支持!"
+    order_processed_email_address: "已發送收據到您的電子郵箱%{email}"
     order_resumed:
     order_state:
       address: "運送信息"
@@ -1105,10 +1123,10 @@ zh-HK:
     promotion_action: "優惠方式"
     promotion_action_types:
       create_adjustment:
-        description: "為訂單添加促銷用的價格調整"
+        description: "為訂單添加優惠用的價格調整"
         name: "添加訂單的價格調整"
       create_item_adjustments:
-        description: "為訂單上的單項產品添加一筆促銷用的價格調整"
+        description: "為訂單上的單項產品添加一筆優惠用的價格調整"
         name: "添加單項的價格調整"
       create_line_items:
         description: "添加特定商品到訂單中"
@@ -1121,7 +1139,7 @@ zh-HK:
       match_policies:
         all: "符合所有條件"
         any: "符合任一條件"
-    promotion_rule: "促銷規則"
+    promotion_rule: "優惠規則"
     promotion_rule_types:
       first_order:
         description: "使用者的第 1 筆訂單"
@@ -1150,7 +1168,7 @@ zh-HK:
       user_logged_in:
         description: "網站已註冊的使用者"
         name: "已註冊使用者登入"
-    promotion_uses: "促銷使用頻率"
+    promotion_uses: "優惠使用頻率"
     promotionable:
     promotions: "優惠推廣"
     propagate_all_variants:
@@ -1239,7 +1257,7 @@ zh-HK:
     sales_total_description:
     sales_totals:
     save_and_continue: "儲存後繼續"
-    save_my_address:
+    save_my_address: "儲存我的地址"
     say_no: "不"
     say_yes: "是的"
     scope: "範圍"
@@ -1264,7 +1282,7 @@ zh-HK:
     ship_total: "運輸金額"
     shipment: "出貨資料"
     shipment_adjustments:
-    shipment_details:
+    shipment_details: "從我們的倉庫經%{shipping_method}發出"
     shipment_mailer:
       shipped_email:
         dear_customer: "親愛的顧客，"

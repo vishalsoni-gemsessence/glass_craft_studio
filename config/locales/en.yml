@@ -89,6 +89,7 @@ en:
         thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
         track_information: ! 'Tracking Information: %{tracking}'
         track_link: ! 'Tracking Link: %{url}'
+    cart_subtotal: "Cart Subtotal"
     checkout: "Proceed to checkout"
     confirm_password: "Confirmation Password"
     contact_form:
@@ -139,21 +140,27 @@ en:
           displayed_on_frontend_select_box: displayed on frontend select box
       this_file_language: Eng
     in_stock: "In Stock"
+    insurance: "Shipping Insurance"
     know_more: Know More
     load_more: Load More
     login: "SIGN IN"
     logout: "SIGN OUT"
+    mobile_phone: "Mobile"
     new_contact_us_email: "New Contact Us Email"
     no_dimension_available: "No Package Dimension Available"
     notice_messages:
       contact_us_email_cloned: Contact us email has been successfully cloned
       contact_us_email_deleted: Contact us email successfully deleted
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
+    order_completing_message: "One more step before completing your order...."
     order_history: Order History
     order_mailer:
+      or: "Or"
+      order_summary: "Order summary"
+      ref: "Ref"
+      view_your_order: "View Your Order"
+      visit_our_store: "Visit our store"
       your: Your
-      ref: Ref
-      order_summary: Order summary
       cancel_email:
         dear_customer: Dear Customer,
         instructions: Your order has been CANCELED.  Please retain this cancellation information for your records.
@@ -186,6 +193,9 @@ en:
         order_summary_canceled: Canceled Items
         thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
         subject: items are cancelled
+    order_processed_successfully: "Your order has been processed successfully"
+    order_processed_thank_you_very_much: "Thank you very much!"
+    order_processed_email_address: An information e-mail containing your recipt has beed sent to %{email}
     order_state:
       address: "SHIPPING INFORMATION"
       payment: "PAYMENT METHOD"

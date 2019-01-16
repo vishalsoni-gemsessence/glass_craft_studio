@@ -1,10 +1,9 @@
 <% if order.completed? %>
 	<div class="subsection text-center">
 		<hr>
-		<h2 class="fw900 text-uppercase text-primary">Your Order Has Been Successfully Sent!</h2>
-    <h3 class="fw900">Thank you very much!</h3>		
-    <p class="text-lg">An information e-mail containing your recipt has beed sent to <u><%= order.email %></u>
-		</p>
+		<h2 class="fw900 text-uppercase text-primary"><%= t('spree.order_processed_successfully') %></h2>
+    <h3 class="fw900"><%= t('spree.order_processed_thank_you_very_much') %></h3>		
+    <p class="text-lg"><%= t('spree.order_processed_email_address', email: order.email) %></p>
 		<hr>
 	</div>
 
@@ -50,7 +49,7 @@
         <table id='line-items' class="table table-hover table-confirm-order" data-hook="order_details">
           <thead data-hook>
             <tr data-hook="order_details_line_items_headers">
-              <th width="45%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
+              <th width="45%" scope="col" class="text-uppercase"><%= t('spree.item') %></th>
               <th width="25%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
               <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
               <th width="25%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
@@ -156,27 +155,27 @@
             </tfoot>
           <% end %>
 
-          <div class="subsection">
+          <!-- <div class="subsection">
             <div class="row">
-              <div class="col-lg-6 offset-lg-6">
+              <div class="col-lg-6 offset-lg-6"> -->
                 <tfoot id="order-charges" data-hook="order_details_adjustments">
                   <% order.adjustments.eligible.each do |adjustment| %>
                   <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
-                  <div class="row">
+                  <!-- <div class="row"> -->
                     <tr class="total">
-                      <div class="col-4 offset-3">
-                        <td colspan="3" class="fw900 text-center"><strong><%= adjustment.label %></strong></td>
-                      </div>
-                      <div class="col-5">
-                        <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
-                      </div>
+                      <!-- <div class="col-4 offset-3"> -->
+                        <td colspan="3"><strong><%= adjustment.label %></strong></td>
+                      <!-- </div> -->
+                      <!-- <div class="col-5"> -->
+                        <td class="total"><span><%= adjustment.display_amount.to_html %></span></td>
+                      <!-- </div> -->
                     </tr>
-                  </div>
+                  <!-- </div> -->
                   <% end %>
                 </tfoot>
-              </div>
+              <!-- </div>
             </div>
-          </div>
+          </div> -->
         </table>
       </div>
     </div>
@@ -185,7 +184,7 @@
 <% else %>
 	<div class="subsection text-center">
 		<hr>
-		<h2 class="fw900 text-uppercase text-primary">One more step before completing your order....</h2>
+		<h2 class="fw900 text-uppercase text-primary"><%= t('spree.order_completing_message') %></h2>
     <h3 class="fw900"><%= t('order.order_number') %>: <%= order.number %></h3>		
   </p>
 		<hr>
@@ -258,7 +257,7 @@
 
           <thead data-hook>
             <tr data-hook="order_details_line_items_headers">
-              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.items') %></th>
+              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.item') %></th>
               <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
               <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
               <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
@@ -364,27 +363,27 @@
             </tfoot>
           <% end %>
 
-          <div class="subsection">
+          <!-- <div class="subsection">
             <div class="row">
-              <div class="col-lg-6 offset-lg-6">
+              <div class="col-lg-6 offset-lg-6"> -->
                 <tfoot id="order-charges" data-hook="order_details_adjustments">
                   <% order.adjustments.eligible.each do |adjustment| %>
                   <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
-                  <div class="row">
+                  <!-- <div class="row"> -->
                     <tr class="total">
-                      <div class="col-4 offset-3">
-                        <td colspan="3" class="fw900 text-center"><strong><%= adjustment.label %></strong></td>
-                      </div>
-                      <div class="col-5">
-                        <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
-                      </div>
+                      <!-- <div class="col-4 offset-3"> -->
+                        <td colspan="3"><strong><%= adjustment.label %></strong></td>
+                      <!-- </div> -->
+                      <!-- <div class="col-5"> -->
+                        <td class="total"><span><%= adjustment.display_amount.to_html %></span></td>
+                      <!-- </div> -->
                     </tr>
-                  </div>
+                  <!-- </div> -->
                   <% end %>
                 </tfoot>
-              </div>
+              <!-- </div>
             </div>
-          </div>
+          </div> -->
         </table>
       </div>
     </div>

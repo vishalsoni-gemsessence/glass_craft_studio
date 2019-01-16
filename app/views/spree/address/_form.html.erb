@@ -19,7 +19,7 @@
 
         <div class="form-group">
           <p class="field" id=<%="#{address_id}phone" %>>
-            <%= form.label :phone, 'Mobile' %><% if address.require_phone? %><span class="required">*</span><% end %><br />
+            <%= form.label :phone, t('spree.mobile_phone') %><% if address.require_phone? %><span class="required">*</span><% end %><br />
             <% phone_hash = address.require_phone? ? { class: 'required form-control', required: true, placeholder: t('spree.phone') } : {} %>
             <%= form.phone_field :phone, phone_hash.merge({ autocomplete: address_type + ' home tel' }) %>
           </p>

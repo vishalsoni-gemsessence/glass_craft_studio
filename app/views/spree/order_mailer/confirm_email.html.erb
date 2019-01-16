@@ -32,10 +32,10 @@
             <tr>
               <td colspan="2">
                 <%= button_tag class: 'button checkout btn btn-info', name: 'checkout' do %>
-                  <%= link_to "View your order", token_order_url(@order.number, @order.guest_token) %>
+                  <%= link_to t('spree.order_mailer.view_your_order'), token_order_url(@order.number, @order.guest_token) %>
                 <% end %>
-                &nbsp;&nbsp;or&nbsp;&nbsp;
-                <%= link_to 'Visit our store', spree.root_url, class: "link" %>                
+                &nbsp;&nbsp;<%= t('spree.order_mailer.or') %>&nbsp;&nbsp;
+                <%= link_to t('spree.order_mailer.visit_our_store'), spree.root_url, class: "link" %>                
               </td>
             </tr>
           </tfoot>
@@ -123,8 +123,10 @@
               <tfoot id="tax-adjustments" data-hook="order_details_tax_adjustments">
                 <% @order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
                   <tr class="total">
-                    <td colspan=""><%= t('spree.tax') %>: <strong><%= label %></strong></td>
-                    <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span></td>
+                    <td><%= t('spree.tax') %>: <strong><%= label %></strong></td>
+                    <td class="total">
+                      <span><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></span>
+                    </td>
                   </tr>
                 <% end %>
               </tfoot>
@@ -133,33 +135,37 @@
             <% if @order.total_applicable_store_credit > 0.0 %>
               <tfoot id="store-credit" data-hook="order_details_store_credit">
                 <tr class="total">
-                  <td colspan='3'><%= t('spree.store_credit.store_credit') %>:</td>
-                  <td class='total'><span><%= @order.display_total_applicable_store_credit.to_html %></span></td>
+                  <td><%= t('spree.store_credit.store_credit') %>:</td>
+                  <td class='total'>
+                    <span><%= @order.display_total_applicable_store_credit.to_html %></span>
+                  </td>
                 </tr>
               </tfoot>
             <% end %>
 
-            <div class="subsection">
+            <!-- <div class="subsection">
               <div class="row">
-                <div class="col-lg-6 offset-lg-6">
+                <div class="col-lg-6 offset-lg-6"> -->
                   <tfoot id="order-charges" data-hook="order_details_adjustments">
                     <% @order.adjustments.eligible.each do |adjustment| %>
                     <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
-                    <div class="row">
+                    <!-- <div class="row"> -->
                       <tr class="total">
-                        <div class="col-4 offset-3">
-                          <td colspan="3" class="fw900 text-center"><strong><%= adjustment.label %></strong></td>
-                        </div>
-                        <div class="col-5">
-                          <td class="total text-center"><span><%= adjustment.display_amount.to_html %></span></td>
-                        </div>
+                        <!-- <div class="col-4 offset-3"> -->
+                          <td><strong><%= adjustment.label %></strong></td>
+                        <!-- </div>
+                        <div class="col-5"> -->
+                          <td class="total">
+                            <span><%= adjustment.display_amount.to_html %></span>
+                          </td>
+                        <!-- </div> -->
                       </tr>
-                    </div>
+                    <!-- </div> -->
                     <% end %>
                   </tfoot>
-                </div>
+                <!-- </div>
               </div>
-            </div>
+            </div> -->
           </table>
         </div>
       </div>
@@ -177,7 +183,7 @@
             <% @order.shipments.each do |shipment| %>
             <p>
               <i class='fa fa-truck mr-2 fa-2x text-primary'></i>
-              <%= t('spree.shipment_details', stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
+              <%= t('spree.shipment_details', stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>             
             </p>
             <% end %>
           </div>

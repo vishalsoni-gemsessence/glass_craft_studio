@@ -4,9 +4,9 @@
   <table class= "table table-hover" id="cart-detail" style="min-width: 1023px" data-hook>
     <thead class="no-background">
       <tr data-hook="cart_items_headers">
-        <th scope="col" width="35%" class="cart-item-description-header text-uppercase" colspan="2"><%= t('spree.items') %></th>
-        <th scope="col" class="cart-item-dimension-header"><%= t(:'spree.dimension') %></th>
-        <th scope="col" width="10%" class="cart-item-weight-header"><%= t(:'spree.weight') %></th>
+        <th scope="col" width="35%" class="cart-item-description-header text-uppercase" colspan="2"><%= t('spree.item') %></th>
+        <th scope="col" class="cart-item-dimension-header"><%= t('spree.dimensions') %></th>
+        <th scope="col" width="10%" class="cart-item-weight-header"><%= t('spree.weight') %></th>
         <th scope="col" class="cart-item-quantity-header text-center text-uppercase"><%= t('spree.qty') %></th>
         <th scope="col" width="10%" class="cart-item-price-header"><%= t('spree.unit_price') %></th>
         <th scope="col" width="10%" class="cart-item-total-header text-uppercase"><%= t('spree.sub_total') %></th>
@@ -17,12 +17,14 @@
       <%= render partial: 'spree/orders/line_item', collection: order.line_items, locals: { order_form: order_form } %>
       <% if order.adjustments.nonzero.exists? || order.line_item_adjustments.nonzero.exists? || order.shipment_adjustments.nonzero.exists? || order.shipments.any? %>
         <tr class="cart-subtotal">
-          <td colspan="6"><h5><%= t('spree.cart_subtotal', count: order.line_items.sum(:quantity)) %></h5></th>
-          <td colspan><h5><%= order.display_item_total %></h5></td>
-          <td></td>
+          <td colspan="6"><h5><%= t('spree.cart_subtotal', count: order.line_items.sum(:quantity)) %>:</h5></th>
+          <td colspan="2"><h5><%= order.display_item_total %></h5></td>
+          <!-- <td></td> -->
         </tr>
-        <%= render "spree/orders/adjustments" %>
       <% end %>
     </tbody>      
+    <% if order.adjustments.nonzero.exists? || order.line_item_adjustments.nonzero.exists? || order.shipment_adjustments.nonzero.exists? || order.shipments.any? %>
+      <%= render "spree/orders/adjustments" %>
+    <% end %>
   </table>
 </div>
