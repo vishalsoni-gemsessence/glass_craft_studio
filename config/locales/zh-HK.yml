@@ -675,7 +675,7 @@ zh-HK:
     destination: "目的地"
     destroy: "刪除"
     details:
-    dimensions: "產品尺寸"
+    dimensions: "包裝尺寸"
     dimensions_unit_mm: "毫米"      
     discount_amount: "折扣金額"
     dismiss_banner: "不。謝謝！我沒有興趣，不要再顯示此訊息。"
