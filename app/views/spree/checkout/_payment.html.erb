@@ -123,14 +123,14 @@
             </tr>
           </tfoot>
         </table>
+        <div class="form-buttons subsection-sm text-right" data-hook="buttons">
+          <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
+          <script>Spree.disableSaveOnClick();</script>
+        </div>        
       </div>
     </div>
   </div>
 </fieldset>
 
-<br class="space" />
+<!-- <br class="space" /> -->
 
-<div class="form-buttons subsection-sm text-right" data-hook="buttons">
-  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
-  <script>Spree.disableSaveOnClick();</script>
-</div>

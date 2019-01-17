@@ -85,22 +85,12 @@
                       </td>
                     </tr>
                   </tfoot>                  
-                </table>
+                </table>                
                 <div class="form-buttons subsection-sm text-right" data-hook="buttons">
                  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
                 </div>                
               </div>
             </div>
-          <% if Spree::Config[:shipping_instructions] %>
-            <div class="col-md-6">
-              <p id="minstrs" data-hook>
-                <%= form.label :special_instructions, t('spree.shipping_instructions'), class: 'shipping_instructions' %><br />
-                <div class="payment-method-card">
-                  <%= form.text_area :special_instructions, cols: 40, rows: 7 %>
-                </div>
-              </p>
-            </div>
-          <% end %>
           <% if @differentiator.try(:missing?) %>
             <div class="col-md-6">              
               <div class="shipment unshippable">

@@ -28,6 +28,7 @@ Spree.config do |config|
   # config.layout = "spree/layouts/spree_application"
 
   config.products_per_page = 30
+  config.shipping_instructions = false
   # Admin:
 
   # Custom logo for the admin
@@ -48,6 +49,7 @@ end
 
 Spree::Frontend::Config.configure do |config|
   config.locale = 'en'
+  config.require_terms_and_conditions_acceptance = false
 end
 
 Spree::Backend::Config.configure do |config|
