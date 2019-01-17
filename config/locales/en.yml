@@ -199,7 +199,7 @@ en:
     order_processed_thank_you_very_much: "Thank you very much!"
     order_processed_email_address: An information e-mail containing your recipt has beed sent to %{email}
     order_state:
-      address: "SHIPPING INFORMATION"
+      address: "SHIPPING INFO"
       payment: "PAYMENT METHOD"
       confirm: "ORDER CONFIRMATION"
     products: "Products"
