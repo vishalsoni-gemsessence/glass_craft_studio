@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 8f82327aa6cdf0c950f275ccbffa250563f2c461
+  revision: bbf6c5d16cbdca89618c908919aa5450b1b3b900
   branch: custom-calculator-for-easyship
   specs:
-    solidus_easyship (0.1.2)
+    solidus_easyship (0.1.2.1)
       rest-client
       solidus_backend
       solidus_core
