@@ -343,6 +343,7 @@ zh-HK:
   sign_up:
     full_name: "全名"
     sign_up: "註冊"
+    terms_and_conditions_html: 通過瀏覽及使用本網站, 您已閱讀、理解並完全接受我們的使用<span class="text-underline"><a href="/terms">條款和條件</a></span>以及<span class="text-underline"><a href="/privacy-policy">隱私政策</a></span>。
   social_links:
     facebook: Facebook
     instagram: Instagram
@@ -682,6 +683,7 @@ zh-HK:
     display_currency: "顯示貨幣"
     doesnt_track_inventory:
     edit: "編輯"
+    edit_profile: "管理我的帳戶"
     editing_resource:
     editing_rma_reason:
     editing_user: "編輯使用者"
