@@ -76,7 +76,9 @@ function LoadAllGalleryPhotos(){
 }
 
 disableRightClickForImage = function(){
-  $('img').bind('contextmenu', function(e) {
-    return false;
+  jQuery(function() {
+    jQuery(this).bind("contextmenu", function(event) {
+        event.preventDefault();
+    });
   });
 }
