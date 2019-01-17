@@ -7,7 +7,11 @@
           <ul class="navbar-nav ml-auto">
             <% if spree_current_user %>
               <li class="nav-item">
+              <% if spree_current_user.full_name.present? %>  
                 <%= link_to "#{t('top_header.welcome')}, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link" %>
+              <% else %>
+                <%= link_to "#{t('top_header.welcome')} !", 'javascript:;', class: "nav-link" %>
+              <% end %>  
               </li>
               <li class="nav-item">
                 <%= link_to t('top_header.my_account'), spree.account_path, class: "nav-link text-uppercase" %>
