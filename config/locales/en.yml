@@ -57,6 +57,8 @@ en:
   interior_decorative_glass:
     for_detail_reference: "For design reference, you can refer to the previous newsletters:"
     for_enquiry: "To quote price for different patterns and dimensions, please contact our sales. Please tell us the purpose and dimensions (height and width)."
+  payment:
+    paypal_braintree_agreement_html: GlassXpert & Design uses <strong>PayPal</strong> and <strong>Braintree</strong> as our online payment gateway partners. For customers’ personal and credit card information, please refer to our detailed <span class="text-underline"><a href="/privacy-policy">Privacy Policy</a></span>.
   photo_gallery:
     free: Free
     filter: Filter
@@ -152,7 +154,7 @@ en:
       contact_us_email_cloned: Contact us email has been successfully cloned
       contact_us_email_deleted: Contact us email successfully deleted
       contact_us_email_not_cloned: Contact us can't be cloned %{error}.
-    order_completing_message: "One more step before completing your order...."
+    order_completing_message: "Please check your order before confirming"
     order_history: Order History
     order_mailer:
       or: "Or"
@@ -213,6 +215,8 @@ en:
     unit_price: "Unit Price"
     weights_unit_kg: kg
     zip: Postal Code / ZIP
+  stock_location:
+    hkw: "Hong Kong Warehouse"
   top_header:
     welcome: Welcome
     my_account: My Account

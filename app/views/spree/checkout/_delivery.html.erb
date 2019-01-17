@@ -7,7 +7,7 @@
           <h3 class="stock-location text-capitalize" data-hook="stock-location">
             <%#= t('spree.package_from') %>
             <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i>
-            <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
+            <strong class="stock-location-name" data-hook="stock-location-name"><%= t("stock_location.#{ship_form.object.stock_location.code.downcase}") %></strong>
           </h3>
           <div class="row">
             <div class="col-md-6">
@@ -60,7 +60,10 @@
                             <div class="col-8">
                               <h4 class="fw900 text-uppercase item-name">
                                 <%= link_to item.variant.name, product_path(item.variant.product) %>
-                              </h4>
+                              </h4>                              
+                              <span class="in-stock">
+                                <%= item.variant.sku %><br />
+                              </span>                                                  
                             </div>
                           </div>
                         </td>

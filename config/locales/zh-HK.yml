@@ -1,78 +1,4 @@
 zh-HK:
-  address:
-    full_name: "全名"
-    company: "公司"
-    billing_address: "帳單地址"
-    shipping_address: "收件地址"
-    address_1: "帳單地址"
-    address_2: "帳單地址"
-    city: "市"
-    state: "省/州"
-    zipcode: "郵遞區號"
-    country: "國家"
-    phone: '手機號碼'
-    alternative_phone: '替代電話號碼'
-  contact_us_form:
-    name: "全名"
-    email: "電郵地址"
-    subject: "主題"
-    message: 信息
-  footer:
-    about_us: "關於我們"
-    our_production: "我們的生產"
-    ask_questions: "經常問的問題"
-    terms_and_conditions: "條款和條件"
-    privacy_policy: "隱私政策"
-    return_policy: "換貨政策"
-    shipping_info: "發貨信息"
-  glassxpert_details:
-    fax: "傳真號碼"
-    rights_reserved: 版權所有。
-    glassxpert_design: "玻璃設計館GlassXpert＆Design"
-    glassxpert_design_company_limited: "GlassXpert & Design Company Limited"
-  glass_photo_prints:
-    first_layer: 第一層玻璃
-    layout_number: 
-      zero: "有%{count}款設計"
-      one: "有%{count}款設計"
-      other: "有%{count}款設計"
-    middle_layer: Glasslam CIP 或 EVA<br>把兩塊玻璃結合在一起
-    second_layer: 第二層玻璃
-    standard_sizes: "%{number_of_sizes}種尺碼及價格"
-  home:
-    background: "背景"
-    background_text: "玻璃設計館GlassXpert & Design主要從事三種業務"
-    glass_gift_text: "尤其是個人化的玻璃相禮品"
-    interior_decorative_glass_text: "室內裝修用之夹層裝飾玻璃及鏡子"
-  interior_decorative_glass:
-    for_detail_reference: "有關設計參考，您可以預灠我們以前的業務通訊:"
-    for_enquiry: "如欲查詢不同款式的價格，請與我們的銷售員聯絡。請把用途和尺寸 (高度和寬度) 告訴我們。"
-  photo_gallery:
-    all: 全部   
-    free: 免費 
-  order:
-    order_number: "訂單號碼"
-  sign_in:
-    sign_in: "登入"
-  sign_up:
-    full_name: "全名"
-    sign_up: "註冊"
-  social_links:
-    facebook: Facebook
-    instagram: Instagram
-    partnership: "商業夥伴"
-  top_header:
-    welcome: "歡迎"
-    my_account: "我的賬號"
-    home: "主頁"
-    glass_gifts: "玻璃禮品"
-    glass_photo_prints: "玻璃照片打印"
-    photo_gallery: 照片館
-    contact_us: 聯絡我們
-    interior_decorative_glass: "室內裝飾玻璃"
-    superior: Superior
-    aletheia: Aletheia
-    top_town: TopTown
   activerecord:
     attributes:
       spree/address:
@@ -357,6 +283,70 @@ zh-HK:
       spree/user: "使用者"
       spree/variant: "型號"
       spree/zone: "區域"
+  address:
+    address_1: "帳單地址"
+    address_2: "帳單地址"
+    alternative_phone: '替代電話號碼'
+    billing_address: "帳單地址"
+    city: "市"
+    company: "公司"
+    country: "國家"
+    full_name: "全名"
+    phone: '手機號碼'
+    shipping_address: "收件地址"
+    state: "省/州"
+    zipcode: "郵遞區號"
+  contact_us_form:
+    name: "全名"
+    email: "電郵地址"
+    subject: "主題"
+    message: 信息
+  footer:
+    about_us: "關於我們"
+    our_production: "我們的生產"
+    ask_questions: "經常問的問題"
+    terms_and_conditions: "條款和條件"
+    privacy_policy: "隱私政策"
+    return_policy: "換貨政策"
+    shipping_info: "發貨信息"
+  glassxpert_details:
+    fax: "傳真號碼"
+    rights_reserved: 版權所有。
+    glassxpert_design: "玻璃設計館GlassXpert＆Design"
+    glassxpert_design_company_limited: "GlassXpert & Design Company Limited"
+  glass_photo_prints:
+    first_layer: 第一層玻璃
+    layout_number: 
+      zero: "有%{count}款設計"
+      one: "有%{count}款設計"
+      other: "有%{count}款設計"
+    middle_layer: Glasslam CIP 或 EVA<br>把兩塊玻璃結合在一起
+    second_layer: 第二層玻璃
+    standard_sizes: "%{number_of_sizes}種尺碼及價格"
+  home:
+    background: "背景"
+    background_text: "玻璃設計館GlassXpert & Design主要從事三種業務"
+    glass_gift_text: "尤其是個人化的玻璃相禮品"
+    interior_decorative_glass_text: "室內裝修用之夹層裝飾玻璃及鏡子"
+  interior_decorative_glass:
+    for_detail_reference: "有關設計參考，您可以預灠我們以前的業務通訊:"
+    for_enquiry: "如欲查詢不同款式的價格，請與我們的銷售員聯絡。請把用途和尺寸 (高度和寬度) 告訴我們。"
+  payment:
+    paypal_braintree_agreement_html: Glassxpert & Design 玻璃設計館採用<strong>PayPal</strong>及<strong>Braintree</strong>作為我們的在線支付系統夥伴。有關客戶的個人及信用咭資料，請參閱我們詳細的<span class="text-underline"><a href="/privacy-policy">隱私政策</a></span>。
+  photo_gallery:
+    all: 全部   
+    free: 免費 
+  order:
+    order_number: "訂單號碼"
+  sign_in:
+    sign_in: "登入"
+  sign_up:
+    full_name: "全名"
+    sign_up: "註冊"
+  social_links:
+    facebook: Facebook
+    instagram: Instagram
+    partnership: "商業夥伴"
   spree:
     abbreviation: "縮寫"
     accept:
@@ -1507,8 +1497,22 @@ zh-HK:
     zipcode: "區域代碼"
     zone: "區域"
     zones: "區域"
+  stock_location:
+    hkw: "香港貨倉"
   time:
     formats:
       solidus:
         long: '%Y年%b%d日 %p%-l:%M'
         short: "%b %-d '%y %-l:%M%P"
+  top_header:
+    welcome: "歡迎"
+    my_account: "我的賬號"
+    home: "主頁"
+    glass_gifts: "玻璃禮品"
+    glass_photo_prints: "玻璃照片打印"
+    photo_gallery: 照片館
+    contact_us: 聯絡我們
+    interior_decorative_glass: "室內裝飾玻璃"
+    superior: Superior
+    aletheia: Aletheia
+    top_town: TopTown

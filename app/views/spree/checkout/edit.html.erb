@@ -11,7 +11,15 @@
           </div>
         </div>
       </div>
-
+      <% if @order.state == 'address' && I18n.locale == :'zh-HK' %>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <strong>GlassXpert & Design 玻璃設計館採用EasyShip運輸平台, 固帳單及出貨地址必須以英文填寫。</strong>
+          </p>        
+        </div>
+      </div>
+      <% end %>
       <div class="row" data-hook="checkout_content">
         <div class="columns <%= if @order.state != 'confirm' then 'alpha twelve billing-form' else 'alpha omega sixteen' end %>" data-hook="checkout_form_wrapper">
           <div class="subsection">

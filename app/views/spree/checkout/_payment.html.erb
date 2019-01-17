@@ -98,6 +98,9 @@
                     </div>
                     <div class="col-8">
                       <h4 class="fw900 text-uppercase"><%= link_to line_item.name, product_path(variant.product) %></h4>
+                      <span class="in-stock">
+                        <%= line_item.variant.sku %><br />
+                      </span>                                                                        
                     </div>
                   </div>
                 </td>
