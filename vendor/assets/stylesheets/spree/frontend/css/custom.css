@@ -403,7 +403,7 @@ select#navbarDropdownLang:active {
   width: 560px;
   height: 30px;
   line-height: 30px;
-  border: 1px solid #042a47;
+  border: 0px solid #042a47;
   border-radius:3px;
   overflow: Hidden;
   background-color: #f2f2f2;
