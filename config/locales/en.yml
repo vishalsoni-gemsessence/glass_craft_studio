@@ -58,7 +58,7 @@ en:
     for_detail_reference: "For design reference, you can refer to the previous newsletters:"
     for_enquiry: "To quote price for different patterns and dimensions, please contact our sales. Please tell us the purpose and dimensions (height and width)."
   payment:
-    paypal_braintree_agreement_html: GlassXpert & Design uses <strong>PayPal</strong> and <strong>Braintree</strong> as our online payment gateway partners. For customers’ personal and credit card information, please refer to our detailed <span class="text-underline"><a href="/privacy-policy">Privacy Policy</a></span>.
+    paypal_braintree_agreement_html: GlassXpert & Design uses <strong>PayPal</strong> and <strong>Braintree</strong> as our online payment gateway partners. For customers’ personal and credit card information, please refer to our detailed <span class="text-underline"><a href="/privacy-policy" target="_blank">Privacy Policy</a></span>.
   photo_gallery:
     free: Free
     filter: Filter

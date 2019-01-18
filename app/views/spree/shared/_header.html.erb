@@ -3,6 +3,7 @@
   <div class="secondary-nav d-none d-xl-block">
     <div class="container bigger">
       <nav class="navbar navbar-expand-xl navbar-light">
+        <%= render partial: 'spree/shared/promotion_banner' %>
         <div class="navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <% if spree_current_user %>
@@ -85,7 +86,11 @@
             </li>
             <% if spree_current_user %>
               <li class="nav-item secondary-item d-xl-none">
-                <%= link_to "#{t('top_header.welcome')}, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link js-nav-link" %>
+                <% if spree_current_user.full_name.present? %>  
+                  <%= link_to "#{t('top_header.welcome')}, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link js-nav-ink" %>
+                <% else %>
+                  <%= link_to "#{t('top_header.welcome')} !", 'javascript:;', class: "nav-link js-nav-ink" %>
+                <% end %>                  
               </li>
               <!--/ Visible 1199 and min-->
               <li class="nav-item secondary-item d-xl-none">

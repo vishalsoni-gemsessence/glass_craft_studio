@@ -388,3 +388,27 @@ select#navbarDropdownLang:active {
   background: #008000!important;
 } 
 
+/*
+========================
+  Promotion
+========================*/
+.banner-container ul, .banner-container ul li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.banner-container {
+  width: 560px;
+  height: 30px;
+  line-height: 30px;
+  border: 0px solid #042a47;
+  border-radius:3px;
+  overflow: Hidden;
+  background-color: #f2f2f2;
+  color:#34495E;
+  padding: 0px 0;
+  margin: 0px auto;
+}
+
