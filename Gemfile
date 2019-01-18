@@ -57,7 +57,7 @@ gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', b
 # gem 'solidus_on_demand_products', path: '../image-editor-plugin'
 
 # For development on local
-gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "custom-calculator-for-easyship"
+gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "master"
 # gem 'solidus_easyship', path: '../solidus-easyship'
 
 
