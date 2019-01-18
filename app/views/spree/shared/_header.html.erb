@@ -86,6 +86,12 @@
             </li>
             <% if spree_current_user %>
               <li class="nav-item secondary-item d-xl-none">
+                <% if spree_current_user.full_name.present? %>  
+                  <%= link_to "#{t('top_header.welcome')}, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link js-nav-ink" %>
+                <% else %>
+                  <%= link_to "#{t('top_header.welcome')} !", 'javascript:;', class: "nav-link js-nav-ink" %>
+                <% end %>  
+                
                 <%= link_to "#{t('top_header.welcome')}, #{spree_current_user.full_name}!", 'javascript:;', class: "nav-link js-nav-link" %>
               </li>
               <!--/ Visible 1199 and min-->
