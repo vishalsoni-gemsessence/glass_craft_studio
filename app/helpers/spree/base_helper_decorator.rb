@@ -23,5 +23,13 @@ module Spree
         country
       end.sort_by { |c| c.name.parameterize }
     end
+
+    def seo_url(taxon)
+      url = spree.nested_taxons_path(taxon.permalink)
+      if session[:locale] != "en"
+        url = url.split(session[:locale])[1] if session[:locale] != "en"
+      end
+      url
+    end
   end
 end

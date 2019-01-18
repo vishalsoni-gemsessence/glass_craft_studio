@@ -1,4 +1,6 @@
 <% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
+<% url = url.split(session[:locale])[1] if session[:locale] != "en" %>
+
 <div class="gift-card">
   <div class="product-image gift-card-img">
     <%= link_to(render('spree/shared/image', image: product.display_image, size: :taxon, itemprop: "image"), url, itemprop: 'url') %>
