@@ -37,7 +37,7 @@
                 <div id="cart-form" data-hook="cart_form">
                   <div id="product-price" class="row">
                     <!-- <h6 class="product-section-title"><%#= t('spree.price') %></h6> -->
-                    <div class="col-md-5">
+                    <div class="col-md-12">
                       <div class="subsection-sm">
                         <span class="price selling h2 fw400" itemprop="price" content="<%= @product.price_for(current_pricing_options).to_d %>">
                           <%= display_price(@product) %>
@@ -45,10 +45,15 @@
                         <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
                       </div>
                     </div>
-
-                    <div class="col-md-7">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
                       <div class="subsection-sm">
                         <p class="text-lg fw700"><span class="text-muted-darken"><%= t('spree.product_code') %>: </span><%= @product.sku %></p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="subsection-sm">
                         <div class="product-details">
                           <% if @product.master.can_supply? %>
                             <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
@@ -90,7 +95,7 @@
               </div>
             <% unless @product_properties.empty? %>  
               <div class="subsection-sm separator"></div>
-              <div class="row" data-hook="product_left_part">
+              <div data-hook="product_left_part">
                 <!-- <div data-hook="product_left_part_wrap"> -->
                   <!-- <div data-hook="product_properties"> -->
                     <%= render partial: 'properties' %>

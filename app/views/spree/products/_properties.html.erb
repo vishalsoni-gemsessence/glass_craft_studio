@@ -1,25 +1,29 @@
-<!-- <h6 class="product-section-title"><%#= t('spree.properties')%></h6> -->
-<div class="col-md-6">
-  <div class="subsection-sm">
-    <h5 class="bigger text-uppercase"><%= t(:'spree.specifications') %></h5>
-    <p class="h5 bigger"></p>
+<div class="row">
+  <!-- <h6 class="product-section-title"><%#= t('spree.properties')%></h6> -->
+  <div class="col-md-6">
+    <div class="subsection-sm">
+      <h5 class="bigger text-uppercase"><%= t(:'spree.specifications') %></h5>
+      <p class="h5 bigger"></p>
+    </div>
   </div>
 </div>
-<div class="col-md-6">
-  <div class="subsection-sm">
-    <table id="product-properties" data-hook>
-      <tbody>
-        <% @product_properties.each do |product_property| %>
-          <% css_class = cycle('even', 'odd', name: "properties") %>
-          <% if product_property.property.presentation != t('spree.factory_code') && product_property.property.presentation != 'Factory Code' %>
-            <tr>
-              <td><h5 class="h5 bigger"><%= product_property.property.presentation %>:</h5></td>
-              <td><p class="bigger"><%= product_property.value %></p></td>
-            </tr>
+<div>
+  <div class="col-md-12">
+    <div class="subsection-sm">
+      <table id="product-properties" data-hook>
+        <tbody>
+          <% @product_properties.each do |product_property| %>
+            <% css_class = cycle('even', 'odd', name: "properties") %>
+            <% if product_property.property.presentation != t('spree.factory_code') && product_property.property.presentation != 'Factory Code' %>
+              <tr>
+                <td><h5 class="h5 bigger"><%= product_property.property.presentation %>:</h5></td>
+                <td><p class="bigger"><%= product_property.value %></p></td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
-        <% reset_cycle('properties') %>
-      </tbody>
-    </table>
+          <% reset_cycle('properties') %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -30,28 +30,28 @@
       <% end %>
     </div>
 
-              <div class="subsection-sm">
-                <div data-hook="product_price">
-                  <div class="add-to-cart subsection-sm">
-                    <h5 class="bigger text-uppercase">Quantity:</h5>
-                    <div class="subsection-sm">
-                      <div class="form-group">
-                        <div class="number-wrap">
-                          <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
-                          <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
-                          <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
+    <div class="subsection-sm">
+      <div data-hook="product_price">
+        <div class="add-to-cart subsection-sm">
+          <h5 class="bigger text-uppercase"><%= t('spree.quantity') %></h5>
+          <div class="subsection-sm">
+            <div class="form-group">
+              <div class="number-wrap">
+                <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
+                <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
+                <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
               </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <% if @product.price_for(current_pricing_options) and !@product.price.nil? %>
       <div data-hook="product_price">
         <div id="product-price" class="row">
-          <h6 class="product-section-title"><%#= t('spree.price') %></h6>
+          <!-- <h6 class="product-section-title"><%#= t('spree.price') %></h6> -->
           <div class="col-md-6">
             <div class="subsection-sm">
               <span class="price selling h2 fw400 product-price" itemprop="price" content="<%= @product.price_for(current_pricing_options).to_d %>">
@@ -66,7 +66,7 @@
               <% if @product.master.can_supply? %>
                 <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p>
               <% elsif @product.variants.empty? %>
-                <p class="text-lg fw700"><span class="out-of-stock text-muted-darken">Availability: </span><%= t('spree.out_of_stock') %></p>
+                <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %></p>
               <% end %>
             </div>
           </div>
