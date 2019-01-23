@@ -1,5 +1,6 @@
 <% promotions = @product.possible_promotions %>
 <% if promotions.any? %>
+  <div class="subsection-sm separator"></div>
   <div id="promotions">
     <h3><%= t('spree.promotions') %></h3>
     <% promotions.each do |promotion| %>
@@ -7,11 +8,6 @@
       <h4><%= promotion.name %></h4>
       <p><%= promotion.description %></p>
       <% if promotion.products.any? %>
-      <ul>
-        <% promotion.products.each do |product| %>
-          <li><%= link_to product.name, product_path(product) %></li>
-        <% end %>
-      </ul>
       <% end %>
     </div>
     <% end %>
