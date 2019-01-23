@@ -47,11 +47,14 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div class="subsection-sm">
                         <p class="text-lg fw700"><span class="text-muted-darken"><%= t('spree.product_code') %>: </span><%= @product.sku %></p>
                       </div>
                     </div>
+                  </div>
+                <% if @product.master.can_supply? || @product.variants.empty? %>                  
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="subsection-sm">
                         <div class="product-details">
@@ -65,6 +68,7 @@
                       </div>
                     </div>
                   </div>
+                <% end %>
                 </div>
               <% unless @product.description.nil? %>
                 <div class="subsection-sm separator"></div>

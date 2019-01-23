@@ -15,8 +15,12 @@
           <% css_class = cycle('even', 'odd', name: "properties") %>
           <% if product_property.property.presentation != t('spree.factory_code') && product_property.property.presentation != 'Factory Code' %>
             <tr>
-              <td width="40%"><h5 class="h5 bigger"><%= product_property.property.presentation %>:</h5></td>
-              <td><p class="bigger"><%= product_property.value %></p></td>
+              <td width="40%">
+                <h5 class="h5 bigger"><%= product_property.property.presentation %>: </h5>
+              </td>
+              <td>
+                <p class="bigger"><%= product_property.value %></p>
+              </td>
             </tr>
           <% end %>
         <% end %>
