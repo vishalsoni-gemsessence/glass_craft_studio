@@ -36,8 +36,8 @@
 
                 <div id="cart-form" data-hook="cart_form">
                   <div id="product-price" class="row">
-                    <h6 class="product-section-title"><%#= t('spree.price') %></h6>
-                    <div class="col-md-6">
+                    <!-- <h6 class="product-section-title"><%#= t('spree.price') %></h6> -->
+                    <div class="col-md-5">
                       <div class="subsection-sm">
                         <span class="price selling h2 fw400" itemprop="price" content="<%= @product.price_for(current_pricing_options).to_d %>">
                           <%= display_price(@product) %>
@@ -46,7 +46,7 @@
                       </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                       <div class="subsection-sm">
                         <p class="text-lg fw700"><span class="text-muted-darken"><%= t('spree.product_code') %>: </span><%= @product.sku %></p>
                         <div class="product-details">
