@@ -343,7 +343,7 @@ zh-HK:
   sign_up:
     full_name: "全名"
     sign_up: "註冊"
-    terms_and_conditions_html: 通過瀏覽及使用本網站, 您已閱讀、理解並完全接受我們的使用<span class="text-underline"><a href="/terms">條款和條件</a></span>以及<span class="text-underline"><a href="/privacy-policy">隱私政策</a></span>。
+    terms_and_conditions_html: 通過瀏覽及使用本網站, 您已閱讀、理解並完全接受我們的使用<span class="text-underline"><a href="/terms" target="_blank">條款和條件</a></span>以及<span class="text-underline"><a href="/privacy-policy" target="_blank">隱私政策</a></span>。您還同意本網站使用 cookies 來提供最佳的使用者體驗。
   social_links:
     facebook: Facebook
     instagram: Instagram

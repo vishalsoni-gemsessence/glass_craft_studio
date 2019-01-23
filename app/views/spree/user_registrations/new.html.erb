@@ -4,6 +4,10 @@
     <div class="row">
       <div class="col-lg-4 offset-lg-1">
         <div class="subsection subsection-sing-form">
+          <% @body_id = 'signup' %>
+          
+          <%= render 'spree/shared/error_messages', target: resource %>
+          
           <div id="new-customer">
             <h2 class="text-primary"><%= t :'sign_up.sign_up' %></h2>
 
@@ -11,21 +15,20 @@
               <%= form_for resource, as: :spree_user, url: spree.registration_path(resource), html: { class: 'form sign-up'} do |f| %>
                 <div data-hook="signup_inside_form">
                   <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
-                  <!-- <p class="mb-3 pt-1">
-                    <%#= Spree.t(:or) %>&nbsp;<%#= link_to Spree.t(:login_as_existing), spree.login_path %>
-                  </p> -->
-
-                  <div class="text-right pt-1">
-                    <%= f.submit "Sign Up", class: 'btn btn-info' %>    
-                  </div>
+                  <label class="form-check-label">
+                    <%= check_box_tag :accept_terms_and_conditions, 'accepted', false %>
+                    <small><%= t('sign_up.terms_and_conditions_html') %></small>
+                  </label>
+                  <p>
+                    <div class="text-right pt-1">
+                      <%= f.submit Spree.t(:sign_up), class: 'primary btn btn-info', disabled: true %>
+                    </div>
+                  </p>
                 </div>
               <% end %>
-
             </div>
-
           </div>
         </div>
-        <!--/subsection-->
       </div>
 
       <div class="col-lg-2">
@@ -50,6 +53,26 @@
     </div>
   </div>
 </section>
-
-
 <div data-hook="login_extras"></div>
+
+<script>
+  Spree.disableSignupOnClick = function() {
+    $("form.sign-up").submit(function() {
+      $(this)
+        .find(":submit")
+        .attr("disabled", true)
+        .removeClass("primary")
+        .addClass("disabled");
+    });
+  };
+
+  Spree.ready(function($) {
+    var termsCheckbox = $("#accept_terms_and_conditions");
+    termsCheckbox.change(function() {
+      var submitBtn = $(this.closest("form")).find(":submit");
+      submitBtn.prop("disabled", !this.checked);
+      submitBtn.toggleClass("disabled", !this.checked);
+    });
+  });
+</script>  
+<script>Spree.disableSignupOnClick();</script>

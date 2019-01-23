@@ -14,10 +14,10 @@
 
   <p class="mb-3 pt-1">
     <!-- <%#= Spree.t(:or) %>&nbsp;<%#= link_to Spree.t(:create_a_new_account), spree.signup_path %> | --> 
-    <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+    <span class="text-underline"><%= link_to Spree.t(:forgot_password), spree.recover_password_path %></span>
   </p>
 
   <div class="text-right pt-2">
-    <%= f.submit "Sign In", class: 'btn btn-info', tabindex: 4 %>
+    <%= f.submit t('sign_in.sign_in'), class: 'btn btn-info', tabindex: 4 %>
   </div>
 <% end %>

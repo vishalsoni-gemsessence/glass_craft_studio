@@ -18,9 +18,11 @@
                     <%= check_box_tag :accept_terms_and_conditions, 'accepted', false %>
                     <small><%= t('sign_up.terms_and_conditions_html') %></small>
                   </label>
-                  <div class="text-right pt-1">
-                    <%= f.submit Spree.t(:sign_up), class: 'primary btn btn-info', disabled: true %>
-                  </div>
+                  <p>
+                    <div class="text-right pt-1">
+                      <%= f.submit Spree.t(:sign_up), class: 'primary btn btn-info', disabled: true %>
+                    </div>
+                  </p>
                 </div>
               <% end %>
             </div>

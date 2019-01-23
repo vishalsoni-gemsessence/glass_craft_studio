@@ -70,7 +70,7 @@ en:
   sign_up:
     full_name: "Full name"
     sign_up: "Sign Up"
-    terms_and_conditions_html: By browsing and using this Website, you read, understand and accept our <span class="text-underline"><a href="/terms">Terms and Conditions</a></span> and <span class="text-underline"><a href="/privacy-policy">Privacy Policy</a></span> in full.
+    terms_and_conditions_html: By browsing and using this Website, you read, understand and accept our <span class="text-underline"><a href="/terms" target="_blank">Terms and Conditions</a></span> and <span class="text-underline"><a href="/privacy-policy" target="_blank">Privacy Policy</a></span> in full. You also acknowledge that this Website uses cookies to give the best user experience.
   social_links:
     facebook: Facebook
     instagram: Instagram
