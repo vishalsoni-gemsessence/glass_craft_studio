@@ -215,6 +215,7 @@ en:
     stores: "Stores"
     sub_total: "sub-total"
     unit_price: "Unit Price"
+    use_billing_address: "Use Billing Address as Shipping Address"
     weights_unit_kg: kg
     zip: Postal Code / ZIP
   stock_location:

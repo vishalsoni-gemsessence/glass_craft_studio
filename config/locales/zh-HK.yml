@@ -1463,7 +1463,7 @@ zh-HK:
     updating: "更新中"
     usage_limit: "使用次數限制"
     use_app_default:
-    use_billing_address: "使用帳單地址"
+    use_billing_address: "使用帳單地址作為提交地址"
     use_new_cc: "使用新卡"
     use_s3: Use Amazon S3 For Images
     user: "使用者"

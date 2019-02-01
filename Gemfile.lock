@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 86fb43ad4f9e4f28ba23ee2e3c033e9447a31300
+  revision: afd5f4c1342dc6d58e09569ca546f92f18ec472b
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 524ea213cf84f5d03b3c17355c10852cec672a03
+  revision: bad96f93def9168371e6ee865f64015693859d9a
   branch: master
   specs:
     solidus_easyship (0.1.2.2)
@@ -344,9 +344,9 @@ GEM
       ffi (~> 1.0)
     request_store (1.4.1)
       rack (>= 1.4)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
