@@ -7,12 +7,14 @@ module Spree
        text.prepend("#{i.succ}. ") if numbers
 
        css_classes = ['d-flex', 'align-items-center', 'pay-pagination-item']
+       href_css_classes = ['pay-pagination-item']
+       
        current_index = states.index(@order.state)
        state_index = states.index(state)
 
        if state_index < current_index
          css_classes << 'completed'
-         text = link_to text, checkout_state_path(state)
+         text = link_to text, checkout_state_path(state), class: "pay-pagination-item"
        end
 
        css_classes << 'next' if state_index == current_index + 1
@@ -21,10 +23,13 @@ module Spree
        css_classes << 'last' if state_index == states.length - 1
        # No more joined classes. IE6 is not a target browser.
        # Hack: Stops <a> being wrapped round previous items twice.
+       href_css_classes << 'active' if state == @order.state
+
        if state_index < current_index
          content_tag('li', text, class: css_classes.join(' '))
+         # content_tag('li', content_tag('a', text, class: href_css_classes.join(' ')), class: css_classes.join(' '))
        else
-         content_tag('li', content_tag('a', text), class: css_classes.join(' '))
+         content_tag('li', content_tag('a', text, class: href_css_classes.join(' ')), class: css_classes.join(' '))
        end
      end
      content_tag('ul', raw(items.join("\n")), class: 'progress-steps pay-pagination d-flex align-items-center', id: "checkout-step-#{@order.state}")
