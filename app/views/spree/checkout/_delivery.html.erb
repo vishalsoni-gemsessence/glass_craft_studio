@@ -7,7 +7,8 @@
           <h3 class="stock-location text-capitalize" data-hook="stock-location">
             <%#= t('spree.package_from') %>
             <i class="fa fa-truck mr-2 text-primary" aria-hidden="true"></i>
-            <strong class="stock-location-name" data-hook="stock-location-name"><%= t("stock_location.#{ship_form.object.stock_location.code.downcase}") %></strong>
+            <strong class="stock-location-name" data-hook="stock-location-name">
+              <%= t("stock_location.#{ship_form.object.stock_location.code.downcase}") %></strong>
           </h3>
           <div class="row">
             <div class="col-md-6">
@@ -38,16 +39,12 @@
             <div class="col-md-6">
               <div class="table-responsive">
                 <table class="stock-contents table table-hover" data-hook="stock-contents" style="min-width: 500px">
-                 <!--  <colgroup>
-                    <col style="width: 10%;" />
-                    <col style="width: 60%;" />
-                    <col style="width: 10%;" />
-                    <col style="width: 20%;" />
-                  </colgroup> -->
                   <thead>
-                    <th width="65%" align='left' scope="col" class="text-uppercase"><%= t('spree.item') %></th>
-                    <th width="10%" scope="col" class="text-uppercase"><%= t('spree.qty') %></th>
-                    <th width="25%" scope="col"><%= t('spree.price') %></th>
+                    <tr>
+                      <th width="65%" align='left' scope="col" class="text-uppercase"><%= t('spree.item') %></th>
+                      <th width="10%" scope="col" class="text-uppercase"><%= t('spree.qty') %></th>
+                      <th width="25%" scope="col"><%= t('spree.price') %></th>
+                    </tr>
                   </thead>
                   <tbody>
                     <% ship_form.object.manifest.each do |item| %>
@@ -84,8 +81,18 @@
                         <h5><%= @order.display_total.to_html %></h5>
                       </td>
                     </tr>
-                  </tfoot>                  
+                  <% if @order.has_personalized_product? %>  
+                    <tr>
+                      <td colspan="3">
+                        <p>
+                          <small class="form-text"><%= t('spree.delivery_message_for_personalized_product') %></small>
+                        </p>                        
+                      </td>
+                    </tr>
+                  <% end %>  
+                  </tfoot>
                 </table>                
+
                 <div class="form-buttons subsection-sm text-right" data-hook="buttons">
                  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-info' %>
                 </div>                

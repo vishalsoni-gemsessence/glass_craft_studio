@@ -670,6 +670,8 @@ zh-HK:
     delete: "刪除"
     deleted_variants_present:
     delivery: "抵達"
+    delivery_message_for_personalized_product: "對於個人化的訂製產品，請在快遞公司估計之航運日數上，再預算2-3週 (10-15 個工作天) 的時間進行生產, 質量控制 (QC) 及安排運送。"    
+    delivery_message_for_personalized_product_with_estimated_date: "預計抵達日期: %{from_date} 至 %{to_date}"
     depth: "深"
     description: "描述"
     destination: "目的地"
@@ -1505,7 +1507,8 @@ zh-HK:
     formats:
       solidus:
         long: '%Y年%b%d日 %p%-l:%M'
-        short: "%b %-d '%y %-l:%M%P"
+        short: "%b %-d '%y %-l:%M%P"        
+      estimated_date: "%Y年%b%e日"
   top_header:
     welcome: "歡迎"
     my_account: "我的賬號"

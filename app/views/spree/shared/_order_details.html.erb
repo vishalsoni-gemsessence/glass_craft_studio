@@ -103,6 +103,19 @@
               <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
               <td class="total"><span id="order_total"><%= order.display_order_total_after_store_credit.to_html %></span></td>
             </tr>
+          <%#= if @order.has_personalized_product? %>  
+            <tr>
+              <td colspan="4" class="text-right">
+                <p>
+                  <% min_estimated_arrival_date = l order.min_estimated_arrival_date, format: :estimated_date %>
+                  <% max_estimated_arrival_date = l order.max_estimated_arrival_date, format: :estimated_date %>
+                  <strong class="form-text">
+                    <%= t('spree.delivery_message_for_personalized_product_with_estimated_date', from_date: min_estimated_arrival_date, to_date: max_estimated_arrival_date) %>
+                  </strong>
+                </p>                        
+              </td>
+            </tr>
+          <%# end %>              
           </tfoot>
 
           <tfoot id="subtotal" data-hook="order_details_subtotal">
@@ -248,21 +261,14 @@
     <div class="col-md-8">
       <div class="table-responsive-md">
         <table id='line-items' class="table table-hover table-confirm-order" data-hook="order_details">
-          <!-- <col width="15%" valign="middle" halign="center"> -->
-        <!--   <col width="70%" valign="middle">
-          <col width="10%" valign="middle" halign="center">
-          <col width="10%" valign="middle" halign="center">
-          <col width="10%" valign="middle" halign="center"> -->
-
           <thead data-hook>
             <tr data-hook="order_details_line_items_headers">
-              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.item') %></th>
+              <th width="52%" scope="col" class="text-uppercase"><%= t('spree.item') %></th>
               <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
               <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th>
-              <th width="15%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
+              <th width="18%" class="total text-uppercase" scope="col"><span><%= t('spree.total') %></span></th>
             </tr>
           </thead>
-
           <tbody data-hook>
             <% order.line_items.each do |item| %>
               <tr data-hook="order_details_line_item_row">
@@ -310,6 +316,16 @@
               <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
               <td class="total"><span id="order_total"><%= order.display_order_total_after_store_credit.to_html %></span></td>
             </tr>
+          <% if @order.has_personalized_product? %>  
+            <tr>
+              <td colspan="4">
+                <p>
+                  <small class="form-text"><%= t('spree.delivery_message_for_personalized_product') %></small>
+                </p>                        
+              </td>
+            </tr>
+          <% end %>  
+            
           </tfoot>
 
           <tfoot id="subtotal" data-hook="order_details_subtotal">

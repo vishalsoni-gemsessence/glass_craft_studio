@@ -75,12 +75,11 @@
     <div class="col-md-6">
       <div class="table-responsive">
         <table class="stock-contents table table-hover" data-hook="stock-contents" style="min-width: 500px">
-        <!-- <table class="table-payment table table-hover" style="min-width: 500px"> -->
           <thead>
             <tr>
               <th width="65%" align='left' scope="col" class="text-uppercase"><%= t('spree.item') %></th>
-              <th scope="col" class="text-uppercase"><%= t('spree.qty') %></th>
-              <th scope="col"><%= t('spree.price') %></th>
+              <th width="10%" scope="col" class="text-uppercase"><%= t('spree.qty') %></th>
+              <th width="25%" scope="col"><%= t('spree.price') %></th>
             </tr>
           </thead>
           <tbody>
@@ -121,6 +120,15 @@
                 <h5><%= @order.display_total.to_html %></h5>
               </td>
             </tr>
+          <% if @order.has_personalized_product? %>  
+            <tr>
+              <td colspan="3">
+                <p>
+                  <small class="form-text"><%= t('spree.delivery_message_for_personalized_product') %></small>
+                </p>                        
+              </td>
+            </tr>
+          <% end %>              
           </tfoot>
         </table>
         <div class="form-buttons subsection-sm text-right" data-hook="buttons">

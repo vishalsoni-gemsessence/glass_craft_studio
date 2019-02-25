@@ -86,7 +86,7 @@ en:
       shipped_email:
         dear_customer: Dear Customer,
         instructions_hong_kong_html: Your GlassXpert order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
-        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the statis via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the status via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
         shipment_summary: Shipment Summary
         subject: order is on its way
         thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
@@ -129,6 +129,8 @@ en:
     coupon_code: "Promotion Code"
     current_order: Current Order
     current_order_summary: "current order summary"
+    delivery_message_for_personalized_product: "For personalized products, please expect 2-3 weeks (10-15 working days) for production, quality control (QC) and arrange delivery on top of the estimated shipping days by the courier."
+    delivery_message_for_personalized_product_with_estimated_date: "Estimated arrival date: %{from_date} to %{to_date}"
     description: "Description"
     dimensions: "Package Dimensions"
     dimensions_unit_mm: "mm"
@@ -220,6 +222,9 @@ en:
     zip: Postal Code / ZIP
   stock_location:
     hkw: "Hong Kong Warehouse"
+  time:
+    formats:
+      estimated_date: "%e %B %Y"
   top_header:
     welcome: Welcome
     my_account: My Account

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="subsection text-center text-white">
       <h4 class="fw900 text-uppercase"><%= "#{t('spree.order_mailer.your')} #{@order.store.name} #{t('spree.order_mailer.confirm_email.subject')}" %></h4>
-      <h6><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h6>
+      <h5><%= "#{@order.store.name} #{t('order.order_number')}: ##{@order.number}" %></h5>
     </div>    
     <div class="confirmation-container">
       <div class="table-responsive">
@@ -10,20 +10,20 @@
           <tbody>
             <tr>
               <td>
-                <h6>
+                <h5>
                   <%= t('.dear_customer') %>
-                </h6>
-                <h6>
-                <% if @order.has_personalized_product %>
+                </h5>
+                <h5>
+                <% if @order.has_personalized_product? %>
                   <%= t('.personalized_instructions_html') %>
                 <% else %>
                   <%= t('.instructions_html') %>
                 <% end %>  
-                </h6>
+                </h5>
                 <br>
-                <h6>
+                <h5>
                   <%= t('.thanks_html') %>
-                </h6>
+                </h5>
               </td>
               <td class="expander"></td>
             </tr>

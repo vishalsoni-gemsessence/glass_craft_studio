@@ -11,6 +11,9 @@ Spree::OrderMailer.class_eval do
     mail(to: @order.email, from: from_address(@store), subject: subject)
 
     I18n.locale = current_locale
+    
+    headers['sender'] = nil
+    headers['sender'] = @store.mail_from_address
   end
 
   def confirm_email_to_staffs(order)
@@ -27,6 +30,8 @@ Spree::OrderMailer.class_eval do
 
     I18n.locale = current_locale
 
+    headers['sender'] = nil
+    headers['sender'] = @store.mail_from_address
   end
 
   def cancel_email(order, resend = false)
@@ -43,6 +48,8 @@ Spree::OrderMailer.class_eval do
 
     I18n.locale = current_locale
 
+    headers['sender'] = nil
+    headers['sender'] = @store.mail_from_address
   end
 
   def inventory_cancellation_email(order, inventory_units, resend = false)
@@ -57,6 +64,9 @@ Spree::OrderMailer.class_eval do
     mail(to: @order.email, from: from_address(@store), subject: subject)
 
     I18n.locale = current_locale
+
+    headers['sender'] = nil
+    headers['sender'] = @store.mail_from_address
   end
 
   private
