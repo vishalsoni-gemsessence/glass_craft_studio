@@ -19,7 +19,7 @@ module Spree
     
     validates_attachment :file, 
       content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }, 
-      size: { in: 0..10.megabytes }
+      size: { in: 0..20.megabytes }
 
     validates_presence_of :name, :email, :subject, :message
 

@@ -565,7 +565,7 @@ zh-HK:
     contact_form:
       images:
         label: "沒有選擇檔案"
-        placeholder: "支持10MB以下的JPG，PNG和GIF檔案"
+        placeholder: "支持20MB以下的JPG，PNG和GIF檔案"
     contact_mailer:
       notify_email:
         dear_team: "Dear team,"

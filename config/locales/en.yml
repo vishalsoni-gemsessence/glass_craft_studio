@@ -98,7 +98,7 @@ en:
     contact_form:
       images:
         label: No file chosen
-        placeholder: Support JPG, PNG and GIF under 10MB
+        placeholder: Support JPG, PNG and GIF under 20MB
     contact_mailer:
       notify_email:
         dear_team: "Dear team,"
