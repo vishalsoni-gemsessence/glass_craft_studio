@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 2c75e4a6db0638891d606906778a5c33566cb50b
+  revision: 9885296b6344910d3436895f300652bbeff75409
   branch: master
   specs:
     solidus_on_demand_products (0.0.2)
@@ -269,7 +269,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.1.0)
     minitest (5.11.3)
-    monetize (1.9.0)
+    monetize (1.9.1)
       money (~> 6.12)
     money (6.13.2)
       i18n (>= 0.6.4, <= 2)
