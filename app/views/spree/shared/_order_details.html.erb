@@ -103,9 +103,9 @@
               <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
               <td class="total"><span id="order_total"><%= order.display_order_total_after_store_credit.to_html %></span></td>
             </tr>
-          <%#= if @order.has_personalized_product? %>  
+          <%= if @order.has_personalized_product? %>
             <tr>
-              <td colspan="4" class="text-right">
+              <td colspan="4" class="text-left">
                 <p>
                   <% min_estimated_arrival_date = l order.min_estimated_arrival_date, format: :estimated_date %>
                   <% max_estimated_arrival_date = l order.max_estimated_arrival_date, format: :estimated_date %>
@@ -115,7 +115,7 @@
                 </p>                        
               </td>
             </tr>
-          <%# end %>              
+          <% end %>              
           </tfoot>
 
           <tfoot id="subtotal" data-hook="order_details_subtotal">
