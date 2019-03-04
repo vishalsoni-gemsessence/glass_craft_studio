@@ -103,7 +103,7 @@
               <td colspan="3"><b><%= t('spree.order_total') %>:</b></td>
               <td class="total"><span id="order_total"><%= order.display_order_total_after_store_credit.to_html %></span></td>
             </tr>
-          <%= if @order.has_personalized_product? %>
+          <% if @order.has_personalized_product? %>
             <tr>
               <td colspan="4" class="text-left">
                 <p>
