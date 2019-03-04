@@ -95,6 +95,9 @@ en:
     cart_subtotal: "Cart Subtotal"
     checkout: "Proceed to checkout"
     confirm_password: "Confirmation Password"
+    contact:
+      office_hong_kong: "GlassXpert & Design Hong Kong Office"
+      office_uk: "GlassXpert & Design UK Office and Showroom"
     contact_form:
       images:
         label: No file chosen

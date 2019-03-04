@@ -560,6 +560,9 @@ zh-HK:
     confirm: "確認"
     confirm_delete: "確認刪除"
     confirm_password: "確認密碼"
+    contact:
+      office_hong_kong: "玻璃設計館 GlassXpert＆Design Hong Kong Office"
+      office_uk: "玻璃設計館 GlassXpert & Design UK Office and Showroom"
     contacts: "聯絡"
     contact_details: "聯絡內容"
     contact_form:
