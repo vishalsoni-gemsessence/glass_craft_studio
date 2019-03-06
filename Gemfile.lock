@@ -151,6 +151,8 @@ GEM
       sshkit (~> 1.2)
     capistrano-faster-assets (1.1.0)
       capistrano (>= 3.1)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -494,8 +496,10 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  capistrano
   capistrano-bundler
   capistrano-faster-assets
+  capistrano-passenger
   capistrano-rails
   capistrano-rails-collection
   capistrano-rvm

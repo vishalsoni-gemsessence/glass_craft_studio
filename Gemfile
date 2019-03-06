@@ -11,7 +11,10 @@ gem 'rails', '~> 5.1.0'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+group :development do
+  gem 'puma', '~> 3.7'
+end
+
 group :staging do
   gem 'unicorn'
 end
@@ -98,9 +101,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Use Capistrano for deployment
+  gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
   gem 'capistrano3-unicorn'
   gem 'capistrano-faster-assets'
   gem 'capistrano-rails-collection'
