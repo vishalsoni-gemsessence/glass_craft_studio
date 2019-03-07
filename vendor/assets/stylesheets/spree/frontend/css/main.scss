@@ -11699,7 +11699,7 @@ select.form-control:not([multiple]) {
   background-position: 95% 50%;
   background-repeat: no-repeat;
   background-size: 9px;
-  background-image: url(../tpl/form-select-arrow.png);
+  background-image: image-url("spree/frontend/tpl/form-select-arrow.png");
 }
 
 .form-control.number {
@@ -12056,7 +12056,7 @@ hr {
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #E8E8E8;
-  background-image: url(../img/media/template-home-section-bg.jpg);
+  //background-image: url(../img/media/template-home-section-bg.jpg);
   /*max-width: 767px END*/
 }
 
