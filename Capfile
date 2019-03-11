@@ -34,7 +34,7 @@ require "capistrano/rails/migrations"
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
 require 'capistrano3/unicorn'
-require 'capistrano/passenger'
+# require 'capistrano/passenger'
 require 'capistrano/rails/collection'
 require 'capistrano/faster_assets'
 
