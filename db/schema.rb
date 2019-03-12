@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190104120904) do
+ActiveRecord::Schema.define(version: 20190311092306) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -160,6 +160,18 @@ ActiveRecord::Schema.define(version: 20190104120904) do
     t.index ["viewable_type", "type"], name: "index_assets_on_viewable_type_and_type"
   end
 
+  create_table "spree_backgrounds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_calculators", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "type"
     t.string "calculable_type"
@@ -229,6 +241,10 @@ ActiveRecord::Schema.define(version: 20190104120904) do
     t.integer "file_file_size"
     t.datetime "file_updated_at"
     t.string "reference_number", limit: 32
+    t.string "name"
+    t.string "subject"
+    t.text "message"
+    t.string "slug"
     t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 
@@ -273,6 +289,8 @@ ActiveRecord::Schema.define(version: 20190104120904) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_gallery_uploaded_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1164,6 +1182,8 @@ ActiveRecord::Schema.define(version: 20190104120904) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_stock_items", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1474,6 +1494,9 @@ ActiveRecord::Schema.define(version: 20190104120904) do
     t.integer "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.string "background_color"
+    t.string "name"
+    t.string "description"
+    t.string "slug"
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
