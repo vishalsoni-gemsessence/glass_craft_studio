@@ -41,7 +41,7 @@
             <% variant_product = item.variant.product %>
             <% product_image = variant_product.display_image %>
               <tr>
-                <td width="55%">
+                <td width="50%">
                   <div class="row">
                     <div class="col-3">
                       <% if item.variant.images.empty? %>
@@ -77,7 +77,8 @@
                     </div>
                   </div>
                 </td>
-                <td width="45%" class="total"><%= item.display_amount.to_html %></td>
+                <td width="15%" class="total"><%= item.display_amount.to_html %></td>
+                <td width="15%"><%= link_to t('spree.actions.download'), product_download_image_url(variant_product, product_image), no_text: true %></td>
               </tr>
 
               <% if variant_product.is_personalize_product %>  
@@ -85,7 +86,7 @@
                 <% if product_pictures.present? %>
                   <% product_pictures.each do |picture| %>
                     <tr>
-                      <td width="55%">
+                      <td width="50%">
                         <div class="row">
                           <div class="col-3">
                             <div class="product-img">
@@ -98,7 +99,8 @@
                           </div>
                         </div>
                       </td>
-                      <td width="45%" ><%= link_to t('spree.actions.download'), download_product_product_picture_url(variant_product, picture), no_text: true %></td>
+                      <td width="15%"></td>
+                      <td width="15%" ><%= link_to t('spree.actions.download'), download_product_product_picture_url(variant_product, picture), no_text: true %></td>
                     </tr>
                   <% end %>
                 <% end %>
@@ -111,7 +113,7 @@
                         <h5>Product Text Content</h5>
                         <%= text.text_content %>
                       </td>
-                      <td width="45%">
+                      <td colspan="2" width="45%">
                       <% if text.rotate.present? %>
                         <span><%= t('spree.rotate') %> | <%= text.rotate %></span></br>
                       <% end %>
