@@ -45,10 +45,10 @@
                   <div class="row">
                     <div class="col-3">
                       <% if item.variant.images.empty? %>
-                        <%= render('spree/shared/image', image: product_image, size: :small) %>
+                        <%= render('spree/shared/image', image: product_image, size: :original) %>
                       <% else %>
                         <div class="product-img">
-                          <%= render('spree/shared/image', image: item.variant.images.first, size: :small) %>
+                          <%= render('spree/shared/image', image: item.variant.images.first, size: :original) %>
                         </div>
                       <% end %>
                     </div>
@@ -78,10 +78,10 @@
                   </div>
                 </td>
                 <td width="15%" class="total"><%= item.display_amount.to_html %></td>
-                <td width="15%"><%= link_to t('spree.actions.download'), product_download_image_url(variant_product, product_image), no_text: true %></td>
+                <td width="15%"><%= link_to t('spree.actions.download'), product_download_image_url(variant_product, product_image, tablename: "images", fieldname: "attachment"), no_text: true %></td>
               </tr>
 
-              <% if variant_product.is_personalize_product %>  
+              <% if variant_product.is_personalize_product? %>
                 <% product_pictures = variant_product.product_pictures %>
                 <% if product_pictures.present? %>
                   <% product_pictures.each do |picture| %>
@@ -90,7 +90,7 @@
                         <div class="row">
                           <div class="col-3">
                             <div class="product-img">
-                              <%= render 'spree/admin/shared/product_images', image: picture, size: :small %>
+                              <%= render 'spree/admin/shared/product_images', image: picture, size: :original %>
                             </div>
                           </div>
                           <div class="col">
@@ -100,7 +100,7 @@
                         </div>
                       </td>
                       <td width="15%"></td>
-                      <td width="15%" ><%= link_to t('spree.actions.download'), download_product_product_picture_url(variant_product, picture), no_text: true %></td>
+                      <td width="15%" ><%= link_to t('spree.actions.download'), product_download_image_url(variant_product, picture, tablename: "product_pictures", fieldname: "product_image"), no_text: true %></td>
                     </tr>
                   <% end %>
                 <% end %>
