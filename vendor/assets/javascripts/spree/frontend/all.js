@@ -51,3 +51,5 @@
 //= require i18n/translations
 
 //= require spree/frontend/jQuery.scrollText.js
+
+//= require cookieBubble.js
