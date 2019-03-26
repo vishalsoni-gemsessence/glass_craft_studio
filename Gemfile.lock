@@ -1,9 +1,9 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 8c956241ad6ba66ccc7369771a0ad0a2ff182202
+  revision: 574f6144169085eb29c74866b3c022ef81b24730
   branch: master
   specs:
-    solidus_on_demand_products (0.0.2)
+    solidus_on_demand_products (0.0.3)
       solidus_core (~> 2.6.0)
 
 GIT
