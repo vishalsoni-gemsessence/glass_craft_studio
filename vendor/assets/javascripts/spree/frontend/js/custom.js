@@ -16,6 +16,7 @@ ready = function() {
   justifiedPhotoGallery();
   LoadAllGalleryPhotos();
   disableRightClickForImage();
+  displayActiveInactiveHeaderButtons();
 };
 
 $(document).ready(ready);
@@ -81,4 +82,30 @@ disableRightClickForImage = function(){
         event.preventDefault();
     });
   });
+}
+
+displayActiveInactiveHeaderButtons = function(){
+    $('.nav-item').click(function(){
+      removeActiveClass();
+      $(this).find('a').addClass('active');
+      activeAttr = $(this).find('a').attr('href');
+      localStorage.setItem('active-link-attr', activeAttr);
+    });
+    getAndAddActiveClassToNavItem();
+}
+
+removeActiveClass = function(){
+  $('.nav-link.active').removeClass('active');
+}
+
+getAndAddActiveClassToNavItem = function(){
+  var ele = localStorage.getItem('active-link-attr');
+  if(ele == null){
+    $('.nav-link.active').addClass('active');
+  }
+  else{
+    removeActiveClass();
+    $('.taxonomies li.nav-item a[href="'+ ele +'"]').addClass('active');
+    localStorage.clear();
+  }
 }
