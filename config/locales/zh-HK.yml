@@ -324,8 +324,8 @@ zh-HK:
     second_layer: 第二層水晶玻璃
     standard_sizes: "%{number_of_sizes}種尺碼及價格"
   home:
-    background: "背景"
-    background_text: "玻璃設計館GlassXpert & Design主要從事三種業務"
+    background: "玻璃設計館 GlassXpert & Design – 獨特而有聲望"
+    background_text: "玻璃設計館 GlassXpert 熱愛玻璃製品，我們在探索玻璃的創意及潛力中, 為您的設計造就了令人驚歎的基礎。我們專注於三個領域:"
     glass_gift_text: "尤其是個人化的玻璃相禮品"
     interior_decorative_glass_text: "室內裝修用之夹層裝飾玻璃及鏡子"
   interior_decorative_glass:
