@@ -29,12 +29,13 @@ en:
     message: Message
   footer:
     about_us: About Us
-    our_production: Our Production
     ask_questions: Frequently Asked Questions
-    terms_and_conditions: Terms and Conditions
+    cookie_policy: Cookie Policy
+    our_production: Our Production
     privacy_policy: Privacy Policy
     return_policy: Return Policy
     shipping_info: Shipping Info
+    terms_and_conditions: Terms and Conditions
   glassxpert_details:
     fax: Fax
     rights_reserved: All rights reserved.
