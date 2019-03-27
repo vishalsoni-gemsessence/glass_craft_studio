@@ -303,12 +303,13 @@ zh-HK:
     message: 信息
   footer:
     about_us: "關於我們"
-    our_production: "我們的生產"
     ask_questions: "經常問的問題"
-    terms_and_conditions: "條款和條件"
+    cookie_policy: "Cookie政策"
+    our_production: "我們的生產"
     privacy_policy: "隱私政策"
     return_policy: "換貨政策"
     shipping_info: "發貨信息"
+    terms_and_conditions: "條款和條件"
   glassxpert_details:
     fax: "傳真號碼"
     rights_reserved: 版權所有。
