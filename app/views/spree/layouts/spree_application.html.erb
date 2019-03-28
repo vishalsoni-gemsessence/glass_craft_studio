@@ -38,6 +38,9 @@
       <%= render partial: 'spree/shared/footer' %>
     <%# end %>
 
-    <%= render partial: 'spree/shared/cookie' %>    
+    <%= render partial: 'spree/shared/cookie' %> 
+    <script type="text/javascript">
+      window.I18n = <%= I18n.backend.send(:translations).to_json.html_safe %>
+    </script>
   </body>
 </html>
