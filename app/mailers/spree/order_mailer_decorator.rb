@@ -3,7 +3,8 @@ Spree::OrderMailer.class_eval do
   def confirm_email(order, resend = false)
     @order = order
     @store = @order.store
-
+    @customer_name = @order.user.full_name.present?? @order.user.full_name || I18n.t('spree.order_mailer.confirm_email.customer_name')
+    
     current_locale = I18n.locale
     set_locale_for_order_email(@order)
 
@@ -36,6 +37,7 @@ Spree::OrderMailer.class_eval do
 
   def cancel_email(order, resend = false)
     @order = order
+    @customer_name = @order.user.full_name.present?? @order.user.full_name || I18n.t('spree.order_mailer.confirm_email.customer_name')
 
     #received email language will be same for the same order
     current_locale = I18n.locale
@@ -55,6 +57,7 @@ Spree::OrderMailer.class_eval do
   def inventory_cancellation_email(order, inventory_units, resend = false)
     @order, @inventory_units = order, inventory_units
     @store = @order.store
+    @customer_name = @order.user.full_name.present?? @order.user.full_name || I18n.t('spree.order_mailer.confirm_email.customer_name')
 
     current_locale = I18n.locale
     set_locale_for_order_email(@order)

@@ -990,7 +990,8 @@ zh-HK:
       visit_our_store: "繼續購物"
       your: "您的"
       cancel_email:
-        dear_customer: "尊貴的客戶，"
+        customer: "客戶"
+        dear_customer: "尊貴的 %{customer_name}，"
         instructions: "您的訂單已被取消。請保留此取消信息記錄。"
         order_summary_canceled: "訂單總覽 [已取消]"
         subject: "訂單已被註銷"
@@ -998,7 +999,8 @@ zh-HK:
         total: ! '總金額:'
         thanks_html: 玻璃設計館(GlassXpert) 敬上<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
       confirm_email:
-        dear_customer: "尊貴的客戶，"
+        customer: "客戶"
+        dear_customer: "尊貴的 %{customer_name}，"
         instructions_html: "感謝您到我們的網站購物。 此電子郵件確認我們已收到您的訂單。 我們會在2至3 個工作天內將您的貨品安排運送到您提供的送貨地址。<br><br>我們會發送另一個電子郵件來確認貨品已經寄出，並附有追踪號碼及托運安排。"
         personalized_instructions_html: "感謝您到我們的網站購物。 此電子郵件確認我們已收到您的訂單。我們會在10至15個工作天內安排生產及品質檢查; 當我們的質檢團隊對您的產品感到滿意後，我們便會安排運送到您提供的送貨地址。如果您的訂單包含非訂製產品和訂製產品，我們將會在所有產品準備好後才一起運送。<br><br>我們會發送另一個電子郵件來確認貨品已經寄出，並附有追踪號碼及托運安排。"
         order_summary: "訂單總結"
@@ -1016,7 +1018,8 @@ zh-HK:
         thanks_html: "這是系統發出的訊息。"
         total: ! "訂單總金額:"
       inventory_cancellation_email:
-        dear_customer: "尊貴的客戶，"
+        customer: "客戶"
+        dear_customer: "尊貴的 %{customer_name}，"
         instructions: "您訂單內部份的產品已被取消。請保留此取消信息記錄。"
         order_summary_canceled: "取消訂單總覽"
         thanks_html: 玻璃設計館(GlassXpert) 敬上<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>

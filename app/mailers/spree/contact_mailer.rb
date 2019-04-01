@@ -11,6 +11,8 @@ module Spree
     
     def acknowledge_email(contact)
       @contact = contact
+      @customer_name = @contact.name.present?? @contact.name || I18n.t('spree.contact_mailer.acknowledge_email.customer_name')
+      
       mail( to: @contact.email, 
             from: store_from_address, 
             subject: email_subject(contact))      

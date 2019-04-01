@@ -6,7 +6,7 @@
           <tr>
             <td>
               <h4>
-                <%= t('.dear_customer') %>
+                <%= t('.dear_customer', customer_name: @customer_name) %>
               </h4>
               <h4>
               <% if @contact.contact_us_email.slug == 'customer-services-and-feedbacks' %>
