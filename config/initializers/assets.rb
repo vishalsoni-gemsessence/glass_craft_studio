@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w( spree/frontend/* )
 Rails.application.config.assets.precompile += %w( ckeditor/*)
 Rails.application.config.assets.precompile += %w( tinymce-jquery.js )
 Rails.application.config.assets.precompile += %w( solidus_admin/select2_locales/select2_locale_zh-HK.js )
+Rails.application.config.assets.precompile += %w( cookieBubble.js cookieBubble.css cookieBubble.eu.js )
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
