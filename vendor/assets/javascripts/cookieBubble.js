@@ -42,7 +42,7 @@
 			},
 			body: function() {
 				$("body").append(
-					'<div class="cookie-bubble '+box_visibility+ ' bottom-left">'+
+					'<div class="cookie-bubble '+box_visibility+ ' '+settings.boxPosition+'">'+
 						'<div class= "cb-wrapper">'+
 							'<div class="cb-row">'+
 								box_iconVisibility+
