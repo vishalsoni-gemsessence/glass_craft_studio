@@ -412,3 +412,5 @@ select#navbarDropdownLang:active {
   margin: 0px auto;
 }
 
+.cookie-bubble .cb-wrapper
+{ width: 100%; }
