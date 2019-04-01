@@ -1,4 +1,4 @@
-<% unless @current_country && @current_country.in_eu? %>
+<% if @current_country && @current_country.in_eu? %>
   <%= javascript_include_tag "cookieBubble.eu.js" %>
 <% else %>
   <%= javascript_include_tag "cookieBubble.js" %>
