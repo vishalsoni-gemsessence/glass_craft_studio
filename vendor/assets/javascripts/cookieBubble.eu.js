@@ -42,7 +42,7 @@
 			},
 			body: function() {
 				$("body").append(
-					'<div class="overlay">'+
+					'<div id="overlay" class="overlay">'+
   					'<div class="cookie-bubble '+box_visibility+ ' bottom-left">'+
   						'<div class= "cb-wrapper">'+
   							'<div class="cb-row">'+
@@ -112,16 +112,18 @@
 
 				if (get_cookie != "" && get_cookie != null) {
 					$('.cookie-bubble').removeClass('show').addClass('hide'); 
-					
+					document.getElementById("overlay").style.display = "none";
 			    } else {
 						setTimeout(function () {
 							$('.cookie-bubble').removeClass('hide').addClass('show');
+    					document.getElementById("overlay").style.display = "block";              
 						}, settings.boxAppearDelay);
 
 						var button = $('.cookie-bubble .agreement-btn'); 
 			    		button.click(function(event) {
 							cookieApp.setCookie(private_opt.cookieName, private_opt.cookieValue, settings.cookieMaxAge); 
 							$('.cookie-bubble').removeClass('show').addClass('hide'); 
+    					document.getElementById("overlay").style.display = "none";              
 					});
 			   }
 			}
