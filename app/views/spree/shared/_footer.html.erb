@@ -5,7 +5,9 @@
         <div class="subsection">
           <h5 class="bigger text-white"><%= t('glassxpert_details.glassxpert_design') %></h5>
           <p class="text-muted">&copy; <%= Date.current.year %>&nbsp;<%= t('glassxpert_details.glassxpert_design_company_limited') %>. <%= t('glassxpert_details.rights_reserved') %></p>
+        <% unless Rails.env.production? %>  
           <p class="text-muted">You are from <%= @current_country %> (<%= @current_ip_address %>).
+        <% end %>    
         </div>
       </div>
 
