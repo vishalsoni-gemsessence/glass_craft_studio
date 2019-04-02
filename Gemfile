@@ -57,8 +57,8 @@ gem 'solidus_prototypes'
 
 # Use solidus_on_demand_products to customize product
 # For development on local
-# gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', branch: "master"
-gem 'solidus_on_demand_products', path: '../image-editor-plugin'
+gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', branch: "master"
+# gem 'solidus_on_demand_products', path: '../image-editor-plugin'
 
 # For development on local
 gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "master"
