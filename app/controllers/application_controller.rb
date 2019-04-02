@@ -13,9 +13,12 @@ class ApplicationController < ActionController::Base
   end
   
   def detect_origin
-    remote_ip = request.remote_ip
-    results = Geocoder.search(remote_ip)
-    @current_country = Country.new(results.first.country)
-    @current_ip_address = remote_ip
+    @current_ip_address = request.remote_ip    
+    # results = Geocoder.search(@current_ip_address)
+    # @current_country = Country.new(results.first.country)
+    result = MAXMIND_DB.lookup(@current_ip_address)
+    if result.found?
+      @current_country = Country.new(result.country.iso_code)
+    end
   end
 end
