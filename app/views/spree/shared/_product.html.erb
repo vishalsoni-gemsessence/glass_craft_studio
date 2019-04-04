@@ -18,7 +18,8 @@
   <div class="gift-card-text">
     <% size = product.name.size %>
     <% if size > 31 %>
-      <%= link_to truncate_html(simple_format product.name[0..31] + '<br/>-' + product.name[32..size]), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>
+      <%#= link_to truncate_html(simple_format product.name[0..31] + '<br/>-' + product.name[32..size]), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>
+      <%= link_to truncate_html(simple_format product.display_product_name), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>
     <% else %>
       <%= link_to truncate_html(simple_format(product.name), length: 50), url, class: 'info gift-card-title', itemprop: "name", title: product.name %>              
     <% end %>
