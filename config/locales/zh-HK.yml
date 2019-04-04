@@ -1013,6 +1013,7 @@ zh-HK:
         instructions_html: "剛收到新訂單。 請檢查。"
         personalized_instructions_html: "剛收到新訂單。 請檢查。"
         order_summary: "訂單總結"
+        sku_product_code: "商品編號"
         subject: "訂單已被確認"
         subtotal: ! '小計金額:'
         thanks_html: "這是系統發出的訊息。"

@@ -194,6 +194,7 @@ span.subtotal-heading {
   display: block;
   width: 100%;
   height: auto;
+  padding-left: 10px;
 }
 .product-price{
   display: none;
@@ -325,17 +326,22 @@ div#thumbnails ul#product-thumbnails {
 div#thumbnails ul#product-thumbnails li {
   width: 70px;
   height: 70px;
-  border: 1px solid #3333334f;
+/*  border: 1px solid #3333334f;*/
   margin-bottom:  15px;
 }
 
 div#thumbnails ul#product-thumbnails li img {
   width: 100%;
   padding: 10px;
+  border: 1px solid #3333334f;
+}
+
+div#thumbnails ul#product-thumbnails li img:hover {
+  border: 1px solid #003959;
 }
 
 div#thumbnails ul#product-thumbnails li:hover {
-  border: 1px solid #003959;
+/*  border: 1px solid #003959;*/
 }
 
 div#main-image {

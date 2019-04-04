@@ -37,7 +37,7 @@
           <h5><%= "#{t('spree.order_mailer.order_summary')}"%></h5>
           <table class="table table-responsive table-hover" style="min-width: 500px">
             <tbody>
-          <% @order.line_items.each do |item| %>
+          <% @order.line_items.each_with_index do |item, i| %>
             <% variant_product = item.variant.product %>
             <% product_image = variant_product.display_image %>
               <tr>
@@ -55,7 +55,8 @@
                     <div class="col">
                       <h5><%= variant_product.name %></h5>
                       <%= item.variant.options_text %>
-                      <span><%= t('spree.quantity') %> x <%= item.quantity %></span><br>
+                      <div><strong><%= t('spree.item')%>&nbsp;<%= i+1 %></strong></div>
+                      <div><%= t('spree.quantity') %> x <%= item.quantity %></div>
                       <% if item.insufficient_stock? %>
                         <span class="out-of-stock">
                           <%= item.variant.sku %> |
@@ -63,14 +64,14 @@
                         </span>
                       <% else %>
                         <span class="in-stock">
-                          <%= item.variant.sku %><br />
+                          <%= t('.sku_product_code') %>: <%= item.variant.sku %><br />
                         </span>                                              
                       <% end %>
                       <span><%= product_image.attachment_width %> x <%= product_image.attachment_height %></span>
                       <% variant_product.product_properties.each do |product_property| %>
                         <% if product_property.property.presentation == t('spree.factory_code') || product_property.property.presentation == 'Factory Code' %>
                            <span>
-                            <%= product_property.value %>
+                            <strong><%= product_property.property.presentation %>: <%= product_property.value %></strong>
                           </span>
                         <% end %>
                       <% end %>

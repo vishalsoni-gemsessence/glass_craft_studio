@@ -152,6 +152,7 @@ en:
       this_file_language: Eng
     in_stock: "In Stock"
     insurance: "Shipping Insurance"
+    item: "Item"
     know_more: Know More
     load_more: Load More
     login: "SIGN IN"
@@ -196,6 +197,7 @@ en:
         instructions_html: There is a new order. Pleas check the order.
         personalized_instructions_html: There is a new order. Pleas check the order.
         order_summary: Order Summary
+        sku_product_code: "SKU/Product Code"
         subject: order has been confirmed
         subtotal: ! 'Subtotal:'
         thanks_html: This is system-generated message.
