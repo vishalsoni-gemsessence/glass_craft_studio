@@ -1,5 +1,11 @@
 <% address = current_order.ship_address %>
 <% state = address.state.present?? address.state.name : '' %>
+<% locale = 'en_US' %>
+<% 
+  if I18n.locale.present? && I18n.locale == 'zh-HK' 
+    locale = 'zh_HK'
+  end
+%>
 
 <div id="paypal-button" class="text-left"></div>
 
@@ -19,6 +25,7 @@
     enableShippingAddress: true,
     shippingAddressOverride: address,
     shippingAddressEditable: false,
+    locale: '<%= locale %>',
     environment: '<%= Rails.env.production? ? "production" : "sandbox" %>'
   }
   var button = new SolidusPaypalBraintree.createPaypalButton(document.querySelector("#paypal-button"), paypalOptions);

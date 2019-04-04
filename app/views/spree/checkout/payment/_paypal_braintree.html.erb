@@ -6,6 +6,12 @@
   <fieldset class="braintree-hosted-fields" data-braintree-hosted-fields data-id="<%= id %>">
     <%= render "spree/shared/braintree_hosted_fields", id: id %>
   </fieldset>
+  <p class="text-left">
+    <small class="form-text">
+      <%=h t('payment.credit_card_instruction_html')%>
+    </small>
+  </p>
+  
 <% end %>
 
 <% if current_store.braintree_configuration.paypal? %>
