@@ -151,6 +151,8 @@ en:
       locals:
           displayed_on_frontend_select_box: displayed on frontend select box
       this_file_language: Eng
+    image_dimension: "Image Dimension"
+    image_dimension_pixel_unit: "px"    
     in_stock: "In Stock"
     insurance: "Shipping Insurance"
     item: "Item"

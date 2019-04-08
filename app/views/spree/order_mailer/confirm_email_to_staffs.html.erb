@@ -44,6 +44,7 @@
                 <td width="50%">
                   <div class="row">
                     <div class="col-3">
+                      <div><strong><%= t('spree.item')%>&nbsp;<%= i+1 %></strong></div>                      
                       <% if item.variant.images.empty? %>
                         <%= render('spree/shared/image', image: product_image, size: :small) %>
                       <% else %>
@@ -55,7 +56,6 @@
                     <div class="col">
                       <h5><%= variant_product.name %></h5>
                       <%= item.variant.options_text %>
-                      <div><strong><%= t('spree.item')%>&nbsp;<%= i+1 %></strong></div>
                       <div><%= t('spree.quantity') %> x <%= item.quantity %></div>
                       <% if item.insufficient_stock? %>
                         <span class="out-of-stock">
@@ -64,14 +64,15 @@
                         </span>
                       <% else %>
                         <span class="in-stock">
-                          <%= t('.sku_product_code') %>: <%= item.variant.sku %><br />
+                          <%= t('.sku_product_code') %> : <%= item.variant.sku %><br />
                         </span>                                              
                       <% end %>
-                      <span><%= product_image.attachment_width %> x <%= product_image.attachment_height %></span>
+                      <span>
+                        <%= t('spree.image_dimension') %> : <%= product_image.attachment_width %><%= t('spree.image_dimension_pixel_unit') %> x <%= product_image.attachment_height %><%= t('spree.image_dimension_pixel_unit') %></span><br>
                       <% variant_product.product_properties.each do |product_property| %>
                         <% if product_property.property.presentation == t('spree.factory_code') || product_property.property.presentation == 'Factory Code' %>
                            <span>
-                            <strong><%= product_property.property.presentation %>: <%= product_property.value %></strong>
+                            <strong><%= product_property.property.presentation %> : <%= product_property.value %></strong>
                           </span>
                         <% end %>
                       <% end %>
@@ -95,7 +96,8 @@
                             </div>
                           </div>
                           <div class="col">
-                            <span><%= picture.product_width %> x <%= picture.product_height %></span><br>
+                            <span>
+                              <%= t('spree.image_dimension') %> : <%= picture.product_width %><%= t('spree.image_dimension_pixel_unit') %> x <%= picture.product_height %><%= t('spree.image_dimension_pixel_unit') %></span><br>
                             <span><%= t('spree.resize') %> : <%= picture.custom_width %>, <%= t('spree.opacity') %> : <%= picture.opacity %></span>
                           </div>
                         </div>

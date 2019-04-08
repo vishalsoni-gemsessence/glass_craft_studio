@@ -792,6 +792,8 @@ zh-HK:
     icon: "圖示"
     identifier:
     image: "圖片"
+    image_dimension: "圖片大小"
+    image_dimension_pixel_unit: "px"    
     images: "圖片"
     implement_eligible_for_return:
     implement_requires_manual_intervention:
