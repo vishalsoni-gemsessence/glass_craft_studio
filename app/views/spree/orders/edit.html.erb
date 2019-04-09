@@ -15,61 +15,9 @@
     <% else %>
 
       <div data-hook="outside_cart_form">
-        <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
-          <div data-hook="inside_cart_form">
-
-            <div data-hook="cart_items">
-              <%= render 'form', order_form: order_form %>
-            </div>
-
-            <div class="links alpha omega" data-hook="cart_buttons">
-              <div class="row">
-                <div class="col-lg-6">
-                 <div id="empty-cart" data-hook style="margin: 0px;  ">
-                  <i class="fa fa-angle-left mr-2" aria-hidden="true"></i>
-                    <%= link_to t('spree.continue_shopping'), spree.root_path, class: 'continue button gray btn-empty-cart ' %>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group row">
-                    <div class="col-md-3"></div>
-                    <label class="col-md-4 col-form-label text-center" for="couponCode"><%= t('spree.coupon_code') %>:</label>
-                    <div class="col-md-5">
-                      <%= order_form.text_field :coupon_code, size: 10, class: 'form-control' %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cart-total subsection no-background">
-                <div class="row">
-                  <div class="col-lg-6 offset-lg-6">
-                    <div class="row">
-                      <div class="col-md-4 offset-md-3">
-                        <p class="fw900 text-center"><%= t('spree.total') %></p>
-                      </div>
-                      <div class="col-md-5">
-                        <p class="text-center"><%= @order.display_total %></p>
-                      </div>
-                    </div>
-                  </div>
-                  <!--/col-->
-                </div>
-              </div>
-              <div class="subsection-sm text-left-sm text-right">
-                <%= button_tag class: 'btn btn-info', id: 'update-button' do %>
-                  <%= t('spree.update') %>
-                <% end %>
-                <%= button_tag class: 'button checkout btn btn-info', id: 'checkout-link', name: 'checkout' do %>
-                  <%= t('spree.checkout') %>
-                <% end %>
-              </div>
-
-
-            </div>
-
-          </div>
-        <% end %>
+        <div class='cart-form-1'>
+          <%= render partial: 'cart_form' %>
+        </div>
         <%= form_tag empty_cart_path, method: :put, class: "cart-empty-frm" do %>
             <div id="clear_cart_link" data-hook>
               <%= submit_tag t('spree.empty_cart'), class: 'gray btn-empty-cart button checkout btn btn-info' %>

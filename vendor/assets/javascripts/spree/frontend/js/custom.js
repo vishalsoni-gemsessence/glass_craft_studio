@@ -17,10 +17,42 @@ ready = function() {
   LoadAllGalleryPhotos();
   disableRightClickForImage();
   displayActiveInactiveHeaderButtons();
+  updateCartOnUpdateQuantity();
+  abc();
 };
 
 $(document).ready(ready);
 // $(document).on('turbolinks:load', ready);
+
+updateCartOnUpdateQuantity = function(){
+  $('.line_item_quantity').on('change', function(){
+    test(this);
+  });
+}
+
+abc = function(){
+  $('.number-wrap').on('click', '.arrow', function(){
+    var dom = $(this).siblings('.line_item_quantity');
+    test(dom);
+  });
+}
+
+test = function(dom){
+  var cartItemQuantity = $(dom).parent().parent('[data-hook="cart_item_quantity"]');
+  var cartItemPrice = cartItemQuantity.siblings('[data-hook="cart_item_price"]');
+  var cartItemTotal = cartItemQuantity.siblings('[data-hook="cart_item_total"]');
+  var productQuantity = $(dom).val();
+
+  cartItemUnitPrice = cartItemPrice.html().trim().split("nbsp;")[1];
+  cartItemUnitPrice = cartItemUnitPrice.replace(',', '');
+
+  cartItemTotal.empty();
+  cartItemTotalValue = Number(cartItemUnitPrice) * Number(productQuantity);
+  cartItemTotal.html('HKD' + ' ' + cartItemTotalValue.toFixed(2));
+  
+  $('#update-cart').attr('data-remote', true);
+  $('#update-button').trigger('click');
+}
 
 function scrollContactsForm(){
   target = $("#new_contact");
