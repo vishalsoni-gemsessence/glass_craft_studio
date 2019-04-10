@@ -18,7 +18,7 @@ ready = function() {
   disableRightClickForImage();
   displayActiveInactiveHeaderButtons();
   updateCartOnUpdateQuantity();
-  abc();
+  bindUpQuantityChangevEventOnClickArrows();
 };
 
 $(document).ready(ready);
@@ -26,18 +26,18 @@ $(document).ready(ready);
 
 updateCartOnUpdateQuantity = function(){
   $('.line_item_quantity').on('change', function(){
-    test(this);
+    updateCart(this);
   });
 }
 
-abc = function(){
+bindUpQuantityChangevEventOnClickArrows = function(){
   $('.number-wrap').on('click', '.arrow', function(){
     var dom = $(this).siblings('.line_item_quantity');
-    test(dom);
+    updateCart(dom);
   });
 }
 
-test = function(dom){
+updateCart = function(dom){
   var cartItemQuantity = $(dom).parent().parent('[data-hook="cart_item_quantity"]');
   var cartItemPrice = cartItemQuantity.siblings('[data-hook="cart_item_price"]');
   var cartItemTotal = cartItemQuantity.siblings('[data-hook="cart_item_total"]');
