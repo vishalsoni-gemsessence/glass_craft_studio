@@ -324,10 +324,10 @@ div#thumbnails ul#product-thumbnails {
 }
 
 div#thumbnails ul#product-thumbnails li {
-  width: 70px;
-  height: 70px;
+/*  width: 70px;*/
+/*  height: 70px;*/
 /*  border: 1px solid #3333334f;*/
-  margin-bottom:  15px;
+  margin-bottom:  5px;
 }
 
 div#thumbnails ul#product-thumbnails li img {
