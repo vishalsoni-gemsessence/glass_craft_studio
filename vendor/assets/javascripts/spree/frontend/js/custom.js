@@ -18,7 +18,6 @@ ready = function() {
   disableRightClickForImage();
   displayActiveInactiveHeaderButtons();
   updateCartOnUpdateQuantity();
-  bindUpQuantityChangevEventOnClickArrows();
 };
 
 $(document).ready(ready);
@@ -27,13 +26,6 @@ $(document).ready(ready);
 updateCartOnUpdateQuantity = function(){
   $('.line_item_quantity').on('change', function(){
     updateCart(this);
-  });
-}
-
-bindUpQuantityChangevEventOnClickArrows = function(){
-  $('.number-wrap').on('click', '.arrow', function(){
-    var dom = $(this).siblings('.line_item_quantity');
-    updateCart(dom);
   });
 }
 

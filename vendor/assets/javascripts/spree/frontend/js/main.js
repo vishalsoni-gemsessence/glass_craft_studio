@@ -70,6 +70,7 @@ $(document).ready(function() {
 			if ($(this).hasClass('up')) { var op = +1;} else {var op = -1;}
 			if (!(min==value && op == -1) && !(max==value && op == +1)) {
 					input.attr('value', value + op)
+					input.trigger('change')
 			}
 		})
 	});
