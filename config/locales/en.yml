@@ -84,6 +84,7 @@ en:
         contact_us_emails: "Email Setting"
         locals: Locals
     availability: "Availability"
+    backorder_stock_message: "This product is running out of stock, we can proceed with your order but there is an extra 2-3 weeks for production."
     carton_mailer:
       shipped_email:
         dear_customer: Dear Customer,
@@ -157,6 +158,7 @@ en:
     insurance: "Shipping Insurance"
     item: "Item"
     know_more: Know More
+    left_in_stock: "%{total_on_hand} left in stock"
     load_more: Load More
     login: "SIGN IN"
     logout: "SIGN OUT"
