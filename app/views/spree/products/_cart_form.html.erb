@@ -31,19 +31,29 @@
     </div>
 
     <div class="subsection-sm">
-      <div data-hook="product_price">
-        <div class="add-to-cart subsection-sm">
+      <div data-hook="product_quantity" class="row">
+        <div class="add-to-cart subsection-sm col-md-6">
           <h5 class="bigger text-uppercase"><%= t('spree.quantity') %></h5>
           <div class="subsection-sm">
             <div class="form-group">
               <div class="number-wrap">
                 <%= image_tag 'spree/frontend/tpl/icon-minus.png', class: 'arrow down' %>
-                <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 9 %>
+                <%= text_field_tag :quantity, 1, class: 'title number mb-0 form-control', min: 1, max: 100 %>
                 <%= image_tag 'spree/frontend/tpl/icon-plus.png', class: 'arrow up' %>
               </div>
             </div>
           </div>
-
+        </div>
+        <div class="add-to-cart subsection-sm text-right col-md-6">
+      <% if @product.master.can_supply? %>
+          <%= button_tag class: 'btn btn-info', id: 'add-to-cart-button', type: :submit do %>
+            <%= t('spree.add_to_cart') %>
+          <% end %>
+      <% else %>
+        <p class="text-lg fw700 text-right">
+          <span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %>
+        </p>
+      <% end %>  
         </div>
       </div>
     </div>
@@ -61,21 +71,15 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="subsection-sm">
-              <% if @product.master.can_supply? %>
+              <%# if @product.master.can_supply? %>
                 <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p>
-              <% elsif @product.variants.empty? %>
-                <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %></p>
-              <% end %>
+              <%# elsif @product.variants.empty? %>
+                <p class="text-lg fw700"><span class="out-of-stock text-muted-darken"><%#= t('spree.availability') %>: </span><%#= t('spree.out_of_stock') %></p>
+              <%# end %>
             </div>
-          </div>
-        </div>
-        <div class="add-to-cart subsection-sm text-right">
-          <%#= number_field_tag :quantity, 1, class: 'title', min: 1 %>
-          <%= button_tag class: 'btn btn-info', id: 'add-to-cart-button', type: :submit do %>
-            <%= t('spree.add_to_cart') %>
-          <% end %>
+          </div> -->
         </div>
       </div>
     <% else %>
