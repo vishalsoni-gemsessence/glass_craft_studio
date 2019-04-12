@@ -1,5 +1,9 @@
 <% if @current_country && @current_country.in_eu? %>
-  <%= javascript_include_tag "cookieBubble.eu.js" %>
+  <% if @current_country.alpha2 == "GB" %>
+    <%= javascript_include_tag "cookieBubble.js" %>
+  <% else %>  
+    <%= javascript_include_tag "cookieBubble.eu.js" %>
+  <% end %>  
 <% else %>
   <%= javascript_include_tag "cookieBubble.js" %>
 <% end %>  
@@ -16,7 +20,7 @@
         cookiePolicyButtonUrl:'/cookies',
         cookiePolicyButtonTarget:'_blank',
         boxPosition:'bottom-right',
-        messageText:'<h2 class="text-primary fw900">Welcome to GlassXpert & Design Website</h2><p>In order to give you the best user experience, GlassXpert & Design website uses cookies. Cookies can identify you as a unique user of the website. If you choose to disable Cookies, some areas of the Website may not work properly and / or your user experience may be adversely impacted. If you want to know more, please read GlassXpert & Design <a href="/cookies" target="_blank"><span class="text-underline"><strong>Cookie Policy</strong></span></a>. By clicking Accept, you consent to our use of cookies.</p>'
+        messageText:'<h4 class="text-primary">Welcome to GlassXpert & Design Website</h4><p class="text-sm">In order to give you the best user experience, GlassXpert & Design website uses cookies. Cookies can identify you as a unique user of the website. If you choose to disable Cookies, some areas of the Website may not work properly and / or your user experience may be adversely impacted. If you want to know more, please read GlassXpert & Design <a href="/cookies" target="_blank"><span class="text-underline"><strong>Cookie Policy</strong></span></a>. By clicking Accept, you consent to our use of cookies.</p>'
       });
   })(jQuery);
 </script>

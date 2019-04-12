@@ -31,7 +31,7 @@
 		}, options);
 
 		var box_visibility = private_opt.isVisible ? 'show' : 'hide';
-	  var box_iconVisibility = settings.iconVisibility ? '<div class="cb-image"><img src="/images/icons/icon-100x100.png"></div>' : '';
+	  var box_iconVisibility = settings.iconVisibility ? '<div class="cb-image"><img src="/images/icons/icon-80x80.png"></div>' : '';
 		var cookiePolicyTarget = settings.cookiePolicyButtonTarget === '_blank' || settings.cookiePolicyButtonTarget === '_self' ? settings.cookiePolicyButtonTarget : settings.cookiePolicyButtonTarget;
 
 		var cookieApp = {
