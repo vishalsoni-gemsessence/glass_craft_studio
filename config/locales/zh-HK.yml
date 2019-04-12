@@ -498,6 +498,7 @@ zh-HK:
     backorderable_header: "可預購"
     backorderable_default:
     backordered: "待補"
+    backorder_stock_message: "此產品已經缺貨, 我們可以繼續您的訂單, 但需要額外兩至三週的生產時間。"
     backorders_allowed: "已允許預購"
     balance_due: "未入帳"
     base_amount:
@@ -848,6 +849,7 @@ zh-HK:
     last_name: "姓"
     last_name_begins_with: "姓氏開頭"
     learn_more: Learn More
+    left_in_stock: "%{total_on_hand}件存貨"
     lifetime_stats:
     line_item_adjustments:
     list: "列表"
