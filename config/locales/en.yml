@@ -232,6 +232,8 @@ en:
     state: "State / Region"
     stores: "Stores"
     sub_total: "sub-total"
+    system_message: 
+      header: "Message"
     unit_price: "Unit Price"
     use_billing_address: "Use Billing Address as Shipping Address"
     weights_unit_kg: kg
