@@ -1411,6 +1411,8 @@ zh-HK:
     successfully_signed_up_for_analytics:
     successfully_updated: "更新%{resource}成功！"
     summary:
+    system_message:
+      header: "系統訊息"
     tax: "稅"
     tax_categories: "課稅類別"
     tax_category: "課稅類別"
