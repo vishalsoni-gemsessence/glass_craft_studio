@@ -23,4 +23,24 @@ Spree::Product.class_eval do
     end
     return final_name.strip
   end
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ['ID', 'Name', 'Description', 'Slug', 'Price', 'Available On', 'Meta Keywords', 'Tax Category Id', 'Shipping Category Id', 'Promotionable', 'Created At', 'Updated At'].flatten
+      all.each do |item|
+        csv << [item.id, 
+                item.try(:name), 
+                item.try(:description).try(:html_safe), 
+                item.slug, 
+                item.try(:price), 
+                item.try(:available_on), 
+                item.try(:meta_keywords), 
+                item.try(:tax_category_id), 
+                item.try(:shipping_category_id), 
+                item.try(:promotionable), 
+                item.created_at, 
+                item.updated_at].flatten
+      end
+    end
+  end
 end

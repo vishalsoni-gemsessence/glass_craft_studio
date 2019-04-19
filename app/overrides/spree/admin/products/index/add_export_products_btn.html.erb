@@ -1,0 +1,6 @@
+Deface::Override.new(
+  virtual_path: 'spree/admin/products/index',
+  name: 'add_product_export_list',
+  insert_before: "#new_product_wrapper",
+  partial:  "spree/admin/products/add_export_product"
+)
