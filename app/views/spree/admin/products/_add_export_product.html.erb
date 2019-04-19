@@ -1,1 +1,7 @@
-<%= link_to "Export", admin_products_path(format: "csv"), class: 'btn btn-primary testabc' %>
+<% content_for :page_actions do %>
+<li>
+  <%= link_to t('product.export'), admin_products_path(format: "csv"), class: 'btn btn-primary' %>
+</li>
+
+<% end if can?(:create, Spree::Template) %>
+
