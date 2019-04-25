@@ -2,7 +2,7 @@ Spree::Validations::DbMaximumLengthValidator.class_eval do
   ##
   # Validates a field based on the maximum length of the underlying DB field, if there is one.
   def validate(record)
-    return if @field.nil?
+    return if @field.nil? || record.class.columns_hash[@field].nil?
     Rails.logger.debug "======== [DbMaximumLengthValidator] Field: #{@field}."
     Rails.logger.debug "======== [DbMaximumLengthValidator] Record: #{record.class}."
     Rails.logger.debug "======== [DbMaximumLengthValidator] Column Hash: #{record.class.columns_hash[@field]}."
