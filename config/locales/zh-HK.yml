@@ -669,6 +669,7 @@ zh-HK:
       format: "%Y/%m/%d"
       js_format: yy/mm/dd
     date_range: "日期範圍"
+    ddp_handling_fee: "DDP Handling Fee"
     default: "預設"
     default_refund_amount:
     default_tax: "預設稅項"
@@ -798,6 +799,7 @@ zh-HK:
     images: "圖片"
     implement_eligible_for_return:
     implement_requires_manual_intervention:
+    import_tax_charge: "Import Tax Charge"
     inactive:
     incl:
     included_in_price: "已包括於售價"
