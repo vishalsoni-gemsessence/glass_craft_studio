@@ -34,6 +34,38 @@
     </td>
   </tr>
 <% end %>  
+<% if shipment.import_tax_charge > 0.0 %>
+  <tr class="adjustment">
+  <% if params["controller"] == "spree/orders" %>
+    <td colspan="6">
+  <% else %>
+    <td colspan="2">
+  <% end %>
+      <h5>
+        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.import_tax_charge') %>:
+      </h5>
+    </td>
+    <td>
+      <h5><%= shipment.display_import_tax_charge %></h5>
+    </td>
+  </tr>
+<% end %>
+<% if shipment.ddp_handling_fee > 0.0 %>
+  <tr class="adjustment">
+  <% if params["controller"] == "spree/orders" %>
+    <td colspan="6">
+  <% else %>
+    <td colspan="2">
+  <% end %>
+      <h5>
+        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.ddp_handling_fee') %>:
+      </h5>
+    </td>
+    <td>
+      <h5><%= shipment.display_ddp_handling_fee %></h5>
+    </td>
+  </tr>
+<% end %>  
 <!-- Any shipment related adjustment -->
 <% @order.shipment_adjustments.eligible.group_by(&:label).each do |label, adjustments| %>
   <% if adjustments.sum(&:amount) != 0 %>

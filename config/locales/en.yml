@@ -136,6 +136,7 @@ en:
     coupon_code: "Promotion Code"
     current_order: Current Order
     current_order_summary: "current order summary"
+    ddp_handling_fee: "DDP Handling Fee"
     delivery_message_for_personalized_product: "For personalized products, please expect 2-3 weeks (10-15 working days) for production, quality control (QC) and arrange delivery on top of the estimated shipping days by the courier."
     delivery_message_for_personalized_product_with_estimated_date: "Estimated arrival date: %{from_date} to %{to_date}"
     description: "Description"
@@ -156,6 +157,7 @@ en:
     image_dimension_pixel_unit: "px"    
     in_stock: "In Stock"
     insurance: "Shipping Insurance"
+    import_tax_charge: "Import Tax Charge"
     item: "Item"
     know_more: Know More
     left_in_stock: "%{total_on_hand} left in stock"
