@@ -26,21 +26,69 @@ Spree::Product.class_eval do
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << ['ID', 'Name', 'Description', 'Slug', 'Price', 'Available On', 'Meta Keywords', 'Tax Category Id', 'Shipping Category Id', 'Promotionable', 'Created At', 'Updated At'].flatten
-      all.each do |item|
-        csv << [item.id, 
-                item.try(:name), 
-                item.try(:description).try(:html_safe), 
-                item.slug, 
-                item.try(:price), 
-                item.try(:available_on), 
-                item.try(:meta_keywords), 
-                item.try(:tax_category_id), 
-                item.try(:shipping_category_id), 
-                item.try(:promotionable), 
-                item.created_at, 
-                item.updated_at].flatten
+      csv << [
+        'ID', 
+        'Name', 
+        'Slug', 
+        'Master Price',
+        'Cost Price',
+        'Available On',
+        'Promotionable',
+        'SKU',
+        'Product Dimension',
+        'Shipping Category',
+        'Tax Category',
+        'Taxons', 
+        'Option Types',
+        'Meta Title', 
+        'Meta Keywords',
+        'Meta Description',
+        'Product Properties',
+        'Created At',
+        'Updated At'].flatten
+      all.each do |product|
+        csv << [product.id, 
+          product.try(:name),
+          product.slug,
+          product.master.try(:price),
+          product.try(:cost_price),
+          product.try(:available_on), 
+          product.try(:promotionable),
+          product.sku,
+          product.get_product_dimension,
+          product.shipping_category.try(:name),
+          product.tax_category.try(:name),
+          product.get_taxons_name,
+          product.get_option_types,
+          product.meta_title,
+          product.try(:meta_keywords),
+          product.meta_description,
+          product.get_product_properties,
+          product.created_at, 
+          product.updated_at
+          ].flatten
       end
     end
   end
+
+  def get_product_dimension
+    "#{height} x #{width}"
+  end
+
+  def get_product_properties
+    properties = product_properties.map do |p| 
+      "#{p.property.name} : #{p.value}"
+    end
+    properties.map(&:inspect).join(', ')
+  end
+
+  def get_taxons_name
+    taxons.map{|taxon| taxon.taxonomy.name}.map(&:inspect).join(',')
+  end
+
+  def get_option_types
+    option_types.map{|a| a.name}.map(&:inspect).join(',')
+  end
 end
+
+
