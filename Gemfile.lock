@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 5c941c862306304d2a4b0e07c49e92af75def1b1
+  revision: f9758405b83b49f746260892a7a110f9f7254499
   branch: master
   specs:
     solidus_easyship (0.1.2.2)
@@ -298,8 +298,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    paranoia (2.4.1)
-      activerecord (>= 4.0, < 5.3)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     pnotify-rails (3.0.0)
     polyglot (0.3.5)
     pry (0.11.3)
