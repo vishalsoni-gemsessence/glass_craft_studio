@@ -49,31 +49,33 @@
                       </div>
                     </div>
                   </div>
-                <% if @product.master.can_supply? || @product.variants.empty? %>                  
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="subsection-sm">
-                        <div class="product-details">
-                          <% if @product.master.can_supply? %>
-                            <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
-                            <p class="text-lg fw700">
-                              <span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.left_in_stock', total_on_hand: @product.master.total_on_hand) %>
-                            </p>
-                            <% unless @product.master.in_stock? %>
-                              <p>
-                                <small class="form-text"><strong><%= t('spree.backorder_stock_message') %></strong></small>
-                              </p>                                                                                
-                            <% end %>
-                          <% elsif @product.variants.empty? %>
-                            <p class="text-lg fw700">
-                              <span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %>
-                            </p>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
+               <% unless @product.is_personalize_product? %>                 
+                  <% if @product.master.can_supply? || @product.variants.empty? %>                  
+                     <div class="row">
+                       <div class="col-md-12">
+                         <div class="subsection-sm">
+                           <div class="product-details">
+                             <% if @product.master.can_supply? %>
+                               <!-- <p class="text-lg fw700"><link itemprop="availability" href="http://schema.org/InStock" /></p> -->
+                               <p class="text-lg fw700">
+                                 <span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.left_in_stock', total_on_hand: @product.master.total_on_hand) %>
+                               </p>
+                               <% unless @product.master.in_stock? %>
+                                 <p>
+                                   <small class="form-text"><strong><%= t('spree.backorder_stock_message') %></strong></small>
+                                 </p>                                                                                
+                               <% end %>
+                             <% elsif @product.variants.empty? %>
+                               <p class="text-lg fw700">
+                                 <span class="out-of-stock text-muted-darken"><%= t('spree.availability') %>: </span><%= t('spree.out_of_stock') %>
+                               </p>
+                             <% end %>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                  <% end %>
+                <% end %>  
                 </div>
                 
                 <div data-hook="promotions">
