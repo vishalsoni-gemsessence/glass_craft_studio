@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190311092306) do
+ActiveRecord::Schema.define(version: 20190501083020) do
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -55,6 +55,41 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true, length: { slug: 70, scope: 70, locale: 2 }
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "policy_manager_portability_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "state"
+    t.string "attachment"
+    t.string "attachment_file_name"
+    t.string "attachment_file_size"
+    t.datetime "attachment_content_type"
+    t.string "attachment_file_content_type"
+    t.datetime "expire_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_policy_manager_portability_requests_on_user_id"
+  end
+
+  create_table "policy_manager_terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "description"
+    t.string "rule"
+    t.string "state"
+    t.datetime "accepted_at"
+    t.datetime "rejected_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "policy_manager_user_terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "term_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state"], name: "index_policy_manager_user_terms_on_state"
+    t.index ["term_id"], name: "index_policy_manager_user_terms_on_term_id"
+    t.index ["user_id"], name: "index_policy_manager_user_terms_on_user_id"
   end
 
   create_table "solidus_paypal_braintree_configurations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -285,12 +320,21 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.datetime "updated_at"
   end
 
-  create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "deleted_at"
+  create_table "spree_filter_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_filter_id", null: false
+    t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "slug"
+    t.index ["locale"], name: "index_spree_filter_translations_on_locale"
+    t.index ["spree_filter_id"], name: "index_spree_filter_translations_on_spree_filter_id"
+  end
+
+  create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_gallery_uploaded_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1149,6 +1193,7 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.integer "min_delivery_time"
     t.integer "max_delivery_time"
     t.integer "value_for_money_rank"
+    t.boolean "is_available", default: false
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
   end
 
@@ -1174,6 +1219,17 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.index ["country_id"], name: "index_spree_states_on_country_id"
   end
 
+  create_table "spree_sticker_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_sticker_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
+    t.index ["locale"], name: "index_spree_sticker_translations_on_locale"
+    t.index ["spree_sticker_id"], name: "index_spree_sticker_translations_on_spree_sticker_id"
+  end
+
   create_table "spree_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image_file_name"
     t.string "image_content_type"
@@ -1182,8 +1238,6 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
   end
 
   create_table "spree_stock_items", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1480,6 +1534,18 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.string "text_content", default: "This is dummy text"
   end
 
+  create_table "spree_template_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spree_template_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.string "slug"
+    t.index ["locale"], name: "index_spree_template_translations_on_locale"
+    t.index ["spree_template_id"], name: "index_spree_template_translations_on_spree_template_id"
+  end
+
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "width", precision: 10
     t.decimal "height", precision: 10
@@ -1494,9 +1560,6 @@ ActiveRecord::Schema.define(version: 20190311092306) do
     t.integer "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.string "background_color"
-    t.string "name"
-    t.string "description"
-    t.string "slug"
   end
 
   create_table "spree_unit_cancels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
