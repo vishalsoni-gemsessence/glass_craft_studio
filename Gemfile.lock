@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 81dce7eb67f8ce98ac5808275a58a44eca3bf8c6
+  revision: af736729890fd61ec8f6f71352816336f9793be7
   branch: master
   specs:
     solidus_easyship (0.1.2.2)
