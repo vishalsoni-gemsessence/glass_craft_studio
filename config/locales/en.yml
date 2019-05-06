@@ -157,6 +157,7 @@ en:
     image_dimension_pixel_unit: "px"    
     in_stock: "In Stock"
     insurance: "Shipping Insurance"
+    import_duty_charge: "Import Duty Charge"
     import_tax_charge: "Import Tax Charge"
     item: "Item"
     know_more: Know More

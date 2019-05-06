@@ -799,7 +799,8 @@ zh-HK:
     images: "圖片"
     implement_eligible_for_return:
     implement_requires_manual_intervention:
-    import_tax_charge: "Import Tax Charge"
+    import_duty_charge: "進口關稅"
+    import_tax_charge: "進口稅"
     inactive:
     incl:
     included_in_price: "已包括於售價"

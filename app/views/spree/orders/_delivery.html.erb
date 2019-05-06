@@ -10,7 +10,7 @@
   </td>
   <td> 
     <h5>
-    <% if shipment.shipment_charge > 0.0 %>  
+    <% if shipment.shipment_charge_total > 0.0 %>  
       <%= shipment.display_shipment_charge_total %>
     <% else %>
       <%= Spree::Money.new(shipment.cost) %>    
@@ -47,6 +47,22 @@
     </td>
     <td>
       <h5><%= shipment.display_import_tax_charge %></h5>
+    </td>
+  </tr>
+<% end %>
+<% if shipment.import_duty_charge > 0.0 %>
+  <tr class="adjustment">
+  <% if params["controller"] == "spree/orders" %>
+    <td colspan="6">
+  <% else %>
+    <td colspan="2">
+  <% end %>
+      <h5>
+        <i class="fa fa-plus mr-2 text-primary" aria-hidden="true"></i> <%= t('spree.import_duty_charge') %>:
+      </h5>
+    </td>
+    <td>
+      <h5><%= shipment.display_import_duty_charge %></h5>
     </td>
   </tr>
 <% end %>
