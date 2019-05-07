@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-braintree-paypal.git
-  revision: 71a5460d386464b4834de943cd1824138c7553da
+  revision: fe0b5e6a941508e695fbb58408a19eea28a2a004
   branch: master
   specs:
     solidus_paypal_braintree (0.4.0)
