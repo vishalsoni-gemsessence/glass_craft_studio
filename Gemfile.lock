@@ -7,6 +7,17 @@ GIT
       solidus_core (~> 2.6.0)
 
 GIT
+  remote: https://36etcetera@bitbucket.org/36etcetera/solidus-braintree-paypal.git
+  revision: 7821cac39f6b3ac7fb5de18b52244fda4b724b31
+  branch: master
+  specs:
+    solidus_paypal_braintree (0.4.0)
+      activemerchant (~> 1.48)
+      braintree (~> 2.65)
+      solidus (>= 1.0, < 3)
+      solidus_support (>= 0.1.3)
+
+GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
   revision: fbbb609dc1285f87f60975bcccdc7d3f772f87b3
   branch: master
@@ -64,17 +75,6 @@ GIT
   specs:
     solidus_i18n (2.0.0)
       solidus_core (>= 1.1, < 3)
-
-GIT
-  remote: https://github.com/solidusio/solidus_paypal_braintree.git
-  revision: dbcee4ec1b099fe6289a700d4a6df46b6d98b52f
-  branch: master
-  specs:
-    solidus_paypal_braintree (0.4.0)
-      activemerchant (~> 1.48)
-      braintree (~> 2.65)
-      solidus (>= 1.0, < 3)
-      solidus_support (>= 0.1.3)
 
 GEM
   remote: https://rubygems.org/
@@ -134,7 +134,7 @@ GEM
       activerecord (>= 4.0.0, < 5.3)
     bcrypt (3.1.12)
     bindex (0.5.0)
-    braintree (2.91.0)
+    braintree (2.95.0)
       builder (>= 2.0.0)
     builder (3.2.3)
     byebug (10.0.2)

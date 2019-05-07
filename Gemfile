@@ -51,8 +51,9 @@ gem 'solidus', '2.6'
 gem 'solidus_auth_devise'
 
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
-gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
-# gem 'solidus_paypal_braintree', path: '../solidus_paypal_braintree-master'
+gem 'solidus_paypal_braintree', bitbucket: '36etcetera/solidus-braintree-paypal', branch: :master
+# gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
+# gem 'solidus_paypal_braintree', path: '../solidus_paypal_braintree'
 gem 'solidus_prototypes'
 
 # Use solidus_on_demand_products to customize product
