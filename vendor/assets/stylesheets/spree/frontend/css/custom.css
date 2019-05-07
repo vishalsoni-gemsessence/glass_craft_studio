@@ -420,3 +420,6 @@ select#navbarDropdownLang:active {
 
 .cookie-bubble .cb-wrapper
 { width: 100%; }
+.error{
+  color: red;
+}
