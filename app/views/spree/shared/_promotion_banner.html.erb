@@ -1,8 +1,8 @@
 <%
   pc = Spree::PromotionCategory.find_by_code("banner-promotion")
-  promotions = pc.promotions.advertised
+  promotions = pc.try(:promotions).try(:advertised)
 %>
-<% if promotions.size > 0 %>
+<% if promotions.present? && promotions.size > 0 %>
 <div class="banner-container">
   <ul>
   <% promotions.each do |promotion| %>  
@@ -12,9 +12,9 @@
 </div>
 <% end %>
 <script type="text/javascript">
-	$(function(){
-		$(".banner-container").scrollText({
-			'duration': 5000
-		});
-	});
+  $(function(){
+    $(".banner-container").scrollText({
+      'duration': 5000
+    });
+  });
 </script>
