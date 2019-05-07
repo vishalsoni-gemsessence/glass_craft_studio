@@ -1,5 +1,10 @@
 <% address = current_order.ship_address %>
 <% state = address.state.present?? address.state.name : '' %>
+<% 
+  if address.country.iso == "GB" 
+    state = ''
+  end
+%>
 <% locale = 'en_US' %>
 <% 
   if I18n.locale.present? && I18n.locale == 'zh-HK' 
