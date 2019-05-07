@@ -25,6 +25,7 @@
     phone: '<%= address.phone %>',
     recipientName: '<%= "#{address.firstname} #{address.lastname}" %>'
   }
+  
   var paypalOptions = {
     flow: 'vault',
     enableShippingAddress: true,
@@ -33,6 +34,7 @@
     locale: '<%= locale %>',
     environment: '<%= Rails.env.production? ? "production" : "sandbox" %>'
   }
+  
   var button = new SolidusPaypalBraintree.createPaypalButton(document.querySelector("#paypal-button"), paypalOptions);
   button.initialize();
 </script>
