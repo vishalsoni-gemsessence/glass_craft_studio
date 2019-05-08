@@ -18,6 +18,7 @@ ready = function() {
   disableRightClickForImage();
   displayActiveInactiveHeaderButtons();
   updateCartOnUpdateQuantity();
+  removeCouponCode();
 };
 
 $(document).ready(ready);
@@ -132,4 +133,14 @@ getAndAddActiveClassToNavItem = function(){
     $('.taxonomies li.nav-item a[href="'+ ele +'"]').addClass('active');
     localStorage.clear();
   }
+}
+
+removeCouponCode = function(){
+  $('.remove-coupon-code').click(function(e){
+    e.preventDefault()
+    $('.flash.error').html('');
+    $('#order_coupon_code').val('');
+    // $('#update-cart').attr('data-remote', true);
+    $('#update-button').trigger('click');
+  })
 }

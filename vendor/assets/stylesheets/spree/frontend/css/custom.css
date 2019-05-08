@@ -423,3 +423,11 @@ select#navbarDropdownLang:active {
 .error{
   color: red;
 }
+
+.promotion-code input {
+  margin-right: 10px;
+}
+.remove-coupon-code{
+  background: transparent;
+  border: 0;
+}

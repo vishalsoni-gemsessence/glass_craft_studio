@@ -14,11 +14,12 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="form-group row">
-            <div class="col-md-3"></div>
-            <label class="col-md-4 col-form-label text-center" for="couponCode"><%= t('spree.coupon_code') %>:</label>
-            <div class="col-md-5">
+          <div class="form-group row mt-3">
+            <div class="col-md-2 col-sm-2"></div>
+            <label class="col-md-4 col-sm-4 col-form-label text-center" for="couponCode"><%= t('spree.coupon_code') %>:</label>
+            <div class="col-md-6 col-sm-6 d-flex align-items-baseline promotion-code">
               <%= order_form.text_field :coupon_code, size: 10, class: 'form-control' %>
+              <%= button_tag '', class: 'remove-coupon-code delete fa fa-times text-muted'  %>
             </div>
           </div>
         </div>
