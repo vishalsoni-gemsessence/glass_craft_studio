@@ -6,6 +6,9 @@
     <% if flash[:error] %>
       <div class="alert alert-danger" role="alert">
         <h4 class="alert-heading"><%= t('spree.system_message.header') %></h4>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <p>
           <%= flash_messages %>
         </p>
