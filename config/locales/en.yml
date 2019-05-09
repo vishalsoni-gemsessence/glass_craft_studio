@@ -64,6 +64,7 @@ en:
   photo_gallery:
     free: Free
     filter: Filter
+    price: Price
     all: All
   order:
     order_number: "Order Number"

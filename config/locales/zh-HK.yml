@@ -338,6 +338,7 @@ zh-HK:
   photo_gallery:
     all: 全部   
     free: 免費 
+    price: 價錢
   order:
     order_number: "訂單號碼"
   sign_in:
