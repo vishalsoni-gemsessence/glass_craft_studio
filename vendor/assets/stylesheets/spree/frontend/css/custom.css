@@ -418,16 +418,16 @@ select#navbarDropdownLang:active {
   margin: 0px auto;
 }
 
-.cookie-bubble .cb-wrapper
-{ width: 100%; }
-.error{
+.cookie-bubble .cb-wrapper { width: 100%; }
+.error {
   color: red;
 }
 
 .promotion-code input {
   margin-right: 10px;
 }
-.remove-coupon-code{
+.remove-coupon-code {
   background: transparent;
   border: 0;
+  cursor: pointer;
 }

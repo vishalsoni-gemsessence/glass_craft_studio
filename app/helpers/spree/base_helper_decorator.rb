@@ -31,5 +31,26 @@ module Spree
       end
       url
     end
+    
+    def flash_messages(opts = {})
+      ignore_types = ["order_completed"].concat(Array(opts[:ignore_types]).map(&:to_s) || [])
+
+      flash.each do |msg_type, text|
+        unless ignore_types.include?(msg_type)
+          concat(content_tag(:div, text, class: "alert #{flash_class(msg_type)}"))
+        end
+      end
+      nil      
+    end
+    
+    def flash_class(level)
+      case level
+        when "notice" then "alert alert-info"
+        when "success" then "alert alert-success"
+        when "error" then "alert alert-danger"
+        when "alert" then "alert alert-warning"
+      end
+    end
+  
   end
 end
