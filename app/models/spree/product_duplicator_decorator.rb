@@ -4,10 +4,11 @@ Spree::ProductDuplicator.class_eval do
 
   def duplicate_product
     product.dup.tap do |new_product|
+      append_number = Time.now.to_i
       I18n.available_locales.each do |locale|
         I18n.with_locale(locale) {
           new_product.name = "#{I18n.t('spree.copy_of')} #{product.name}"
-          new_product.slug = product.slug + "-#{Time.now.to_i}"  
+          new_product.slug = product.slug + "-#{append_number}"  
         }
       end
       new_product.taxons = product.taxons
