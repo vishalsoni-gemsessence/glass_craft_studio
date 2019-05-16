@@ -131,6 +131,7 @@ en:
     contact_us_error_message: "Your request failed"
     contact_details: "Contact Details"
     contacts: Contacts
+    copy_of: COPY OF
     country: "Country / Major City"
     country_rule:
       choose_countries: Choose Countries

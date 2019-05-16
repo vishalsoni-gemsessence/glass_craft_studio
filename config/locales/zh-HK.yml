@@ -597,6 +597,7 @@ zh-HK:
     contact_us_success_message: "您的請求已成功發送"    
     continue: "繼續"
     continue_shopping: "繼續購物"
+    copy_of: 複製
     cost_currency: "成本貨幣"
     cost_price: "成本價格"
     could_not_connect_to_jirafe: "無法從 Jirafe同步資料, 稍候將自動重新嘗試."
