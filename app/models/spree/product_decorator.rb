@@ -7,6 +7,10 @@ Spree::Product.class_eval do
     order(Spree::Classification.arel_table[:position].asc)
   end
   
+  add_search_scope :not_personalized do
+    where("#{Spree::Product.quoted_table_name}.is_personalize_product = 0")
+  end
+  
   def display_product_name
     splitted_names = name.split(' ')
     final_name = ''
