@@ -15,9 +15,10 @@ Spree::Taxon.class_eval do
   end
   
   def all_products
-    scope = Product.joins(:taxons)
-    scope.where( spree_taxons { id: self_and_descendents.select(:id) } )
-    scope.not_personalized
+    scope = Product.joins(:taxons).not_personalized
+    scope.where(
+      spree_taxons: { id: self_and_descendants.select(:id) }
+    )
   end
   
 end
