@@ -7,6 +7,9 @@ module Spree
       mail( to: @contact.contact_us_email.email, 
             from: store_from_address, 
             subject: email_subject(contact))
+            
+      headers['sender'] = nil
+      headers['sender'] = store_from_address            
     end
     
     def acknowledge_email(contact)
@@ -16,6 +19,9 @@ module Spree
       mail( to: @contact.email, 
             from: store_from_address, 
             subject: email_subject(contact))      
+
+      headers['sender'] = nil
+      headers['sender'] = store_from_address            
     end
     
     private 

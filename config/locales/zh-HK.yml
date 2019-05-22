@@ -529,7 +529,7 @@ zh-HK:
     cart: "購物車"
     carton_mailer:
       shipped_email:
-        dear_customer: "尊貴的客戶,"
+        dear_customer: "尊貴的 %{customer_name}，"
         instructions_hong_kong_html: "您的玻璃設計館(GlassXpert) 貨品已經通過xxxxx寄出，預計在香港境內之交貨時間為1至2天。<br><br>希望您對我們的產品質量感到滿意，我們期待再次為您服務。"
         instructions_outside_hong_kong_html: "您的玻璃設計館(GlassXpert) 產品已經通過我們的國際快遞合作夥伴，預計交貨時間在3天內到達您的國家，您可以用此追踪號碼%{tracking}隨時追踪您的包裹位置。若你的國家有任何進口稅，增值稅或銷售稅，請預算額外的清關時間。<br><br>希望您對我們的產品質量感到滿意，我們期待再次為您服務。"
         shipment_summary: "訂單摘要"

@@ -13,7 +13,7 @@
             <tr>
               <td>
                 <h6>
-                  <%= t('.dear_customer') %>
+                  <%= t('.dear_customer', customer_name: @customer_name) %>
                 </h6>
                 <h6>
                 <% if @order.ship_address.country.iso == "HK" %>  
@@ -61,14 +61,14 @@
         <table class="table table-responsive table-hover" style="min-width: 500px">
           <thead>
             <tr>
-              <th width="60%" scope="col" class="text-uppercase"><%= t('spree.item') %></th>
-              <!-- <th width="15%" class="price text-uppercase" scope="col"><%= t('spree.price') %></th>
-              <th width="10%" class="qty text-uppercase" scope="col"><%= t('spree.qty') %></th> -->
+              <th width="15%" class="text-uppercase" scope="col">&nbsp;</th>
+              <th width="60%" class="text-uppercase" scope="col"><%= t('spree.item') %></th>
             </tr>
           </thead>
           <tbody>
-            <% @manifest.each do |item| %>
+            <% @manifest.each_with_index do |item, i| %>
               <tr>
+                <td><%= "#{i + 1}." %></td>
                 <td>
                   <div class="row">
                     <div class="col-3">
@@ -87,8 +87,6 @@
                     </div>
                   </div>
                 </td>
-                <!-- <td class="price"><%#= item.single_money.to_html %></td> -->
-                <!-- <td><%#= item.quantity %></td> -->
               </tr>
             <% end %>
           </tbody>
