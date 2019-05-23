@@ -20,6 +20,15 @@ Spree::OrdersController.class_eval do
       end
     end
 
+    def remove_adjustments
+      @order = Spree::Order.find_by!(number: params[:id])
+      @order.adjustments.destroy_all
+      respond_with(@order) do |format|
+        format.js do
+        end
+      end
+    end
+
   private
     def delete_personalize_product
       line_attributes = params[:order][:line_items_attributes]

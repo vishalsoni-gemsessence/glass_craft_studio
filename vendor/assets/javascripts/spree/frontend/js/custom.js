@@ -140,7 +140,17 @@ removeCouponCode = function(){
     e.preventDefault()
     $('.flash.error').html('');
     $('#order_coupon_code').val('');
-    // $('#update-cart').attr('data-remote', true);
     $('#update-button').trigger('click');
+  })
+
+  $('.remove-adjustment').off().click(function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $.ajax({
+      type: "GET",
+      url: "/remove_adjustments",
+      dataType: 'script',
+      data: { id: $(this).attr('data-number') }
+    });
   })
 }

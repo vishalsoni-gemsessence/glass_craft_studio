@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     resources :contacts
 
     get '/order_history', to: 'users#order_history', as: 'order_history'
+
+    get '/remove_adjustments', to: 'orders#remove_adjustments', as: 'remove_adjustments'
   end
 end

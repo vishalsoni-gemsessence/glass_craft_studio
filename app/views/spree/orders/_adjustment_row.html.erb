@@ -7,7 +7,7 @@
         </h5>
       </td>
       <td colspan="2"><h5><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></h5></td>
-      <!-- <td></td> -->
+      <td colspan="2"><%= link_to '', '#',class: 'remove-adjustment delete fa fa-times text-muted', data: {number: @order.number} %></td>
     </tr>
   <% else %>
     <tr class="adjustment">
