@@ -1,13 +1,17 @@
 <% if adjustments.sum(&:amount) != 0 %>
   <% if params["controller"] == "spree/orders" %>
     <tr class="adjustment">
-      <td colspan="6">
+      <td colspan="5">
         <h5>
           <i class="fa fa-minus mr-2 text-primary" aria-hidden="true"></i> <%= type %>: <%= label %>
         </h5>
       </td>
-      <td colspan="2"><h5><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></h5></td>
-%></td>
+      <td colspan="2" class="text-right">
+        <h5><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></h5>
+      </td>
+      <td>      
+        <%= link_to '', '#', class: 'remove-adjustment delete fa fa-times align-items-center text-muted', data: {number: @order.number} %>
+      </td>
     </tr>
   <% else %>
     <tr class="adjustment">

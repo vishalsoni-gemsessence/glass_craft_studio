@@ -1,2 +1,5 @@
-$('#cart_adjustments').html('');
-$('#cart_adjustments').append('<%= escape_javascript( render(partial: "spree/orders/adjustments") ) %>');
+//$('#cart_adjustments').html('');
+//$('#cart_adjustments').append('<%#= escape_javascript( render(partial: "spree/orders/adjustments") ) %>');
+
+$('.cart-form-1').html("<%= escape_javascript (render partial: 'cart_form') %>");
+componentHandler.upgradeDom();
