@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: dd1da4c1c4d926dbff0a7e285db556c2ad612b1c
+  revision: 1dd626706235fae9ca1404c9a57f60b3473c8357
   branch: master
   specs:
     solidus_on_demand_products (0.0.3)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/solidus-easyship.git
-  revision: 121364f6ec94ca6d795cdca1388f3facccafceab
+  revision: 53acd1348ff16b41ecc7841979dc7dc96510ce30
   branch: master
   specs:
     solidus_easyship (0.1.2.2)
@@ -105,7 +105,7 @@ GEM
     activejob (5.1.7)
       activesupport (= 5.1.7)
       globalid (>= 0.3.6)
-    activemerchant (1.94.0)
+    activemerchant (1.95.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
