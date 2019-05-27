@@ -84,6 +84,7 @@ gem 'solidus_globalize', bitbucket: '36etcetera/solidus-globalize', branch: "mas
 # gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 # gem 'solidus_static_content', path: '../solidus_static_content'
 gem 'solidus_static_content', bitbucket: '36etcetera/solidus-static-content', branch: "master"
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
