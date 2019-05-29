@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   mount SolidusPaypalBraintree::Engine, at: '/solidus_paypal_braintree'
   mount Ckeditor::Engine => '/ckeditor'
   # This line mounts Solidus's routes at the root of your application.
