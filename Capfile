@@ -37,6 +37,7 @@ require 'capistrano3/unicorn'
 # require 'capistrano/passenger'
 require 'capistrano/rails/collection'
 require 'capistrano/faster_assets'
+require 'capistrano/sidekiq'
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

@@ -113,6 +113,7 @@ group :development do
   gem 'capistrano3-unicorn'
   gem 'capistrano-faster-assets'
   gem 'capistrano-rails-collection'
+  gem 'capistrano-sidekiq'
 
   gem 'rb-readline'
 end

@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: 7745a0d82b92a7100872134d42b4476fc35a8d72
+  revision: 93c2d1d7cf7570e547dd18cf0c8fbc1cf08b5cb1
   branch: master
   specs:
     solidus_on_demand_products (0.0.3)
@@ -161,6 +161,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-sidekiq (1.0.2)
+      capistrano (>= 3.9.0)
+      sidekiq (>= 3.4)
     capistrano3-unicorn (0.2.1)
       capistrano (~> 3.1, >= 3.1.0)
     capybara (2.13.0)
@@ -521,6 +524,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rails-collection
   capistrano-rvm
+  capistrano-sidekiq
   capistrano3-unicorn
   capybara (~> 2.13.0)
   coffee-rails (~> 4.2)
