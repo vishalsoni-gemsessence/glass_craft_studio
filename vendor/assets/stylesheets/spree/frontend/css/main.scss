@@ -6,7 +6,7 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/assets/spree/frontend/fontawesome-webfont.woff?v=4.7.0") format("woff");
+  src: asset-url("fontawesome-webfont.woff?v=4.7.0") format("woff");
   font-weight: normal;
   font-style: normal;
 }
