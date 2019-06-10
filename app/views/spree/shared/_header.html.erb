@@ -35,6 +35,8 @@
                 <%= link_to Spree.t(:login), spree_login_path, class: "nav-link db-none" %>
               <% end %>
             </li>
+            <%= render partial: 'spree/shared/locale_selector' %>            
+            
           </ul>
         </div>
       </nav>
@@ -130,6 +132,9 @@
               <a class="nav-link js-nav-link d-xl-none" href="https://www.amazon.co.uk/s?k=glassxpert+%26+design&ref=nb_sb_noss" target="blank">
                 <i class="fa fa-amazon" aria-hidden="true"></i>
               </a>
+              <a class="nav-link js-nav-link d-xl-none" href="https://www.etsy.com/uk/shop/GlassXpertUK/items" target="blank">
+                <i class="fa fa-etsy" aria-hidden="true"></i>
+              </a>
             </li>
             <!--/ Visible 1200 and more -->
             <li class="nav-item social-item d-none d-xl-block ml-auto">
@@ -140,6 +145,11 @@
             <li class="nav-item social-item d-none d-xl-block ml-auto">
               <a class="nav-link js-nav-link" href="https://www.amazon.co.uk/s?k=glassxpert+%26+design&ref=nb_sb_noss" target="blank">
                 <i class="fa fa-amazon" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="nav-item social-item d-none d-xl-block ml-auto">
+              <a class="nav-link js-nav-link" href="https://www.etsy.com/uk/shop/GlassXpertUK/items" target="blank">
+                <i class="fa fa-etsy" aria-hidden="true"></i>
               </a>
             </li>
 
