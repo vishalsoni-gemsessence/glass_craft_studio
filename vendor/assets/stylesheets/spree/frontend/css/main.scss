@@ -11781,9 +11781,16 @@ select.form-control:not([multiple]) {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1450px) {
   .container.bigger {
-    max-width: 1290px;
+    max-width: 1920px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1449px) {
+  .container.bigger {
+    max-width: 1420px;
+//    max-width: 1290px;
   }
   .container.smaller {
     max-width: 820px;
