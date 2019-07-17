@@ -210,19 +210,6 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.index ["filter_id"], name: "index_spree_colors_on_filter_id"
   end
 
-  create_table "spree_contact_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_contact_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.string "subject"
-    t.text "message"
-    t.index ["locale"], name: "index_spree_contact_translations_on_locale"
-    t.index ["spree_contact_id"], name: "index_spree_contact_translations_on_spree_contact_id"
-  end
-
   create_table "spree_contact_us_email_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "spree_contact_us_email_id", null: false
     t.string "locale", null: false
@@ -254,6 +241,10 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.integer "file_file_size"
     t.datetime "file_updated_at"
     t.string "reference_number", limit: 32
+    t.string "name"
+    t.string "subject"
+    t.text "message"
+    t.string "slug"
     t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 
@@ -294,21 +285,12 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "updated_at"
   end
 
-  create_table "spree_filter_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_filter_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_filter_translations_on_locale"
-    t.index ["spree_filter_id"], name: "index_spree_filter_translations_on_spree_filter_id"
-  end
-
   create_table "spree_filters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_gallery_uploaded_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1194,17 +1176,6 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.index ["country_id"], name: "index_spree_states_on_country_id"
   end
 
-  create_table "spree_sticker_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_sticker_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_sticker_translations_on_locale"
-    t.index ["spree_sticker_id"], name: "index_spree_sticker_translations_on_spree_sticker_id"
-  end
-
   create_table "spree_stickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image_file_name"
     t.string "image_content_type"
@@ -1213,6 +1184,8 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_stock_items", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -1509,18 +1482,6 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.string "text_content", default: "This is dummy text"
   end
 
-  create_table "spree_template_translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "spree_template_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "description"
-    t.string "slug"
-    t.index ["locale"], name: "index_spree_template_translations_on_locale"
-    t.index ["spree_template_id"], name: "index_spree_template_translations_on_spree_template_id"
-  end
-
   create_table "spree_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "width", precision: 10
     t.decimal "height", precision: 10
@@ -1536,7 +1497,8 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "background_image_updated_at"
     t.string "background_color"
     t.string "name"
-    t.text "description"
+    t.string "description"
+    t.string "slug"
     t.integer "resolution"
   end
 
