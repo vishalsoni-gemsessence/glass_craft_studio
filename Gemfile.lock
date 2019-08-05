@@ -1,6 +1,6 @@
 GIT
   remote: https://36etcetera@bitbucket.org/36etcetera/image-editor-plugin.git
-  revision: c5eb65ec39e868658f3cdcf5b5e9571546d4ecde
+  revision: 5bebe5040bed45081d3976869e093b3444dba800
   branch: master
   specs:
     solidus_on_demand_products (0.0.3)
@@ -105,7 +105,7 @@ GEM
     activejob (5.1.7)
       activesupport (= 5.1.7)
       globalid (>= 0.3.6)
-    activemerchant (1.95.0)
+    activemerchant (1.96.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -332,7 +332,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
+    rails-html-sanitizer (1.1.0)
       loofah (~> 2.2, >= 2.2.2)
     rails-i18n (5.1.2)
       i18n (>= 0.7, < 2)
