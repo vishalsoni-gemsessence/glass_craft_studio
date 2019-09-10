@@ -58,12 +58,12 @@ gem 'solidus_prototypes'
 
 # Use solidus_on_demand_products to customize product
 # For development on local
-gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', branch: "master"
 # gem 'solidus_on_demand_products', path: '../image-editor-plugin'
+gem 'solidus_on_demand_products', bitbucket: '36etcetera/image-editor-plugin', branch: "master"
 
 # For development on local
-gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "master"
 # gem 'solidus_easyship', path: '../solidus-easyship'
+gem 'solidus_easyship', bitbucket: '36etcetera/solidus-easyship', branch: "master"
 
 
 # Use pnotify-rails for show messages on popup
@@ -81,7 +81,6 @@ gem "i18n-js"
 # gem 'solidus_globalize', path: '../solidus_globalize'
 gem 'solidus_globalize', bitbucket: '36etcetera/solidus-globalize', branch: "master"
 
-# gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
 # gem 'solidus_static_content', path: '../solidus_static_content'
 gem 'solidus_static_content', bitbucket: '36etcetera/solidus-static-content', branch: "master"
 gem "mini_magick"

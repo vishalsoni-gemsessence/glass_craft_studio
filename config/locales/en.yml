@@ -67,6 +67,8 @@ en:
     filter: Filter
     price: Price
     all: All
+  promotion:
+    free_delivery_notes: We will employ a local courier or Hongkong Post for delivery in Hong Kong.
   order:
     order_number: "Order Number"
   sign_in:

@@ -95,6 +95,7 @@
           <i class="fa fa-minus mr-2 text-primary" aria-hidden="true"></i> <%= label %><br>
           <small><strong><%= t('promotion.free_delivery_notes') %></strong></small>
         </h5>
+        
       </td>
       <td valign="top">
         <h5><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></h5>

@@ -26,6 +26,9 @@ append :linked_files, "lib/staging_mail_interceptor.rb"
 
 server '173.255.248.242', user: 'deploy', roles: %w{app db web}
 
+# Bitbucket Branch
+set :branch, 'staging' # e.g. 'master'
+
 # role-based syntax
 # ==================
 
@@ -61,7 +64,8 @@ server '173.255.248.242', user: 'deploy', roles: %w{app db web}
  set :ssh_options, {
   #  keys: %w(/home/rlisowski/.ssh/id_rsa),
    forward_agent: false,
-   auth_methods: %w(password)
+   auth_methods: %w(password),
+   password: "abcde12345"  
  }
 #
 # The server-based syntax can be used to override options:

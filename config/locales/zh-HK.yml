@@ -340,6 +340,8 @@ zh-HK:
     all: 全部   
     free: 免費 
     price: 價錢
+  promotion:
+    free_delivery_notes: 我們會採用本地的速遞或香港郵政服務在香港送貨。
   order:
     order_number: "訂單號碼"
   sign_in:
