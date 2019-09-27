@@ -12609,10 +12609,58 @@ hr {
   /*max-width: 1199pxEND*/
 }
 
+@media print, screen and (min-width: 1920px) {
+  .frame-selection-card.light-bg {
+    background-color: #10c9c3;
+  }
+}
+
+@media print, screen and (min-width: 1920px) {
+  .frame-selection-card {
+    width: 460px;
+    max-width: 460px;
+//    max-width: 650px;
+  }
+}
+
+@media print, screen and (min-width: 1700px) and (max-width: 1919px) {
+  .frame-selection-card.light-bg {
+    background-color: #10c9c3;
+  }
+  .frame-selection-card {
+    width: 425px;
+//    max-width: 580px;
+    max-width: 460px;
+  }
+}
+
+@media print, screen and (min-width: 1451px) and (max-width: 1699px) {
+  .frame-selection-card.light-bg {
+    background-color: #10c9c3;
+  }
+  .frame-selection-card {
+    width: 360px;
+//    max-width: 580px;
+    max-width: 425px;
+  }
+}
+
+
+@media print, screen and (min-width: 1200px) and (max-width: 1450px) {
+  .frame-selection-card.light-bg {
+    background-color: #10c9c3;
+  }
+  .frame-selection-card {
+    width: 290px;
+//    max-width: 580px;
+    max-width: 360px;
+  }
+}
+
 @media print, screen and (max-width: 1199px) {
   .frame-selection-card.light-bg {
     background-color: #003959;
-  }
+  }  
 }
 
 @media print, screen and (max-width: 1199px) {

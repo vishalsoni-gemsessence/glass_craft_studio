@@ -6,7 +6,13 @@
 <div class="banner-container">
   <ul>
   <% promotions.each do |promotion| %>  
-    <li><%=raw promotion.description %></li>
+    <li>
+      <% if promotion.path.present? %>
+        <%= link_to promotion.path do %><%=raw promotion.description %><% end %>
+      <% else %>
+        <%= raw promotion.description %>
+      <% end %>
+    </li>
   <% end %>
   </ul>
 </div>

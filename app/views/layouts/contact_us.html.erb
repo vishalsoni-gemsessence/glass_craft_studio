@@ -21,7 +21,7 @@
   					<!--/col-->                        
             <div class="col-lg-6">
               <div class="table-parent-md" style="height: 100%;">
-                <div class="vertical-middle">
+                <div class="vertical-top">
                   <div class="subsection">
                     <% @contact_us = Spree::Contact.new if @contact_us.nil? %>
                     <%= form_for @contact_us, html: { multipart: true } do |f| %>
