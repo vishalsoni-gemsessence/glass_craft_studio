@@ -12,7 +12,7 @@ module Spree
 
       private
         def find_resource
-          @contact = Spree::Contact.with_deleted.friendly.find(params[:id])
+          @contact = Spree::Contact.with_deleted.find(params[:id])
         end
 
         def collection
