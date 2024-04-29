@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  min_messages: warning
+  timeout: 5000
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: glass_xpert_dev
+  username: root
+  password: vishal
+
+staging:
+  <<: *default
+  database: glass_xpert_dev
+  username: root
+  password: vishal
+
+production:
+  <<: *default
+  database: glass_xpert_pro
+  username: root
+  password: vishal
