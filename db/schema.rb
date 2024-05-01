@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240501091828) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20190704063235) do
 
   create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -37,7 +34,7 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.string "shipping_label_url"
     t.string "tracking_number"
     t.string "tracking_page_url"
-    t.decimal "total_charge"
+    t.decimal "total_charge", precision: 10
     t.string "currency"
     t.integer "order_id"
     t.datetime "created_at"
@@ -50,12 +47,12 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
+    t.string "locale"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "locale"
     t.index ["locale"], name: "index_friendly_id_slugs_on_locale"
-    t.index ["slug", "sluggable_type", "locale"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_locale"
-    t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true
+    t.index ["slug", "sluggable_type", "locale"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_locale", length: { slug: 140, locale: 2 }
+    t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true, length: { slug: 70, scope: 70, locale: 2 }
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
@@ -244,6 +241,10 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.integer "file_file_size"
     t.datetime "file_updated_at"
     t.string "reference_number", limit: 32
+    t.string "name"
+    t.string "subject"
+    t.text "message"
+    t.string "slug"
     t.index ["contact_us_email_id"], name: "index_spree_contacts_on_contact_us_email_id"
   end
 
@@ -288,6 +289,8 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_gallery_uploaded_images", force: :cascade do |t|
@@ -670,7 +673,7 @@ ActiveRecord::Schema.define(version: 20240501091828) do
   create_table "spree_product_texts", force: :cascade do |t|
     t.integer "product_id"
     t.string "text_content"
-    t.decimal "rotate"
+    t.decimal "rotate", precision: 10
     t.integer "line_height"
     t.integer "font_size"
     t.string "font_family"
@@ -1041,6 +1044,14 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
+    t.string "easyship_shipment_id"
+    t.string "courier_id"
+    t.string "courier_name"
+    t.string "shipping_label_state"
+    t.string "shipping_label_url"
+    t.string "tracking_number"
+    t.string "currency"
+    t.string "tracking_url"
     t.integer "min_delivery_time"
     t.integer "max_delivery_time"
     t.integer "value_for_money_rank"
@@ -1174,6 +1185,7 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "slug"
   end
 
   create_table "spree_stock_items", id: :serial, force: :cascade do |t|
@@ -1187,7 +1199,6 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.index ["deleted_at"], name: "index_spree_stock_items_on_deleted_at"
     t.index ["stock_location_id", "variant_id"], name: "stock_item_by_loc_and_var_id"
     t.index ["stock_location_id"], name: "index_spree_stock_items_on_stock_location_id"
-    t.index ["variant_id", "stock_location_id"], name: "index_spree_stock_items_on_variant_id_and_stock_location_id", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "spree_stock_locations", id: :serial, force: :cascade do |t|
@@ -1445,15 +1456,15 @@ ActiveRecord::Schema.define(version: 20240501091828) do
   end
 
   create_table "spree_template_images", force: :cascade do |t|
-    t.decimal "img_width"
-    t.decimal "img_height"
-    t.decimal "position_x"
-    t.decimal "position_y"
-    t.decimal "border_radius"
+    t.decimal "img_width", precision: 10
+    t.decimal "img_height", precision: 10
+    t.decimal "position_x", precision: 10
+    t.decimal "position_y", precision: 10
+    t.decimal "border_radius", precision: 10
     t.integer "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "rotate"
+    t.decimal "rotate", precision: 10
   end
 
   create_table "spree_template_texts", force: :cascade do |t|
@@ -1461,9 +1472,9 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.integer "position_x"
     t.integer "position_y"
     t.string "font_color"
-    t.decimal "width"
-    t.decimal "height"
-    t.decimal "rotate"
+    t.decimal "width", precision: 10
+    t.decimal "height", precision: 10
+    t.decimal "rotate", precision: 10
     t.string "font_family"
     t.integer "template_id"
     t.datetime "created_at", null: false
@@ -1472,8 +1483,8 @@ ActiveRecord::Schema.define(version: 20240501091828) do
   end
 
   create_table "spree_templates", force: :cascade do |t|
-    t.decimal "width"
-    t.decimal "height"
+    t.decimal "width", precision: 10
+    t.decimal "height", precision: 10
     t.string "edges"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -1485,9 +1496,10 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.integer "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.string "background_color"
-    t.integer "resolution"
     t.string "name"
     t.string "description"
+    t.string "slug"
+    t.integer "resolution"
   end
 
   create_table "spree_unit_cancels", id: :serial, force: :cascade do |t|
