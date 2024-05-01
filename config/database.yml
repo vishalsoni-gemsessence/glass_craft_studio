@@ -1,5 +1,5 @@
 default: &default
-  adapter:  mysql2
+  adapter:  postgresql
   encoding: utf8
   pool: 5
   min_messages: warning
@@ -9,17 +9,17 @@ default: &default
 development:
   <<: *default
   database: glass_xpert_dev
-  username: root
+  username: vishal
   password: vishal
 
 staging:
   <<: *default
   database: glass_xpert_dev
-  username: root
+  username: vishal
   password: vishal
 
 production:
   <<: *default
   database: glass_xpert_pro
-  username: root
+  username: vishal
   password: vishal

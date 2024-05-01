@@ -40,8 +40,8 @@ en:
     fax: Fax
     whatsapp: WhatsApp
     rights_reserved: All rights reserved.
-    glassxpert_design: "GlassXpert & Design"
-    glassxpert_design_company_limited: GlassXpert & Design Company Limited
+    glassxpert_design: "GlassCraft & Studio"
+    glassxpert_design_company_limited: GlassCraft & Studio  Company Limited
   glass_photo_prints:
     first_layer: First layer of Crystal Glass
     layout_number: 
@@ -52,8 +52,8 @@ en:
     second_layer: Second layer of Crystal Glass
     standard_sizes: "%{number_of_sizes} standard sizes"    
   home:
-    background: GlassXpert & Design – unique and prestigious
-    background_text: "GlassXpert & Design is passionate about glass, and we thrive on exploring its creative potential to produce a stunning basis for your design. We focus on three areas:"
+    background: GlassCraft & Studio  – unique and prestigious
+    background_text: "GlassCraft & Studio  is passionate about glass, and we thrive on exploring its creative potential to produce a stunning basis for your design. We focus on three areas:"
     glass_gift_text: especially personalized photo gifts
     interior_decorative_glass_text: laminated and decorative glass and mirror for interior design
   interior_decorative_glass:
@@ -61,7 +61,7 @@ en:
     for_enquiry: "To receive quotations of various patterns and dimensions, please contact our sales team. Please tell us the purpose and dimensions (height and width)."
   payment:
     credit_card_instruction_html: After inputting the credit card information, please click the <strong>"SAVE AND CONTINUE"</strong> button.
-    paypal_braintree_agreement_html: GlassXpert & Design uses <strong>Braintree</strong> and <strong>PayPal</strong> as our online payment gateway partners. GlassXpert will not access or store customers' credit card information, please refer to our detailed <span class="text-underline"><a href="/privacy-policy" target="_blank">Privacy Policy</a></span>.
+    paypal_braintree_agreement_html: GlassCraft & Studio  uses <strong>Braintree</strong> and <strong>PayPal</strong> as our online payment gateway partners. GlassCraft will not access or store customers' credit card information, please refer to our detailed <span class="text-underline"><a href="/privacy-policy" target="_blank">Privacy Policy</a></span>.
   photo_gallery:
     free: Free
     filter: Filter
@@ -94,19 +94,19 @@ en:
     carton_mailer:
       shipped_email:
         dear_customer: Dear %{customer_name},
-        instructions_hong_kong_html: Your GlassXpert order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
-        instructions_outside_hong_kong_html: Your GlassXpert order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the status via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        instructions_hong_kong_html: Your GlassCraft order has been shipped via our local courier, the estimated delivery time is usually 1-2 days within Hong Kong.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
+        instructions_outside_hong_kong_html: Your GlassCraft order has been shipped via our international courier partner, the estimated delivery time is usually 3 days to your country, you may check the status via %{tracking}. There is a chance that your parcel is stuck in custom. If so, you will be contacted by our courier partner to arrange clearance.<br><br>We wish you will be happy with the quality of our products and we look forward to serving you again.
         shipment_summary: Shipment Summary
         subject: order is on its way
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
         track_information: ! 'Tracking Information: %{tracking}'
         track_link: ! 'Tracking Link: %{url}'
     cart_subtotal: "Cart Subtotal"
     checkout: "Proceed to checkout"
     confirm_password: "Confirmation Password"
     contact:
-      office_hong_kong: "GlassXpert & Design Hong Kong Office"
-      office_uk: "GlassXpert & Design UK Office and Showroom"
+      office_hong_kong: "GlassCraft & Studio  Hong Kong Office"
+      office_uk: "GlassCraft & Studio  UK Office and Showroom"
     contact_form:
       images:
         label: No file chosen
@@ -115,21 +115,21 @@ en:
       notify_email:
         dear_team: "Dear team,"
         contents_html: "There is an enquiry (Reference Number: %{reference_number} from customer."
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
       acknowledge_email:
         customer_name: Customer
         dear_customer: Dear %{customer_name},
-        business_partnership_title: "GlassXpert – Business Partnership"
+        business_partnership_title: "GlassCraft – Business Partnership"
         business_partnership_html: "Thanks for your interest in our products and to discuss with us for any potential co-operation. Your message has been forwarded to our management team. Your enquiry was assigned to the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our management team will explore the potential co-operation, they will reply to you as soon as possible."
-        customer_services_and_feedbacks_title: GlassXpert – Customer Services and Feedbacks
+        customer_services_and_feedbacks_title: GlassCraft – Customer Services and Feedbacks
         customer_services_and_feedbacks_html: 'Thanks for your interest in our products. Your message has been forwarded to our customer support team. Your enquiry was assigned following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our customer support team will look into your concern or request as soon as possible, they will reply to you within 5 working days.'
-        customized_glass_gifts_title: GlassXpert – Customized Glass Gifts
+        customized_glass_gifts_title: GlassCraft – Customized Glass Gifts
         customized_glass_gifts_html: 'Thanks for your interest in our products. Your message has been forwarded to our design team. Your enquiry was assigned following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our design team will look into your request as soon as possible, they will reply to you within 5 working days.'
-        glass_photo_prints_title: GlassXpert – Customized Glass Photo Prints
+        glass_photo_prints_title: GlassCraft – Customized Glass Photo Prints
         glass_photo_prints_html: 'Thanks for your interest in our products. Your message has been forwarded to our sales team. Your enquiry was assigned with the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our sales team will look into your request as soon as possible, they will reply to you within 5 working days.'
-        glass_for_interior_design_title: GlassXpert – Interior Decorative Glass
+        glass_for_interior_design_title: GlassCraft – Interior Decorative Glass
         glass_for_interior_design_html: 'Thanks for your interest in our products. Your message has been forwarded to our sales team. Your enquiry was assigned with the following number: [Enquiry Number %{reference_number}], please use this number anytime you wish to add some information to this request.<br><br>Our sales team will look into your request as soon as possible, they will reply to you within 5 working days.'
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
     contact_us: Contact Us
     contact_us_email_details: "Contact Us Email Details"
     contact_us_success_message: "Your Request Sent Successfully"
@@ -196,7 +196,7 @@ en:
         subject: order has been cancelled
         subtotal: ! 'Subtotal:'
         total: ! 'Total:'
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
       confirm_email:
         customer_name: Customer
         dear_customer: Dear %{customer_name},
@@ -205,7 +205,7 @@ en:
         order_summary: Order Summary
         subject: order has been confirmed
         subtotal: ! 'Subtotal:'
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
         total: ! 'Order Total:'
       confirm_email_to_staffs:
         dear_customer: Dear all,
@@ -222,7 +222,7 @@ en:
         dear_customer: Dear %{customer_name},
         instructions: Some items in your order have been CANCELED.  Please retain this cancellation information for your records.
         order_summary_canceled: Canceled Items
-        thanks_html: Kindly regards,<br><br><br>GlassXpert & Design<br><u><a href="www.glassxpertndesign.com">www.glassxpertndesign.com</a></u>
+        thanks_html: Kindly regards,<br><br><br>GlassCraft & Studio <br><u><a href="#">www.glassxpertndesign.com</a></u>
         subject: items are cancelled
     order_processed_successfully: "Your order has been processed successfully"
     order_processed_thank_you_very_much: "Thank you very much!"

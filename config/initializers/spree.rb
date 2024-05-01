@@ -8,7 +8,7 @@ Spree.config do |config|
   config.currency = "HKD"
 
   # from address for transactional emails
-  config.mails_from = "info@glassxpertndesign.com"
+  config.mails_from = "info@glassxpertandesign.com"
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
