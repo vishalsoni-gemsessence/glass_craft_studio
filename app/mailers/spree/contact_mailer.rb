@@ -1,35 +1,35 @@
 module Spree
-  class ContactMailer < BaseMailer    
-    default from: Rails.application.secrets.mailer[:contacts][:from]
-    
+  class ContactMailer < BaseMailer
+    default from: Rails.application.secrets.mailer&.dig(:contacts, :from)
+
     def notify_email(contact)
       @contact = contact
-      mail( to: @contact.contact_us_email.email, 
-            from: store_from_address, 
+      mail( to: @contact.contact_us_email.email,
+            from: store_from_address,
             subject: email_subject(contact))
-            
+
       headers['sender'] = nil
-      headers['sender'] = store_from_address            
+      headers['sender'] = store_from_address
     end
-    
+
     def acknowledge_email(contact)
       @contact = contact
       @customer_name = @contact.name.present?? @contact.name : I18n.t('spree.contact_mailer.acknowledge_email.customer_name')
-      
-      mail( to: @contact.email, 
-            from: store_from_address, 
-            subject: email_subject(contact))      
+
+      mail( to: @contact.email,
+            from: store_from_address,
+            subject: email_subject(contact))
 
       headers['sender'] = nil
-      headers['sender'] = store_from_address            
+      headers['sender'] = store_from_address
     end
-    
-    private 
-    
+
+    private
+
     def email_subject(contact)
       if contact.contact_us_email.slug == 'customer-services-and-feedbacks'
         return I18n.t('spree.contact_mailer.acknowledge_email.customer_services_and_feedbacks_title')
-      elsif contact.contact_us_email.slug == 'customized-glass-gifts'  
+      elsif contact.contact_us_email.slug == 'customized-glass-gifts'
         return I18n.t('spree.contact_mailer.acknowledge_email.customized_glass_gifts_title')
       elsif contact.contact_us_email.slug == 'glass-photo-prints'
         return I18n.t('spree.contact_mailer.acknowledge_email.glass_photo_prints_title')
@@ -39,9 +39,9 @@ module Spree
         return I18n.t('spree.contact_mailer.acknowledge_email.business_partnership_title')
       else
         return I18n.t('spree.contact_mailer.acknowledge_email.customer_services_and_feedbacks_title')
-      end      
+      end
     end
-    
+
     def store_from_address
       # assumption: only 1 store in DB
       store = Spree::Store.first

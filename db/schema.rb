@@ -1486,6 +1486,8 @@ ActiveRecord::Schema.define(version: 20240501091828) do
     t.datetime "background_image_updated_at"
     t.string "background_color"
     t.integer "resolution"
+    t.string "name"
+    t.string "description"
   end
 
   create_table "spree_unit_cancels", id: :serial, force: :cascade do |t|
