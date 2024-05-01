@@ -1500,6 +1500,7 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.string "description"
     t.string "slug"
     t.integer "resolution"
+
   end
 
   create_table "spree_unit_cancels", id: :serial, force: :cascade do |t|
@@ -1509,6 +1510,7 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["inventory_unit_id"], name: "index_spree_unit_cancels_on_inventory_unit_id"
+    
   end
 
   create_table "spree_user_addresses", id: :serial, force: :cascade do |t|
