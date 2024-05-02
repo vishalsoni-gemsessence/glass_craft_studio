@@ -173,13 +173,14 @@ def upload_stickers
   end
 end
 
-if Spree::User.find_by(email: "admin@example.com")
+  Spree::User.destroy_all
+  
   user = Spree::User.create!(email: "admin@example.com", password: "P@ssword")
 
   admin_role = Spree::Role.find_or_create_by!(name: "admin")
 
   user.spree_roles << admin_role
-else
+
   user = Spree::User.create!(email: "adminuser@example.com", password: "P@ssword")
 
   admin_role = Spree::Role.find_or_create_by!(name: "admin")
@@ -190,10 +191,10 @@ end
 def create_templates
   # template
 end
-clear_default_setting
-clear_store_setting
+# clear_default_setting
+# clear_store_setting
 
-store_setting
-# product_setting
+# store_setting
+# # product_setting
 
-upload_stickers
+# upload_stickers
