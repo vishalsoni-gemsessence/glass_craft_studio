@@ -188,13 +188,6 @@ admin_role = Spree::Role.find_or_create_by!(name: "admin")
 
 user.spree_roles << admin_role
 
-
-Spree::Taxon.first.update(permalink: "photo-gallery")
-
-Spree::Taxon.second.update(permalink: "glass-gifts")
-
-Spree::Taxon.third.update(permalink: "glass-photo-prints")
-
 def create_templates
   # template
 end
