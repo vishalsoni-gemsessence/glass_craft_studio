@@ -150,18 +150,19 @@ end
 def product_setting
   %w(
     taxonomies
+    glass_gift_products
+    taxons
     option_types
     option_values
     product_option_types
     product_properties
     variants
     stock
-    assets
   ).each do |product_seed|
-
+    #assets
     require_relative "glassxpert/#{product_seed}"
   end
-end  # glass_gift_products taxons
+end
 
 def upload_stickers
   stickers_path = "#{Rails.root}/db/glassxpert/stickers"
@@ -190,10 +191,10 @@ end
 def create_templates
   # template
 end
-# clear_default_setting
-# clear_store_setting
+clear_default_setting
+clear_store_setting
 
-# store_setting
-# # product_setting
+store_setting
+product_setting
 
-# upload_stickers
+upload_stickers
