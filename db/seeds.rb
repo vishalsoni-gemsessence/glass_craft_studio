@@ -174,19 +174,26 @@ def upload_stickers
   end
 end
 
-  Spree::User.destroy_all
+Spree::User.destroy_all
 
-  user = Spree::User.create!(email: "admin@example.com", password: "P@ssword")
+user = Spree::User.create!(email: "admin@example.com", password: "P@ssword")
 
-  admin_role = Spree::Role.find_or_create_by!(name: "admin")
+admin_role = Spree::Role.find_or_create_by!(name: "admin")
 
-  user.spree_roles << admin_role
+user.spree_roles << admin_role
 
-  user = Spree::User.create!(email: "adminuser@example.com", password: "P@ssword")
+user = Spree::User.create!(email: "adminuser@example.com", password: "P@ssword")
 
-  admin_role = Spree::Role.find_or_create_by!(name: "admin")
+admin_role = Spree::Role.find_or_create_by!(name: "admin")
 
-  user.spree_roles << admin_role
+user.spree_roles << admin_role
+
+
+Spree::Taxon.first.update(permalink: "photo-gallery")
+
+Spree::Taxon.second.update(permalink: "glass-gifts")
+
+Spree::Taxon.third.update(permalink: "glass-photo-prints")
 
 def create_templates
   # template
