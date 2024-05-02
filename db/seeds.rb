@@ -191,10 +191,10 @@ user.spree_roles << admin_role
 def create_templates
   # template
 end
-clear_default_setting
-clear_store_setting
+# clear_default_setting
+# clear_store_setting
 
-store_setting
-product_setting
+# store_setting
+# product_setting
 
-upload_stickers
+# upload_stickers
