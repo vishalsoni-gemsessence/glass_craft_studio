@@ -173,7 +173,7 @@ def upload_stickers
   end
 end
 
-if Spree::User.find_by!(email: "admin@example.com")
+if Spree::User.find_by(email: "admin@example.com")
   user = Spree::User.create!(email: "admin@example.com", password: "P@ssword")
 
   admin_role = Spree::Role.find_or_create_by!(name: "admin")
