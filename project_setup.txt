@@ -1,0 +1,19 @@
+
+GlassCraft & Studio is a E-commerce platform app that allows people to safely browse and expoler and buy glass crafts
+https://drive.google.com/file/d/1Joz-Y7u8-mTQK2yf_SBEWO9JSUkQ4fEs/view?usp=drive_link
+
+Local setup:
+  Ruby version 2.5.0
+  Rails version  5.1.0
+  Database configuration (through database.yml)
+run rails db:create
+Insted db:migrate prefer rails db:schema:load(if extract from zip)
+
+
+
+For admin
+http://localhost:3000/admin/login
+Username : admin@example.com
+Password : P@ssword
+Username : adminuser@example.com
+Password : P@ssword
