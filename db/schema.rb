@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190704063235) do
+ActiveRecord::Schema.define(version: 20240501115432) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["locale"], name: "index_friendly_id_slugs_on_locale"
-    t.index ["slug", "sluggable_type", "locale"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_locale", length: { slug: 140, locale: 2 }
-    t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true, length: { slug: 70, scope: 70, locale: 2 }
+    t.index ["slug", "sluggable_type", "locale"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_locale"
+    t.index ["slug", "sluggable_type", "scope", "locale"], name: "index_friendly_id_slugs_uniqueness", unique: true
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
@@ -1500,7 +1503,6 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.string "description"
     t.string "slug"
     t.integer "resolution"
-
   end
 
   create_table "spree_unit_cancels", id: :serial, force: :cascade do |t|
@@ -1510,7 +1512,6 @@ ActiveRecord::Schema.define(version: 20190704063235) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["inventory_unit_id"], name: "index_spree_unit_cancels_on_inventory_unit_id"
-    
   end
 
   create_table "spree_user_addresses", id: :serial, force: :cascade do |t|
